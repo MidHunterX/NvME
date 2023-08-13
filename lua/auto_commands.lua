@@ -1,3 +1,20 @@
+
+--===========================[ @AUTO_SHIFT_WIDTH ]===========================--
+
+local fn = vim.fn
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+local general = augroup("General Settings", { clear = true })
+
+autocmd("FileType", {
+  pattern = { "c", "cpp", "py", "java", "cs" },
+  callback = function()
+    vim.bo.shiftwidth = 4
+  end,
+  group = general,
+  desc = "Set shiftwidth to 4 in these filetypes",
+})
+
 --===========================[ @GENERAL_COMMANDS ]===========================--
 -- Use system clipboard
 vim.cmd(":set clipboard=unnamedplus")
@@ -28,20 +45,4 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
 
---==========================[ @UNREFINED_COMMANDS ]==========================--
-local fn = vim.fn
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
--- General Settings
-local general = augroup("General Settings", { clear = true })
 
-
-
-autocmd("FileType", {
-  pattern = { "c", "cpp", "py", "java", "cs" },
-  callback = function()
-    vim.bo.shiftwidth = 4
-  end,
-  group = general,
-  desc = "Set shiftwidth to 4 in these filetypes",
-})
