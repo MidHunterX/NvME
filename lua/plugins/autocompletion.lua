@@ -16,10 +16,10 @@ return{
 
         sources = cmp.config.sources({
           { name = 'luasnip' },
-          { name = 'cmp_luasnip' },
           { name = 'nvim_lsp' },
         }, {
             { name = 'buffer' },
+            { name = 'path' },
           }),
 
         --------------------------------------------------[ @CMP_MENU_BORDERS ]
@@ -106,6 +106,8 @@ return{
       { "hrsh7th/cmp-nvim-lsp" },
       -- LuaSnip snippet source to configure external collections
       { 'saadparwaiz1/cmp_luasnip' },
+      -- Path completion source
+      { "hrsh7th/cmp-path" },
 
       --====================================================[ @SNIPPET_ENGINE ]
       -- Snippet engine which parses custom snippets
