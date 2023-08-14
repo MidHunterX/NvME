@@ -17,9 +17,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 ----------------------------------------------- Replace word Regex [ leader r ]
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--------------------------------------------- Goto buffer in position [alt J/K ]
-vim.keymap.set("n", "<A-j>", "<Cmd>bp<CR>")
-vim.keymap.set("n", "<A-k>", "<Cmd>bn<CR>")
+------------------------------------------- Goto buffer in position [ctrl J/K ]
+vim.keymap.set("n", "<C-h>", "<Cmd>bp<CR>")
+vim.keymap.set("n", "<C-l>", "<Cmd>bn<CR>")
 ------------------------------------------ Return to Normal in Terminal [ Esc ]
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 --------------------------------------------------------- Goto line start [ H ]
