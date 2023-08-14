@@ -5,11 +5,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -------------------------------------------------------------- ESCAPE to Normal
 vim.keymap.set("i", "fj", "<Esc>")
 vim.keymap.set("i", "jf", "<Esc>")
---------------------------------------------------- Change splits [ Ctrl hjkl ]
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
 ------------------------------------------------------- Write file [ leader w ]
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 ---------------------------------------------------- Save and Quit [ leader q ]
