@@ -14,9 +14,11 @@ vim.keymap.set("n", "U", "<C-r>")
 --------------------------------------------- Move line with autoindent [ J/K ]
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+----------------------------------------- Indent without leaving Visual [ </> ]
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
 ----------------------------------------------- Replace word Regex [ leader r ]
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
 ------------------------------------------- Goto buffer in position [ctrl J/K ]
 vim.keymap.set("n", "<C-h>", "<Cmd>bp<CR>")
 vim.keymap.set("n", "<C-l>", "<Cmd>bn<CR>")
