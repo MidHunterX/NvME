@@ -19,7 +19,7 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 ----------------------------------------------- Replace word Regex [ leader r ]
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-------------------------------------------- Goto buffer in position [ctrl J/K ]
+------------------------------------------- Goto buffer in position [Ctrl J/K ]
 vim.keymap.set("n", "<C-h>", "<Cmd>bp<CR>")
 vim.keymap.set("n", "<C-l>", "<Cmd>bn<CR>")
 ------------------------------------------ Return to Normal in Terminal [ Esc ]
@@ -30,6 +30,10 @@ vim.keymap.set("v", "H", "^")
 ----------------------------------------------------------- Goto line end [ L ]
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("v", "L", "$")
+-------------------------------------------------- Scroll centered [ Ctrl d/u ]
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+
 
 --============================[ WINDOWS REMAPS ]============================--
 
