@@ -18,7 +18,8 @@ vim.opt.shiftwidth = 2
 -- Save undo history
 vim.opt.backup = false
 vim.opt.swapfile = false
--- vim.opt.undofile = true
+vim.opt.undofile = true
+vim.opt.undolevels = 500
 
 -- Case-insensitive searching UNLESS \C or capital in search
 vim.opt.ignorecase = true
