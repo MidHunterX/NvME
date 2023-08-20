@@ -1,4 +1,4 @@
-return{
+return {
   --===========================[ MASON INSTALLER ]===========================--
 
   -- Manager for language servers, linters, formatters
@@ -39,7 +39,7 @@ return{
     -- Cannot manually configure using lspconfig if this is enabled :(
     config = function()
       require("mason-lspconfig").setup_handlers {
-        function (server_name) -- default handler (optional)
+        function(server_name)  -- default handler (optional)
           require("lspconfig")[server_name].setup {}
         end,
       }
@@ -98,16 +98,17 @@ return{
           local opts = { buffer = ev.buf }
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-          vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-          vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-          vim.keymap.set('n', '<space>wl', function()
-            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-          end, opts)
-          vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+          -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+          -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+          -- vim.keymap.set('n', '<space>wl', function()
+          --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+          -- end, opts)
+          -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
           vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
           vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
           vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
           vim.keymap.set('n', '<space>f', function()
@@ -115,7 +116,6 @@ return{
           end, opts)
         end,
       })
-
     end,
   },
 }
