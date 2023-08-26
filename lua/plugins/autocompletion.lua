@@ -16,7 +16,14 @@ return{
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
 
         sources = cmp.config.sources({
-          { name = 'luasnip' },
+          {
+            name = 'luasnip',
+            -- Doesn't trigger keyword/snippet completion inside string
+            entry_filter = function()
+              local context = require("cmp.config.context")
+              return not context.in_treesitter_capture("string") and not context.in_syntax_group("String")
+            end,
+          },
           { name = 'nvim_lsp' },
         }, {
             { name = 'buffer' },
