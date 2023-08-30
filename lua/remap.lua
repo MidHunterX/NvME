@@ -33,6 +33,8 @@ vim.keymap.set("v", "L", "$")
 -------------------------------------------------- Scroll centered [ Ctrl d/u ]
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
+---------------------------------------------------- Delete buffer [ leader x ]
+vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>")
 
 
 --============================[ WINDOWS REMAPS ]============================--
