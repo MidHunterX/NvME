@@ -38,7 +38,7 @@ return {
       context_patterns = {
         "class", "return", "function", "method", "^if", "^while", "^for",
         "^table", "try_statement", "if_statement", "import_statement",
-        "arguments",
+        "arguments", "with"
 
 
         --------------------------[ PATTERN FILTER ]--------------------------
