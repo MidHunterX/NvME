@@ -4,6 +4,7 @@ HunterX PDE is a personalized NeoVim distribution crafted to turbocharge the cod
 
 ## Features
 
+- F5 to Run Code: Sends command to terminal and outputs in buffer.
 - Efficient Code Auto-completion: Rapid and precise code suggestion system.
 - Auto-closing Bracket Pairs: Seamless closing of brackets for a streamlined coding experience.
 - Live Code Biscuits: Real-time feedback and error highlighting.
@@ -23,6 +24,7 @@ HunterX PDE is a personalized NeoVim distribution crafted to turbocharge the cod
 - Zen Mode: Distraction-free and immersive coding environment for focused work.
 - Streamlined Workflow: Tailored settings and plugins to expedite coding tasks.
 - Learning-Centric: Understand the foundational aspects of IDE functionalities.
+- Personalized Keymaps: Intuitive keymaps for efficiency.
 
 
 ## Installation
