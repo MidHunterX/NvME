@@ -26,6 +26,13 @@ HunterX PDE is a personalized NeoVim distribution crafted to turbocharge the cod
 - Learning-Centric: Understand the foundational aspects of IDE functionalities.
 - Personalized Keymaps: Intuitive keymaps for efficiency.
 
+## Behaviours
+- 2 space indentation set as default
+- 4 space indentation for selected files: { "c", "cpp", "py", "java", "cs" }
+- Uses system clipboard as default
+- Highlights text for 150ms on yank
+- Ability to scroll past EOF
+- Toggles relative number on insert and normal modes
 
 ## Installation
 
