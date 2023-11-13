@@ -32,6 +32,7 @@ HunterX PDE is a personalized NeoVim distribution crafted to turbocharge the cod
 - Uses system clipboard as default
 - Highlights text for 150ms on yank
 - Ability to scroll past EOF
+- Ability to return to Normal mode using Esc in terminal
 - Toggles relative number on insert and normal modes
 
 ## Installation
