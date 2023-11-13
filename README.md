@@ -24,3 +24,16 @@ HunterX PDE is a personalized NeoVim distribution crafted to turbocharge the cod
 - Streamlined Workflow: Tailored settings and plugins to expedite coding tasks.
 - Learning-Centric: Understand the foundational aspects of IDE functionalities.
 
+
+## Installation
+
+Linux:
+```
+git clone https://github.com/MidHunterX/HunterX-PDE ~/.config/nvim --depth 1 && nvim
+```
+
+Windows:
+```
+git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
+```
+
