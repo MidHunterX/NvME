@@ -23,6 +23,7 @@ HunterX PDE is a personalized NeoVim distribution crafted to turbocharge the cod
 - Parse Tree-based Syntax Highlighting: Precise and efficient syntax highlighting based on parse trees.
 - Visual Colorcodes: Intuitive visual representation of color codes for enhanced understanding.
 - Zen Mode: Distraction-free and immersive coding environment for focused work.
+- Personalized Dashboard : Personalized dashboard UI for a touch of personality.
 - Streamlined Workflow: Tailored settings and plugins to expedite coding tasks.
 - Learning-Centric: Understand the foundational aspects of IDE functionalities.
 - Personalized Keymaps: Intuitive keymaps for efficiency.
