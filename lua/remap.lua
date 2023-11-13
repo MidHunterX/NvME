@@ -7,8 +7,6 @@ vim.keymap.set("i", "fj", "<Esc>")
 vim.keymap.set("i", "jf", "<Esc>")
 ------------------------------------------------------- Write file [ leader w ]
 vim.keymap.set("n", "<leader>w", ":w<CR>")
----------------------------------------------------- Save and Quit [ leader q ]
--- vim.keymap.set("n", "<leader>q", "ZZ")
 ------------------------------------------------------ Redo: Undo inverse [ U ]
 vim.keymap.set("n", "U", "<C-r>")
 --------------------------------------------- Move line with autoindent [ J/K ]
@@ -41,7 +39,15 @@ vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>")
 
 --------------------------------------------------------- Select all [ Ctrl a ]
 vim.keymap.set("n", "<C-a>", "gg0vG$")
--- Tip: You can return to Normal mode by pressing gh
 ------------------------------------------------------ Save document [ Ctrl s ]
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
 vim.keymap.set("n", "<C-s>", ":w<CR>")
+
+
+--=================================[ FIXES ]=================================--
+
+-- Deletes selected text into blackhole register "_" and paste
+vim.keymap.set("x", "<leader>p", [["_dP]])
+-- Deletes into the blackhole register "_"
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+

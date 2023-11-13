@@ -30,17 +30,10 @@ vim.cmd([[inoremap <silent><C-c> <Esc>]])
 -- Scroll past last line
 vim.cmd([[nnoremap <expr> j line(".") == line('$') ? '<C-e>':'j']])
 
--- Jump splits using Tab ( problem with ctrl+i )
--- vim.cmd([[nnoremap <silent><Tab> <C-w><C-w>]])
-
 -- Automatically change number based on Insert Mode
 vim.cmd([[autocmd InsertEnter * :set norelativenumber]])
 vim.cmd([[autocmd InsertLeave * :set relativenumber]])
 
--- Deletes selected text into blackhole register "_" and paste
-vim.keymap.set("x", "<leader>p", [["_dP]])
--- Deletes into the blackhole register "_"
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 -- Yank into system clipboard "+"
 -- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- vim.keymap.set("n", "<leader>Y", [["+Y]])
