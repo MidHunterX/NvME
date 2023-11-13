@@ -37,3 +37,6 @@ Windows:
 git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
 ```
 
+## How It Works
+
+HunterX PDE is designed to optimize the NeoVim environment with carefully selected settings and plugins. Each component is chosen to offer a seamless coding experience while diving into the core functionality of an IDE.
