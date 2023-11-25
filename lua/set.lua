@@ -35,3 +35,6 @@ vim.opt.cursorline = true
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+
+-- Better completion experience
+vim.o.completeopt = 'menuone,noselect'
