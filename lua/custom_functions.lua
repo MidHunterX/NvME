@@ -16,3 +16,38 @@ end
 
 -- Map <F5> to execute the function
 vim.cmd('nnoremap <F5> :lua Execute_order_69()<CR>')
+
+
+--=============================[ @FORMAT_FILES ]=============================--
+
+local function is_filetype_in_list(filetype, list)
+  for _, value in ipairs(list) do
+    if value == filetype then return true end
+  end
+  return false
+end
+
+function Run_formatter()
+  local file_type = vim.bo.filetype
+  local list_prettier = {
+    "Markdown", "HTML", "JSON",
+    "JavaScript", "CSS", "Flow",
+    "GraphQL", "Angular", "JSX",
+    "LESS", "SCSS", "TypeScript",
+    "Vue", "YAML"
+  }
+
+  -- pip Black Formatter: Python
+  if file_type == "python" then
+    vim.cmd("silent !black " .. vim.fn.shellescape(vim.fn.expand("%")))
+  -- npm Prettier Formatter: Web Development
+  elseif is_filetype_in_list(file_type, list_prettier) then
+    vim.cmd("silent !prettier --write " .. vim.fn.shellescape(vim.fn.expand("%")))
+  else
+    print('This file?... Cannot format because no.')
+  end
+
+end
+
+-- Map <leader>fm to execute the function
+vim.cmd('nnoremap <leader>fm :lua Run_formatter()<CR>')
