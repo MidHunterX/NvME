@@ -29,13 +29,7 @@ end
 
 function Run_formatter()
   local file_type = vim.bo.filetype
-  local list_prettier = {
-    "Markdown", "HTML", "JSON",
-    "JavaScript", "CSS", "Flow",
-    "GraphQL", "Angular", "JSX",
-    "LESS", "SCSS", "TypeScript",
-    "Vue", "YAML"
-  }
+  local list_prettier = { "markdown", "html", "json", "javascript", "css" }
 
   -- pip Black Formatter: Python
   if file_type == "python" then
@@ -44,7 +38,7 @@ function Run_formatter()
   elseif is_filetype_in_list(file_type, list_prettier) then
     vim.cmd("silent !prettier --write " .. vim.fn.shellescape(vim.fn.expand("%")))
   else
-    print('This file?... Cannot format because no.')
+    print('Filetype not supported for fotmatting yet')
   end
 
 end
