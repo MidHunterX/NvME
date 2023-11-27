@@ -1,3 +1,23 @@
+function GitAddAndCommit()
+    local commit_message = vim.fn.input('Enter commit message: ')
+
+    -- Check if the commit message is empty
+    if commit_message == '' then
+        print('Commit message cannot be empty. Aborting.')
+        return
+    end
+
+    -- Execute git commands
+    vim.fn.system('git add .')
+    vim.fn.system('git commit -m "' .. commit_message .. '"')
+
+    print(' ✅')
+end
+
+-- Map <leader>gc to execute the function
+vim.cmd('nnoremap <leader>gc :lua GitAddAndCommit()<CR>')
+
+
 --=============================[ @EXECUTE_FILES ]=============================--
 
 function Execute_order_69()
@@ -29,7 +49,11 @@ end
 
 function Run_formatter()
   local file_type = vim.bo.filetype
-  local list_prettier = { "markdown", "html", "json", "javascript", "css" }
+  local list_prettier = {
+    "markdown", "html", "json",
+    "javascript", "css",
+    "javascriptreact"
+  }
 
   -- pip Black Formatter: Python
   if file_type == "python" then
