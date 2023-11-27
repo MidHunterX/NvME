@@ -39,6 +39,10 @@ return {
       indent = {
         highlight = non_highlight
       },
+      exclude = {
+        filetypes = { "terminal", 'nofile', 'quickfix', 'dashboard' }
+      },
     }
+
   end
 }
