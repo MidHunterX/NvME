@@ -128,6 +128,8 @@ return{
       { 'saadparwaiz1/cmp_luasnip' },
       -- Path completion source
       { "hrsh7th/cmp-path" },
+      -- Buffer completion source
+      { "hrsh7th/cmp-buffer" },
 
       --====================================================[ @SNIPPET_ENGINE ]
       -- Snippet engine which parses custom snippets
