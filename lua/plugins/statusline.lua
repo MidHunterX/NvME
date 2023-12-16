@@ -3,7 +3,7 @@
 -- ------------------------------------------------------------------------ --
 
 -- Buffer Attached LSP Server
-local function lsp_status()
+local function lsp_name()
   local clients = vim.lsp.get_active_clients()
   if next(clients) == nil then
     return ''
@@ -68,8 +68,8 @@ return {
       lualine_c = {
         '%=',
         { 'filetype', colored = true, icon_only = true },
-        'filename',
-        lsp_status,
+        { "filename", symbols = { modified = "●" } },
+        lsp_name,
       },
 
       lualine_x = {
@@ -77,7 +77,7 @@ return {
         encoding
       },
       lualine_y = {
-        'filetype',
+        -- 'filetype',
         'progress'
       },
       lualine_z = {
