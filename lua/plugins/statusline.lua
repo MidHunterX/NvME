@@ -8,7 +8,7 @@ local function lsp_name()
   if next(clients) == nil then
     return ''
   end
-  return '('..clients[1].name..')'
+  return '☰' -- 'LSP: '..clients[1].name
 end
 
 -- 'o:encoding': Don't display if encoding is UTF-8.
@@ -42,18 +42,12 @@ return {
     options = {
       icons_enabled = true,
       component_separators = '',
-      -- section_separators = '',
-      section_separators = { left = '', right = '' },
-      refresh = {
-        statusline = 3000,
-        tabline = 3000,
-        winbar = 3000,
-      }
+      section_separators = '',
     },
 
-    -- +-------------------------------------------------+ --
-    -- | A | B | C                             X | Y | Z | --
-    -- +-------------------------------------------------+ --
+    -- +-------------------------------------------------------------------+ --
+    -- |  A  |  B  |  C                                     X  |  Y  |  Z  | --
+    -- +-------------------------------------------------------------------+ --
 
     sections = {
 
@@ -61,28 +55,50 @@ return {
         { 'mode', separator = { left = '' }},
       },
       lualine_b = {
-        'branch',
-        { 'diff', symbols = {added = '+', modified = '~', removed = '-'} },
-        'diagnostics',
+        { 'branch', separator = { right = '' }},
       },
       lualine_c = {
+        { 'diff', symbols = {added = '+', modified = '~', removed = '-'} },
         '%=',
-        { 'filetype', colored = true, icon_only = true },
-        { "filename", symbols = { modified = "●" } },
-        lsp_name,
+        'diagnostics',
       },
 
       lualine_x = {
         fileformat,
-        encoding
+        encoding,
+        'filetype',
       },
       lualine_y = {
-        -- 'filetype',
-        'progress'
+        { 'progress', separator = { left = '' }},
       },
       lualine_z = {
         { 'location', separator = { right = '' }},
       },
+
+    },
+
+    -- +-------------------------------------------------------------------+ --
+    -- |  A  |  B  |  C                                     X  |  Y  |  Z  | --
+    -- +-------------------------------------------------------------------+ --
+
+    tabline = {
+
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {lsp_name},
+      lualine_z = {
+        {
+          'buffers',
+          use_mode_colors = true,
+          symbols = {
+            modified = ' ●',
+            directory =  '',
+            alternate_file = '',
+          },
+        },
+      }
 
     },
 
