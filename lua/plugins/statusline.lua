@@ -52,13 +52,19 @@ return {
     sections = {
 
       lualine_a = {
-        { 'mode', separator = { left = '' }},
+        {
+          'mode',
+          separator = { left = ' ' },
+          -- fmt = function(str) return str:sub(1,3) end,
+          padding = { left = 1, right = 2 }
+        },
       },
       lualine_b = {
-        { 'branch', separator = { right = '' }},
+        { 'branch', separator = { right = '' }, draw_empty = true, },
       },
       lualine_c = {
-        { 'diff', symbols = {added = '+', modified = '~', removed = '-'} },
+        'filename',
+        { 'diff', symbols = {added = ' ', modified = ' ', removed = ' '} },
         '%=',
         'diagnostics',
       },
@@ -72,7 +78,7 @@ return {
         { 'progress', separator = { left = '' }},
       },
       lualine_z = {
-        { 'location', separator = { right = '' }},
+        { 'location', separator = { right = ' ' }},
       },
 
     },
@@ -89,8 +95,12 @@ return {
       lualine_x = {},
       lualine_y = {lsp_name},
       lualine_z = {
+        -- Returns initial 4 characters of filename because:
+        -- I only need a simple visual id for quickly recognizing buffers.
+        -- Prevents overflow on long filenames
         {
           'buffers',
+          fmt = function(str) return str:sub(1,4) end,
           use_mode_colors = true,
           symbols = {
             modified = ' ●',
