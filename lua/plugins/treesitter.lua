@@ -2,7 +2,7 @@ return {
   "nvim-treesitter/nvim-treesitter",
   config = function()
     -- ZIG made it possible to compile parsers for windows :D
-    require 'nvim-treesitter.install'.compilers = {'zig'}
+    require 'nvim-treesitter.install'.compilers = {'gcc'}
 
     require 'nvim-treesitter.configs'.setup {
       ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
