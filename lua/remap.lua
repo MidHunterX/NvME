@@ -38,10 +38,10 @@ vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>")
 --============================[ WINDOWS REMAPS ]============================--
 
 --------------------------------------------------------- Select all [ Ctrl a ]
-vim.keymap.set("n", "<C-a>", "gg0vG$")
+-- vim.keymap.set("n", "<C-a>", "ggVG")
 ------------------------------------------------------ Save document [ Ctrl s ]
-vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
-vim.keymap.set("n", "<C-s>", ":w<CR>")
+-- vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
+-- vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 
 --=================================[ FIXES ]=================================--
