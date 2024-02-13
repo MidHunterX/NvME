@@ -23,12 +23,13 @@ vim.cmd('nnoremap <leader>gc :lua GitAddAndCommit()<CR>')
 function Execute_order_69()
   local file_type = vim.bo.filetype
   if file_type == 'python' then
-    -- Vertical Split
     vim.cmd(':vs')
-    -- Execute terminal command
     vim.cmd(':term python %')
   elseif file_type == "html" then
     vim.cmd(":term live-server --no-browser")
+  elseif file_type == "sh" then
+    vim.cmd(':vs')
+    vim.cmd(":term bash %")
   else
     print('This file?... Cannot run because no.')
   end
