@@ -1,5 +1,5 @@
 return {
-  --===========================[ MASON INSTALLER ]===========================--
+  --==========================[ MASON LSP MANAGER ]==========================--
 
   -- Manager for language servers, linters, formatters
   {
@@ -22,6 +22,25 @@ return {
           uninstall_server = "X",
           cancel_installation = "<C-c>",
         },
+      },
+    },
+  },
+
+
+  --=====================[ MASON TOOLS AUTO INSTALLER ]=====================--
+
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = {
+        "bash-language-server", -- Bash LSP
+        "lua-language-server",  -- Lua LSP
+        "emmet_ls",             -- Emmet LSP
+        "css-lsp",              -- CSS LSP
+        "json-lsp",             -- JSON LSP
+        "pyright",              -- Python LSP
+        "black",                -- Python Formatter
+        "prettier",             -- Webdev Stuff Formatter
       },
     },
   },
