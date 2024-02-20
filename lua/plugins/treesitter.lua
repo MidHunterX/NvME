@@ -1,7 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   config = function()
-    -- ZIG made it possible to compile parsers for windows :D
+    -- ZIG is more compatible with windows :D
     require 'nvim-treesitter.install'.compilers = {'gcc'}
 
     require 'nvim-treesitter.configs'.setup {
