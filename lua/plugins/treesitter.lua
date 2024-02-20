@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
@@ -8,7 +9,26 @@ return {
     require 'nvim-treesitter.install'.compilers = {'gcc'}
 
     require 'nvim-treesitter.configs'.setup {
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+      ensure_installed = {
+        "json",
+        "javascript",
+        "typescript",
+        "tsx",
+        "yaml",
+        "html",
+        "css",
+        "markdown",
+        "markdown_inline",
+        "svelte",
+        "graphql",
+        "bash",
+        "lua",
+        "vim",
+        "vimdoc",
+        "dockerfile",
+        "gitignore",
+        "query",
+      },
       sync_install = false,
       auto_install = true,
       highlight = {
