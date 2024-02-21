@@ -2,9 +2,6 @@
 
 vim.g.mapleader = " "
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
--------------------------------------------------------------- ESCAPE to Normal
-vim.keymap.set("i", "fj", "<Esc>")
-vim.keymap.set("i", "jf", "<Esc>")
 ------------------------------------------------------- Write file [ leader w ]
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 ------------------------------------------------------ Redo: Undo inverse [ U ]
