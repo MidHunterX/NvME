@@ -5,7 +5,7 @@ local function MidHunterX_UI()
 end
 
 return {
-  'glepnir/dashboard-nvim',
+  'nvimdev/dashboard-nvim',
   event = 'VimEnter',
   opts = {
     theme = 'hyper',     --  theme is doom and hyper default is hyper
