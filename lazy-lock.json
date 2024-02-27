@@ -31,7 +31,7 @@
   "onedarkpro.nvim": { "branch": "main", "commit": "3fbb6e8c35589e6373fcb8d49b6318f794740343" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "4f71c0c4a196ceb656c824a70792f3df3ce6bb6d" },
-  "rainbow-delimiters.nvim": { "branch": "master", "commit": "47404636a34580db1636dc0cf35027bdf77abba5" },
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "64b7006a36cec099da7eaeb056c4a27dd5d73342" },
   "rose-pine": { "branch": "main", "commit": "f977eeba34b030b37f93ece2fbd792477606203b" },
   "tabout.nvim": { "branch": "master", "commit": "6a8f4e67a9bfc9bfc9989cc45253180598cc4339" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "48ffb8de688a22942940f50411d5928631368848" },
