@@ -47,6 +47,7 @@ git clone https://github.com/MidHunterX/HunterX-PDE ~/.config/nvim --depth 1 && 
 ```
 
 Windows:
+- You must install Zig Compiler before executing the following command.
 ```
 git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
 ```
