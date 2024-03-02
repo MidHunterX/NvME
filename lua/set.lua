@@ -6,6 +6,9 @@ vim.opt.listchars:append "space:⋅"
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+-- Set Title for context
+vim.opt.title = true
+
 -- Whitespace for each tab
 vim.opt.expandtab = true
 -- Indentation via <tab>
