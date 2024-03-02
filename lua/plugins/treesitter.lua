@@ -6,7 +6,7 @@ return {
   },
   config = function()
     -- ZIG is more compatible with windows :D
-    require 'nvim-treesitter.install'.compilers = {'gcc'}
+    require 'nvim-treesitter.install'.compilers = {'gcc', 'zig'}
 
     require 'nvim-treesitter.configs'.setup {
       ensure_installed = {
