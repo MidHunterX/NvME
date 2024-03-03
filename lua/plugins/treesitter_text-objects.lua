@@ -18,81 +18,81 @@ return {
             -- You can use the capture groups defined in textobjects.scm
             ["i="] = {
               query = "@assignment.lhs",
-              desc = "Select left hand side of an assignment"
+              desc = "Select LHS of assignment"
             },
             ["a="] = {
               query = "@assignment.rhs",
-              desc = "Select right hand side of an assignment"
+              desc = "Select RHS of assignment"
             },
 
             -- works for javascript/typescript files
             ["i:"] = {
               query = "@property.lhs",
-              desc = "Select left part of an object property"
+              desc = "Select LHS of an object property"
             },
             ["a:"] = {
               query = "@property.rhs",
-              desc = "Select right part of an object property"
+              desc = "Select RHS of an object property"
             },
 
             -- ============================================================= --
             ["ia"] = {
               query = "@parameter.inner",
-              desc = "Select inner part of a parameter/argument"
+              desc = "Select inside parameter/argument"
             },
             ["aa"] = {
               query = "@parameter.outer",
-              desc = "Select outer part of a parameter/argument"
+              desc = "Select around parameter/argument"
             },
 
             -- ============================================================= --
             ["ai"] = {
               query = "@conditional.outer",
-              desc = "Select outer part of a conditional"
+              desc = "Select around conditional"
             },
             ["ii"] = {
               query = "@conditional.inner",
-              desc = "Select inner part of a conditional"
+              desc = "Select inside conditional"
             },
 
             -- ============================================================= --
             ["il"] = {
               query = "@loop.inner",
-              desc = "Select inner part of a loop"
+              desc = "Select inside loop"
             },
             ["al"] = {
               query = "@loop.outer",
-              desc = "Select outer part of a loop"
+              desc = "Select around loop"
             },
 
             -- ============================================================= --
             ["if"] = {
               query = "@call.inner",
-              desc = "Select inner part of a function call"
+              desc = "Select inside function call"
             },
             ["af"] = {
               query = "@call.outer",
-              desc = "Select outer part of a function call"
+              desc = "Select around function call"
             },
 
             -- ============================================================= --
             ["im"] = {
               query = "@function.inner",
-              desc = "Select inner part of a method/function definition"
+              desc = "Select inside method/function definition"
             },
             ["am"] = {
               query = "@function.outer",
-              desc = "Select outer part of a method/function definition"
+              desc = "Select around method/function definition"
             },
 
             -- ============================================================= --
             ["ic"] = {
               query = "@class.inner",
-              desc = "Select inner part of a class"
+              desc = "Select inside class"
             },
             ["ac"] = {
               query = "@class.outer",
-              desc = "Select outer part of a class"
+              desc = "Select around class"
             },
           },
 
