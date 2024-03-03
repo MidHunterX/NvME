@@ -3,7 +3,7 @@ return{
   -- AutoCompletion engine for external source
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
+    event = "VeryLazy",
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
