@@ -20,15 +20,15 @@ return {
     local hooks = require "ibl.hooks"
     hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
 
-      vim.api.nvim_set_hl(0, "NonHighlight1", {fg="#65661a"})
-      vim.api.nvim_set_hl(0, "NonHighlight2", {fg="#643266"})
-      vim.api.nvim_set_hl(0, "NonHighlight3", {fg="#164a66"})
-      vim.api.nvim_set_hl(0, "NonHighlight4", {fg="#336633"})
+      vim.api.nvim_set_hl(0, "NonHighlight1", {fg="#797a1f"})
+      vim.api.nvim_set_hl(0, "NonHighlight2", {fg="#864389"})
+      vim.api.nvim_set_hl(0, "NonHighlight3", {fg="#247aa8"})
+      vim.api.nvim_set_hl(0, "NonHighlight4", {fg="#448844"})
 
-      vim.api.nvim_set_hl(0, "Highlight1", {fg="#c9cc33"})
-      vim.api.nvim_set_hl(0, "Highlight2", {fg="#c964cc"})
-      vim.api.nvim_set_hl(0, "Highlight3", {fg="#2d94cc"})
-      vim.api.nvim_set_hl(0, "Highlight4", {fg="#66cc66"})
+      vim.api.nvim_set_hl(0, "Highlight1", {fg="#d4d65c"})
+      vim.api.nvim_set_hl(0, "Highlight2", {fg="#d78cd9"})
+      vim.api.nvim_set_hl(0, "Highlight3", {fg="#82c1e3"})
+      vim.api.nvim_set_hl(0, "Highlight4", {fg="#8cd98c"})
 
     end)
 
