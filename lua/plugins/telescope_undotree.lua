@@ -5,7 +5,12 @@ return {
   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   keys = {
     -- UNDO TREE
-    { "<leader>u", "<cmd>Telescope undo<cr>", mode = "n" },
+    {
+      "<leader>u",
+      "<cmd>Telescope undo<cr>",
+      mode = "n",
+      desc = "Telescope Undo Tree"
+    },
   },
   config = function()
     require("telescope").setup({

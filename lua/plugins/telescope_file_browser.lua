@@ -4,9 +4,19 @@ return {
   dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   keys = {
     -- PROJECT FILE BROWSER
-    { "<leader>pf", "<CMD>Telescope file_browser<CR>",                               mode = "n" },
+    {
+      "<leader>pf",
+      "<CMD>Telescope file_browser<CR>",
+      mode = "n",
+      desc = "Telescope File Browser"
+    },
     -- open file_browser with the path of the current buffer
-    { "<leader>pf", "<CMD>Telescope file_browser path=%:p:h select_buffer=true<CR>", mode = "n" },
+    {
+      "<leader>pf",
+      "<CMD>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+      mode = "n",
+      desc = "Telescope Project File Browser"
+    },
   },
   config = function()
     local fb_actions = require "telescope".extensions.file_browser.actions
