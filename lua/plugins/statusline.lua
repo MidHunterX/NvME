@@ -36,7 +36,7 @@ return {
   'nvim-lualine/lualine.nvim',
   -- For preventing loading of lualine on dashboard
   -- Enabling any events makes bufferline disappear after opening a file from dashboard via fuzzy finding (+8ms)
-  event = { "BufAdd", "BufNewFile", "BufRead" },
+  -- event = { "BufAdd", "BufNewFile", "BufRead" },
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = {
 
