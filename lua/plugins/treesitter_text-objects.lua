@@ -15,6 +15,9 @@ return {
           include_surrounding_whitespace = false,
 
           keymaps = {
+
+            -- ====================== [ ASSIGNMENTS ] ====================== --
+
             -- You can use the capture groups defined in textobjects.scm
             ["i="] = {
               query = "@assignment.lhs",
@@ -35,7 +38,8 @@ return {
               desc = "Select RHS of an object property"
             },
 
-            -- ============================================================= --
+            -- ======================= [ ARGUMENTS ] ======================= --
+
             ["ia"] = {
               query = "@parameter.inner",
               desc = "Select inside parameter/argument"
@@ -45,7 +49,8 @@ return {
               desc = "Select around parameter/argument"
             },
 
-            -- ============================================================= --
+            -- ====================== [ CONDITIONAL ] ====================== --
+
             ["ai"] = {
               query = "@conditional.outer",
               desc = "Select around conditional"
@@ -55,7 +60,8 @@ return {
               desc = "Select inside conditional"
             },
 
-            -- ============================================================= --
+            -- ========================= [ LOOPS ] ========================= --
+
             ["il"] = {
               query = "@loop.inner",
               desc = "Select inside loop"
@@ -65,27 +71,27 @@ return {
               desc = "Select around loop"
             },
 
-            -- ============================================================= --
+            -- ==================== [ FUNCTION/METHOD ] ==================== --
+
             ["if"] = {
-              query = "@call.inner",
-              desc = "Select inside function call"
+              query = "@function.inner",
+              desc = "Select inside function definition"
             },
             ["af"] = {
-              query = "@call.outer",
-              desc = "Select around function call"
+              query = "@function.outer",
+              desc = "Select around function definition"
             },
-
-            -- ============================================================= --
             ["im"] = {
               query = "@function.inner",
-              desc = "Select inside method/function definition"
+              desc = "Select inside method definition"
             },
             ["am"] = {
               query = "@function.outer",
-              desc = "Select around method/function definition"
+              desc = "Select around method definition"
             },
 
-            -- ============================================================= --
+            -- ========================= [ CLASS ] ========================= --
+
             ["ic"] = {
               query = "@class.inner",
               desc = "Select inside class"
@@ -94,12 +100,14 @@ return {
               query = "@class.outer",
               desc = "Select around class"
             },
+
           },
 
           selection_modes = {
-            ['@parameter.outer'] = 'v', -- charwise
-            ['@function.outer'] = 'V', -- linewise
-            ['@class.outer'] = '<c-v>', -- blockwise
+            -- charwise 'v' linewise 'V' blockwise '<c-v>'
+            ['@parameter.outer'] = 'v',
+            ['@function.outer'] = 'V',
+            ['@class.outer'] = 'V',
           },
 
         },
@@ -135,12 +143,12 @@ return {
 
           goto_next_start = {
             ["]f"] = {
-              query = "@call.outer",
-              desc = "Next function call start"
+              query = "@function.outer",
+              desc = "Next function def start"
             },
             ["]m"] = {
               query = "@function.outer",
-              desc = "Next method/function def start"
+              desc = "Next method def start"
             },
             ["]c"] = {
               query = "@class.outer",
@@ -166,12 +174,12 @@ return {
 
           goto_next_end = {
             ["]F"] = {
-              query = "@call.outer",
-              desc = "Next function call end"
+              query = "@function.outer",
+              desc = "Next function def end"
             },
             ["]M"] = {
               query = "@function.outer",
-              desc = "Next method/function def end"
+              desc = "Next method def end"
             },
             ["]C"] = {
               query = "@class.outer",
@@ -189,12 +197,12 @@ return {
 
           goto_previous_start = {
             ["[f"] = {
-              query = "@call.outer",
-              desc = "Prev function call start"
+              query = "@function.outer",
+              desc = "Prev function def start"
             },
             ["[m"] = {
               query = "@function.outer",
-              desc = "Prev method/function def start"
+              desc = "Prev method def start"
             },
             ["[c"] = {
               query = "@class.outer",
@@ -212,12 +220,12 @@ return {
 
           goto_previous_end = {
             ["[F"] = {
-              query = "@call.outer",
-              desc = "Prev function call end"
+              query = "@function.outer",
+              desc = "Prev function def end"
             },
             ["[M"] = {
               query = "@function.outer",
-              desc = "Prev method/function def end"
+              desc = "Prev method def end"
             },
             ["[C"] = {
               query = "@class.outer",
