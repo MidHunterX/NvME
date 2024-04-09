@@ -32,6 +32,14 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>")
 
 
+--==============================[ GIT REMAPS ]==============================--
+
+------------------------------------------------------------- Git Hunks [ gh- ]
+vim.keymap.set("n", "ghh", "<Cmd>Gitsigns preview_hunk<CR>")
+vim.keymap.set("n", "ghn", "<Cmd>Gitsigns next_hunk<CR>")
+vim.keymap.set("n", "ghp", "<Cmd>Gitsigns prev_hunk<CR>")
+
+
 --============================[ WINDOWS REMAPS ]============================--
 
 --------------------------------------------------------- Select all [ Ctrl a ]
