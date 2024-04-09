@@ -19,14 +19,14 @@ HunterX PDE is a personalized NeoVim distribution crafted to make programming mu
 
 | Object | Description |
 | ------ | ----------- |
-| p      | Paragraph   |
-| t      | Markup Tags |
-| i      | Conditional |
-| l      | Loop        |
-| f      | Function    |
-| m      | Method      |
-| c      | Class       |
-| a      | Argument    |
+| P      | Paragraph   |
+| T      | Markup Tags |
+| I      | Conditional |
+| L      | Loop        |
+| F      | Function    |
+| M      | Method      |
+| C      | Class       |
+| A      | Argument    |
 | =      | Assignment  |
 | :      | Propery     |
 
