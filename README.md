@@ -15,20 +15,26 @@ HunterX PDE is a personalized NeoVim distribution crafted to make programming mu
 - 2 space indentation set as default
 - 4 space indentation for selected files: { "c", "cpp", "py", "java", "cs" }
 
-## New Text Objects
+## Added Text Objects
 
-| Object | Description |
-| ------ | ----------- |
-| P      | Paragraph   |
-| T      | Markup Tags |
-| I      | Conditional |
-| L      | Loop        |
-| F      | Function    |
-| M      | Method      |
-| C      | Class       |
-| A      | Argument    |
-| =      | Assignment  |
-| :      | Propery     |
+| Old Text Objects | Description |
+| ---------------- | ----------- |
+| P                | Paragraph   |
+| W                | Word        |
+| " ' `` ' "       | Strings     |
+| [ { ( ) } ]      | Brackets    |
+| T                | Markup Tags |
+
+| New Text Objects | Description |
+| ---------------- | ----------- |
+| I                | Conditional |
+| L                | Loop        |
+| F                | Function    |
+| M                | Method      |
+| C                | Class       |
+| A                | Argument    |
+| =                | Assignment  |
+| :                | Propery     |
 
 ## Installation
 
