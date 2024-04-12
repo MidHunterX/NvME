@@ -4,16 +4,21 @@
 
 HunterX PDE is a personalized NeoVim distribution crafted to make programming much more comfortable while facilitating an in-depth understanding of IDE components at their fundamental level.
 
-## Behaviours
+## Installation
 
-- H and L moves to line start and end instead of page top and bottom
-- Centers cursor while scrolling half page to avoid disorientation
-- Highlights text for 150ms on yank for confirmation
-- Ability to scroll past EOF for more comfort
-- Toggles relative number on and off in normal and insert modes (personal preference)
-- Uses system clipboard by default
-- 2 space indentation set as default
-- 4 space indentation for selected files: { "c", "cpp", "py", "java", "cs" }
+Linux:
+
+```
+git clone https://github.com/MidHunterX/HunterX-PDE ~/.config/nvim --depth 1 && nvim
+```
+
+Windows:
+
+- You must install Zig Compiler before executing the following command.
+
+```
+git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
+```
 
 ## Added Text Objects
 
@@ -36,18 +41,25 @@ HunterX PDE is a personalized NeoVim distribution crafted to make programming mu
 | =                | Assignment  |
 | :                | Propery     |
 
-## Installation
+## Problems Encountered
 
-Linux:
+These are some of the personal issues I have encountered with nvim
 
-```
-git clone https://github.com/MidHunterX/HunterX-PDE ~/.config/nvim --depth 1 && nvim
-```
+- H and L is not the exaggerated form of h and l
+- Half page scrolling keeps the cursor in position even though there is no context for its placement there which can sometimes cause confusion on where the cursor is.
+- There is no visual feedback on quick yanking for confirming what all got yanked.
+- Scrolling after EOF still stays at the bottom which can be kind of uncomfortable at times.
+- G keybindings are not mnemonical like the others
+- Very little flexibility on insert mode mappings
+- No ability to display \0 char at EOL
 
-Windows:
+## Solutions and Behaviours
 
-- You must install Zig Compiler before executing the following command.
-
-```
-git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
-```
+- H and L moves to line start and end instead of page top and bottom
+- Centers cursor while scrolling half page to avoid disorientation
+- Highlights text for 150ms on yank as visual feedback
+- Ability to scroll past EOF for more comfort
+- Toggles relative number on and off in normal and insert modes (personal preference)
+- Uses system clipboard by default
+- 2 space indentation set as default
+- 4 space indentation for selected files: { "c", "cpp", "py", "java", "cs" }
