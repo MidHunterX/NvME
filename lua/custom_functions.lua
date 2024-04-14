@@ -1,24 +1,38 @@
+-- ============================ [ @WRITE_FILE ] ============================ --
+
+function WriteFile()
+  -- Define a match for trailing whitespace
+  vim.api.nvim_exec([[
+        highlight ExtraWhitespace ctermbg=red guibg=red
+        match ExtraWhitespace /\s\+$/
+    ]], false)
+  -- Save the current buffer
+  vim.cmd('w')
+end
+
+vim.keymap.set("n", "<leader>w", ":lua WriteFile()<CR>")
+
+
+-- ========================== [ @GIT_COMMIT_ALL ] ========================== --
+
 function GitAddAndCommit()
-    local commit_message = vim.fn.input('Enter commit message: ')
-
-    -- Check if the commit message is empty
-    if commit_message == '' then
-        print('Commit message cannot be empty. Aborting.')
-        return
-    end
-
-    -- Execute git commands
-    vim.fn.system('git add .')
-    vim.fn.system('git commit -m "' .. commit_message .. '"')
-
-    print(' ✅')
+  local commit_message = vim.fn.input('Enter commit message: ')
+  -- Check if the commit message is empty
+  if commit_message == '' then
+    print('Commit message cannot be empty. Aborting.')
+    return
+  end
+  -- Execute git commands
+  vim.fn.system('git add .')
+  vim.fn.system('git commit -m "' .. commit_message .. '"')
+  print(' ✅')
 end
 
 -- Map <leader>gc to execute the function
 vim.cmd('nnoremap <leader>gc :lua GitAddAndCommit()<CR>')
 
 
---=============================[ @EXECUTE_FILES ]=============================--
+--============================[ @EXECUTE_FILES ]============================--
 
 function Execute_order_69()
   local file_type = vim.bo.filetype
@@ -63,9 +77,10 @@ function Run_formatter()
   elseif is_filetype_in_list(file_type, list_prettier) then
     vim.cmd("silent !prettier --write " .. vim.fn.shellescape(vim.fn.expand("%")))
   else
-    print('Filetype not supported for fotmatting yet')
+    print('No fotmatter set-up. Removing trailing spaces instead ;D')
+    -- Remove trailing whitespace
+    vim.cmd('%s/\\s\\+$//e')
   end
-
 end
 
 -- Map <leader>fm to execute the function

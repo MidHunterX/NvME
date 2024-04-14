@@ -3,7 +3,7 @@
 vim.g.mapleader = " "
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 ------------------------------------------------------- Write file [ leader w ]
-vim.keymap.set("n", "<leader>w", ":w<CR>")
+-- vim.keymap.set("n", "<leader>w", ":w<CR>")
 ------------------------------------------------------ Redo: Undo inverse [ U ]
 vim.keymap.set("n", "U", "<C-r>")
 --------------------------------------------- Move line with autoindent [ J/K ]
