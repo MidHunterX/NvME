@@ -1,11 +1,11 @@
 -- ============================ [ @WRITE_FILE ] ============================ --
 
 function WriteFile()
-  -- Define a match for trailing whitespace
-  vim.api.nvim_exec([[
-        highlight ExtraWhitespace ctermbg=red guibg=red
-        match ExtraWhitespace /\s\+$/
-    ]], false)
+  local save_cursor = vim.fn.getpos(".")
+  -- Remove trailing whitespace
+  vim.cmd('%s/\\s\\+$//e')
+  vim.cmd('nohlsearch')
+  vim.fn.setpos(".", save_cursor)
   -- Save the current buffer
   vim.cmd('w')
 end
@@ -77,9 +77,7 @@ function Run_formatter()
   elseif is_filetype_in_list(file_type, list_prettier) then
     vim.cmd("silent !prettier --write " .. vim.fn.shellescape(vim.fn.expand("%")))
   else
-    print('No fotmatter set-up. Removing trailing spaces instead ;D')
-    -- Remove trailing whitespace
-    vim.cmd('%s/\\s\\+$//e')
+    print('Formatter not set-up')
   end
 end
 
