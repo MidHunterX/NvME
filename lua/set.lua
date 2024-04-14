@@ -1,7 +1,8 @@
 --=========================== [ @GENERAL_OPTIONS ] ===========================--
 
 vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
+vim.opt.listchars = { space = '⋅', tab = '<->' }
+-- vim.opt.listchars = { space = '⋅', tab = '> ', eol = '↩', trail = '$' }
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -9,13 +10,13 @@ vim.opt.relativenumber = true
 -- Set Title for context
 vim.opt.title = true
 
--- Whitespace for each tab
+-- Convert Tabs to Whitespace
 vim.opt.expandtab = true
--- Indentation via <tab>
-vim.opt.tabstop = 2
--- Whitespace or Tabs
+-- Max-Width for Visualizing Tabs
+vim.opt.tabstop = 8
+-- Max-Width for Space/Tab input while Editing
 vim.opt.softtabstop = 2
--- Indentation via >>
+-- Automatic Indentation Width via >>
 vim.opt.shiftwidth = 2
 
 -- Save undo history
