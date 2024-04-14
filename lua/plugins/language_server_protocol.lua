@@ -55,16 +55,39 @@ return {
     },
 
     -- Automatically configures LSP servers
-    -- Cannot manually configure using lspconfig if this is enabled :(
     config = function()
 
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       require("mason-lspconfig").setup_handlers {
         function(server_name)  -- default handler (optional)
-          require("lspconfig")[server_name].setup {
-            capabilities = capabilities
-          }
+
+          -- LUA LANGUAGE SERVER CUSTOM CONFIG
+          if server_name == 'lua_ls' then
+            require("lspconfig")[server_name].setup {
+              capabilities = capabilities,
+              settings = {
+                Lua = {
+                  diagnostics = {
+                    -- Get the language server to recognize the `vim` global
+                    globals = { 'vim', 'require' },
+                  },
+                  workspace = {
+                    -- Make the server aware of Neovim runtime files
+                    library = vim.api.nvim_get_runtime_file("", true),
+                    -- Removes stupid notice to configure as 'luassert'
+                    checkThirdParty = false,
+                  },
+                  telemetry = { enable = false },
+                }
+              }
+            }
+            -- OTHER LANGUAGE SERVER AUTO CONFIG
+          else
+            require("lspconfig")[server_name].setup {
+              capabilities = capabilities
+            }
+          end
         end,
       }
     end,
@@ -79,28 +102,6 @@ return {
     -----------------------------------------------------[ @LSPCONFIG_CONFIG ]
     config = function()
       require('lspconfig.ui.windows').default_options.border = 'rounded'
-
-      -- local lspconfig = require('lspconfig')
-      -- lspconfig.pylsp.setup {}
-      -- lspconfig.lua_ls.setup {
-      --   settings = {
-      --     Lua = {
-      --       maxPreload = 10000,
-      --       preloadFileSize = 1000,
-      --       diagnostics = {
-      --         -- Get the language server to recognize the `vim` global
-      --         globals = { 'vim', 'require' },
-      --       },
-      --       workspace = {
-      --         -- Make the server aware of Neovim runtime files
-      --         library = vim.api.nvim_get_runtime_file("", true),
-      --         -- Removes stupid notice to configure as 'luassert'
-      --         checkThirdParty = false,
-      --       },
-      --       telemetry = { enable = false, },
-      --     },
-      --   },
-      -- }
 
       -- Global mappings.
       vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
