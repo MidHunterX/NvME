@@ -1,3 +1,49 @@
+-- =========================== [ @TOGGLE_VALUE ] =========================== --
+
+local toggles = {
+  ["True"] = "False",
+  ["true"] = "false",
+  ["Yes"] = "No",
+  ["yes"] = "no",
+}
+
+function ToggleValue(value)
+  local toggled_value = value
+  for k, v in pairs(toggles) do
+    if string.find(toggled_value, k) then
+      toggled_value = string.gsub(toggled_value, k, v)
+      break
+    elseif string.find(toggled_value, v) then
+      toggled_value = string.gsub(toggled_value, v, k)
+      break
+    end
+  end
+  return toggled_value
+end
+
+function IncrementOrToggle()
+  local cursor = vim.api.nvim_win_get_cursor(0)
+  local line_number = cursor[1]
+  local col = cursor[2]
+
+  local current_line = vim.fn.getline(line_number)
+  local rest_of_line = string.sub(current_line, col)
+
+  local toggled_value = ToggleValue(rest_of_line)
+  if rest_of_line ~= toggled_value then
+    -- Toggle value
+    vim.api.nvim_set_current_line(string.sub(current_line, 1, col - 1) .. toggled_value)
+  else
+    -- Increment value
+    local key = vim.api.nvim_replace_termcodes('<C-a>', true, false, true)
+    vim.api.nvim_feedkeys(key, 'n', true)
+  end
+end
+
+-- Map <C-a> to the IncrementOrToggle function
+vim.keymap.set('n', '<C-a>', '<cmd>lua IncrementOrToggle()<CR>')
+
+
 -- ============================ [ @WRITE_FILE ] ============================ --
 
 function WriteFile()
