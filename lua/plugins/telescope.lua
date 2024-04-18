@@ -17,13 +17,6 @@ return {
       mode = "n",
       desc = "Telescope Live GREP"
     },
-    -- PROJECT VISIT BUFFERS
-    {
-      "<leader>pv",
-      "<CMD>Telescope buffers<CR><Esc>",
-      mode = "n",
-      desc = "Telescope Buffer List"
-    },
     -- MARKS LIST
     {
       "<leader>m",
