@@ -111,9 +111,18 @@ end
 function Run_formatter()
   local file_type = vim.bo.filetype
   local list_prettier = {
-    "markdown", "html", "json",
-    "javascript", "css",
-    "javascriptreact"
+    "markdown",
+    "html",
+    "json",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "css",
+    "less",
+    "scss",
+    "graphql",
+    "yaml",
   }
 
   -- pip Black Formatter: Python
