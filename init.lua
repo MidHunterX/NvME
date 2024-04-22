@@ -8,6 +8,7 @@ require("set")
 require("remap")
 require("custom_functions")
 require("auto_commands")
+require("hit_font")
 
 --==========================[ @LAZY.NVIM_BOOTSTRAP]==========================--
 
