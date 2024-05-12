@@ -1,8 +1,8 @@
 local function default_header_icons()
   return {
-    -- ['Saturday'] = {
+    ['Saturday'] = {
     [[ ⛚                                                                  ⬡ ⬡ ⬡ ⬡ ⬡ ⬡]],
-    -- },
+    },
   }
 end
 
@@ -149,23 +149,19 @@ local function week_ascii_text()
 end
 
 
-
-
 local function week_header()
   local daysoftheweek = {
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
   }
   local weekly_tiles = week_ascii_text()
-  local header = default_header()
   local day = daysoftheweek[os.date('*t').wday]
 
-  -- local tbl = weekly_tiles[day]
-  local tbl = header['Default']
+  local tbl = {}
 
   -- Insert date and time
-  table.insert(tbl, os.date(' ---------------------- ❮❰⟪  %d-%m-%Y |  %H:%M:%S  ⟫❱❯ ---------------------- '))
-
-  table.insert(tbl, '')
+  table.insert(tbl,'╭──────────────────────────────────────────────────────────────────────────────╮')
+  table.insert(tbl, os.date('│ ⟫⟫⟫                     󰃭 %d-%m-%Y | 󰥔 %H:%M:%S                        ⟪⟪⟪ │'))
+  table.insert(tbl,'╰──────────────────────────────────────────────────────────────────────────────╯')
 
   -- Join Header with Weekly tiles
   for _, value in ipairs(weekly_tiles[day]) do
@@ -174,11 +170,10 @@ local function week_header()
   -- Vim api alternative of above loopy loops
   -- vim.list_extend(tbl, weekly_tiles[day])
 
-
-
   table.insert(tbl, '')
   return tbl
 end
+
 
 return {
   table = week_header(),
