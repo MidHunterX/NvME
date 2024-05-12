@@ -16,8 +16,4 @@ return {
   keys = {
     { "<leader>gc", "<cmd>LazyGit<cr>", desc = "LazyGit" }
   },
-  config = function ()
-    vim.g.lazygit_use_custom_config_file_path = 1
-    -- lazygit_config_file_path = '~/.config/lazygit/config.yml'
-  end
 }
