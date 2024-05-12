@@ -61,6 +61,7 @@ vim.keymap.set("n", "<leader>w", ":lua WriteFile()<CR>")
 
 -- ========================== [ @GIT_COMMIT_ALL ] ========================== --
 
+-- DEPRECATED: REPLACED WITH LAZYGIT
 function GitAddAndCommit()
   local commit_message = vim.fn.input('Enter commit message: ')
   -- Check if the commit message is empty
@@ -75,7 +76,7 @@ function GitAddAndCommit()
 end
 
 -- Map <leader>gc to execute the function
-vim.cmd('nnoremap <leader>gc :lua GitAddAndCommit()<CR>')
+-- vim.cmd('nnoremap <leader>gc :lua GitAddAndCommit()<CR>')
 
 
 --============================[ @EXECUTE_FILES ]============================--
