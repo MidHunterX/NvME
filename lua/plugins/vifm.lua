@@ -1,3 +1,5 @@
+vim.g.vifm_exec_args = "+'set vifminfo-=savedirs,dirstack'"
+
 return {
   "vifm/vifm.vim",
   keys = {
