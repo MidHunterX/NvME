@@ -20,7 +20,7 @@ return {
       disable_move = false, -- boolean default is false
       hide = {
         statusline = false,
-        tabline = false,
+        tabline = true,
       },
       config = {
         header = MidHunterX_UI(),

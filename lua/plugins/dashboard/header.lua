@@ -170,7 +170,7 @@ local function week_header()
   -- Vim api alternative of above loopy loops
   -- vim.list_extend(tbl, weekly_tiles[day])
 
-  table.insert(tbl, '')
+  -- table.insert(tbl, '')
   return tbl
 end
 
