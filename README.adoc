@@ -33,7 +33,10 @@ git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 
 .📦 Package Manager
 [%collapsible]
 ====
+[discrete]
+=== 💤 Lazy.nvim
 Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
+[discrete]
 ==== Features
 * 📦 Manage all your Neovim plugins with a powerful UI
 * 🚀 Fast startup times thanks to automatic caching and bytecode compilation
@@ -53,6 +56,25 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 * 📈 Statusline component to see the number of pending updates
 * 🎨 Automatically lazy-loads colorschemes
 ====
+
+== 🛺 Auto Commands
+* Tab space = 4 on C, CPP, C#, Python, Java
+* Tab space = 2 on Every other Languages
+* Use System Clipboard by Default
+* Highlight Yank for 150ms
+* `C-c` triggers `ESC`
+* Ability to scroll past EOF in buffer
+* Automatically toggle between Relative Line Number based on Modes
+
+== 🛂 Custom Functions
+* Toggle Boolean Values with `C-a`
+* Trim trailing lines and Write Buffer with `<leader>w`
+* Git add . + commit -m with `<leader>gc` (Replaced with Lazygit)
+* Execute files with `F5` or `:lua Execute_order_69()`
+* Run file formatter with `<leader>fm` or `:lua Run_formatter()`
+
+== 👊 Hit Font
+* Convert text to Hit Font with `:HitComment`
 
 == Added Text Objects
 
