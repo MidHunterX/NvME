@@ -4,29 +4,33 @@ image:./img/header.jpg[]
 
 HunterX PDE is a personalized NeoVim distribution crafted to make programming much more comfortable while facilitating an in-depth understanding of IDE components at their fundamental level.
 
-== Quick Start
+== ⚡ Requirements
 
-.🐧 Linux
-[%collapsible]
-====
+* *Neovim* (Needs to be built with LuaJIT)
+* *GCC*: For compiling treesitter languages in Linux
+* *Zig Compiler*: For compiling treesitter languages in Windows
+* *ripgrep*: For live grep
+* *fd*: For Find Files
+
+== 🚀 Quick Start
+
+=== 🐧 Linux
+
 * Dependency: *GCC*
 
 [source,bash]
 ----
 git clone https://github.com/MidHunterX/HunterX-PDE '~/.config/nvim' --depth 1 && nvim
 ----
-====
 
-.🪟 Windows
-[%collapsible]
-====
+=== 🪟 Windows
+
 * Dependency: *Zig Compiler*
 
 [source,cmd]
 ----
 git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
 ----
-====
 
 == What's Included?
 
@@ -217,9 +221,28 @@ dashboard will read the config from cache.
 | `r` | Print a Random number between 1-999
 |===
 
+=== Gitsigns on Gutter (gitsigns.nvim)
+
+[%header]
+|===
+| Hunk Actions | Line Blame
+| image:https://raw.githubusercontent.com/lewis6991/media/main/gitsigns_actions.gif[]
+| image:https://raw.githubusercontent.com/lewis6991/media/main/gitsigns_blame.gif[]
+|===
+
+==== Features
+
+* Signs for added, removed, and changed lines
+* Asynchronous
+* Navigation between hunks
+* Preview diffs of hunks (with word diff)
+* Status bar integration
+* Git blame a specific line using virtual text.
+* Hunk text object
+* Ability to display deleted/changed lines via virtual lines.
+
 === Extra Packages
 
-* Gitsigns on Gutter
 * Scope based Indentation Lines
 * Language Server Protocol
 * Lazygit Integration
