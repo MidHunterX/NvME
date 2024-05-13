@@ -243,6 +243,12 @@ Then it creates an autocommand on the event LspAttach. This autocommand will be
 triggered every time a language server is attached to a buffer. This is where
 all keybindings and commands are created.
 
+==== 🏃 Code Auto Completion (nvim-cmp)
+
+The plugin responsable for autocompletion is nvim-cmp. This plugin is designed
+to be unopinionated and modular. What this means for us is that we have to
+assemble various pieces to get the behavior we want.
+
 Here, I have implemented the following autocompletion behaviour:
 
 * Autocompletion suggestions keep popping while typing
@@ -250,37 +256,35 @@ Here, I have implemented the following autocompletion behaviour:
 * Select Next entries with: `TAB`, `C-n`
 * Select Previous entries with: `S-TAB`, `C-p`
 * Accept an entry with `CR` / `RET`
+* Cancel Completion with `C-e`
 
 🤔 Maybe VSCode like `DOWN` to select and `TAB` to complete might be better?
 
-==== 🏃 Code Auto Completion (nvim-cmp)
+==== 👉 Auto Completion Sources
 
-The following Auto completion are available:
+Each source that you add to your configuration is a Neovim plugin that you need
+to install. The purpose of a source is to extract data and then pass it to
+`nvim-cmp`.
 
-* Commandline Autocompletion `:`
-* System Path Autocompletion `./`
-* Buffer Text based Autocompletion
-* Snippet based Autocompletion
-* LSP based Autocompletion
+The following Auto completion sources are added:
+
+* Commandline Autocompletion `:` using `cmp-cmdline`
+* System Path Autocompletion `./` using `cmp-path`
+* Buffer Text based Autocompletion using `cmp-buffer`
+* Snippet based Autocompletion using `cmp_luasnip`
+* LSP based Autocompletion using `cmp-nvim-lsp`
 
 ==== 🚒 Code Snippet Engine (luasnip)
 
-Features:
+By default luasnip is configured to expand snippets, and the only snippets you
+get will come from your LSP server. `cmp_luasnip` is used as source in
+`nvim-cmp` to load custom snippets into the completion menu.
 
-* Tabstops
-* Text-Transformations using Lua functions
-* Conditional Expansion
-* Defining nested Snippets
-* Filetype-specific Snippets
-* Choices
-* Dynamic Snippet creation
-* Regex-Trigger
-* Autotriggered Snippets
-* Easy Postfix Snippets
-* Parse LSP-Style Snippets directly in lua as a vscode package
-* Expand LSP-Snippets with nvim-cmp (requires cmp_luasnip)
-* Snippet history (jump back into older snippets)
-* Resolve filetype at the cursor using Treesitter
+==== ✂️ Snippet Collection (friendly-snippets)
+
+We don't need to write our own snippets, `friendly-snippets` provides community
+maintained huge set of snippets for variety of languages. It can then be parsed
+using the Snippet Engine `luasnip`.
 
 === Extra Packages
 
@@ -289,7 +293,7 @@ Features:
 * Leap Cursor Navigation
 * Colored Matching Brackets
 * Status Line
-* Surrounding Brackets/Quotes as Text Objects
+* Surrounding Brackets/Quotes manipulation
 * Tab out of Brackets/Quotes
 * Telescope (Fuzzyfind & Grep)
 * Undotree
