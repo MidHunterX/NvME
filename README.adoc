@@ -123,8 +123,121 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `<C-w>n` | Return to Normal Mode
 |===
 
+=== Code Navigation (aerial.nvim)
 
-== Added Text Objects
+[%header]
+|===
+| Key             | Description
+| `<leader>pv`    | Toggle Aerial View
+| `i`             | Jump to selected Function/Method
+| `x`             | Exit from Aerial View
+| `q`             | Exit from Aerial View
+| ---             | ---
+| `?`             | show_help
+| `<CR>`          | jump
+| `<C-v>`         | jump_vsplit
+| `<C-s>`         | jump_split
+| `p`             | scroll
+| `<C-j>`         | down_and_scroll
+| `<C-k>`         | up_and_scroll
+| `{`             | prev
+| `}`             | next
+| `[[`            | prev_up
+| `]]`            | next_up
+| `o`             | tree_toggle
+| `O`             | tree_toggle_recursive
+| `l`             | tree_open
+| `L`             | tree_open_recursive
+| `h`             | tree_close
+| `H`             | tree_close_recursive
+|===
+
+=== Code Auto Completion (nvim-cmp)
+
+The following Auto completion are available:
+* Commandline Autocompletion `:`
+* System Path Autocompletion `./`
+* Buffer Text based Autocompletion
+* Snippet based Autocompletion
+* LSP based Autocompletion
+
+=== Code Snippet Engine (luasnip)
+
+==== Features:
+* Tabstops
+* Text-Transformations using Lua functions
+* Conditional Expansion
+* Defining nested Snippets
+* Filetype-specific Snippets
+* Choices
+* Dynamic Snippet creation
+* Regex-Trigger
+* Autotriggered Snippets
+* Easy Postfix Snippets
+* Parse LSP-Style Snippets directly in lua as a vscode package
+* Expand LSP-Snippets with nvim-cmp (requires cmp_luasnip)
+* Snippet history (jump back into older snippets)
+* Resolve filetype at the cursor using Treesitter
+
+=== Bracket Auto Pairing (nvim-autopairs)
+
+Autocloses these Brackets and Quotes: '{', '[', '(', '"', '\''
+
+=== Auto Disable Features on Big Files (bigfile.nvim)
+
+Automatically disables certain features if the opened file is big (1MB).
+
+Disabled Features: `indent_blankline`, `illuminate`, `lsp`, `treesitter`,
+         `syntax`, `matchparen`, `vimopts`, `filetype`
+
+=== Colorschemes
+
+The following colorschemes are included:
+* `VSCode`
+* `OneDarkPro`
+* `Catppuccin`
+
+To change colorscheme, do `:colorscheme` and a space to trigger autocompletion
+
+=== Dashboard (dashboard-nvim)
+
+Low memory usage. dashboard does not store the all user configs in memory like
+header etc these string will take some memory. now it will be clean after you
+open a file. you can still use dashboard command to open a new one , then
+dashboard will read the config from cache.
+
+[%header]
+|===
+| Key | Description
+| `x` | Netrw
+| `f` | Fuzzy Find Files with Telescope
+| `g` | Grep Search Strings with Telescope
+| `r` | Print a Random number between 1-999
+|===
+
+=== Extra Packages
+
+* Gitsigns on Gutter
+* Scope based Indentation Lines
+* Language Server Protocol
+* Lazygit Integration
+* Leap Cursor Navigation
+* Colored Matching Brackets
+* Status Line
+* Surrounding Brackets/Quotes as Text Objects
+* Tab out of Brackets/Quotes
+* Telescope (Fuzzyfind & Grep)
+* Undotree
+* Color Picker
+* Treesitter
+* Treesitter Contexts
+* Treesitter Playground
+* Treesitter Text Objects
+* VIFM File Explorer
+* Visible Color Codes
+* Zen Mode
+
+=== Added Text Objects
 
 [%header]
 |===
