@@ -1,0 +1,53 @@
+image:./img/header.jpg[]
+
+= HunterX PDE (Personal Development Environment)
+
+HunterX PDE is a personalized NeoVim distribution crafted to make programming much more comfortable while facilitating an in-depth understanding of IDE components at their fundamental level.
+
+== Quick Start
+
+.🐧 Linux
+[%collapsible]
+====
+* Dependency: *GCC*
+[source,bash]
+----
+git clone https://github.com/MidHunterX/HunterX-PDE ~/.config/nvim --depth 1 && nvim
+----
+====
+
+.🪟 Windows
+[%collapsible]
+====
+* Dependency: *Zig Compiler*
+[source,cmd]
+----
+git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
+----
+====
+
+== Added Text Objects
+
+[%header]
+|===
+| Old Text Objects | Description
+| P                | Paragraph
+| W                | Word
+| " ' `` ' "       | Strings
+| [ { ( ) } ]      | Brackets
+| T                | Markup Tags
+|===
+
+[%header]
+|===
+| New Text Objects | Description
+| I                | Conditional
+| L                | Loop
+| F                | Function
+| M                | Method
+| C                | Class
+| A                | Argument
+| =                | Assignment
+| :                | Propery
+|===
+
