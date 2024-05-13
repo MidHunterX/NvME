@@ -32,16 +32,13 @@ git clone https://github.com/MidHunterX/HunterX-PDE '~/.config/nvim' --depth 1 &
 git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
 ----
 
-== What's Included?
+== 💤 Package Manager (Lazy.nvim)
 
-.📦 Package Manager
+Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
+
+.Features
 [%collapsible]
 ====
-[discrete]
-=== 💤 Lazy.nvim
-Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
-[discrete]
-==== Features
 * 📦 Manage all your Neovim plugins with a powerful UI
 * 🚀 Fast startup times thanks to automatic caching and bytecode compilation
 * 💾 Partial clones instead of shallow clones
@@ -61,7 +58,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 * 🎨 Automatically lazy-loads colorschemes
 ====
 
-=== 🛺 Auto Commands
+== 🛺 Auto Commands
 * Tab space = 4 on C, CPP, C#, Python, Java
 * Tab space = 2 on Every other Languages
 * Use System Clipboard by Default
@@ -69,19 +66,19 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 * Ability to scroll past EOF in buffer
 * Automatically toggle between Relative Line Number based on Modes
 
-=== 🛂 Custom Functions
+== 🛂 Custom Functions
 * Toggle Boolean Values with `C-a`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git add . + commit -m with `<leader>gc` (Replaced with Lazygit)
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
-=== 👊 Hit Font
+== 👊 Hit Font
 * Convert text to Hit Font with `:HitComment`
 
-=== 🗺️ Remaps
+== 🗺️ Remaps
 
-==== Normal Mode
+=== Normal Mode
 
 [%header]
 |===
@@ -104,7 +101,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `ghp`        | Git Previous Hunk
 |===
 
-==== Visual Mode
+=== Visual Mode
 
 [%header]
 |===
@@ -118,7 +115,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `L`       | Move cursor to end `$` of a line
 |===
 
-==== Terminal Mode
+=== Terminal Mode
 
 [%header]
 |===
@@ -126,7 +123,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `<C-w>n` | Return to Normal Mode
 |===
 
-=== 🦅 Code Navigation (aerial.nvim)
+== 🦅 Code Navigation (aerial.nvim)
 
 [%header]
 |===
@@ -155,18 +152,18 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `H`             | tree_close_recursive
 |===
 
-=== 🕺💃 Bracket Auto Pairs (nvim-autopairs)
+== 🕺💃 Bracket Auto Pairs (nvim-autopairs)
 
 Autocloses these Brackets and Quotes: `{`, `[`, `(`, `"`, `'`
 
-=== 🪨 Auto Disable Features on Big Files (bigfile.nvim)
+== 🪨 Auto Disable Features on Big Files (bigfile.nvim)
 
 Automatically disables certain features if the opened file is big (1MB).
 
 Disabled Features: `indent_blankline`, `illuminate`, `lsp`, `treesitter`,
          `syntax`, `vimopts`, `filetype`
 
-=== 🎨 Colorschemes
+== 🎨 Colorschemes
 
 The following colorschemes are included:
 
@@ -176,7 +173,7 @@ The following colorschemes are included:
 
 To change colorscheme, do `:colorscheme` and a space to trigger autocompletion
 
-=== 🍱 Dashboard (dashboard-nvim)
+== 🍱 Dashboard (dashboard-nvim)
 
 Low memory usage. dashboard does not store the all user configs in memory like
 header etc these string will take some memory. now it will be clean after you
@@ -192,7 +189,7 @@ dashboard will read the config from cache.
 | `r` | Print a Random number between 1-999
 |===
 
-=== ♐ Gitsigns on Gutter (gitsigns.nvim)
+== ♐ Gitsigns on Gutter (gitsigns.nvim)
 
 [%header]
 |===
@@ -212,7 +209,7 @@ Features:
 * Hunk text object
 * Ability to display deleted/changed lines via virtual lines.
 
-=== 🔧 Language Server Protocol
+== 🔧 Language Server Protocol
 
 A language server is a specific kind of tool. Usually they are command line
 tools that implement the LSP specification. Long story short, the language
@@ -223,7 +220,7 @@ mason.nvim and mason-lspconfig.nvim manages the installation of the language
 servers from inside Neovim, and then lspconfig to configure the language
 servers.
 
-==== 🔨 LSP Manager (mason.nvim)
+=== 🔨 LSP Manager (mason.nvim)
 
 Portable package manager for Neovim to easily install and manage LSP servers,
 DAP servers, linters, and formatters.
@@ -233,7 +230,7 @@ tooling such as LSP servers, DAP servers, linters, and formatters through a
 single interface. It runs everywhere Neovim runs (across Linux, macOS, Windows,
 etc.), with only a small set of external requirements needed.
 
-==== 📝 LSP Server Auto Configuration (nvim-lspconfig)
+=== 📝 LSP Server Auto Configuration (nvim-lspconfig)
 
 Language servers are configured and initialized using `nvim-lspconfig`.
 "Capablities" comes from `cmp-nvim-lsp`. It tells the language server what
@@ -243,7 +240,7 @@ Then it creates an autocommand on the event LspAttach. This autocommand will be
 triggered every time a language server is attached to a buffer. This is where
 all keybindings and commands are created.
 
-==== 🏃 Code Auto Completion (nvim-cmp)
+=== 🏃 Code Auto Completion (nvim-cmp)
 
 The plugin responsable for autocompletion is nvim-cmp. This plugin is designed
 to be unopinionated and modular. What this means for us is that we have to
@@ -260,7 +257,7 @@ Here, I have implemented the following autocompletion behaviour:
 
 🤔 Maybe VSCode like `DOWN` to select and `TAB` to complete might be better?
 
-==== 👉 Auto Completion Sources
+=== 👉 Auto Completion Sources
 
 Each source that you add to your configuration is a Neovim plugin that you need
 to install. The purpose of a source is to extract data and then pass it to
@@ -274,19 +271,19 @@ The following Auto completion sources are added:
 * Snippet based Autocompletion using `cmp_luasnip`
 * LSP based Autocompletion using `cmp-nvim-lsp`
 
-==== 🚒 Code Snippet Engine (luasnip)
+=== 🚒 Code Snippet Engine (luasnip)
 
 By default luasnip is configured to expand snippets, and the only snippets you
 get will come from your LSP server. `cmp_luasnip` is used as source in
 `nvim-cmp` to load custom snippets into the completion menu.
 
-==== ✂️ Snippet Collection (friendly-snippets)
+=== ✂️ Snippet Collection (friendly-snippets)
 
 We don't need to write our own snippets, `friendly-snippets` provides community
 maintained huge set of snippets for variety of languages. It can then be parsed
 using the Snippet Engine `luasnip`.
 
-=== Extra Packages
+== Extra Packages
 
 * Scope based Indentation Lines
 * Lazygit Integration
@@ -306,7 +303,7 @@ using the Snippet Engine `luasnip`.
 * Visible Color Codes
 * Zen Mode
 
-=== Added Text Objects
+== Added Text Objects
 
 [%header]
 |===
