@@ -24,9 +24,6 @@ vim.cmd([[
 au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}
 ]])
 
--- Ctrl-C triggers Esc
-vim.cmd([[inoremap <silent><C-c> <Esc>]])
-
 -- Scroll past last line
 vim.cmd([[nnoremap <expr> j line(".") == line('$') ? '<C-e>':'j']])
 

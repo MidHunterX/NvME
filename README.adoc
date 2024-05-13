@@ -66,7 +66,6 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 * Tab space = 2 on Every other Languages
 * Use System Clipboard by Default
 * Highlight Yank for 150ms
-* `C-c` triggers `ESC`
 * Ability to scroll past EOF in buffer
 * Automatically toggle between Relative Line Number based on Modes
 
@@ -127,7 +126,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `<C-w>n` | Return to Normal Mode
 |===
 
-=== Code Navigation (aerial.nvim)
+=== 🦅 Code Navigation (aerial.nvim)
 
 [%header]
 |===
@@ -156,7 +155,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `H`             | tree_close_recursive
 |===
 
-=== Code Auto Completion (nvim-cmp)
+=== 🏃 Code Auto Completion (nvim-cmp)
 
 The following Auto completion are available:
 
@@ -166,9 +165,10 @@ The following Auto completion are available:
 * Snippet based Autocompletion
 * LSP based Autocompletion
 
-=== Code Snippet Engine (luasnip)
+=== 🚒 Code Snippet Engine (luasnip)
 
-==== Features:
+Features:
+
 * Tabstops
 * Text-Transformations using Lua functions
 * Conditional Expansion
@@ -184,18 +184,18 @@ The following Auto completion are available:
 * Snippet history (jump back into older snippets)
 * Resolve filetype at the cursor using Treesitter
 
-=== Bracket Auto Pairing (nvim-autopairs)
+=== 🕺💃 Bracket Auto Pairs (nvim-autopairs)
 
 Autocloses these Brackets and Quotes: '{', '[', '(', '"', '\''
 
-=== Auto Disable Features on Big Files (bigfile.nvim)
+=== 🪨 Auto Disable Features on Big Files (bigfile.nvim)
 
 Automatically disables certain features if the opened file is big (1MB).
 
 Disabled Features: `indent_blankline`, `illuminate`, `lsp`, `treesitter`,
          `syntax`, `vimopts`, `filetype`
 
-=== Colorschemes
+=== 🎨 Colorschemes
 
 The following colorschemes are included:
 
@@ -205,7 +205,7 @@ The following colorschemes are included:
 
 To change colorscheme, do `:colorscheme` and a space to trigger autocompletion
 
-=== Dashboard (dashboard-nvim)
+=== 🍱 Dashboard (dashboard-nvim)
 
 Low memory usage. dashboard does not store the all user configs in memory like
 header etc these string will take some memory. now it will be clean after you
@@ -221,7 +221,7 @@ dashboard will read the config from cache.
 | `r` | Print a Random number between 1-999
 |===
 
-=== Gitsigns on Gutter (gitsigns.nvim)
+=== ♐ Gitsigns on Gutter (gitsigns.nvim)
 
 [%header]
 |===
@@ -230,7 +230,7 @@ dashboard will read the config from cache.
 | image:https://raw.githubusercontent.com/lewis6991/media/main/gitsigns_blame.gif[]
 |===
 
-==== Features
+Features:
 
 * Signs for added, removed, and changed lines
 * Asynchronous
