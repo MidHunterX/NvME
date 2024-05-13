@@ -155,35 +155,6 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `H`             | tree_close_recursive
 |===
 
-=== 🏃 Code Auto Completion (nvim-cmp)
-
-The following Auto completion are available:
-
-* Commandline Autocompletion `:`
-* System Path Autocompletion `./`
-* Buffer Text based Autocompletion
-* Snippet based Autocompletion
-* LSP based Autocompletion
-
-=== 🚒 Code Snippet Engine (luasnip)
-
-Features:
-
-* Tabstops
-* Text-Transformations using Lua functions
-* Conditional Expansion
-* Defining nested Snippets
-* Filetype-specific Snippets
-* Choices
-* Dynamic Snippet creation
-* Regex-Trigger
-* Autotriggered Snippets
-* Easy Postfix Snippets
-* Parse LSP-Style Snippets directly in lua as a vscode package
-* Expand LSP-Snippets with nvim-cmp (requires cmp_luasnip)
-* Snippet history (jump back into older snippets)
-* Resolve filetype at the cursor using Treesitter
-
 === 🕺💃 Bracket Auto Pairs (nvim-autopairs)
 
 Autocloses these Brackets and Quotes: '{', '[', '(', '"', '\''
@@ -241,10 +212,79 @@ Features:
 * Hunk text object
 * Ability to display deleted/changed lines via virtual lines.
 
+=== 🔧 Language Server Protocol
+
+A language server is a specific kind of tool. Usually they are command line
+tools that implement the LSP specification. Long story short, the language
+server analyzes the source code in your project and tells the editor what to
+do.
+
+mason.nvim and mason-lspconfig.nvim manages the installation of the language
+servers from inside Neovim, and then lspconfig to configure the language
+servers.
+
+==== 🔨 LSP Manager (mason.nvim)
+
+Portable package manager for Neovim to easily install and manage LSP servers,
+DAP servers, linters, and formatters.
+
+mason.nvim is a Neovim plugin that allows you to easily manage external editor
+tooling such as LSP servers, DAP servers, linters, and formatters through a
+single interface. It runs everywhere Neovim runs (across Linux, macOS, Windows,
+etc.), with only a small set of external requirements needed.
+
+==== 📝 LSP Server Auto Configuration (nvim-lspconfig)
+
+Language servers are configured and initialized using `nvim-lspconfig`.
+"Capablities" comes from `cmp-nvim-lsp`. It tells the language server what
+features `nvim-cmp` adds to the editor.
+
+Then it creates an autocommand on the event LspAttach. This autocommand will be
+triggered every time a language server is attached to a buffer. This is where
+all keybindings and commands are created.
+
+Here, I have implemented the following autocompletion behaviour:
+
+* Autocompletion suggestions keep popping while typing
+* If the suggestion box is visible, you can do the following
+* Select Next entries with: `TAB`, `C-n`
+* Select Previous entries with: `S-TAB`, `C-p`
+* Accept an entry with `CR` / `RET`
+
+🤔 Maybe VSCode like `DOWN` to select and `TAB` to complete might be better?
+
+==== 🏃 Code Auto Completion (nvim-cmp)
+
+The following Auto completion are available:
+
+* Commandline Autocompletion `:`
+* System Path Autocompletion `./`
+* Buffer Text based Autocompletion
+* Snippet based Autocompletion
+* LSP based Autocompletion
+
+==== 🚒 Code Snippet Engine (luasnip)
+
+Features:
+
+* Tabstops
+* Text-Transformations using Lua functions
+* Conditional Expansion
+* Defining nested Snippets
+* Filetype-specific Snippets
+* Choices
+* Dynamic Snippet creation
+* Regex-Trigger
+* Autotriggered Snippets
+* Easy Postfix Snippets
+* Parse LSP-Style Snippets directly in lua as a vscode package
+* Expand LSP-Snippets with nvim-cmp (requires cmp_luasnip)
+* Snippet history (jump back into older snippets)
+* Resolve filetype at the cursor using Treesitter
+
 === Extra Packages
 
 * Scope based Indentation Lines
-* Language Server Protocol
 * Lazygit Integration
 * Leap Cursor Navigation
 * Colored Matching Brackets
