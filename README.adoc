@@ -155,6 +155,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 === Code Auto Completion (nvim-cmp)
 
 The following Auto completion are available:
+
 * Commandline Autocompletion `:`
 * System Path Autocompletion `./`
 * Buffer Text based Autocompletion
@@ -188,11 +189,12 @@ Autocloses these Brackets and Quotes: '{', '[', '(', '"', '\''
 Automatically disables certain features if the opened file is big (1MB).
 
 Disabled Features: `indent_blankline`, `illuminate`, `lsp`, `treesitter`,
-         `syntax`, `matchparen`, `vimopts`, `filetype`
+         `syntax`, `vimopts`, `filetype`
 
 === Colorschemes
 
 The following colorschemes are included:
+
 * `VSCode`
 * `OneDarkPro`
 * `Catppuccin`
