@@ -157,7 +157,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 
 === 🕺💃 Bracket Auto Pairs (nvim-autopairs)
 
-Autocloses these Brackets and Quotes: '{', '[', '(', '"', '\''
+Autocloses these Brackets and Quotes: `{`, `[`, `(`, `"`, `'`
 
 === 🪨 Auto Disable Features on Big Files (bigfile.nvim)
 
