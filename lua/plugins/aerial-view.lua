@@ -20,6 +20,7 @@ return {
     },
     backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
     layout = {
+      max_width = { 60, 0.5}, -- 60 = 60char; 0.5 = 50%
       -- Enum: prefer_right, prefer_left, right, left, float
       default_direction = "float",
     },
