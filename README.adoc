@@ -57,7 +57,7 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 * 🎨 Automatically lazy-loads colorschemes
 ====
 
-== 🛺 Auto Commands
+=== 🛺 Auto Commands
 * Tab space = 4 on C, CPP, C#, Python, Java
 * Tab space = 2 on Every other Languages
 * Use System Clipboard by Default
@@ -66,15 +66,63 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 * Ability to scroll past EOF in buffer
 * Automatically toggle between Relative Line Number based on Modes
 
-== 🛂 Custom Functions
+=== 🛂 Custom Functions
 * Toggle Boolean Values with `C-a`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git add . + commit -m with `<leader>gc` (Replaced with Lazygit)
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
-== 👊 Hit Font
+=== 👊 Hit Font
 * Convert text to Hit Font with `:HitComment`
+
+=== 🗺️ Remaps
+
+==== Normal Mode
+
+[%header]
+|===
+| Key          | Description
+| `u`          | Undo
+| `U`          | Redo
+| `H`          | Move cursor to start `^` of a line
+| `L`          | Move cursor to end `$` of a line
+| `<C-u>`      | Scroll Half page up with Cursor centered
+| `<C-d>`      | Scroll Half page down with Cursor centered
+| `<A-h>`      | Go to Previous Buffer
+| `<A-l>`      | Go to Next Buffer
+| `<Space>`    | Leader Key
+| `<leader>rr` | Replace word under cursor with Regex
+| `<leader>x`  | Delete Current Buffer
+| `<leader>d`  | Deletes selection into blackhole register
+| `<leader>p`  | Deletes selection into blackhole register and paste
+| `ghh`        | Git Preview Hunk
+| `ghn`        | Git Next Hunk
+| `ghp`        | Git Previous Hunk
+|===
+
+==== Visual Mode
+
+[%header]
+|===
+| Key       | Description
+| `<Space>` | Leader
+| `J`       | Move line Down with autoindent
+| `K`       | Move line Up with autoindent
+| `<`       | Indent line/selection to Left
+| `>`       | Indent line/selection to Right
+| `H`       | Move cursor to start `^` of a line
+| `L`       | Move cursor to end `$` of a line
+|===
+
+==== Terminal Mode
+
+[%header]
+|===
+| Key      | Description
+| `<C-w>n` | Return to Normal Mode
+|===
+
 
 == Added Text Objects
 
