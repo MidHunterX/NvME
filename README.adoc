@@ -59,8 +59,6 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 ====
 
 == 🛺 Auto Commands
-* Tab space = 4 on C, CPP, C#, Python, Java
-* Tab space = 2 on Every other Languages
 * Use System Clipboard by Default
 * Highlight Yank for 150ms
 * Ability to scroll past EOF in buffer
@@ -215,6 +213,11 @@ A language server is a specific kind of tool. Usually they are command line
 tools that implement the LSP specification. Long story short, the language
 server analyzes the source code in your project and tells the editor what to
 do.
+
+Language Server Protocol is developed by Microsoft, alongside collaboration
+with Red Hat and Codenvy. LSP defines the protocol used between an editor and a
+Language Server that provides language features like autocomplete, goto
+definition etc.
 
 mason.nvim and mason-lspconfig.nvim manages the installation of the language
 servers from inside Neovim, and then lspconfig to configure the language

@@ -1,19 +1,19 @@
 
 --===========================[ @AUTO_SHIFT_WIDTH ]===========================--
 
-local fn = vim.fn
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
-local general = augroup("General Settings", { clear = true })
+-- local fn = vim.fn
+-- local autocmd = vim.api.nvim_create_autocmd
+-- local augroup = vim.api.nvim_create_augroup
+-- local general = augroup("General Settings", { clear = true })
 
-autocmd("FileType", {
-  pattern = { "c", "cpp", "py", "java", "cs" },
-  callback = function()
-    vim.bo.shiftwidth = 4
-  end,
-  group = general,
-  desc = "Set shiftwidth to 4 in these filetypes",
-})
+-- autocmd("FileType", {
+--   pattern = { "c", "cpp", "py", "java", "cs" },
+--   callback = function()
+--     vim.bo.shiftwidth = 4
+--   end,
+--   group = general,
+--   desc = "Set shiftwidth to 4 in these filetypes",
+-- })
 
 --===========================[ @GENERAL_COMMANDS ]===========================--
 -- Use system clipboard

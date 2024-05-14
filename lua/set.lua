@@ -12,11 +12,16 @@ vim.opt.title = true
 
 -- Convert Tabs to Whitespace
 vim.opt.expandtab = true
--- Max-Width for Visualizing Tabs
+-- Number of spaces that a <Tab> in the file counts for.
+-- Also see the |:retab| command, and the 'softtabstop' option.
+-- Note: Set 'tabstop' to 8
 vim.opt.tabstop = 8
--- Max-Width for Space/Tab input while Editing
+-- Number of spaces that a <Tab> counts for while performing editing operations
+-- like inserting a <Tab> or using <BS>.
+-- It "feels" like <Tab>s are being inserted.
 vim.opt.softtabstop = 2
--- Automatic Indentation Width via >>
+-- Number of spaces to use for each step of (auto)indent.
+-- Used for |'cindent'|, |>>|, |<<|, etc.
 vim.opt.shiftwidth = 2
 
 -- Save undo history
@@ -32,7 +37,7 @@ vim.opt.incsearch = true
 vim.opt.smartindent = true
 
 vim.opt.termguicolors = true -- True Color support
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes" -- For GitSigns, LSP Errors
 vim.opt.scrolloff = 8
 vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
