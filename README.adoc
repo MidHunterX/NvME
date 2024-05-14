@@ -216,25 +216,25 @@ video::https://github.com/kawre/neotab.nvim/assets/69250723/86754608-352e-4d6f-b
 
 [%header]
 |===
-| Old Text Objects | Description
-| P                | Paragraph
-| W                | Word
-| " ' `` ' "       | Strings
-| [ { ( ) } ]      | Brackets
-| T                | Markup Tags
+| Old Text Objects        | Description
+| `p`                     | Paragraph
+| `w`                     | Word
+| `"` `'` `\`` `'` `"`    | Strings
+| `[` `{` `(` `)` `}` `]` | Brackets
+| `t`                     | Markup Tags
 |===
 
 [%header]
 |===
 | New Text Objects | Description
-| I                | Conditional
-| L                | Loop
-| F                | Function
-| M                | Method
-| C                | Class
-| A                | Argument
-| =                | Assignment
-| :                | Propery
+| `i`              | Conditional
+| `l`              | Loop
+| `f`              | Function
+| `m`              | Method
+| `c`              | Class
+| `a`              | Argument
+| `=`              | Assignment
+| `:`              | Propery
 |===
 
 * Manage and Explore files and folders with `vifm.vim`
