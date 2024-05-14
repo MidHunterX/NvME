@@ -286,6 +286,18 @@ We don't need to write our own snippets, `friendly-snippets` provides community
 maintained huge set of snippets for variety of languages. It can then be parsed
 using the Snippet Engine `luasnip`.
 
+== 📑 Tab out of Brackets/Quotes (neotab.nvim)
+
+Migrated from `tabout.nvim` to `neotab.nvim`. Unlike `tabout.nvim` that tabout
+out of treesitter nodes, `neotab.nvim` uses simple logic to move in and out of
+pairs or find the next best matching pair.
+
+video::https://github.com/kawre/neotab.nvim/assets/69250723/86754608-352e-4d6f-b2a6-cf5b6fd848a9[]
+
+This approach ensures a consistent behavior regardless of the file type or the
+state of the parsed treesitter tree. It offers a different, less fancy but more
+predictable and consistent method for tabbing out of pairs.
+
 == Extra Packages
 
 * Scope based Indentation Lines
@@ -294,7 +306,6 @@ using the Snippet Engine `luasnip`.
 * Colored Matching Brackets
 * Status Line
 * Surrounding Brackets/Quotes manipulation
-* Tab out of Brackets/Quotes
 * Telescope (Fuzzyfind & Grep)
 * Undotree
 * Color Picker

@@ -7,6 +7,7 @@ return{
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
+      local neotab = require("neotab")
 
       -- Load friendly snippet using LuaSnip loader
       require('luasnip.loaders.from_vscode').lazy_load()
@@ -46,16 +47,27 @@ return{
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-e>'] = cmp.mapping(cmp.mapping.abort(), {'i', 'c'}),
 
-          -- SUPER TAB
-          ["<Tab>"] = cmp.mapping(function(fallback)
+          -- NEO SUPER TAB
+          ["<Tab>"] = cmp.mapping(function()
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.expand_or_jumpable() then
-              luasnip.expand_or_jump()
+            elseif luasnip.jumpable(1) then
+              luasnip.jump(1)
             else
-              fallback()
+              neotab.tabout()
             end
-          end, { "i", "c" }),
+          end),
+
+          -- -- SUPER TAB
+          -- ["<Tab>"] = cmp.mapping(function(fallback)
+          --   if cmp.visible() then
+          --     cmp.select_next_item()
+          --   elseif luasnip.expand_or_jumpable() then
+          --     luasnip.expand_or_jump()
+          --   else
+          --     fallback()
+          --   end
+          -- end, { "i", "c" }),
 
           -- SUPER SHIFT TAB
           ["<S-Tab>"] = cmp.mapping(function(fallback)
