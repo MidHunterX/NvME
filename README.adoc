@@ -1,18 +1,26 @@
 image:./img/header.jpg[]
 
-= HunterX PDE (Personal Development Environment)
+= HunterX PDE
+Personal Development Environment for *ME*
 
-HunterX PDE is a personalized NeoVim distribution crafted to make programming much more comfortable while facilitating an in-depth understanding of IDE components at their fundamental level.
+A meticulously curated personalized NeoVim distribution crafted solely for *ME*
+with every features designed to offer 100% comfort and unparalleled efficiency
+for *ME*. It's a sanctuary where every keystroke feels intuitive, every plugin
+seamlessly integrated, and every aspect finely tuned to cater *ME* unique
+workflow.
 
 == ⚡ Requirements
 
 * *Neovim* (Needs to be built with LuaJIT)
 * *GCC*: For compiling treesitter languages in Linux
 * *Zig Compiler*: For compiling treesitter languages in Windows
+* *git*: Git CLI
 * *ripgrep*: For live grep
 * *fd*: For Find Files
+* *vifm*: File Manager
+* *lazygit*: Git UI
 
-== 🚀 Quick Start
+== 🚀 Installation
 
 === 🐧 Linux
 
@@ -32,49 +40,44 @@ git clone https://github.com/MidHunterX/HunterX-PDE '~/.config/nvim' --depth 1 &
 git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
 ----
 
-== 💤 Package Manager (Lazy.nvim)
+== 😇 Behaviours
 
-Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
+Yank into System Clipboard::
+Less hastle when copy pasting between windows frequently.
 
-.Features
-[%collapsible]
-====
-* 📦 Manage all your Neovim plugins with a powerful UI
-* 🚀 Fast startup times thanks to automatic caching and bytecode compilation
-* 💾 Partial clones instead of shallow clones
-* 🔌 Automatic lazy-loading of Lua modules
-* ⏳ Automatically install missing plugins before starting up Neovim
-* 💪 Async execution for improved performance
-* 🛠️ No need to manually compile plugins
-* 🧪 Correct sequencing of dependencies
-* 📁 Configurable in multiple files
-* 📚 Generates helptags of the headings in README.md files for plugins
-* 💻 Dev options and patterns for using local plugins
-* 📊 Profiling tools to optimize performance
-* 🔒 Lockfile lazy-lock.json to keep track of installed plugins
-* 🔎 Automatically check for updates
-* 📋 Commit, branch, tag, version, and full Semver support
-* 📈 Statusline component to see the number of pending updates
-* 🎨 Automatically lazy-loads colorschemes
-====
+Highlight Yanked Text for 150ms::
+Quickly know how much text got yanked when using direct yank commands.
 
-== 🛺 Auto Commands
-* Use System Clipboard by Default
-* Highlight Yank for 150ms
-* Ability to scroll past EOF in buffer
-* Automatically toggle between Relative Line Number based on Modes
+Scroll past EOF in buffer with `j`::
+Personal preference for EOF to not be stuck at the bottom of the screen.
 
-== 🛂 Custom Functions
+Show Relative Line Number on Normal Mode::
+That's the only time you need Relative Line Numbers for Jumping Lines.
+
+Show Normal Line Number on Insert Mode::
+Useful when doing substitution based on line numbers.
+
+== 📝 Autocompletion Behaviour
+
+* Autocompletion suggestions keep popping while typing
+* If the suggestion box is visible, you can do the following
+* Select Next entries with: `TAB`, `C-n`
+* Select Previous entries with: `S-TAB`, `C-p`
+* Accept an entry with `CR` / `RET`
+* Cancel Completion with `C-e`
+
+🤔 Maybe VSCode like `DOWN` to select and `TAB` to complete might be better?
+
+== 🛂 Custom Features
+
 * Toggle Boolean Values with `C-a`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git add . + commit -m with `<leader>gc` (Replaced with Lazygit)
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
-
-== 👊 Hit Font
 * Convert text to Hit Font with `:HitComment`
 
-== 🗺️ Remaps
+== 🗺️ Custom Key Remaps
 
 === Normal Mode
 
@@ -95,8 +98,8 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `<leader>d`  | Deletes selection into blackhole register
 | `<leader>p`  | Deletes selection into blackhole register and paste
 | `ghh`        | Git Preview Hunk
-| `ghn`        | Git Next Hunk
-| `ghp`        | Git Previous Hunk
+| `ghn`        | Git Goto Next Hunk
+| `ghp`        | Git Goto Previous Hunk
 |===
 
 === Visual Mode
@@ -121,62 +124,39 @@ Moved to **Lazy.nvim** from Packer as it is the best plugin manager currently.
 | `<C-w>n` | Return to Normal Mode
 |===
 
-== 🦅 Code Navigation (aerial.nvim)
+== 🔌 Plugins
+
+* Navigate through code Functions/Methods with `aerial.nvim`
 
 [%header]
 |===
-| Key             | Description
-| `<leader>pv`    | Toggle Aerial View
-| `i`             | Jump to selected Function/Method
-| `x`             | Exit from Aerial View
-| `q`             | Exit from Aerial View
-| ---             | ---
-| `?`             | show_help
-| `<CR>`          | jump
-| `<C-v>`         | jump_vsplit
-| `<C-s>`         | jump_split
-| `p`             | scroll
-| `<C-j>`         | down_and_scroll
-| `<C-k>`         | up_and_scroll
-| `{`             | prev
-| `}`             | next
-| `[[`            | prev_up
-| `]]`            | next_up
-| `o`             | tree_toggle
-| `O`             | tree_toggle_recursive
-| `l`             | tree_open
-| `L`             | tree_open_recursive
-| `h`             | tree_close
-| `H`             | tree_close_recursive
+| Key          | Description
+| `<leader>pv` | Toggle Aerial View
+| `i`          | Jump to selected Function/Method
+| `x`          | Exit from Aerial View
+| `q`          | Exit from Aerial View
+| ---          | ---
+| `?`          | show_help
+| `<CR>`       | jump
+| `p`          | scroll
+| `{`, `<C-k>` | prev
+| `}`, `<C-j>` | next
+| `o`, `O`     | tree_toggle
+| `l`, `L`     | tree_open
+| `h`, `H`     | tree_close
 |===
 
-== 🕺💃 Bracket Auto Pairs (nvim-autopairs)
+* Lazy Loading Plugin Manager `lazy.nvim`
 
-Autocloses these Brackets and Quotes: `{`, `[`, `(`, `"`, `'`
+* Autoclosing Braces and Tags with `nvim-autopairs`
 
-== 🪨 Auto Disable Features on Big Files (bigfile.nvim)
+* Disable Features on Large Files with `bigfile.nvim`
 
-Automatically disables certain features if the opened file is big (1MB).
-
-Disabled Features: `indent_blankline`, `illuminate`, `lsp`, `treesitter`,
-         `syntax`, `vimopts`, `filetype`
-
-== 🎨 Colorschemes
-
-The following colorschemes are included:
-
-* `VSCode`
-* `OneDarkPro`
-* `Catppuccin`
+* `catppuccin` Colorscheme
 
 To change colorscheme, do `:colorscheme` and a space to trigger autocompletion
 
-== 🍱 Dashboard (dashboard-nvim)
-
-Low memory usage. dashboard does not store the all user configs in memory like
-header etc these string will take some memory. now it will be clean after you
-open a file. you can still use dashboard command to open a new one , then
-dashboard will read the config from cache.
+* Fancy Dashboard with `dashboard-nvim`
 
 [%header]
 |===
@@ -187,7 +167,7 @@ dashboard will read the config from cache.
 | `r` | Print a Random number between 1-999
 |===
 
-== ♐ Gitsigns on Gutter (gitsigns.nvim)
+* Gitsigns on Signcolumn with `gitsigns.nvim`
 
 [%header]
 |===
@@ -196,128 +176,43 @@ dashboard will read the config from cache.
 | image:https://raw.githubusercontent.com/lewis6991/media/main/gitsigns_blame.gif[]
 |===
 
-Features:
+* Install LSP servers, DAP servers, Linters and Formatters with `mason.nvim`
 
-* Signs for added, removed, and changed lines
-* Asynchronous
-* Navigation between hunks
-* Preview diffs of hunks (with word diff)
-* Status bar integration
-* Git blame a specific line using virtual text.
-* Hunk text object
-* Ability to display deleted/changed lines via virtual lines.
+* NeoVim LSP Configuration with `nvim-lspconfig`
 
-== 🔧 Language Server Protocol
+* Code Autocompletion with `nvim-cmp`
 
-A language server is a specific kind of tool. Usually they are command line
-tools that implement the LSP specification. Long story short, the language
-server analyzes the source code in your project and tells the editor what to
-do.
+* Code Snippets with `luasnip` + `friendly-snippets`
 
-Language Server Protocol is developed by Microsoft, alongside collaboration
-with Red Hat and Codenvy. LSP defines the protocol used between an editor and a
-Language Server that provides language features like autocomplete, goto
-definition etc.
-
-mason.nvim and mason-lspconfig.nvim manages the installation of the language
-servers from inside Neovim, and then lspconfig to configure the language
-servers.
-
-=== 🔨 LSP Manager (mason.nvim)
-
-Portable package manager for Neovim to easily install and manage LSP servers,
-DAP servers, linters, and formatters.
-
-mason.nvim is a Neovim plugin that allows you to easily manage external editor
-tooling such as LSP servers, DAP servers, linters, and formatters through a
-single interface. It runs everywhere Neovim runs (across Linux, macOS, Windows,
-etc.), with only a small set of external requirements needed.
-
-=== 📝 LSP Server Auto Configuration (nvim-lspconfig)
-
-Language servers are configured and initialized using `nvim-lspconfig`.
-"Capablities" comes from `cmp-nvim-lsp`. It tells the language server what
-features `nvim-cmp` adds to the editor.
-
-Then it creates an autocommand on the event LspAttach. This autocommand will be
-triggered every time a language server is attached to a buffer. This is where
-all keybindings and commands are created.
-
-=== 🏃 Code Auto Completion (nvim-cmp)
-
-The plugin responsable for autocompletion is nvim-cmp. This plugin is designed
-to be unopinionated and modular. What this means for us is that we have to
-assemble various pieces to get the behavior we want.
-
-Here, I have implemented the following autocompletion behaviour:
-
-* Autocompletion suggestions keep popping while typing
-* If the suggestion box is visible, you can do the following
-* Select Next entries with: `TAB`, `C-n`
-* Select Previous entries with: `S-TAB`, `C-p`
-* Accept an entry with `CR` / `RET`
-* Cancel Completion with `C-e`
-
-🤔 Maybe VSCode like `DOWN` to select and `TAB` to complete might be better?
-
-=== 👉 Auto Completion Sources
-
-Each source that you add to your configuration is a Neovim plugin that you need
-to install. The purpose of a source is to extract data and then pass it to
-`nvim-cmp`.
-
-The following Auto completion sources are added:
-
-* Commandline Autocompletion `:` using `cmp-cmdline`
-* System Path Autocompletion `./` using `cmp-path`
-* Buffer Text based Autocompletion using `cmp-buffer`
-* Snippet based Autocompletion using `cmp_luasnip`
-* LSP based Autocompletion using `cmp-nvim-lsp`
-
-=== 🚒 Code Snippet Engine (luasnip)
-
-By default luasnip is configured to expand snippets, and the only snippets you
-get will come from your LSP server. `cmp_luasnip` is used as source in
-`nvim-cmp` to load custom snippets into the completion menu.
-
-=== ✂️ Snippet Collection (friendly-snippets)
-
-We don't need to write our own snippets, `friendly-snippets` provides community
-maintained huge set of snippets for variety of languages. It can then be parsed
-using the Snippet Engine `luasnip`.
-
-== 📑 Tab out of Brackets/Quotes (neotab.nvim)
-
-Migrated from `tabout.nvim` to `neotab.nvim`. Unlike `tabout.nvim` that tabout
-out of treesitter nodes, `neotab.nvim` uses simple logic to move in and out of
-pairs or find the next best matching pair.
+* Tab out of Brackets and Quotes with `neotab.nvim`
 
 video::https://github.com/kawre/neotab.nvim/assets/69250723/86754608-352e-4d6f-b2a6-cf5b6fd848a9[]
 
-This approach ensures a consistent behavior regardless of the file type or the
-state of the parsed treesitter tree. It offers a different, less fancy but more
-predictable and consistent method for tabbing out of pairs.
+* Scope based Indentation Lines with `indent-blankline.nvim`
 
-== Extra Packages
+* Lazygit Integration with `lazygit.nvim`
 
-* Scope based Indentation Lines
-* Lazygit Integration
-* Leap Cursor Navigation
-* Colored Matching Brackets
-* Status Line
-* Surrounding Brackets/Quotes manipulation
-* Telescope (Fuzzyfind & Grep)
-* Undotree
-* Color Picker
-* Treesitter
-* Treesitter Contexts
-* Treesitter Playground
-* Treesitter Text Objects
-* VIFM File Explorer
-* Visible Color Codes
-* Zen Mode
+* Fast Cursor Navigation with `leap.nvim`
 
-== Added Text Objects
+* Bracket pair highlighting with `rainbow-delimiters.nvim`
+
+* Status Line and Buffer Line with `lualine.nvim`
+
+* Change, Delete surrounding brackets or quotes quickly with `nvim-surround`
+
+* Fuzzy search project files, Grep text search etc. with `telescope.nvim`
+
+* Navigate through undo history tree with `telescope-undo.nvim`
+
+* Convert, Manipulate and Pick Colors with `ccc.nvim`
+
+* Semantic based Syntax Highlighting with `nvim-treesitter`
+
+* See code context on top with `nvim-treesitter-context` instead of breadcrumbs
+
+* View live Treesitter parsing tree with `nvim-treesitter/playground`
+
+* Added more text objects with `nvim-treesitter-textobjects`
 
 [%header]
 |===
@@ -342,3 +237,8 @@ predictable and consistent method for tabbing out of pairs.
 | :                | Propery
 |===
 
+* Manage and Explore files and folders with `vifm.vim`
+
+* Visible Color Codes on buffer with `nvim-coloriser.lua`
+
+* Distraction free Coding Zen Mode with `zen-mode.nvim` + `twilight.nvim`
