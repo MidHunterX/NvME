@@ -19,6 +19,8 @@ workflow.
 * *fd*: For Find Files
 * *vifm*: File Manager
 * *lazygit*: Git UI
+* *python*: For Python Language Server & Black Formatter
+* *nodejs*: For other Language Servers and Formatters
 
 == 🚀 Installation
 
