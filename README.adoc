@@ -132,6 +132,31 @@ Useful when doing substitution based on line numbers.
 |===
 ====
 
+== 📕 More Text Objects
+
+[%header]
+|===
+| Default Text Objects    | Description
+| `p`                     | Paragraph
+| `w`                     | Word
+| `"` `'` `\` `'` `"`     | Strings
+| `[` `{` `(` `)` `}` `]` | Brackets
+| `t`                     | Markup Tags
+|===
+
+[%header]
+|===
+| New Text Objects | Description
+| `i`              | Conditional
+| `l`              | Loop
+| `f`              | Function
+| `m`              | Method
+| `c`              | Class
+| `a`              | Argument
+| `=`              | Assignment
+| `:`              | Propery
+|===
+
 == 🔌 Plugins
 
 * Navigate through code Functions/Methods with `aerial.nvim`
