@@ -81,9 +81,7 @@ Useful when doing substitution based on line numbers.
 
 == 🗺️ Custom Key Remaps
 
-.Normal Mode
-[%collapsible]
-====
+=== Normal Mode
 [%header]
 |===
 | Key          | Description
@@ -104,11 +102,8 @@ Useful when doing substitution based on line numbers.
 | `ghn`        | Git Goto Next Hunk
 | `ghp`        | Git Goto Previous Hunk
 |===
-====
 
-.Visual Mode
-[%collapsible]
-====
+=== Visual Mode
 [%header]
 |===
 | Key       | Description
@@ -120,30 +115,28 @@ Useful when doing substitution based on line numbers.
 | `H`       | Move cursor to start `^` of a line
 | `L`       | Move cursor to end `$` of a line
 |===
-====
 
-.Terminal Mode
-[%collapsible]
-====
+=== Terminal Mode
 [%header]
 |===
 | Key      | Description
 | `<C-w>n` | Return to Normal Mode
 |===
-====
 
 == 📕 More Text Objects
 
+=== Default Text Objects
 [%header]
 |===
 | Default Text Objects    | Description
 | `p`                     | Paragraph
 | `w`                     | Word
-| `"` `'` `\` `'` `"`     | Strings
+| `"` `'` `'` `"`         | Strings
 | `[` `{` `(` `)` `}` `]` | Brackets
 | `t`                     | Markup Tags
 |===
 
+=== Added Text Objects
 [%header]
 |===
 | New Text Objects | Description
