@@ -26,7 +26,33 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-local opts = {}
+local opts = {
+  ui = {
+    size = { width = 0.8, height = 0.8 },
+    border = "rounded",
+    backdrop = 100,
+  },
+  change_detection = {
+    enabled = true,
+    notify = false,
+  },
+  performance = {
+    rtp = {
+      ---@type string[]
+      paths = {}, -- custom paths to includes in the rtp
+      disabled_plugins = {
+        "gzip", -- Allows Neovim to read and write gzip compressed files.
+        -- "matchit", -- Enhances the `%` command to jump between {[()]}
+        -- "matchparen", -- Highlights matching {[()]}
+        -- "netrwPlugin", -- File explorer (:Sex, :Vex, :Ex).
+        "tarPlugin", -- Adds support for handling tar archives.
+        "tohtml", -- Converts a buffer or a part of a buffer to HTML format.
+        "tutor", -- Interactive tutorial for learning basic Neovim commands.
+        "zipPlugin", -- Adds support for handling zip archives.
+      },
+    },
+  },
+}
 
 require("lazy").setup("plugins", opts)
 
