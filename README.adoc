@@ -14,7 +14,7 @@ workflow.
 * *Neovim* (Needs to be built with LuaJIT)
 * *GCC*: For compiling treesitter languages in Linux
 * *Zig Compiler*: For compiling treesitter languages in Windows
-* *git*: Git CLI
+* *git*: For git integration, cloning plugin repos etc.
 * *ripgrep*: For live grep
 * *fd*: For Find Files
 * *vifm*: File Manager
@@ -81,8 +81,9 @@ Useful when doing substitution based on line numbers.
 
 == 🗺️ Custom Key Remaps
 
-=== Normal Mode
-
+.Normal Mode
+[%collapsible]
+====
 [%header]
 |===
 | Key          | Description
@@ -103,9 +104,11 @@ Useful when doing substitution based on line numbers.
 | `ghn`        | Git Goto Next Hunk
 | `ghp`        | Git Goto Previous Hunk
 |===
+====
 
-=== Visual Mode
-
+.Visual Mode
+[%collapsible]
+====
 [%header]
 |===
 | Key       | Description
@@ -117,130 +120,46 @@ Useful when doing substitution based on line numbers.
 | `H`       | Move cursor to start `^` of a line
 | `L`       | Move cursor to end `$` of a line
 |===
+====
 
-=== Terminal Mode
-
+.Terminal Mode
+[%collapsible]
+====
 [%header]
 |===
 | Key      | Description
 | `<C-w>n` | Return to Normal Mode
 |===
+====
 
 == 🔌 Plugins
 
 * Navigate through code Functions/Methods with `aerial.nvim`
-
-[%header]
-|===
-| Key          | Description
-| `<leader>pv` | Toggle Aerial View
-| `i`          | Jump to selected Function/Method
-| `x`          | Exit from Aerial View
-| `q`          | Exit from Aerial View
-| ---          | ---
-| `?`          | show_help
-| `<CR>`       | jump
-| `p`          | scroll
-| `{`, `<C-k>` | prev
-| `}`, `<C-j>` | next
-| `o`, `O`     | tree_toggle
-| `l`, `L`     | tree_open
-| `h`, `H`     | tree_close
-|===
-
 * Lazy Loading Plugin Manager `lazy.nvim`
-
 * Autoclosing Braces and Tags with `nvim-autopairs`
-
 * Disable Features on Large Files with `bigfile.nvim`
-
-* `catppuccin` Colorscheme
-
+* Default Colorscheme: `catppuccin`
 To change colorscheme, do `:colorscheme` and a space to trigger autocompletion
-
 * Fancy Dashboard with `dashboard-nvim`
-
-[%header]
-|===
-| Key | Description
-| `x` | Netrw
-| `f` | Fuzzy Find Files with Telescope
-| `g` | Grep Search Strings with Telescope
-| `r` | Print a Random number between 1-999
-|===
-
 * Gitsigns on Signcolumn with `gitsigns.nvim`
-
-[%header]
-|===
-| Hunk Actions | Line Blame
-| image:https://raw.githubusercontent.com/lewis6991/media/main/gitsigns_actions.gif[]
-| image:https://raw.githubusercontent.com/lewis6991/media/main/gitsigns_blame.gif[]
-|===
-
 * Install LSP servers, DAP servers, Linters and Formatters with `mason.nvim`
-
 * NeoVim LSP Configuration with `nvim-lspconfig`
-
 * Code Autocompletion with `nvim-cmp`
-
 * Code Snippets with `luasnip` + `friendly-snippets`
-
 * Tab out of Brackets and Quotes with `neotab.nvim`
-
-video::https://github.com/kawre/neotab.nvim/assets/69250723/86754608-352e-4d6f-b2a6-cf5b6fd848a9[]
-
 * Scope based Indentation Lines with `indent-blankline.nvim`
-
 * Lazygit Integration with `lazygit.nvim`
-
 * Fast Cursor Navigation with `leap.nvim`
-
 * Bracket pair highlighting with `rainbow-delimiters.nvim`
-
 * Status Line and Buffer Line with `lualine.nvim`
-
 * Change, Delete surrounding brackets or quotes quickly with `nvim-surround`
-
 * Fuzzy search project files, Grep text search etc. with `telescope.nvim`
-
 * Navigate through undo history tree with `telescope-undo.nvim`
-
 * Convert, Manipulate and Pick Colors with `ccc.nvim`
-
 * Semantic based Syntax Highlighting with `nvim-treesitter`
-
 * See code context on top with `nvim-treesitter-context` instead of breadcrumbs
-
 * View live Treesitter parsing tree with `nvim-treesitter/playground`
-
 * Added more text objects with `nvim-treesitter-textobjects`
-
-[%header]
-|===
-| Old Text Objects        | Description
-| `p`                     | Paragraph
-| `w`                     | Word
-| `"` `'` `\`` `'` `"`    | Strings
-| `[` `{` `(` `)` `}` `]` | Brackets
-| `t`                     | Markup Tags
-|===
-
-[%header]
-|===
-| New Text Objects | Description
-| `i`              | Conditional
-| `l`              | Loop
-| `f`              | Function
-| `m`              | Method
-| `c`              | Class
-| `a`              | Argument
-| `=`              | Assignment
-| `:`              | Propery
-|===
-
 * Manage and Explore files and folders with `vifm.vim`
-
 * Visible Color Codes on buffer with `nvim-coloriser.lua`
-
 * Distraction free Coding Zen Mode with `zen-mode.nvim` + `twilight.nvim`
