@@ -77,7 +77,7 @@ Useful when doing substitution based on line numbers.
 * Git add . + commit -m with `<leader>gc` (Replaced with Lazygit)
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
-* Convert text to Hit Font with `:HitComment`
+* Convert text to Hit Font with `:HitFont`
 
 == 🗺️ Custom Key Remaps
 

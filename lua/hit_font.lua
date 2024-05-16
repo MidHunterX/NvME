@@ -79,7 +79,7 @@ local function ModernCaesar(sentence)
   return number_list
 end
 
-function HitComment()
+function HitFont()
   local font = HitList()
 
   local line_number = vim.fn.line('.')
@@ -109,11 +109,16 @@ function HitComment()
   -- local hit_comment = toprow .. "\n" .. botrow .. "\n"
   -- vim.fn.setline(line_number, hit_comment)
 
+  -- STRIP SPACES
+  toprow = toprow:gsub("^%s*(.-)%s*$", "%1")
+  botrow = botrow:gsub("^%s*(.-)%s*$", "%1")
+
+  -- INSERT FONT IN NEOVIM BUFFER
   vim.api.nvim_buf_set_lines(0, line_number - 1, line_number, false, {toprow})
   vim.api.nvim_buf_set_lines(0, line_number, line_number, false, {botrow})
 
 end
 
--- HitComment()
-vim.cmd("command! HitComment lua HitComment()")
+-- HitFont()
+vim.cmd("command! HitFont lua HitFont()")
 
