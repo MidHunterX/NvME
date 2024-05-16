@@ -56,7 +56,7 @@ return{
             else
               neotab.tabout()
             end
-          end),
+          end, { "i", "c" }),
 
           -- -- SUPER TAB
           -- ["<Tab>"] = cmp.mapping(function(fallback)
