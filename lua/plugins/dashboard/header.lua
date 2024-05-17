@@ -1,22 +1,3 @@
-local function default_header_icons()
-  return {
-    ['Saturday'] = {
-    [[ ⛚                                                                  ⬡ ⬡ ⬡ ⬡ ⬡ ⬡]],
-    },
-  }
-end
-
-local function default_header()
-  return {
-    ['Default'] = {
-      '',
-      '╭──────────────────────────────────────────────────────────────────────────────╮',
-      '│ ⟫⟫⟫                             ΜΙΔ HUΠTΞΓ Χ                             ⟪⟪⟪ │',
-      '╰──────────────────────────────────────────────────────────────────────────────╯',
-    },
-  }
-end
-
 local function week_ascii_text()
   return {
     ['Monday'] = {
