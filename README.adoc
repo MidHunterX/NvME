@@ -22,6 +22,17 @@ workflow.
 * *python*: For Python Language Server & Black Formatter
 * *nodejs*: For other Language Servers and Formatters
 
+Install Requirements on:
+
+.🅐 Arch Based System (pacman)
+[%collapsible]
+====
+[source,bash]
+----
+sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
+----
+====
+
 == 🚀 Installation
 
 === 🐧 Linux
