@@ -55,7 +55,7 @@ return {
       lualine_a = {
         {
           'mode',
-          separator = { left = ' ' },
+          separator = { left = '' },
           -- fmt = function(str) return str:sub(1,3) end,
           padding = { left = 1, right = 2 }
         },
@@ -79,7 +79,7 @@ return {
         { 'progress', separator = { left = '' }},
       },
       lualine_z = {
-        { 'location', separator = { right = ' ' }},
+        { 'location', separator = { right = '' }},
       },
 
     },
@@ -108,11 +108,15 @@ return {
             directory =  '',
             alternate_file = '',
           },
-          separator = { left = '', right = '' },
+          separator = { left = '', right = '' },
           component_separators = { right = '/' },
           section_separators = { left = '', right = '' },
-          -- component_separators = { left = '', right = '' },
+          -- section_separators = { left = '', right = '' },
+          -- component_separators = { left = '', right = '' }
+          -- section_separators = { left = '', right = '' },
+          -- component_separators = { right = '/' },
           -- section_separators = { left = '', right = '' },
+          -- component_separators = { left = '', right = '' },
         },
       }
 
