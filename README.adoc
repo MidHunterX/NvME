@@ -22,7 +22,7 @@ workflow.
 * *python*: For Python Language Server & Black Formatter
 * *nodejs*: For other Language Servers and Formatters
 
-Install Requirements on:
+=== Install Requirements
 
 .🅐 Arch Based System (pacman)
 [source,bash]
@@ -165,7 +165,6 @@ Useful when doing substitution based on line numbers.
 * Autoclosing Braces and Tags with `nvim-autopairs`
 * Disable Features on Large Files with `bigfile.nvim`
 * Default Colorscheme: `catppuccin`
-To change colorscheme, do `:colorscheme` and a space to trigger autocompletion
 * Fancy Dashboard with `dashboard-nvim`
 * Gitsigns on Signcolumn with `gitsigns.nvim`
 * Install LSP servers, DAP servers, Linters and Formatters with `mason.nvim`
