@@ -34,16 +34,25 @@ sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
 
 === 🐧 Linux
 
-* Dependency: *GCC*
+* Suggested Compiler: *GCC*
 
+.bash / zsh
 [source,bash]
 ----
-git clone https://github.com/MidHunterX/HunterX-PDE '~/.config/nvim' --depth 1 && nvim
+D=~/.config/nvim;if [ -d $D ]; then mv $D ${D}_backup/;fi
+git clone https://github.com/MidHunterX/HunterX-PDE $D --depth 1 && nvim
+----
+
+.fish
+[source,fish]
+----
+set D ~/.config/nvim; test -d $D; and mv $D {$D}_backup
+git clone https://github.com/MidHunterX/HunterX-PDE $D --depth 1 && nvim
 ----
 
 === 🪟 Windows
 
-* Dependency: *Zig Compiler*
+* Suggested Compiler: *Zig Compiler*
 
 [source,cmd]
 ----
