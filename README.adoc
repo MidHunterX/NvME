@@ -1,4 +1,4 @@
-image:./img/header.jpg[]
+image:./img/header_2.jpg[]
 
 = HunterX PDE
 Personal Development Environment for *ME*
