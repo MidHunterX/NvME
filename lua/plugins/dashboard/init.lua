@@ -26,10 +26,10 @@ return {
         header = MidHunterX_UI(),
         shortcut = {
           {
-            desc = ' Netrw',
+            desc = ' New File',
             group = 'Number',
-            action = 'lua vim.api.nvim_command("Ex")',
-            key = 'x'
+            action = 'enew',
+            key = 'n'
           },
           {
             desc = ' Fuzzy Find',
@@ -46,7 +46,7 @@ return {
           {
             desc = ' Random',
             group = 'Debug',
-            action = 'lua print(math.random(1, 999))',
+            action = 'lua print(" " .. math.random(1, 999))',
             key = 'r',
           },
         },
