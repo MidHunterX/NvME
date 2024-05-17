@@ -25,13 +25,10 @@ workflow.
 Install Requirements on:
 
 .🅐 Arch Based System (pacman)
-[%collapsible]
-====
 [source,bash]
 ----
 sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
 ----
-====
 
 == 🚀 Installation
 
