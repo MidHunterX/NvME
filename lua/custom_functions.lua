@@ -11,10 +11,10 @@ function ToggleValue(value)
   local toggled_value = value
   for k, v in pairs(toggles) do
     if string.find(toggled_value, k) then
-      toggled_value = string.gsub(toggled_value, k, v)
+      toggled_value = string.gsub(toggled_value, k, v, 1)
       break
     elseif string.find(toggled_value, v) then
-      toggled_value = string.gsub(toggled_value, v, k)
+      toggled_value = string.gsub(toggled_value, v, k, 1)
       break
     end
   end
@@ -24,11 +24,9 @@ end
 function IncrementOrToggle()
   local cursor = vim.api.nvim_win_get_cursor(0)
   local line_number = cursor[1]
-  local col = cursor[2]
-
+  local col = cursor[2] + 1  -- Added 1 bc 0 val gives weird result
   local current_line = vim.fn.getline(line_number)
   local rest_of_line = string.sub(current_line, col)
-
   local toggled_value = ToggleValue(rest_of_line)
   if rest_of_line ~= toggled_value then
     -- Toggle value
@@ -61,21 +59,21 @@ vim.keymap.set("n", "<leader>w", ":lua WriteFile()<CR>")
 
 -- ========================== [ @GIT_COMMIT_ALL ] ========================== --
 
--- DEPRECATED: REPLACED WITH LAZYGIT
-function GitAddAndCommit()
-  local commit_message = vim.fn.input('Enter commit message: ')
-  -- Check if the commit message is empty
-  if commit_message == '' then
-    print('Commit message cannot be empty. Aborting.')
-    return
-  end
-  -- Execute git commands
-  vim.fn.system('git add .')
-  vim.fn.system('git commit -m "' .. commit_message .. '"')
-  print(' ✅')
-end
+-- -- DEPRECATED: REPLACED WITH LAZYGIT
+-- function GitAddAndCommit()
+--   local commit_message = vim.fn.input('Enter commit message: ')
+--   -- Check if the commit message is empty
+--   if commit_message == '' then
+--     print('Commit message cannot be empty. Aborting.')
+--     return
+--   end
+--   -- Execute git commands
+--   vim.fn.system('git add .')
+--   vim.fn.system('git commit -m "' .. commit_message .. '"')
+--   print(' ✅')
+-- end
 
--- Map <leader>gc to execute the function
+-- -- Map <leader>gc to execute the function
 -- vim.cmd('nnoremap <leader>gc :lua GitAddAndCommit()<CR>')
 
 
