@@ -102,25 +102,58 @@ return{
 
         -----------------------------------------------[ @CMP_MENU_FORMATTING ]
         formatting = {
+
           -- changing the order of fields so the icon is the first
           fields = { 'menu', 'abbr', 'kind' },
+
           -- here is where the change happens
           format = function(entry, item)
-            local menu_icon = {
+            local menu_icons = {
               nvim_lsp = 'λ',
               luasnip = '⋗',
               buffer = 'Ω',
               path = '🖫',
               nvim_lua = 'Π',
             }
-            item.menu = menu_icon[entry.source.name]
+
+            item.menu = menu_icons[entry.source.name]
+
+            local kind_icons = {
+              Text = ' ',
+              Method = ' ',
+              Function = ' ',
+              Constructor = ' ',
+              Field = ' ',
+              Variable = ' ',
+              Class = ' ',
+              Interface = ' ',
+              Module = ' ',
+              Property = ' ',
+              Unit = ' ',
+              Value = ' ',
+              Enum = ' ',
+              Keyword = ' ',
+              Snippet = ' ',
+              Color = ' ',
+              File = ' ',
+              Reference = ' ',
+              Folder = ' ',
+              EnumMember = ' ',
+              Constant = ' ',
+              Struct = ' ',
+              Event = ' ',
+              Operator = ' ',
+              TypeParameter = ' ',
+            }
+
+            item.kind = (kind_icons[item.kind] or '') .. item.kind
+
             return item
           end,
-        },
 
+        },
       })
 
-      -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline({ '/', '?' }, {
         sources = {
           { name = 'buffer' }
