@@ -11,6 +11,13 @@ local function lsp_name()
   return '☰' -- 'LSP: '..clients[1].name
 end
 
+-- Recording Status
+local function recording()
+  local reg = vim.fn.reg_recording()
+  if reg == "" then return "" end -- not recording
+  return "󰑊 REC " .. reg
+end
+
 -- 'o:encoding': Don't display if encoding is UTF-8.
 local encoding = function()
   local ret, _ = (vim.bo.fenc or vim.go.enc):gsub("^utf%-8$", "")
@@ -44,11 +51,6 @@ return {
       icons_enabled = true,
       component_separators = '',
       section_separators = '',
-      refresh = {
-        statusline = 3000,
-        tabline = 3000,
-        winbar = 3000,
-      }
     },
 
     -- +-------------------------------------------------------------------+ --
@@ -95,8 +97,15 @@ return {
 
     tabline = {
 
-      lualine_a = {},
-      lualine_b = {},
+      lualine_a = {
+        {
+          recording,
+          separator = { left = '', right = '' },
+          color = { fg = "#ffffff", bg = "#ff2b00" }
+        }
+      },
+      lualine_b = {
+      },
       lualine_c = {'selectioncount'},
       lualine_x = {},
       lualine_y = {
