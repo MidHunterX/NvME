@@ -41,24 +41,76 @@ return{
         ---------------------------------------------------[ @CMP_KEY_MAPPING ]
 
         mapping = cmp.mapping.preset.insert({
+
+          -- =================[ AUTOCOMPLETION BEHAVIOURS ]================= --
+
           ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
           ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 'c'}),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-e>'] = cmp.mapping(cmp.mapping.abort(), {'i', 'c'}),
 
-          -- NEO SUPER TAB
-          ["<Tab>"] = cmp.mapping(function()
+          -- =====================[ ITEM CONFIRMATION ]===================== --
+
+          -- O TO DISABLE MENU (ONLY IF SELECTED)
+          ["o"] = cmp.mapping(function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.abort()
+            else
+              fallback()
+            end
+          end, { "i", "c" }),
+
+          -- I TO CONFIRM (ONLY IF SELECTED)
+          ["i"] = cmp.mapping(function(fallback)
+            if cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+            else
+              fallback()
+            end
+          end, { "i", "c" }),
+
+          -- RET TO CONFIRM (ONLY IF SELECTED)
+          ["<CR>"] = cmp.mapping(function(fallback)
+              if cmp.visible() and cmp.get_active_entry() then
+                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+              else
+                fallback()
+              end
+            end, { "i", "c" }),
+
+          -- ======================[ ITEM SELECTION ]====================== --
+
+          -- DOWN TO SELECT NEXT ITEM
+          ["<Down>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
-            elseif luasnip.jumpable(1) then
+            else
+              fallback()
+            end
+          end, { "i", "c" }),
+
+          -- UP TO SELECT PREVIOUS ITEM
+          ["<Up>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              fallback()
+            end
+          end, { "i", "c" }),
+
+          -- SUPER TAB (FOR NEOTAB)
+          ["<Tab>"] = cmp.mapping(function()
+            if luasnip.jumpable(1) then
               luasnip.jump(1)
+            elseif cmp.visible() then
+              cmp.select_next_item()
             else
               neotab.tabout()
             end
           end, { "i", "c" }),
 
-          -- -- SUPER TAB
+          -- -- SUPER TAB (WITH TAB FALLBACK)
           -- ["<Tab>"] = cmp.mapping(function(fallback)
           --   if cmp.visible() then
           --     cmp.select_next_item()
@@ -71,23 +123,14 @@ return{
 
           -- SUPER SHIFT TAB
           ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
+            if luasnip.jumpable(-1) then
               luasnip.jump(-1)
+            elseif cmp.visible() then
+              cmp.select_prev_item()
             else
               fallback()
             end
           end, { "i", "c" }),
-
-          -- CONFIRM ONLY IF SELECTED
-          ["<CR>"] = cmp.mapping(function(fallback)
-              if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-              else
-                fallback()
-              end
-            end, { "i", "c" }),
 
         }),
 

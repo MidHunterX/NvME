@@ -79,56 +79,51 @@ Useful when doing substitution based on line numbers.
 == 📝 Autocompletion Behaviour
 
 * Autocompletion suggestions keep popping while typing
-* If the suggestion box is visible, you can do the following
-* Select Next entries with: `TAB`, `C-n`
-* Select Previous entries with: `S-TAB`, `C-p`
-* Accept an entry with `CR` / `RET`
-* Cancel Completion with `C-e`
+* If the suggestion box is visible, you can do the following:
+* Select Next entries with: `TAB`, `C-n`, `Down`
+* Select Previous entries with: `S-TAB`, `C-p`, `Up`
+* Accept an entry with `CR`, `i`
+* Cancel Completion with `C-e`, `o`
 
-🤔 Maybe VSCode like `DOWN` to select and `TAB` to complete might be better?
+If Snippet is active, `TAB` & `S-Tab` is reserved for jumping snippets.
 
-.`Show Alternative Behaviours (Not Included)`
+.`Show Completion Workflows`
 [%collapsible]
 ====
 
 [discrete]
 === Autocompletion: Terminal Style
-
 [source,yaml]
 ----
 Select: Tab, S-Tab
 Accept: Enter
 ----
 
-* ✅ Integrates very well into how terminal autocompletion works
-* ❌ Can create a conflict while using tab jumps on snippets
-
 [discrete]
 === Autocompletion: Ide Style
-
 [source,yaml]
 ----
 Select: Down, Up
-Accept: Tab
+Accept: Enter
 ----
 
-* ✅ Does not conflict with other keys since arrows are used less
-* ❌ Uncomfortable if you are touch typing
-
 [discrete]
-=== Autocompletion: Native Vim Style
-
+=== Autocompletion: Vim / Emacs Style
 [source,yaml]
 ----
 Select: C-n, C-p
-Accept: C-i
-Reject: C-o
+Accept: Enter
+Reject: C-e
 ----
 
-* ✅ Integrates well into how Vim works + TMUX
-* ✅ Can autocomplete without expanding with space
-* ✅ Comfortable on a QWERTY keyboard layout
-* ❌ Can be a little bit confusing initially but doesn't cause any conflicts
+[discrete]
+=== Autocompletion: Personal Style
+[source,yaml]
+----
+Select: Down, Up / Tab, S-Tab
+Accept: i
+Reject: o
+----
 
 ====
 
