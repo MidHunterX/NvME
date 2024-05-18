@@ -87,6 +87,58 @@ Useful when doing substitution based on line numbers.
 
 🤔 Maybe VSCode like `DOWN` to select and `TAB` to complete might be better?
 
+.Alternative Behaviour Implementations
+[%collapsible]
+====
+
+=== Autocompletion: Terminal Style
+
+[source,yaml]
+----
+Select: Tab, S-Tab
+Accept: Enter
+----
+
+* ✅ Integrates very well into how terminal autocompletion works
+* ❌ Can create a conflict while using tab jumps on snippets
+
+=== Autocompletion: Ide Style
+
+[source,yaml]
+----
+Select: Down, Up
+Accept: Tab
+----
+
+* ✅ Does not conflict with other keys since arrows are used less
+* ❌ Uncomfortable if you are touch typing
+
+=== Autocompletion: Emacs Style
+
+[source,yaml]
+----
+Select: C-n, C-p
+Accept: Space
+----
+
+* ✅ Comfortable on a QWERTY layout
+* ❌ Cannot autocomplete without expanding with space
+
+=== Autocompletion: Vim+Emacs
+
+[source,yaml]
+----
+Select: C-n, C-p
+Accept: C-i
+Reject: C-o
+----
+
+* ✅ Integrates well into how Vim works + TMUX
+* ✅ Can autocomplete without expanding with space
+* ✅ Comfortable on a QWERTY keyboard layout
+
+====
+
 == 🛂 Custom Features
 
 * Toggle Boolean Values with `C-a`
