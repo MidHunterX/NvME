@@ -87,7 +87,7 @@ Useful when doing substitution based on line numbers.
 
 🤔 Maybe VSCode like `DOWN` to select and `TAB` to complete might be better?
 
-.`Alternative Behaviour Implementations`
+.`Show Alternative Behaviours (Not Included)`
 [%collapsible]
 ====
 
@@ -116,19 +116,7 @@ Accept: Tab
 * ❌ Uncomfortable if you are touch typing
 
 [discrete]
-=== Autocompletion: Emacs Style
-
-[source,yaml]
-----
-Select: C-n, C-p
-Accept: Space
-----
-
-* ✅ Comfortable on a QWERTY layout
-* ❌ Cannot autocomplete without expanding with space
-
-[discrete]
-=== Autocompletion: Vim+Emacs
+=== Autocompletion: Native Vim Style
 
 [source,yaml]
 ----
@@ -140,6 +128,7 @@ Reject: C-o
 * ✅ Integrates well into how Vim works + TMUX
 * ✅ Can autocomplete without expanding with space
 * ✅ Comfortable on a QWERTY keyboard layout
+* ❌ Can be a little bit confusing initially but doesn't cause any conflicts
 
 ====
 
