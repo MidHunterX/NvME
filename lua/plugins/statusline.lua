@@ -62,13 +62,13 @@ return {
       lualine_a = {
         {
           'mode',
-          separator = { left = '' },
+          separator = { left = '', right = '' },
           -- fmt = function(str) return str:sub(1,3) end,
-          padding = { left = 1, right = 2 }
+          padding = { left = 1, right = 1 }
         },
       },
       lualine_b = {
-        { 'branch', separator = { right = '' }, draw_empty = true, },
+        { 'branch', separator = { right = '' }, draw_empty = true, },
       },
       lualine_c = {
         'filename',
@@ -83,10 +83,10 @@ return {
         'filetype',
       },
       lualine_y = {
-        { 'progress', separator = { left = '' }},
+        { 'progress', separator = { left = '' }},
       },
       lualine_z = {
-        { 'location', separator = { right = '' }},
+        { 'location', separator = { left = '', right = '' }},
       },
 
     },
@@ -98,6 +98,7 @@ return {
     tabline = {
 
       lualine_a = {
+        {'searchcount', separator = { left = '', right = '' }},
         {
           recording,
           separator = { left = '', right = '' },
