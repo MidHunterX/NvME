@@ -44,6 +44,11 @@ return {
       icons_enabled = true,
       component_separators = '',
       section_separators = '',
+      refresh = {
+        statusline = 3000,
+        tabline = 3000,
+        winbar = 3000,
+      }
     },
 
     -- +-------------------------------------------------------------------+ --
@@ -92,9 +97,11 @@ return {
 
       lualine_a = {},
       lualine_b = {},
-      lualine_c = {},
+      lualine_c = {'selectioncount'},
       lualine_x = {},
-      lualine_y = {lsp_name},
+      lualine_y = {
+        { lsp_name, separator = { left = '' }, draw_empty = true },
+      },
       lualine_z = {
         -- Returns initial 4 characters of filename because:
         -- I only need a simple visual id for quickly recognizing buffers.
@@ -108,15 +115,10 @@ return {
             directory =  '',
             alternate_file = '',
           },
-          separator = { left = '', right = '' },
-          component_separators = { right = '/' },
-          section_separators = { left = '', right = '' },
-          -- section_separators = { left = '', right = '' },
-          -- component_separators = { left = '', right = '' }
-          -- section_separators = { left = '', right = '' },
-          -- component_separators = { right = '/' },
-          -- section_separators = { left = '', right = '' },
-          -- component_separators = { left = '', right = '' },
+          -- Source: Nerdfont ple-.*
+          separator = { left = '', right = '' },
+          component_separators = { right = '' },
+          section_separators = { left = '', right = '' },
         },
       }
 
