@@ -12,19 +12,22 @@ return {
       desc = "Telescope Undo Tree"
     },
   },
-  config = function()
-    require("telescope").setup({
-      extensions = {
-        undo = {
-          side_by_side = true,
-          layout_config = {
-            preview_height = 0.8,
-          },
-        },
+
+  opts = {
+    extensions = {
+      undo = {
+        side_by_side = true,
+        -- layout_strategy = "vertical",
+        -- layout_config = {
+        --   preview_height = 0.8,
+        -- },
       },
-    })
+    },
+  },
+
+  config = function(_, opts)
+    require("telescope").setup(opts)
     require("telescope").load_extension("undo")
-    -- optional: vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>")
-  end
+  end,
 
 }
