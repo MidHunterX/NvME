@@ -54,7 +54,7 @@ function WriteFile()
   vim.cmd('w')
 end
 
-vim.keymap.set("n", "<leader>w", ":lua WriteFile()<CR>")
+vim.keymap.set("n", "<leader>w", "<cmd>lua WriteFile()<CR>")
 
 
 -- ========================== [ @GIT_COMMIT_ALL ] ========================== --
