@@ -1,13 +1,11 @@
 image:./img/header_2.jpg[]
 
-= HunterX PDE
-Personal Development Environment for *ME*
+= NvME
+/ˈɛnvi mi:/
 
-A meticulously curated personalized NeoVim distribution crafted solely for *ME*
-with every features designed to offer 100% comfort and unparalleled efficiency
-for *ME*. It's a sanctuary where every keystroke feels intuitive, every plugin
-seamlessly integrated, and every aspect finely tuned to cater *ME* unique
-workflow.
+A **ME**ticulous **ME**-the**ME**d, bespoke nvim distribution, crafted
+solely for **ME** with every feature configured to offer supre**ME** comfort
+for **ME** and finely tuned to comple**ME**nt **ME** workflow im**ME**nsely.
 
 == ⚡ Requirements
 
@@ -39,15 +37,15 @@ sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
 .bash / zsh
 [source,bash]
 ----
-D=~/.config/nvim;if [ -d $D ]; then mv $D ${D}_backup/;fi
-git clone https://github.com/MidHunterX/HunterX-PDE $D --depth 1 && nvim
+ME=~/.config/nvim;if [ -d $ME ]; then mv $ME ${ME}_backup/;fi
+git clone https://github.com/MidHunterX/HunterX-PDE $ME --depth 1 && nvim
 ----
 
 .fish
 [source,fish]
 ----
-set D ~/.config/nvim; test -d $D; and mv $D {$D}_backup
-git clone https://github.com/MidHunterX/HunterX-PDE $D --depth 1 && nvim
+set ME ~/.config/nvim; test -d $ME; and mv $ME {$ME}_backup
+git clone https://github.com/MidHunterX/HunterX-PDE $ME --depth 1 && nvim
 ----
 
 === 🪟 Windows
