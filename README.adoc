@@ -222,6 +222,8 @@ Reject: o
 
 == 🔌 Plugins
 
+image:./img/nvim_plugins.jpg[]
+
 * Navigate through code Functions/Methods with `aerial.nvim`
 * Lazy Loading Plugin Manager `lazy.nvim`
 * Autoclosing Braces and Tags with `nvim-autopairs`
