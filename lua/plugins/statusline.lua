@@ -15,7 +15,7 @@ end
 local function recording()
   local reg = vim.fn.reg_recording()
   if reg == "" then return "" end -- not recording
-  return "󰑊 REC " .. reg
+  return "󰑊 REC @" .. reg
 end
 
 -- 'o:encoding': Don't display if encoding is UTF-8.
@@ -35,6 +35,11 @@ local fileformat = function()
   return icons[ret] or ret
 end
 
+-- Colorscheme Custom Colors
+local customcat = require'lualine.themes.catppuccin-macchiato'
+-- customcat.inactive.a.bg = '#282828'
+
+
 -- ------------------------------------------------------------------------- --
 --                               RETURN CONFIG                               --
 -- ------------------------------------------------------------------------- --
@@ -48,6 +53,7 @@ return {
   opts = {
 
     options = {
+      theme = customcat,
       icons_enabled = true,
       component_separators = '',
       section_separators = '',
