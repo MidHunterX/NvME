@@ -85,14 +85,14 @@ function Execute_order_69()
   if file_type == 'python' then
     vim.cmd(':vs')
     vim.cmd(':term python %')
-  -- HTML SERVER
+    -- HTML SERVER
   elseif file_type == "html" then
     vim.cmd(":term live-server --no-browser")
-  -- BASH SCRIPT
+    -- BASH SCRIPT
   elseif file_type == "sh" then
     vim.cmd(':vs')
     vim.cmd(":term bash %")
-  -- C PROGRAMMING LANGUAGE
+    -- C PROGRAMMING LANGUAGE
   elseif file_type == 'c' then
     vim.cmd(':vs')
     vim.cmd(":term gcc % && ./a.out")
@@ -134,7 +134,7 @@ function Run_formatter()
   -- pip Black Formatter: Python
   if file_type == "python" then
     vim.cmd("silent !black " .. vim.fn.shellescape(vim.fn.expand("%")))
-  -- npm Prettier Formatter: Web Development
+    -- npm Prettier Formatter: Web Development
   elseif is_filetype_in_list(file_type, list_prettier) then
     vim.cmd("silent !prettier --write " .. vim.fn.shellescape(vim.fn.expand("%")))
   else
