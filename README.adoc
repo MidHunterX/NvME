@@ -1,11 +1,23 @@
-image:./img/header_2.jpg[]
-
 = NvME
 /ˈɛnvi mi:/
 
 A **ME**ticulous **ME**-the**ME**d, bespoke nvim distribution, crafted
 solely for **ME** with every feature configured to offer supre**ME** comfort
 for **ME** and finely tuned to comple**ME**nt **ME** workflow im**ME**nsely.
+
+== 📷 Show Screenshots
+
+.Dashboard Screen
+[%collapsible]
+====
+image:./img/nvim_dashboard.jpg[]
+====
+
+.Macro Record Status
+[%collapsible]
+====
+image:./img/nvim_record.jpg[]
+====
 
 == ⚡ Requirements
 
