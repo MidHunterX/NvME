@@ -25,4 +25,10 @@ return {
       desc = "Telescope Marks List"
     }
   },
+  opts = {
+    defaults = {
+      prompt_prefix = "   ",
+      selection_caret = "󱞩 ",
+    }
+  },
 }
