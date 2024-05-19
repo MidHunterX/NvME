@@ -71,6 +71,8 @@ image:./img/nvim_record.jpg[]
 
 == 😇 Behaviours
 
+image:./img/nvim_hitfont.jpg[]
+
 Yank into System Clipboard by Default::
 Less hastle when copy pasting between windows frequently.
 
@@ -95,6 +97,8 @@ Buffer list is not needed at all times, therefore it doesn't have that much
 importance to interfering with the code in buffer.
 
 == 📝 Autocompletion Behaviour
+
+image:./img/nvim_cmp.jpg[]
 
 * Autocompletion suggestions keep popping while typing
 * If the suggestion box is visible, you can do the following:
