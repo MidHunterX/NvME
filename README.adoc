@@ -57,21 +57,17 @@ git clone https://github.com/MidHunterX/HunterX-PDE $ME --depth 1 && nvim
 git clone https://github.com/MidHunterX/HunterX-PDE %%localappdata\nvim --depth 1 && nvim
 ----
 
-== 🛂 Custom Features
+== 😇 Behaviours
 
 image:./img/nvim_record.jpg[]
 
-* Macro Record Status
-* Toggle Boolean Values with `C-a`
-* Trim trailing lines and Write Buffer with `<leader>w`
-* Git add . + commit -m with `<leader>gc` (Replaced with Lazygit)
-* Execute files with `F5` or `:lua Execute_order_69()`
-* Run file formatter with `<leader>fm` or `:lua Run_formatter()`
-* Convert text to Hit Font with `:HitFont`
+Important Stuff on Top Left Side::
+Macro Record Status posess high importance until recording is stopped.
+Therefore it stays on left side only for the time being recorded for a macro.
 
-== 😇 Behaviours
-
-image:./img/nvim_hitfont.jpg[]
+Less Important Stuff on Top Right Side::
+Buffer list is not needed at all times, therefore it doesn't have that much
+importance to interfering with the code in buffer.
 
 Yank into System Clipboard by Default::
 Less hastle when copy pasting between windows frequently.
@@ -88,13 +84,16 @@ That's the only time you need Relative Line Numbers for Jumping Lines.
 Show Normal Line Number on Insert Mode::
 Useful when doing substitution based on line numbers.
 
-Important Stuff on Top Left Side::
-Macro Record Status posess high importance until recording is stopped.
-Therefore it stays on left side only for the time being recorded for a macro.
+== 🛂 Custom Features
 
-Less Important Stuff on Top Right Side::
-Buffer list is not needed at all times, therefore it doesn't have that much
-importance to interfering with the code in buffer.
+image:./img/nvim_hitfont.jpg[]
+
+* Convert text to Hit Font with `:HitFont`
+* Toggle Boolean Values with `C-a`
+* Trim trailing lines and Write Buffer with `<leader>w`
+* Git add . + commit -m with `<leader>gc` (Replaced with Lazygit)
+* Execute files with `F5` or `:lua Execute_order_69()`
+* Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
 == 📝 Autocompletion Behaviour
 
