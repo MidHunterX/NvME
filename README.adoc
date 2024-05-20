@@ -67,7 +67,7 @@ Therefore it stays on left side only for the time being recorded for a macro.
 
 Less Important Stuff on Top Right Side::
 Buffer list is not needed at all times, therefore it doesn't have that much
-importance to interfering with the code in buffer.
+importance to interfere with the code in buffer.
 
 Yank into System Clipboard by Default::
 Less hastle when copy pasting between windows frequently.

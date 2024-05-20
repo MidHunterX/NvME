@@ -1,3 +1,22 @@
+local function abort_if_selected(fallback)
+  local cmp = require("cmp")
+  if cmp.visible() and cmp.get_active_entry() then
+    cmp.abort()
+  else
+    fallback()
+  end
+end
+
+local function confirm_if_selected(fallback)
+  local cmp = require("cmp")
+  if cmp.visible() and cmp.get_active_entry() then
+    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+  else
+    fallback()
+  end
+end
+
+
 return{
   --=====================================================[ @COMPLETION_ENGINE ]
   -- AutoCompletion engine for external source
@@ -52,54 +71,30 @@ return{
 
           -- =====================[ ITEM CONFIRMATION ]===================== --
 
-          -- O TO DISABLE MENU (ONLY IF SELECTED)
-          ["o"] = cmp.mapping(function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.abort()
-            else
-              fallback()
-            end
-          end, { "i", "c" }),
+          -- DISABLE CMP MENU (ONLY IF SELECTED)
+          ["o"] = cmp.mapping(abort_if_selected,{"i","c"}),
+          ["<C-o>"] = cmp.mapping(abort_if_selected,{"i","c"}),
 
-          -- I TO CONFIRM (ONLY IF SELECTED)
-          ["i"] = cmp.mapping(function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-            else
-              fallback()
-            end
-          end, { "i", "c" }),
-
-          -- RET TO CONFIRM (ONLY IF SELECTED)
-          ["<CR>"] = cmp.mapping(function(fallback)
-              if cmp.visible() and cmp.get_active_entry() then
-                cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-              else
-                fallback()
-              end
-            end, { "i", "c" }),
+          -- CONFIRM ITEM (ONLY IF SELECTED)
+          ["i"] = cmp.mapping(confirm_if_selected,{"i","c"}),
+          ["<C-i>"] = cmp.mapping(confirm_if_selected,{"i","c"}),
+          ["<CR>"] = cmp.mapping(confirm_if_selected,{"i","c"}),
 
           -- ======================[ ITEM SELECTION ]====================== --
 
           -- DOWN TO SELECT NEXT ITEM
-          ["<Down>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-              cmp.select_next_item()
-            else
-              fallback()
-            end
-          end, { "i", "c" }),
+          ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(),{"i","c"}),
 
-          -- UP TO SELECT PREVIOUS ITEM
+          -- UP TO SELECT PREVIOUS ITEM (ONLY IF SELECTED)
           ["<Up>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
+            if cmp.visible() and cmp.get_active_entry() then
               cmp.select_prev_item()
             else
               fallback()
             end
           end, { "i", "c" }),
 
-          -- SUPER TAB (FOR NEOTAB)
+          -- SUPER NEO TAB
           ["<Tab>"] = cmp.mapping(function()
             if luasnip.jumpable(1) then
               luasnip.jump(1)
@@ -109,17 +104,6 @@ return{
               neotab.tabout()
             end
           end, { "i", "c" }),
-
-          -- -- SUPER TAB (WITH TAB FALLBACK)
-          -- ["<Tab>"] = cmp.mapping(function(fallback)
-          --   if cmp.visible() then
-          --     cmp.select_next_item()
-          --   elseif luasnip.expand_or_jumpable() then
-          --     luasnip.expand_or_jump()
-          --   else
-          --     fallback()
-          --   end
-          -- end, { "i", "c" }),
 
           -- SUPER SHIFT TAB
           ["<S-Tab>"] = cmp.mapping(function(fallback)
