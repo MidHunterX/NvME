@@ -17,6 +17,7 @@ return {
       ["i"] = "actions.jump",
       ["q"] = "actions.close",
       ["x"] = "actions.close",
+      ["o"] = "actions.close",
     },
     backends = { "treesitter", "lsp", "markdown", "asciidoc", "man" },
     layout = {
