@@ -22,7 +22,7 @@ return {
       view_error = "notify",
       view_warn = "notify",
       view_history = "messages",
-      view_search = "virtualtext", -- Set to `false` to disable
+      view_search = false, -- false, "virtualtext"
     },
 
     popupmenu = {
