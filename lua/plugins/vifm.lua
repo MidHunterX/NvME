@@ -1,4 +1,7 @@
-vim.g.vifm_exec_args = "+'set vifminfo-=savedirs,dirstack'"
+local setting = "-c 'set vifminfo-=savedirs,dirstack,state,tui' "
+local command = "-c only"
+
+vim.g.vifm_exec_args = setting .. command
 
 return {
   "vifm/vifm.vim",
