@@ -102,7 +102,7 @@ function Execute_order_69()
 end
 
 -- Map <F5> to execute the function
-vim.cmd('nnoremap <F5> :lua Execute_order_69()<CR>')
+vim.cmd('nnoremap <F5> <Cmd>lua Execute_order_69()<CR>')
 
 
 --=============================[ @FORMAT_FILES ]=============================--
@@ -143,4 +143,4 @@ function Run_formatter()
 end
 
 -- Map <leader>fm to execute the function
-vim.cmd('nnoremap <leader>fm :lua Run_formatter()<CR>')
+vim.cmd('nnoremap <leader>fm <Cmd>lua Run_formatter()<CR>')
