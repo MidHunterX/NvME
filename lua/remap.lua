@@ -7,8 +7,8 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 ------------------------------------------------------ Redo: Undo inverse [ U ]
 vim.keymap.set("n", "U", "<C-r>")
 --------------------------------------------- Move line with autoindent [ J/K ]
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { silent = true } )
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true } )
 ----------------------------------------- Indent without leaving Visual [ </> ]
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
