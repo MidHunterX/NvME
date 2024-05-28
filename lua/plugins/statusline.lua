@@ -2,13 +2,35 @@
 --                             CUSTOM FUNCTIONS                             --
 -- ------------------------------------------------------------------------ --
 
--- Buffer Attached LSP Server
+-- LSP Server Attach Status
 local function lsp_name()
-  local clients = vim.lsp.get_active_clients()
-  if next(clients) == nil then
-    return ''
+  -- local clients = vim.lsp.get_active_clients()  -- Deprecated
+  local clients = vim.lsp.get_clients()
+  local buffer = vim.api.nvim_get_current_buf()
+
+  -- -- SHOW CURRENTLY ATTACHED LSP NAME (VERY DISTRACTING)
+  -- for _, client in pairs(clients) do
+  --   local attached = vim.lsp.buf_is_attached(buffer, client.id)
+  --   if attached then
+  --     return '☰ ' .. client.name -- Currently attached LSP server name
+  --   end
+  -- end
+
+  -- SHOW AN ICON IF LSP IS ATTACHED ON CURRENT BUFFER (MUCH BETTER)
+  for _, client in pairs(clients) do
+    local attached = vim.lsp.buf_is_attached(buffer, client.id)
+    if attached then
+      return '☰' -- LSP server attached on current buffer
+    end
   end
-  return '☰' -- 'LSP: '..clients[1].name
+  return '' -- No LSP servers loaded at all
+
+  -- -- SHOW ICON IF LSP IS ATTACHED ON ANY BUFFER (LESS RESOURCE INTENSIVE?)
+  -- if next(clients) == nil then
+  --   return '' -- No LSP servers loaded at all
+  -- end
+  -- return '☰' -- When some LSP server is loaded
+
 end
 
 -- Recording Status
