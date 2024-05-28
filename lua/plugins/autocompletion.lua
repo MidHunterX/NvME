@@ -36,6 +36,7 @@ return{
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
 
         sources = cmp.config.sources({
+          { name = 'path' },
           {
             name = 'luasnip',
             -- Doesn't trigger keyword/snippet completion inside string
@@ -45,10 +46,8 @@ return{
             end,
           },
           { name = 'nvim_lsp' },
-        }, {
-            { name = 'buffer' },
-            { name = 'path' },
-          }),
+          { name = 'buffer' },
+        }),
 
         --------------------------------------------------[ @CMP_MENU_BORDERS ]
 
