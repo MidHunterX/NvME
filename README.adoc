@@ -19,6 +19,7 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 * *lazygit*: Git UI
 * *python*: For Python Language Server & Black Formatter
 * *nodejs*: For other Language Servers and Formatters
+* *live-server* (npm): For local HTML Server
 
 === Install Requirements
 
@@ -26,6 +27,7 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 [source,bash]
 ----
 sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
+sudo npm install -g live-server
 ----
 
 == 🚀 Installation
