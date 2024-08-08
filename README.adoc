@@ -103,12 +103,12 @@ image:./img/nvim_cmp.jpg[]
 
 * Autocompletion suggestions keep popping while typing
 * If the suggestion box is visible, you can do the following:
-* Select Next entries with: `TAB`, `C-n`, `Down`
-* Select Previous entries with: `S-TAB`, `C-p`, `Up`
-* Accept an entry with `CR`, `i`
-* Cancel Completion with `C-e`, `o`
+* Select Next entries with: `C-n`, `Down`
+* Select Previous entries with: `C-p`, `Up`
+* Accept an entry with `CR`, `i`, `C-i`
+* Cancel Completion with `C-e`, `o`, `C-o`
 
-If Snippet is active, `TAB` & `S-Tab` is reserved for jumping snippets.
+If selected entry is a snippet, use `TAB` & `S-Tab` for jumping around.
 
 .`Show Completion Workflows`
 [%collapsible]

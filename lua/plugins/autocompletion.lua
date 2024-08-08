@@ -84,32 +84,21 @@ return{
           -- DOWN TO SELECT NEXT ITEM
           ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(),{"i","c"}),
 
-          -- UP TO SELECT PREVIOUS ITEM (ONLY IF SELECTED)
-          ["<Up>"] = cmp.mapping(function(fallback)
-            if cmp.visible() and cmp.get_active_entry() then
-              cmp.select_prev_item()
-            else
-              fallback()
-            end
-          end, { "i", "c" }),
+          -- UP TO SELECT PREVIOUS ITEM
+          ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(),{"i","c"}),
 
-          -- SUPER NEO TAB
+          -- TAB TO JUMP SNIPPETS OR TABOUT
           ["<Tab>"] = cmp.mapping(function()
             if luasnip.jumpable(1) then
               luasnip.jump(1)
-            elseif cmp.visible() then
-              cmp.select_next_item()
             else
               neotab.tabout()
             end
           end, { "i", "c" }),
 
-          -- SUPER SHIFT TAB
           ["<S-Tab>"] = cmp.mapping(function(fallback)
             if luasnip.jumpable(-1) then
               luasnip.jump(-1)
-            elseif cmp.visible() then
-              cmp.select_prev_item()
             else
               fallback()
             end
