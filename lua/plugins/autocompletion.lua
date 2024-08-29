@@ -87,10 +87,12 @@ return{
           -- UP TO SELECT PREVIOUS ITEM
           ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(),{"i","c"}),
 
-          -- TAB TO JUMP SNIPPETS OR TABOUT
+          -- TAB TO JUMP SNIPPETS OR SELECT OR TABOUT
           ["<Tab>"] = cmp.mapping(function()
             if luasnip.jumpable(1) then
               luasnip.jump(1)
+            elseif cmp.visible() and cmp.get_active_entry() then
+              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
             else
               neotab.tabout()
             end
