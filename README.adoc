@@ -245,6 +245,7 @@ image:./img/nvim_plugins.jpg[]
 * Change, Delete surrounding brackets or quotes quickly with `nvim-surround`
 * Fuzzy search project files, Grep text search etc. with `telescope.nvim`
 * Navigate through undo history tree with `telescope-undo.nvim`
+* ToDo, Bug, Hack comments highlighting with `todo-comments.nvim`
 * Convert, Manipulate and Pick Colors with `ccc.nvim`
 * Semantic based Syntax Highlighting with `nvim-treesitter`
 * See code context on top with `nvim-treesitter-context` instead of breadcrumbs
