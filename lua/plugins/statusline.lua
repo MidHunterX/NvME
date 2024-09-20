@@ -99,7 +99,16 @@ return {
         { 'branch', separator = { right = '' }, draw_empty = true, },
       },
       lualine_c = {
-        'filename',
+        {
+          'filename',
+          path = 1,
+          symbols = {
+            modified = '[+]',
+            readonly = '[-]',
+            unnamed = '[No Name]',
+            newfile = '[New]',
+          }
+        },
         { 'diff', symbols = {added = ' ', modified = ' ', removed = ' '} },
         '%=',
         'diagnostics',
