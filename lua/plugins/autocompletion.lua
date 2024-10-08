@@ -27,11 +27,19 @@ return{
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       local neotab = require("neotab")
+      local cmp_buffer = require('cmp_buffer')
 
       -- Load friendly snippet using LuaSnip loader
       require('luasnip.loaders.from_vscode').lazy_load()
 
       cmp.setup({
+
+        performance = {
+          enabled = true,
+          debounce = 0, -- 60ms
+          throttle = 0, -- 30ms
+          max_view_entries = 20,
+        },
 
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
 
@@ -46,8 +54,28 @@ return{
             end,
           },
           { name = 'nvim_lsp' },
-          { name = 'buffer' },
+          {
+            name = 'buffer',
+            -- Disable buffer completion on large files (e.g., > 1 MB)
+            option = {
+              get_bufnrs = function()
+                local buf = vim.api.nvim_get_current_buf()
+                local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
+                if byte_size > 1024 * 1024 then -- 1 Megabyte max
+                  return {}
+                end
+                return { buf }
+              end,
+            },
+          },
         }),
+
+        sorting = {
+          comparators = {
+            -- Locality bonus comparator (distance-based sorting)
+            function(...) return cmp_buffer:compare_locality(...) end,
+          }
+        },
 
         --------------------------------------------------[ @CMP_MENU_BORDERS ]
 
