@@ -54,9 +54,16 @@ git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
 
 * Suggested Compiler: *Zig Compiler*
 
+.powershell
+[source,pwsh]
+----
+git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim --depth 1; nvim
+----
+
+.cmd
 [source,cmd]
 ----
-git clone https://github.com/MidHunterX/NvME %%localappdata\nvim --depth 1 && nvim
+git clone https://github.com/MidHunterX/NvME %localappdata%\nvim --depth 1 && nvim
 ----
 
 == 🌱 Development Environment Setup
