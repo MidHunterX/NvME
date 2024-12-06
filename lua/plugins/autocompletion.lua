@@ -32,13 +32,16 @@ return{
       -- Load friendly snippet using LuaSnip loader
       require('luasnip.loaders.from_vscode').lazy_load()
 
+      -- Get html + htmldjango completion together
+      luasnip.filetype_extend("htmldjango", { "html" })
+
       cmp.setup({
 
         performance = {
           enabled = true,
           debounce = 0, -- 60ms
           throttle = 0, -- 30ms
-          max_view_entries = 20,
+          max_view_entries = 30,
         },
 
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
@@ -56,6 +59,7 @@ return{
           { name = 'nvim_lsp' },
           {
             name = 'buffer',
+            max_item_count = 7,
             -- Disable buffer completion on large files (e.g., > 1 MB)
             option = {
               get_bufnrs = function()
@@ -155,9 +159,9 @@ return{
           format = function(entry, item)
             local menu_icons = {
               nvim_lsp = 'λ',
-              luasnip = '⋗',
-              buffer = 'Ω',
-              path = '🖫',
+              luasnip = '󰢱',
+              buffer = '',
+              path = '󰘍',
               nvim_lua = 'Π',
             }
 

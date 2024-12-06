@@ -38,7 +38,11 @@ return {
         enable = true,
         additional_vim_regex_highlighting = false,
       },
-      indent = { enable = true, disable = { "yaml" } },
+      indent = {
+        enable = true,
+        -- NOTE: enabling indentation significantly slows down editing in Dart files
+        disable = { "yaml", "dart" }
+      },
       modules = {},
       ignore_install = {},
       incremental_selection = {
