@@ -30,7 +30,9 @@ sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
 sudo npm install -g live-server
 ----
 
-== 🚀 Installation
+== 🚀 Install (backups prev config if any)
+
+If any config is already present, it backups your config and puts NvME in place.
 
 === 🐧 Linux
 
@@ -39,7 +41,7 @@ sudo npm install -g live-server
 .bash / zsh
 [source,bash]
 ----
-ME=~/.config/nvim;if [ -d $ME ]; then mv $ME ${ME}_backup/;fi
+ME=~/.config/nvim; [ -d $ME ] && mv $ME ${ME}_backup/
 git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
 ----
 
@@ -66,6 +68,22 @@ git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim --depth 1; n
 git clone https://github.com/MidHunterX/NvME %localappdata%\nvim --depth 1 && nvim
 ----
 
+== 🚶 Uninstall (go back to previous config if exists)
+
+Uninstalls NvME and returns back to previous config if any.
+
+.bash / zsh
+[source,bash]
+----
+ME=~/.config/nvim; [ -d $ME ] && rm -rf $ME && mv ${ME}_backup/ $ME
+----
+
+.fish
+[source,fish]
+----
+set ME ~/.config/nvim; test -d $ME && rm -rf $ME; and mv ${ME}_backup/ $ME
+----
+
 == 🌱 Development Environment Setup
 
 === Python Django
@@ -76,6 +94,13 @@ git clone https://github.com/MidHunterX/NvME %localappdata%\nvim --depth 1 && nv
 
 ----
 pip install django-stubs
+----
+
+=== Flutter
+
+----
+sudo pacman -S jdk21-openjdk
+sudo archlinux-java set java-21-openjdk
 ----
 
 == 😇 Behaviours
