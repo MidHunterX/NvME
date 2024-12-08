@@ -38,15 +38,17 @@ vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>")
 vim.keymap.set("n", "ghh", "<Cmd>Gitsigns preview_hunk<CR>")
 vim.keymap.set("n", "ghn", "<Cmd>Gitsigns next_hunk<CR>")
 vim.keymap.set("n", "ghp", "<Cmd>Gitsigns prev_hunk<CR>")
+vim.keymap.set("n", "ghb", "<Cmd>Gitsigns blame_line<CR>")
+vim.keymap.set("n", "ght", "<Cmd>Gitsigns toggle_current_line_blame<CR>")
 
 
 --============================[ WINDOWS REMAPS ]============================--
 
 --------------------------------------------------------- Select all [ Ctrl a ]
--- vim.keymap.set("n", "<C-a>", "ggVG")
+-- vim.keymap.set("n", "<C-a>", "ggVG")  -- Conflicts with C-a Increment
 ------------------------------------------------------ Save document [ Ctrl s ]
--- vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
--- vim.keymap.set("n", "<C-s>", ":w<CR>")
+vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
+vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 
 --=================================[ FIXES ]=================================--
