@@ -32,8 +32,9 @@ return{
       -- Load friendly snippet using LuaSnip loader
       require('luasnip.loaders.from_vscode').lazy_load()
 
-      -- Get html + htmldjango completion together
+      -- Combine snippets with other filetypes
       luasnip.filetype_extend("htmldjango", { "html" })
+      luasnip.filetype_extend("heex", { "html" })
 
       cmp.setup({
 
