@@ -82,6 +82,17 @@ return {
                 }
               }
             }
+
+            -- ELIXIR LANGUAGE SERVER
+          elseif server_name == 'elixirls' then
+            require("lspconfig")[server_name].setup{
+              cmd = { vim.fn.stdpath("data") .. "/mason/packages/elixir-ls/language_server.sh" };
+            }
+          elseif server_name == 'lexical' then
+            require("lspconfig")[server_name].setup{
+              cmd = { vim.fn.stdpath("data") .. "/mason/packages/lexical/lexical" };
+            }
+
             -- OTHER LANGUAGE SERVER AUTO CONFIG
           else
             require("lspconfig")[server_name].setup {
