@@ -17,8 +17,9 @@ vim.keymap.set("n", "<leader>rr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left>
 -------------------------------------------- Goto buffer in position [Alt J/K ]
 vim.keymap.set("n", "<A-h>", "<Cmd>bp<CR>")
 vim.keymap.set("n", "<A-l>", "<Cmd>bn<CR>")
-------------------------------------- Return to Normal in Terminal [ Ctrl w n ]
-vim.keymap.set("t", "<C-w>n", "<C-\\><C-n>")
+------------------------------------- Return to Normal in Terminal [ Ctrl n n ]
+-- <C-w> == <C-BS> == <C-h> (ASCII 0x17)
+vim.keymap.set("t", "<C-n>n", "<C-\\><C-n>")
 --------------------------------------------------------- Goto line start [ H ]
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("v", "H", "^")
