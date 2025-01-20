@@ -89,15 +89,13 @@ set ME ~/.config/nvim; test -d $ME && rm -rf $ME; and mv ${ME}_backup/ $ME
 
 === AI Code Completion
 
-I prefer it manually triggered (with `<C-,>`). unobtrusive AF
-
 * Authorize Codeium using:
 
 ----
 :Codeium Auth
 ----
 
-* Trigger and cycle with `<C-,>` and insert completion using `<C-i>`
+* Insert completion using `<C-f>` just like how it is done in fish shell
 
 === Python Django
 

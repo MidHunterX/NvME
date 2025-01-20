@@ -1,3 +1,5 @@
+-- Scope based indent highlighting
+
 return {
   "lukas-reineke/indent-blankline.nvim",
   main = "ibl",
