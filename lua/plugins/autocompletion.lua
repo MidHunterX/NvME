@@ -85,7 +85,11 @@ return{
         --------------------------------------------------[ @CMP_MENU_BORDERS ]
 
         window = {
-          completion = cmp.config.window.bordered(),
+          -- completion = cmp.config.window.bordered(),
+          completion =  cmp.config.window.bordered({
+            col_offset = -3,
+            side_padding = 1,
+          }),
           documentation = cmp.config.window.bordered(),
         },
 
@@ -152,21 +156,28 @@ return{
 
         -----------------------------------------------[ @CMP_MENU_FORMATTING ]
         formatting = {
-
-          -- changing the order of fields so the icon is the first
           fields = { 'menu', 'abbr', 'kind' },
 
-          -- here is where the change happens
           format = function(entry, item)
             local menu_icons = {
               nvim_lsp = 'λ',
-              luasnip = '󰢱',
+              luasnip = '󰯁',
               buffer = '',
               path = '󰘍',
               nvim_lua = 'Π',
             }
 
             item.menu = menu_icons[entry.source.name]
+
+            -- Placed here as path only needs source and icon
+            if vim.tbl_contains({ 'path' }, entry.source.name) then
+              local icon, hl_group = require('nvim-web-devicons').get_icon(entry:get_completion_item().label)
+              if icon then
+                item.kind = icon .. ' ' .. item.kind
+                item.kind_hl_group = hl_group
+                return item
+              end
+            end
 
             local kind_icons = {
               Text = ' ',
@@ -197,6 +208,13 @@ return{
             }
 
             item.kind = (kind_icons[item.kind] or '') .. item.kind
+
+            -- CUSTOM TREESITTER BASED COLORFUL CMP MENU
+            local highlights_info = require("colorful-menu").cmp_highlights(entry)
+            if highlights_info ~= nil then
+              item.abbr_hl_group = highlights_info.highlights
+              item.abbr = highlights_info.text
+            end
 
             return item
           end,
