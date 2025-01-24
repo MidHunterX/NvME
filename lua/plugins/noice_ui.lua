@@ -54,10 +54,11 @@ return {
     },
 
     presets = {
-      bottom_search = false,
-      command_palette = true,
-      long_message_to_split = false,
-      lsp_doc_border = true,
+      bottom_search = false,          -- classic bottom cmdline for search
+      command_palette = true,         -- position the cmdline and popupmenu
+      long_message_to_split = false,  -- long messages will be sent to a split
+      lsp_doc_border = true,          -- add a border to hover docs
+      inc_rename = true,              -- input dialog for inc-rename.nvim
     },
 
     routes = {
