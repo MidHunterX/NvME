@@ -16,6 +16,7 @@ return {
       go = { "goimports", "gofmt" },
       graphql = { "prettier" },
       html = { "prettier" },
+      htmldjango = { "djlint" },
       javascript = { "prettier", "prettierd", stop_after_first = true },
       javascriptreact = { "prettier" },
       json = { "prettier" },
@@ -44,6 +45,17 @@ return {
     formatters = {
       shfmt = {
         prepend_args = { "-i", "2" },
+      },
+      djlint = {
+        prepend_args = {
+          "--reformat",
+          "--indent", "2",
+          "--format-css", "--indent-css", "2",
+          "--format-js", "--indent-js", "2",
+          "--max-blank-lines", "5",
+          "--max-line-length", "120",
+          "--max-attribute-length", "120",
+        },
       },
     },
   },
