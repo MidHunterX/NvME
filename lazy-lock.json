@@ -49,5 +49,6 @@
   "treesj": { "branch": "main", "commit": "ec234a9a13d61a7b95900abdb02fabaea1afd9f3" },
   "twilight.nvim": { "branch": "main", "commit": "1584c0b0a979b71fd86b18d302ba84e9aba85b1b" },
   "vifm.vim": { "branch": "master", "commit": "e0810e94ca535340bf87c159777b182584471f3d" },
+  "which-key.nvim": { "branch": "main", "commit": "0e76a87ac51772569aec678dc74baa8e2a86100c" },
   "zen-mode.nvim": { "branch": "main", "commit": "863f150ca321b3dd8aa1a2b69b5f411a220e144f" }
 }
