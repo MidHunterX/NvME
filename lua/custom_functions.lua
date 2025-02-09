@@ -29,6 +29,9 @@ function M.Execute_order_69()
   elseif file_type == 'c' then
     vim.cmd(':vs')
     vim.cmd(":term gcc % && ./a.out")
+  elseif file_type == 'elixir' then
+    vim.cmd(':vs')
+    vim.cmd(":term elixir %")
   else
     print('This file?... Cannot run because no.')
   end
