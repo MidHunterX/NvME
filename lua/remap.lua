@@ -16,6 +16,7 @@ vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 ------------------------------------------ Find and Replace word [ <leader> r ]
 vim.keymap.set("n", "<leader>r", "*N")
+vim.keymap.set("v", "<leader>r", "y/<C-r>0<CR>N", { noremap = true, silent = true })
 ------------------------------------------- Erase "r" highlight [ <leader> er ]
 vim.keymap.set("n", "<leader>er", "<Cmd>noh<CR>")
 -------------------------------------------- Replace word Regex [ <leader> rr ]
