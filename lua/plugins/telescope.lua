@@ -23,7 +23,14 @@ return {
       "<CMD>Telescope marks<CR>",
       mode = "n",
       desc = "Telescope Marks List"
-    }
+    },
+    -- BUFFER LIST
+    {
+      "<leader>b",
+      "<CMD>Telescope buffers<CR>",
+      mode = "n",
+      desc = "Telescope Buffer List"
+    },
   },
   opts = {
     defaults = {
