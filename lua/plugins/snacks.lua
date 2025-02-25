@@ -30,6 +30,7 @@ return {
     { "<leader>u",       function() Snacks.picker.undo() end,                  desc = "Grep: Undo Tree" },
     { "<leader>su",      function() Snacks.picker.undo() end,                  desc = "Grep: Undo Tree" },
     -- git
+    { "<leader>gc",      function() Snacks.lazygit.open() end,                 desc = "Git: LazyGit (Commit)" },
     { "<leader>gb",      function() Snacks.picker.git_branches() end,          desc = "Git: Branches" },
     { "<leader>gl",      function() Snacks.picker.git_log() end,               desc = "Git: Log" },
     { "<leader>gs",      function() Snacks.picker.git_status() end,            desc = "Git: Status" },
@@ -54,6 +55,7 @@ return {
     scroll = { enabled = false },    -- It's so janky and limits your speed
     words = { enabled = false },     -- No use for it yet
 
+
     -- █▀█ █ █▀▀ █▄▀ █▀▀ █▀█
     -- █▀▀ █ █▄▄ █░█ ██▄ █▀▄
 
@@ -77,6 +79,7 @@ return {
         }
       }
     },
+
 
     -- █▀ ▀█▀ ▄▀█ ▀█▀ █░█ █▀ █▀▀ █▀█ █░░ █░█ █▀▄▀█ █▄░█
     -- ▄█ ░█░ █▀█ ░█░ █▄█ ▄█ █▄▄ █▄█ █▄▄ █▄█ █░▀░█ █░▀█
@@ -148,5 +151,6 @@ return {
         },
       },
     }
+
   },
 }

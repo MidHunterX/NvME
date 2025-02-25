@@ -1,3 +1,5 @@
+-- Reason: Replaced by Snacks.lazygit
+
 return {
   "kdheepak/lazygit.nvim",
   cmd = {

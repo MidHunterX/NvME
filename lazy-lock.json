@@ -19,7 +19,6 @@
   "inc-rename.nvim": { "branch": "main", "commit": "f9b9e5b9a75074810f40881b7e254b5bbeaf122e" },
   "indent-blankline.nvim": { "branch": "master", "commit": "e10626f7fcd51ccd56d7ffc00883ba7e0aa28f78" },
   "lazy.nvim": { "branch": "main", "commit": "a8c6db5da7bd382094606340eed015d14fbb5654" },
-  "lazygit.nvim": { "branch": "main", "commit": "b9eae3badab982e71abab96d3ee1d258f0c07961" },
   "leap.nvim": { "branch": "main", "commit": "8b826a9fc766bffd14288aee01847cb0d6c6c383" },
   "lualine.nvim": { "branch": "master", "commit": "f4f791f67e70d378a754d02da068231d2352e5bc" },
   "marks.nvim": { "branch": "master", "commit": "bb25ae3f65f504379e3d08c8a02560b76eaf91e8" },
