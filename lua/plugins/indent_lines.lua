@@ -50,5 +50,9 @@ return {
 
     hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
-  end
+  end,
+
+  dependencies = {
+    "HiPhish/rainbow-delimiters.nvim",
+  }
 }
