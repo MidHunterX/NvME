@@ -1,4 +1,5 @@
 local picker       = true
+local explorer     = true
 local quickfile    = true
 local statuscolumn = false
 local indent       = false
@@ -46,14 +47,13 @@ return {
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP: Workspace Symbols" },
   },
   opts = {
-    -- bigfile = { enabled = true },
-    -- dashboard = { enabled = true },
-    -- explorer = { enabled = true },
-    -- input = { enabled = true },
-    -- notifier = { enabled = true },
-    -- scope = { enabled = true },
-    scroll = { enabled = false }, -- It's so janky and limits your speed
-    words = { enabled = false },  -- No use for it yet
+    -- bigfile = { enabled = bigfile },
+    -- dashboard = { enabled = dashboard },
+    -- input = { enabled = input },
+    -- notifier = { enabled = notifier },
+    -- scope = { enabled = scope },
+    -- scroll = { enabled = scroll }, -- It's so janky and limits your speed
+    -- words = { enabled = words },   -- No use for it yet
 
 
     -- █▀█ █ █▀▀ █▄▀ █▀▀ █▀█
@@ -113,14 +113,14 @@ return {
     -- █ █▄░█ █▀▄ █▀▀ █▄░█ ▀█▀
     -- █ █░▀█ █▄▀ ██▄ █░▀█ ░█░
 
-    -- Positives
-    -- 1. Breezy Animations
-    -- 2. Sits well with rainbow brackets
-
     -- Negatives
     -- 1. Scope using Treesitter doesn't work
     -- 2. Default indent opts.indent.char doesn't work
     -- 3. indent-blankline have full scope outlining
+
+    -- Positives
+    -- 1. Breezy Animations
+    -- 2. Sits well with rainbow brackets
 
     -- WARN: Conclusion: Use indent-blankline instead
 
@@ -153,11 +153,25 @@ return {
     },
 
 
+    -- █▀▀ ▀▄▀ █▀█ █░░ █▀█ █▀█ █▀▀ █▀█
+    -- ██▄ █░█ █▀▀ █▄▄ █▄█ █▀▄ ██▄ █▀▄
+
+    -- Positives
+    -- 1. Acts as a side bar file picker with fuzzy finding
+    -- 2. Shows LSP diagnostics for all files in the project
+    -- 3. Shows Git status for all files in the project
+
+    explorer = {
+      enabled = explorer,
+      replace_netrw = true,
+    },
+
+
     -- █▀█ █░█ █ █▀▀ █▄▀ █▀▀ █ █░░ █▀▀
     -- ▀▀█ █▄█ █ █▄▄ █░█ █▀░ █ █▄▄ ██▄
 
     -- Positives
-    -- 1. Quickest File in the West
+    -- 1. Fastest File in the West
     -- 2. Quickly loads file before loading plugins
 
     quickfile = {
