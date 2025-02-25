@@ -3,6 +3,14 @@ return {
   event = "VeryLazy",
   opts = {
 
+    presets = {
+      bottom_search = false,         -- classic bottom cmdline for search
+      command_palette = true,        -- position the cmdline and popupmenu
+      long_message_to_split = false, -- long messages will be sent to a split
+      lsp_doc_border = true,         -- add a border to hover docs
+      inc_rename = true,             -- input dialog for inc-rename.nvim
+    },
+
     cmdline = {
       enabled = true,
       view = "cmdline_popup", -- cmdline, cmdline_popup
@@ -38,9 +46,9 @@ return {
       },
       -- override markdown rendering so cmp and other plugins use Treesitter
       override = {
-        ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-        ["vim.lsp.util.stylize_markdown"] = false,
-        ["cmp.entry.get_documentation"] = false, -- requires hrsh7th/nvim-cmp
+        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+        ["vim.lsp.util.stylize_markdown"] = true,
+        ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
       },
       message = {
         enabled = false,
@@ -51,14 +59,6 @@ return {
 
     health = {
       checker = false,
-    },
-
-    presets = {
-      bottom_search = false,          -- classic bottom cmdline for search
-      command_palette = true,         -- position the cmdline and popupmenu
-      long_message_to_split = false,  -- long messages will be sent to a split
-      lsp_doc_border = true,          -- add a border to hover docs
-      inc_rename = true,              -- input dialog for inc-rename.nvim
     },
 
     routes = {
