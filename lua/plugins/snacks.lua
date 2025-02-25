@@ -1,4 +1,5 @@
 local picker       = true
+local quickfile    = true
 local statuscolumn = false
 local indent       = false
 
@@ -51,9 +52,8 @@ return {
     -- input = { enabled = true },
     -- notifier = { enabled = true },
     -- scope = { enabled = true },
-    quickfile = { enabled = false }, -- Need all of my plugins everytime
-    scroll = { enabled = false },    -- It's so janky and limits your speed
-    words = { enabled = false },     -- No use for it yet
+    scroll = { enabled = false }, -- It's so janky and limits your speed
+    words = { enabled = false },  -- No use for it yet
 
 
     -- █▀█ █ █▀▀ █▄▀ █▀▀ █▀█
@@ -150,7 +150,20 @@ return {
           total = 400, -- maximum duration
         },
       },
-    }
+    },
+
+
+    -- █▀█ █░█ █ █▀▀ █▄▀ █▀▀ █ █░░ █▀▀
+    -- ▀▀█ █▄█ █ █▄▄ █░█ █▀░ █ █▄▄ ██▄
+
+    -- Positives
+    -- 1. Quickest File in the West
+    -- 2. Quickly loads file before loading plugins
+
+    quickfile = {
+      enabled = quickfile,
+      exclude = { "latex" },
+    },
 
   },
 }
