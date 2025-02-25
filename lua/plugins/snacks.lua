@@ -1,0 +1,152 @@
+local picker       = true
+local statuscolumn = false
+local indent       = false
+
+return {
+  "folke/snacks.nvim",
+  priority = 1000,
+  lazy = false,
+  keys = {
+    -- Top Pickers & Explorer
+    { "<leader><space>", function() Snacks.picker.smart() end,                 desc = "Smart Find Files" },
+    { "<leader>,",       function() Snacks.picker.buffers() end,               desc = "Buffers" },
+    { "<leader>/",       function() Snacks.picker.grep() end,                  desc = "Grep" },
+    { "<leader>:",       function() Snacks.picker.command_history() end,       desc = "Command History" },
+    { "<leader>n",       function() Snacks.picker.notifications() end,         desc = "Notification History" },
+    { "<leader>ex",      function() Snacks.explorer() end,                     desc = "File Explorer (Side)" },
+    -- find
+    { "<leader>ff",      function() Snacks.picker.files() end,                 desc = "Find Files" },
+    { "<leader>fb",      function() Snacks.picker.buffers() end,               desc = "Buffers" },
+    { "<leader>fg",      function() Snacks.picker.git_files() end,             desc = "Find Git Files" },
+    { "<leader>fp",      function() Snacks.picker.projects() end,              desc = "Projects" },
+    { "<leader>fr",      function() Snacks.picker.recent() end,                desc = "Recent" },
+    -- Grep
+    { "<leader>gg",      function() Snacks.picker.grep() end,                  desc = "Grep" },
+    { "<leader>sf",      function() Snacks.picker.grep() end,                  desc = "Grep" },
+    { "<leader>sb",      function() Snacks.picker.lines() end,                 desc = "Buffer Lines" },
+    { "<leader>sB",      function() Snacks.picker.grep_buffers() end,          desc = "Grep Open Buffers" },
+    { "<leader>sw",      function() Snacks.picker.grep_word() end,             desc = "Visual selection or word",  mode = { "n", "x" } },
+    -- undo
+    { "<leader>u",       function() Snacks.picker.undo() end,                  desc = "Undo" },
+    { "<leader>su",      function() Snacks.picker.undo() end,                  desc = "Undo" },
+    -- git
+    { "<leader>gb",      function() Snacks.picker.git_branches() end,          desc = "Git Branches" },
+    { "<leader>gl",      function() Snacks.picker.git_log() end,               desc = "Git Log" },
+    { "<leader>gs",      function() Snacks.picker.git_status() end,            desc = "Git Status" },
+    { "<leader>gd",      function() Snacks.picker.git_diff() end,              desc = "Git Diff (Hunks)" },
+    -- lsp
+    { "gd",              function() Snacks.picker.lsp_definitions() end,       desc = "LSP Goto Definition" },
+    { "gD",              function() Snacks.picker.lsp_declarations() end,      desc = "LSP Goto Declaration" },
+    { "gr",              function() Snacks.picker.lsp_references() end,        desc = "LSP References" },
+    { "gI",              function() Snacks.picker.lsp_implementations() end,   desc = "LSP Goto Implementation" },
+    { "gy",              function() Snacks.picker.lsp_type_definitions() end,  desc = "LSP Goto T[y]pe Definition" },
+    { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
+    { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+  },
+  opts = {
+    -- bigfile = { enabled = true },
+    -- dashboard = { enabled = true },
+    -- explorer = { enabled = true },
+    -- input = { enabled = true },
+    -- notifier = { enabled = true },
+    -- scope = { enabled = true },
+    quickfile = { enabled = false }, -- Need all of my plugins everytime
+    scroll = { enabled = false },    -- It's so janky and limits your speed
+    words = { enabled = false },     -- No use for it yet
+
+    -- █▀█ █ █▀▀ █▄▀ █▀▀ █▀█
+    -- █▀▀ █ █▄▄ █░█ ██▄ █▀▄
+
+    -- Positives
+    -- 1. Hell lotta stuff bro
+    -- 2. Wayyy better token highlighting than telescope
+
+    picker = {
+      enabled = picker,
+      focus = "input", --"input"|"list" (defaults to "input")
+      win = {
+        input = {
+          keys = {
+            ["x"] = "close",
+          }
+        },
+        list = {
+          keys = {
+            ["x"] = "close",
+          }
+        }
+      }
+    },
+
+    -- █▀ ▀█▀ ▄▀█ ▀█▀ █░█ █▀ █▀▀ █▀█ █░░ █░█ █▀▄▀█ █▄░█
+    -- ▄█ ░█░ █▀█ ░█░ █▄█ ▄█ █▄▄ █▄█ █▄▄ █▄█ █░▀░█ █░▀█
+
+    -- Negatives
+    -- 1. Adds one more column after numberline which adds slight bulk
+
+    -- Positives
+    -- 1. Solves the issue of not showing git signs and LSP diagnostics at the same time
+    -- 2. Even though it adds one more column, it's pretty neat tho.
+
+    -- WARN: Conclusion: Love it! Disabled for now.
+    -- Will be useful after I use folds in my workflow
+
+    statuscolumn = {
+      enabled = statuscolumn,
+      left = { "mark", "sign" }, -- priority of signs on the left
+      right = { "fold", "git" }, -- priority of signs on the right
+      folds = {
+        open = false,            -- show open fold icons
+        git_hl = true,           -- use Git Signs hl for fold icons
+      },
+      git = {
+        -- patterns to match Git signs
+        patterns = { "GitSign", "MiniDiffSign" },
+      },
+      refresh = 100, -- refresh at most every 50ms
+    },
+
+
+    -- █ █▄░█ █▀▄ █▀▀ █▄░█ ▀█▀
+    -- █ █░▀█ █▄▀ ██▄ █░▀█ ░█░
+
+    -- Positives
+    -- 1. Breezy Animations
+    -- 2. Sits well with rainbow brackets
+
+    -- Negatives
+    -- 1. Scope using Treesitter doesn't work
+    -- 2. Default indent opts.indent.char doesn't work
+    -- 3. indent-blankline have full scope outlining
+
+    -- WARN: Conclusion: Use indent-blankline instead
+
+    indent = {
+      priority = 1,
+      enabled = indent,
+      char = "│",
+      scope = {
+        enabled = true, -- enable highlighting the current scope
+        priority = 200,
+        char = "│", -- ▎ ▍ │
+        underline = false, -- underline the start of the scope
+        only_scope = false, -- only show indent guides of the scope
+        hl = {
+          "RainbowBracket1",
+          "RainbowBracket2",
+          "RainbowBracket3",
+          "RainbowBracket4",
+        },
+      },
+      animate = {
+        enabled = vim.fn.has("nvim-0.10") == 1,
+        style = "out", -- "out"|"up_down"|"down"|"up"
+        easing = "linear",
+        duration = {
+          step = 20,   -- ms per step
+          total = 400, -- maximum duration
+        },
+      },
+    }
+  },
+}
