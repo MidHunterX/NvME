@@ -1,3 +1,5 @@
+-- Reason: Replaced by Snacks
+
 return {
   'nvim-telescope/telescope.nvim',
   cmd = "Telescope",

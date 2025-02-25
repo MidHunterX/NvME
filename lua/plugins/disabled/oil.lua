@@ -1,3 +1,5 @@
+-- Reason: Replaced by VIFM (Can do the same + many more)
+
 return{
   'stevearc/oil.nvim',
   opts = {},

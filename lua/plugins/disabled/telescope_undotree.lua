@@ -1,3 +1,5 @@
+-- Reason: Replaced by Snacks
+
 return {
   "debugloop/telescope-undo.nvim",
   cmd = "Telescope undo",

@@ -1,3 +1,5 @@
+-- Reason: Replaced by Lazy
+
 return {
   "dstein64/vim-startuptime",
   -- lazy-load on a command

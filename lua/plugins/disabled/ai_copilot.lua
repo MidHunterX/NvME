@@ -1,3 +1,5 @@
+-- Reason: Replaced by Codeium AI
+
 return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
