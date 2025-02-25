@@ -42,16 +42,6 @@ vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>")
 vim.keymap.set("n", "<F5>", custard.Execute_order_69)
 
 
---==============================[ GIT REMAPS ]==============================--
-
-------------------------------------------------------------- Git Hunks [ gh- ]
-vim.keymap.set("n", "ghh", "<Cmd>Gitsigns preview_hunk<CR>")
-vim.keymap.set("n", "ghn", "<Cmd>Gitsigns next_hunk<CR>")
-vim.keymap.set("n", "ghp", "<Cmd>Gitsigns prev_hunk<CR>")
-vim.keymap.set("n", "ghb", "<Cmd>Gitsigns blame_line<CR>")
-vim.keymap.set("n", "ght", "<Cmd>Gitsigns toggle_current_line_blame<CR>")
-
-
 --============================[ WINDOWS REMAPS ]============================--
 
 --------------------------------------------------------- Select all [ Ctrl a ]
