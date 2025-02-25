@@ -37,3 +37,12 @@ vim.opt_local.comments = { "b:*", "b:-", "b:+", "n:>" }
 -- r → Continues the comment when pressing <Enter> inside a comment.
 -- o → Continues the comment when opening a new line with o or O.
 vim.opt_local.formatoptions:append("ro")
+
+-- Number of spaces that a <Tab> counts for while performing editing operations
+-- like inserting a <Tab> or using <BS>.
+-- It "feels" like <Tab>s are being inserted.
+vim.opt_local.softtabstop = 2
+
+-- Number of spaces to use for each step of (auto)indent.
+-- Used for |'cindent'|, |>>|, |<<|, etc.
+vim.opt_local.shiftwidth = 2
