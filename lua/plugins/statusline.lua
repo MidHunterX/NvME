@@ -8,14 +8,6 @@ local function lsp_name()
   local clients = vim.lsp.get_clients()
   local buffer = vim.api.nvim_get_current_buf()
 
-  -- -- SHOW CURRENTLY ATTACHED LSP NAME (VERY DISTRACTING)
-  -- for _, client in pairs(clients) do
-  --   local attached = vim.lsp.buf_is_attached(buffer, client.id)
-  --   if attached then
-  --     return '☰ ' .. client.name -- Currently attached LSP server name
-  --   end
-  -- end
-
   -- SHOW AN ICON IF LSP IS ATTACHED ON CURRENT BUFFER (MUCH BETTER)
   for _, client in pairs(clients) do
     local attached = vim.lsp.buf_is_attached(buffer, client.id)
@@ -24,13 +16,6 @@ local function lsp_name()
     end
   end
   return '' -- No LSP servers loaded at all
-
-  -- -- SHOW ICON IF LSP IS ATTACHED ON ANY BUFFER (LESS RESOURCE INTENSIVE?)
-  -- if next(clients) == nil then
-  --   return '' -- No LSP servers loaded at all
-  -- end
-  -- return '☰' -- When some LSP server is loaded
-
 end
 
 -- Recording Status
@@ -50,15 +35,15 @@ end
 local fileformat = function()
   local ret, _ = vim.bo.fileformat:gsub("^unix$", "")
   local icons = {
-    dos = '',  -- e70f
-    mac = '',  -- e711
-    unix = ''  -- e712
+    dos = '', -- e70f
+    mac = '', -- e711
+    unix = '' -- e712
   }
   return icons[ret] or ret
 end
 
 -- Colorscheme Custom Colors
-local customcat = require'lualine.themes.catppuccin-macchiato'
+local customcat = require 'lualine.themes.catppuccin-macchiato'
 -- customcat.inactive.a.bg = '#282828'
 
 
@@ -79,6 +64,7 @@ return {
       icons_enabled = true,
       component_separators = '',
       section_separators = '',
+      globalstatus = false,
     },
 
     -- +-------------------------------------------------------------------+ --
@@ -109,7 +95,7 @@ return {
             newfile = '[New]',
           }
         },
-        { 'diff', symbols = {added = ' ', modified = ' ', removed = ' '} },
+        { 'diff', symbols = { added = ' ', modified = ' ', removed = ' ' } },
         '%=',
         'diagnostics',
       },
@@ -120,10 +106,10 @@ return {
         'filetype',
       },
       lualine_y = {
-        { 'progress', separator = { left = '' }},
+        { 'progress', separator = { left = '' } },
       },
       lualine_z = {
-        { 'location', separator = { left = '', right = '' }},
+        { 'location', separator = { left = '', right = '' } },
       },
 
     },
@@ -135,19 +121,19 @@ return {
     tabline = {
 
       lualine_a = {
-        {'searchcount', separator = { left = '', right = '' }},
+        { 'searchcount', separator = { left = '', right = '' } },
         {
           recording,
           separator = { left = '', right = '' },
-          color = { fg = "#ffffff", bg = "#ff2b00" }
+          color = { fg = "white", bg = "red" }
         }
       },
       lualine_b = {
       },
-      lualine_c = {'selectioncount'},
+      lualine_c = { 'selectioncount' },
       lualine_x = {},
       lualine_y = {
-        { lsp_name, separator = { left = '' }, draw_empty = true },
+        { lsp_name, separator = { left = '', }, draw_empty = true },
       },
       lualine_z = {
         -- Returns initial 4 characters of filename because:
@@ -155,11 +141,11 @@ return {
         -- Prevents overflow on long filenames
         {
           'buffers',
-          fmt = function(str) return str:sub(1,4) end,
+          fmt = function(str) return str:sub(1, 4) end,
           use_mode_colors = true,
           symbols = {
             modified = ' ●',
-            directory =  '',
+            directory = ' ',
             alternate_file = '',
           },
           -- Source: Nerdfont ple-.*
