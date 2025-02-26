@@ -46,6 +46,8 @@ return {
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,  desc = "LSP: Goto T[y]pe Definition" },
     { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "LSP: Symbols" },
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP: Workspace Symbols" },
+    -- useful keymaps
+    { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
   },
   opts = {
     -- bigfile = { enabled = bigfile },
