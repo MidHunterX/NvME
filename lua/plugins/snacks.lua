@@ -3,6 +3,7 @@ local explorer     = true
 local quickfile    = true
 local statuscolumn = false
 local indent       = false
+local dashboard    = false
 
 return {
   "folke/snacks.nvim",
@@ -48,7 +49,6 @@ return {
   },
   opts = {
     -- bigfile = { enabled = bigfile },
-    -- dashboard = { enabled = dashboard },
     -- input = { enabled = input },
     -- notifier = { enabled = notifier },
     -- scope = { enabled = scope },
@@ -149,6 +149,35 @@ return {
           step = 20,   -- ms per step
           total = 400, -- maximum duration
         },
+      },
+    },
+
+
+    -- █▀▄ ▄▀█ █▀ █░█ █▄▄ █▀█ ▄▀█ █▀█ █▀▄
+    -- █▄▀ █▀█ ▄█ █▀█ █▄█ █▄█ █▀█ █▀▄ █▄▀
+
+    -- Negatives
+    -- 1. Not that customizable.. (single line key section)
+
+    -- Positives
+    -- 1. Advanced multi panel layout
+    -- 2. Responsive UI
+
+    -- Conclusion: Use dashboard-nvim for now
+
+    dashboard = {
+      enabled = dashboard,
+      sections = {
+        { section = "header" },
+        { section = "keys",  gap = 0, padding = 1 },
+        {
+          icon = " ",
+          title = "Recent Files",
+          section = "recent_files",
+          indent = 3,
+          padding = { 2, 0 },
+        },
+        { section = "startup" },
       },
     },
 
