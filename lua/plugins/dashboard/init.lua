@@ -34,13 +34,13 @@ return {
           {
             desc = ' Fuzzy Find',
             group = 'DiagnosticHint',
-            action = 'Telescope find_files',
+            action = 'lua Snacks.picker.files()',
             key = 'f',
           },
           {
             desc = ' Grep Search',
             group = 'Label',
-            action = 'Telescope live_grep',
+            action = 'lua Snacks.picker.grep()',
             key = 'g',
           },
           {
