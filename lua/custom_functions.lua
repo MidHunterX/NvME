@@ -13,25 +13,22 @@ end
 
 ---Execute the current file
 function M.Execute_order_69()
+  local function terminal(cmd)
+    vim.cmd(":vs")
+    vim.cmd(":term " .. cmd)
+  end
   local file_type = vim.bo.filetype
-  -- PYTHON SCRIPT
+
   if file_type == 'python' then
-    vim.cmd(':vs')
-    vim.cmd(':term python %')
-    -- HTML SERVER
+    terminal('python %')
   elseif file_type == "html" then
     vim.cmd(":term live-server --no-browser")
-    -- BASH SCRIPT
   elseif file_type == "sh" then
-    vim.cmd(':vs')
-    vim.cmd(":term bash %")
-    -- C PROGRAMMING LANGUAGE
+    terminal('bash %')
   elseif file_type == 'c' then
-    vim.cmd(':vs')
-    vim.cmd(":term gcc % && ./a.out")
+    terminal('gcc % && ./a.out')
   elseif file_type == 'elixir' then
-    vim.cmd(':vs')
-    vim.cmd(":term elixir %")
+    terminal('elixir %')
   else
     print('This file?... Cannot run because no.')
   end
