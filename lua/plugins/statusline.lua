@@ -42,9 +42,9 @@ local fileformat = function()
   return icons[ret] or ret
 end
 
--- Colorscheme Custom Colors
--- local customcat = require 'lualine.themes.catppuccin-macchiato'
--- customcat.inactive.a.bg = '#282828'
+-- HACK: remove ugly white separators due to lualine bugs
+local customcat = require 'lualine.themes.catppuccin-macchiato'
+customcat.inactive.a.bg = '#282828'
 
 
 -- ------------------------------------------------------------------------- --
@@ -60,7 +60,7 @@ return {
   opts = {
 
     options = {
-      -- theme = customcat,
+      theme = customcat,
       icons_enabled = true,
       component_separators = '',
       section_separators = '',
