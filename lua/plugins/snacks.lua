@@ -48,6 +48,18 @@ return {
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP: Workspace Symbols" },
     -- useful keymaps
     { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
+    {
+      "<c-/>",
+      function()
+        if vim.bo.buftype == "terminal" then
+          vim.cmd("hide")
+        else
+          Snacks.terminal.toggle("fish")
+        end
+      end,
+      desc = "Toggle Terminal",
+      mode = { "n", "t" }
+    },
   },
   opts = {
     -- bigfile = { enabled = bigfile },
@@ -208,6 +220,27 @@ return {
     quickfile = {
       enabled = quickfile,
       exclude = { "latex" },
+    },
+
+
+    -- █▀▀ █░░ █▀█ █▄▄ ▄▀█ █░░ █▀
+    -- █▄█ █▄▄ █▄█ █▄█ █▀█ █▄▄ ▄█
+
+    terminal = {
+      win = {
+        border = "rounded", -- single | rounded | double | solid | shadow | none
+        resize = true,
+        position = "float", -- "bottom"|"float"|"left"|"right"|"top"
+      }
+    },
+
+    lazygit = {
+      configure = false, -- apply colorscheme to lazygit
+      win = {
+        border = "rounded",
+        width = 0,
+        height = 0,
+      },
     },
 
   },
