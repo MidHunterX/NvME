@@ -1,3 +1,5 @@
+-- Reason: Replaced by Snacks.picker.lsp_symbols
+
 return {
   'stevearc/aerial.nvim',
   keys = {
