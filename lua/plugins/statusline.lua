@@ -43,7 +43,7 @@ local fileformat = function()
 end
 
 -- Colorscheme Custom Colors
-local customcat = require 'lualine.themes.catppuccin-macchiato'
+-- local customcat = require 'lualine.themes.catppuccin-macchiato'
 -- customcat.inactive.a.bg = '#282828'
 
 
@@ -60,11 +60,16 @@ return {
   opts = {
 
     options = {
-      theme = customcat,
+      -- theme = customcat,
       icons_enabled = true,
       component_separators = '',
       section_separators = '',
       globalstatus = false,
+      refresh = {
+        tabline = 100,
+        statusline = 300,
+        winbar = 300,
+      }
     },
 
     -- +-------------------------------------------------------------------+ --
