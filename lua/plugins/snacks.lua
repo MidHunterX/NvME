@@ -1,7 +1,8 @@
 local picker       = true
 local explorer     = true
 local quickfile    = true
-local statuscolumn = false
+local statuscolumn = true
+local bigfile      = false
 local scroll       = false
 local indent       = false
 local dashboard    = false
@@ -62,9 +63,11 @@ return {
       desc = "Toggle Terminal",
       mode = { "n", "t" }
     },
+    -- HACK: Fixes issue temporarily with Explorer not closing properly
+    { "ZZ", "<CMD>w<CR><CMD>qa<CR>", desc = "Close All (including Explorer)" },
   },
+
   opts = {
-    -- bigfile = { enabled = bigfile },
     -- input = { enabled = input },
     -- notifier = { enabled = notifier },
     -- scope = { enabled = scope },
@@ -105,9 +108,6 @@ return {
     -- Positives
     -- 1. Solves the issue of not showing git signs and LSP diagnostics at the same time
     -- 2. Even though it adds one more column, it's pretty neat tho.
-
-    -- WARN: Conclusion: Love it! Disabled for now.
-    -- Will be useful after I use folds in my workflow
 
     statuscolumn = {
       enabled = statuscolumn,
@@ -224,6 +224,56 @@ return {
             and vim.b[buf].snacks_scroll ~= false
             and vim.bo[buf].buftype ~= "terminal"
             and cursor_line > disabled_lines
+      end,
+    },
+
+
+    -- █▄▄ █ █▀▀ █▀▀ █ █░░ █▀▀
+    -- █▄█ █ █▄█ █▀░ █ █▄▄ ██▄
+
+    -- Negatives
+    -- 1. Premature so, no out of the box configs like faster.nvim/bigfile.nvim
+
+    bigfile = {
+      enabled = bigfile,
+      notify = true,
+      size = 1 * 1024 * 1024, -- 1MB
+      line_length = 3000,
+      ---@param ctx {buf: number, ft:string}
+      setup = function(ctx)
+        -- matchparen
+        if vim.fn.exists(":NoMatchParen") ~= 0 then
+          vim.cmd([[NoMatchParen]])
+        end
+        -- lsp
+        if vim.fn.exists(":LspStop") ~= 0 then
+          vim.cmd([[LspStop]])
+        end
+        -- treesitter
+        if vim.fn.exists(":TSBufDisable") ~= 0 then
+          vim.cmd([[TSBufDisable all]])
+        end
+        -- syntax
+        vim.cmd "syntax clear"
+        vim.opt_local.syntax = "OFF"
+        -- filetype
+        vim.opt_local.filetype = ""
+        -- winopts
+        Snacks.util.wo(0, {
+          swapfile = false,
+          foldmethod = "manual",
+          statuscolumn = "",
+          conceallevel = 0,
+          undolevels = -1,
+          undoreload = 0,
+          list = false
+        })
+        vim.b.minianimate_disable = true
+        vim.schedule(function()
+          if vim.api.nvim_buf_is_valid(ctx.buf) then
+            vim.bo[ctx.buf].syntax = ctx.ft
+          end
+        end)
       end,
     },
 
