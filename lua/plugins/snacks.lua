@@ -2,6 +2,7 @@ local picker       = true
 local explorer     = true
 local quickfile    = true
 local statuscolumn = false
+local scroll       = false
 local indent       = false
 local dashboard    = false
 
@@ -48,6 +49,7 @@ return {
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP: Workspace Symbols" },
     -- useful keymaps
     { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
+    { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
     {
       "<c-/>",
       function()
@@ -66,7 +68,6 @@ return {
     -- input = { enabled = input },
     -- notifier = { enabled = notifier },
     -- scope = { enabled = scope },
-    -- scroll = { enabled = scroll }, -- It's so janky and limits your speed
     -- words = { enabled = words },   -- No use for it yet
 
 
@@ -193,6 +194,37 @@ return {
         },
         { section = "startup" },
       },
+    },
+
+
+    -- █▀ █▀▀ █▀█ █▀█ █░░ █░░
+    -- ▄█ █▄▄ █▀▄ █▄█ █▄▄ █▄▄
+
+    -- Negatives
+    -- 1. Not fast enough for my workflow even after lowering numbers drastically
+
+    scroll = {
+      enabled = scroll,
+      animate = {
+        duration = { step = 2, total = 20 },
+        easing = "linear",
+      },
+      animate_repeat = {
+        duration = { step = 1, total = 10 },
+        easing = "linear",
+      },
+      -- Prevents activation on terminal
+      -- Prevents activation until half page jump and next half page jump
+      filter = function(buf)
+        local cursor_line = vim.fn.line(".")
+        local half_page = vim.fn.winheight(0) / 2
+        local half_jump = half_page / 2
+        local disabled_lines = half_page + half_jump - 1
+        return vim.g.snacks_scroll ~= false
+            and vim.b[buf].snacks_scroll ~= false
+            and vim.bo[buf].buftype ~= "terminal"
+            and cursor_line > disabled_lines
+      end,
     },
 
 
