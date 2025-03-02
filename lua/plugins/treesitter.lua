@@ -72,6 +72,7 @@ return {
 
         -- █▀ █▀▀ █░░ █▀▀ █▀▀ ▀█▀
         -- ▄█ ██▄ █▄▄ ██▄ █▄▄ ░█░
+        -- (i)nner and (a)round
 
         select = {
           enable = true,
@@ -179,6 +180,7 @@ return {
 
         -- █▀ █░█░█ ▄▀█ █▀█
         -- ▄█ ▀▄▀▄▀ █▀█ █▀▀
+        -- (n)ext and (p)revious
 
         swap = {
           enable = true,
