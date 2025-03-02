@@ -14,7 +14,11 @@ end
 ---Execute the current file
 function M.Execute_order_69()
   local function terminal(cmd)
-    vim.cmd(":vs")
+    if vim.fn.winwidth(0) > 100 then
+      vim.cmd(":vsplit")
+    else
+      vim.cmd(":split")
+    end
     vim.cmd(":term " .. cmd)
   end
   local file_type = vim.bo.filetype
