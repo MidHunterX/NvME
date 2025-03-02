@@ -54,6 +54,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking" })
 -- Deletes into the blackhole register "_"
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yanking" })
 
+-- Set description for default vim keymaps
+vim.keymap.set({ "n", "v" }, "g?", "g?", { desc = "ROT13 Cipher" })
 
 --==============================[ GUI REMAPS ]==============================--
 
