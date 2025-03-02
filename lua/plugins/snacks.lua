@@ -11,6 +11,14 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  init = function()
+    vim.api.nvim_create_autocmd('User', {
+      pattern = 'VeryLazy',
+      callback = function()
+        Snacks.explorer.open()
+      end,
+    })
+  end,
   keys = {
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end,                 desc = "Smart Find Files" },
@@ -63,8 +71,20 @@ return {
       desc = "Toggle Terminal",
       mode = { "n", "t" }
     },
-    -- HACK: Fixes issue temporarily with Explorer not closing properly
-    { "ZZ", "<CMD>w<CR><CMD>qa<CR>", desc = "Close All (including Explorer)" },
+    -- HACK: Fixes issue temporarily with Explorer not closing properly on ZZ
+    {
+      "ZZ",
+      function()
+        local explorer = Snacks.picker.get({ source = "explorer" })
+        if #explorer == 0 then
+          for _, p in pairs(explorer) do
+            p:close()
+          end
+        end
+        vim.cmd("wqa")
+      end,
+      desc = "Close All (including Explorer)"
+    },
   },
 
   opts = {
@@ -108,9 +128,28 @@ return {
         explorer = {
           focus = false,
           layout = {
+            layout = {
+              width = 0.2,       -- fixed percentage width
+              position = "left", -- default "left"
+            },
             hidden = { "input" },
             auto_hide = { "input" },
           }
+        },
+      },
+
+      ---@class snacks.picker.icons
+      icons = {
+        tree = {
+          vertical = "│ ",
+          middle   = "├╴",
+          last     = "╰╴",
+        },
+        git = {
+          staged    = "",
+          modified  = "",
+          renamed   = "",
+          untracked = "?",
         },
       },
     },
@@ -343,7 +382,7 @@ return {
       enabled = notifier,
       timeout = 3000,    -- default timeout in ms
       ---@type snacks.notifier.style
-      style = "compact", -- minimal | compact | fancy
+      style = "minimal", -- minimal | compact | fancy
       top_down = true,   -- place notifications from top to bottom
       refresh = 100,     -- default 50
     },
