@@ -1,5 +1,4 @@
 local picker       = true
-local explorer     = true
 local quickfile    = true
 local statuscolumn = true
 local bigfile      = false
@@ -18,6 +17,7 @@ return {
     { "<leader>/",       function() Snacks.picker.grep() end,                  desc = "Grep: Files" },
     { "<leader>:",       function() Snacks.picker.command_history() end,       desc = "Command History" },
     { "<leader>n",       function() Snacks.picker.notifications() end,         desc = "Notification History" },
+    { "<leader>ex",      function() Snacks.explorer() end,                     desc = "File Explorer (Side)" },
     -- find
     { "<leader>ff",      function() Snacks.picker.files() end,                 desc = "Find: Files" },
     { "<leader>fb",      function() Snacks.picker.buffers() end,               desc = "Find: Buffers" },
@@ -50,11 +50,6 @@ return {
     -- useful keymaps
     { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
     { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
-    {
-      "<leader>ex",
-      function() Snacks.explorer.open({ focus = false }) end,
-      desc = "File Explorer (Side)",
-    },
     {
       "<c-/>",
       function()
@@ -99,7 +94,25 @@ return {
             ["x"] = "close",
           }
         }
-      }
+      },
+      sources = {
+
+        -- █▀▀ ▀▄▀ █▀█ █░░ █▀█ █▀█ █▀▀ █▀█
+        -- ██▄ █░█ █▀▀ █▄▄ █▄█ █▀▄ ██▄ █▀▄
+
+        -- Positives
+        -- 1. Acts as a side bar file picker with fuzzy finding
+        -- 2. Shows LSP diagnostics for all files in the project
+        -- 3. Shows Git status for all files in the project
+
+        explorer = {
+          focus = false,
+          layout = {
+            hidden = { "input" },
+            auto_hide = { "input" },
+          }
+        },
+      },
     },
 
 
@@ -282,20 +295,6 @@ return {
     },
 
 
-    -- █▀▀ ▀▄▀ █▀█ █░░ █▀█ █▀█ █▀▀ █▀█
-    -- ██▄ █░█ █▀▀ █▄▄ █▄█ █▀▄ ██▄ █▀▄
-
-    -- Positives
-    -- 1. Acts as a side bar file picker with fuzzy finding
-    -- 2. Shows LSP diagnostics for all files in the project
-    -- 3. Shows Git status for all files in the project
-
-    explorer = {
-      enabled = explorer,
-      replace_netrw = true,
-    },
-
-
     -- █▀█ █░█ █ █▀▀ █▄▀ █▀▀ █ █░░ █▀▀
     -- ▀▀█ █▄█ █ █▄▄ █░█ █▀░ █ █▄▄ ██▄
 
@@ -309,8 +308,8 @@ return {
     },
 
 
-    -- █▀▀ █░░ █▀█ █▄▄ ▄▀█ █░░ █▀
-    -- █▄█ █▄▄ █▄█ █▄█ █▀█ █▄▄ ▄█
+    -- ▀█▀ █▀▀ █▀█ █▀▄▀█ █ █▄░█ ▄▀█ █░░
+    -- ░█░ ██▄ █▀▄ █░▀░█ █ █░▀█ █▀█ █▄▄
 
     terminal = {
       win = {
@@ -319,6 +318,10 @@ return {
         position = "float", -- "bottom"|"float"|"left"|"right"|"top"
       }
     },
+
+
+    -- █░░ ▄▀█ ▀█ █▄█ █▀▀ █ ▀█▀
+    -- █▄▄ █▀█ █▄ ░█░ █▄█ █ ░█░
 
     lazygit = {
       configure = false, -- apply colorscheme to lazygit
