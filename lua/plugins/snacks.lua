@@ -6,19 +6,27 @@ local bigfile      = false
 local scroll       = false
 local indent       = false
 local dashboard    = false
+-- Custom Functions
+local sidebar      = false -- Open explorer on startup
 
 return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+
   init = function()
-    vim.api.nvim_create_autocmd('User', {
-      pattern = 'VeryLazy',
-      callback = function()
-        Snacks.explorer.open()
-      end,
-    })
+    local function AutostartSidebar(something)
+      if not something then return end
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'VeryLazy',
+        callback = function()
+          Snacks.explorer.open()
+        end,
+      })
+    end
+    AutostartSidebar(sidebar)
   end,
+
   keys = {
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end,                 desc = "Smart Find Files" },
