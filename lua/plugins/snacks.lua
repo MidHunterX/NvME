@@ -1,6 +1,7 @@
 local picker       = true
 local quickfile    = true
 local statuscolumn = true
+local notifier     = true
 local bigfile      = false
 local scroll       = false
 local indent       = false
@@ -68,7 +69,6 @@ return {
 
   opts = {
     -- input = { enabled = input },
-    -- notifier = { enabled = notifier },
     -- scope = { enabled = scope },
     -- words = { enabled = words },   -- No use for it yet (using gr instead)
 
@@ -332,5 +332,20 @@ return {
       },
     },
 
+
+    -- █▄░█ █▀█ ▀█▀ █ █▀▀ █▄█
+    -- █░▀█ █▄█ ░█░ █ █▀░ ░█░
+
+    -- Positives
+    -- 1. Works best in tandem with Noice.nvim lsp messages on bottom
+
+    notifier = {
+      enabled = notifier,
+      timeout = 3000,    -- default timeout in ms
+      ---@type snacks.notifier.style
+      style = "compact", -- minimal | compact | fancy
+      top_down = true,   -- place notifications from top to bottom
+      refresh = 100,     -- default 50
+    },
   },
 }
