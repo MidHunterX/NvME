@@ -64,7 +64,7 @@ return {
       icons_enabled = true,
       component_separators = '',
       section_separators = '',
-      globalstatus = false,
+      globalstatus = true,
       refresh = {
         tabline = 100,
         statusline = 300,

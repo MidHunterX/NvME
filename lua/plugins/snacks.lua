@@ -18,7 +18,6 @@ return {
     { "<leader>/",       function() Snacks.picker.grep() end,                  desc = "Grep: Files" },
     { "<leader>:",       function() Snacks.picker.command_history() end,       desc = "Command History" },
     { "<leader>n",       function() Snacks.picker.notifications() end,         desc = "Notification History" },
-    { "<leader>ex",      function() Snacks.explorer() end,                     desc = "File Explorer (Side)" },
     -- find
     { "<leader>ff",      function() Snacks.picker.files() end,                 desc = "Find: Files" },
     { "<leader>fb",      function() Snacks.picker.buffers() end,               desc = "Find: Buffers" },
@@ -52,6 +51,11 @@ return {
     { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
     { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
     {
+      "<leader>ex",
+      function() Snacks.explorer.open({ focus = false }) end,
+      desc = "File Explorer (Side)",
+    },
+    {
       "<c-/>",
       function()
         if vim.bo.buftype == "terminal" then
@@ -71,7 +75,7 @@ return {
     -- input = { enabled = input },
     -- notifier = { enabled = notifier },
     -- scope = { enabled = scope },
-    -- words = { enabled = words },   -- No use for it yet
+    -- words = { enabled = words },   -- No use for it yet (using gr instead)
 
 
     -- █▀█ █ █▀▀ █▄▀ █▀▀ █▀█
@@ -137,7 +141,7 @@ return {
     -- 1. Breezy Animations
     -- 2. Sits well with rainbow brackets
 
-    -- WARN: Conclusion: Use indent-blankline instead
+    -- Conclusion: Use indent-blankline for now
 
     indent = {
       priority = 1,
