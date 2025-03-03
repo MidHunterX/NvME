@@ -66,8 +66,9 @@ return {
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP: Workspace Symbols" },
     -- buffer
     -- Snacks.bufdelete keeps the split open but delete the buffer (:bd is better for my workflow)
-    -- { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
-    -- { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
+    -- But Snacks.bufdelete is needed for not affecting the explorer as it is technically a split buffer
+    { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
+    { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
     {
       "<c-/>",
       function()
