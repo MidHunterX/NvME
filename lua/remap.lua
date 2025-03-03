@@ -44,7 +44,7 @@ vim.keymap.set("n", "<leader>er", "<Cmd>noh<CR>", { desc = "Erase Replace Highli
 vim.keymap.set("n", "<leader>rr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace word (Regex)" })
 ---------------------------------------------------- Delete buffer [ leader x ]
--- vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>", { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>", { desc = "Close buffer" })
 
 
 --=================================[ FIXES ]=================================--

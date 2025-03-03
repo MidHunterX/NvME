@@ -64,9 +64,10 @@ return {
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,  desc = "LSP: Goto T[y]pe Definition" },
     { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "LSP: Symbols" },
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP: Workspace Symbols" },
-    -- useful keymaps
-    { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
-    { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
+    -- buffer
+    -- Snacks.bufdelete keeps the split open but delete the buffer (:bd is better for my workflow)
+    -- { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
+    -- { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
     {
       "<c-/>",
       function()
@@ -76,7 +77,7 @@ return {
           Snacks.terminal.toggle("fish")
         end
       end,
-      desc = "Toggle Terminal",
+      desc = "Toggle: Terminal",
       mode = { "n", "t" }
     },
     -- HACK: Fixes issue temporarily with Explorer not closing properly on ZZ
@@ -137,7 +138,7 @@ return {
           focus = false,
           layout = {
             layout = {
-              width = 0.2,       -- fixed percentage width
+              -- width = 0.2,       -- fixed percentage width
               position = "left", -- default "left"
             },
             hidden = { "input" },
