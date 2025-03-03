@@ -2,6 +2,10 @@
 vim.g.codeium_manual = false -- Enable manually with codeium#CycleOrComplete
 vim.g.codeium_disable_bindings = 1
 
+vim.g.codeium_filetypes = {
+  ["snacks_picker_input"] = false,
+}
+
 return {
   'Exafunction/codeium.vim',
   event = 'BufEnter',
