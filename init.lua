@@ -9,6 +9,7 @@ require("remap")
 require("custom_functions")
 require("auto_commands")
 require("hit_font")
+require("cmp_gitcommit")
 
 --==========================[ @LAZY.NVIM_BOOTSTRAP]==========================--
 
