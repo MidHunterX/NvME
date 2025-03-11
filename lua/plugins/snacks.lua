@@ -6,8 +6,27 @@ local bigfile      = false
 local scroll       = false
 local indent       = false
 local dashboard    = false
+local words        = false
 -- Custom Functions
 local sidebar      = false -- Open explorer on startup
+
+local function toggle_terminal()
+  if vim.bo.buftype == "terminal" then
+    vim.cmd("hide")
+  else
+    Snacks.terminal.toggle("fish")
+  end
+end
+
+local function quit_with_explorer()
+  local explorer = Snacks.picker.get({ source = "explorer" })
+  if #explorer == 0 then
+    for _, p in pairs(explorer) do
+      p:close()
+    end
+  end
+  vim.cmd("wqa")
+end
 
 return {
   "folke/snacks.nvim",
@@ -47,8 +66,6 @@ return {
     { "<leader>sb",      function() Snacks.picker.lines() end,                 desc = "Grep: Buffer Lines" },
     { "<leader>sB",      function() Snacks.picker.grep_buffers() end,          desc = "Grep: Open Buffers" },
     { "<leader>sw",      function() Snacks.picker.grep_word() end,             desc = "Grep: Word" },
-    -- undo
-    { "<leader>u",       function() Snacks.picker.undo() end,                  desc = "Grep: Undo Tree" },
     { "<leader>su",      function() Snacks.picker.undo() end,                  desc = "Grep: Undo Tree" },
     -- git
     { "<leader>gc",      function() Snacks.lazygit.open() end,                 desc = "Git: LazyGit (Commit)" },
@@ -69,30 +86,25 @@ return {
     -- But Snacks.bufdelete is needed for not affecting the explorer as it is technically a split buffer
     { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
     { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
+    { "]]",              function() Snacks.words.jump(vim.v.count1) end,       desc = "Next Reference" },
+    { "[[",              function() Snacks.words.jump(-vim.v.count1) end,      desc = "Prev Reference" },
     {
-      "<c-/>",
+      "<leader>uw",
       function()
-        if vim.bo.buftype == "terminal" then
-          vim.cmd("hide")
+        if Snacks.words.is_enabled() then
+          Snacks.words.disable()
         else
-          Snacks.terminal.toggle("fish")
+          Snacks.words.enable()
         end
       end,
-      desc = "Toggle: Terminal",
-      mode = { "n", "t" }
+      desc = "Toggle: Words (LSP)",
     },
+    { "<c-/>", toggle_terminal, desc = "Toggle: Terminal", mode = { "n", "t" } },
+    { "<c-_>", toggle_terminal, desc = "Toggle: Terminal (TMUX)", mode = { "n", "t" } },
     -- HACK: Fixes issue temporarily with Explorer not closing properly on ZZ
     {
       "ZZ",
-      function()
-        local explorer = Snacks.picker.get({ source = "explorer" })
-        if #explorer == 0 then
-          for _, p in pairs(explorer) do
-            p:close()
-          end
-        end
-        vim.cmd("wqa")
-      end,
+      quit_with_explorer,
       desc = "Close All (including Explorer)"
     },
   },
@@ -100,7 +112,6 @@ return {
   opts = {
     -- input = { enabled = input },
     -- scope = { enabled = scope },
-    -- words = { enabled = words },   -- No use for it yet (using gr instead)
 
 
     -- █▀█ █ █▀▀ █▄▀ █▀▀ █▀█
@@ -379,6 +390,16 @@ return {
         width = 0,
         height = 0,
       },
+    },
+
+
+    -- █░█░█ █▀█ █▀█ █▀▄ █▀
+    -- ▀▄▀▄▀ █▄█ █▀▄ █▄▀ ▄█
+
+    words = {
+      enabled = words,
+      debounce = 100,  -- time in ms to wait before updating
+      modes = { "n" }, -- default { "n", "i", "c" }
     },
 
 
