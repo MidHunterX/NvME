@@ -99,8 +99,8 @@ return {
       end,
       desc = "Toggle: Words (LSP)",
     },
-    { "<c-/>", toggle_terminal, desc = "Toggle: Terminal", mode = { "n", "t" } },
-    { "<c-_>", toggle_terminal, desc = "Toggle: Terminal (TMUX)", mode = { "n", "t" } },
+    { "<m-/>", toggle_terminal, desc = "Toggle: Terminal", mode = { "n", "t" } },
+    { "<m-_>", toggle_terminal, desc = "Toggle: Terminal (TMUX)", mode = { "n", "t" } },
     -- HACK: Fixes issue temporarily with Explorer not closing properly on ZZ
     {
       "ZZ",

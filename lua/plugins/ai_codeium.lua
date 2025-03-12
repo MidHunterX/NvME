@@ -6,6 +6,15 @@ vim.g.codeium_filetypes = {
   ["snacks_picker_input"] = false,
 }
 
+local function codeium_cmp_cycle()
+  local cmp = require("cmp")
+  if cmp.visible() then
+    cmp.abort()
+    return
+  end
+  return vim.fn['codeium#CycleOrComplete']()
+end
+
 return {
   'Exafunction/codeium.vim',
   event = 'BufEnter',
@@ -19,13 +28,7 @@ return {
     -- 1. If CMP menu is visible, abort it
     -- 2. Cycle through Codeium completions
 
-    vim.keymap.set('i', '<c-,>', function()
-      local cmp = require("cmp")
-      if cmp.visible() then
-        cmp.abort()
-        return
-      end
-      return vim.fn['codeium#CycleOrComplete']()
-    end, { expr = true, silent = true , desc = "Cycle or complete with Codeium" })
+    vim.keymap.set('i', '<m-,>', codeium_cmp_cycle,
+      { expr = true, silent = true, desc = "Cycle or complete with Codeium (TMUX)" })
   end
 }

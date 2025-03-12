@@ -17,7 +17,7 @@ local function confirm_if_selected(fallback)
 end
 
 
-return{
+return {
   --=====================================================[ @COMPLETION_ENGINE ]
   -- AutoCompletion engine for external source
   {
@@ -86,7 +86,7 @@ return{
 
         window = {
           -- completion = cmp.config.window.bordered(),
-          completion =  cmp.config.window.bordered({
+          completion = cmp.config.window.bordered({
             col_offset = -3,
             side_padding = 1,
           }),
@@ -99,30 +99,47 @@ return{
 
           -- =================[ AUTOCOMPLETION BEHAVIOURS ]================= --
 
-          ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), {'i', 'c'}),
-          ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), {'i', 'c'}),
+          ["<m-.>"] = cmp.mapping({
+            i = function()
+              if cmp.visible() then
+                cmp.abort()
+              else
+                cmp.complete()
+              end
+            end,
+            c = function()
+              if cmp.visible() then
+                cmp.close()
+              else
+                cmp.complete()
+              end
+            end,
+          }),
+
+          ['<C-n>'] = cmp.mapping(cmp.mapping.select_next_item(), { 'i', 'c' }),
+          ['<C-p>'] = cmp.mapping(cmp.mapping.select_prev_item(), { 'i', 'c' }),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-e>'] = cmp.mapping(cmp.mapping.abort(), {'i', 'c'}),
+          ['<C-e>'] = cmp.mapping(cmp.mapping.abort(), { 'i', 'c' }),
 
           -- =====================[ ITEM CONFIRMATION ]===================== --
 
           -- DISABLE CMP MENU (ONLY IF SELECTED)
-          ["o"] = cmp.mapping(abort_if_selected,{"i","c"}),
-          ["<C-o>"] = cmp.mapping(abort_if_selected,{"i","c"}),
+          ["o"] = cmp.mapping(abort_if_selected, { "i", "c" }),
+          ["<C-o>"] = cmp.mapping(abort_if_selected, { "i", "c" }),
 
           -- CONFIRM ITEM (ONLY IF SELECTED)
-          ["i"] = cmp.mapping(confirm_if_selected,{"i","c"}),
-          ["<C-i>"] = cmp.mapping(confirm_if_selected,{"i","c"}),
-          ["<CR>"] = cmp.mapping(confirm_if_selected,{"i","c"}),
+          ["i"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
+          ["<C-i>"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
+          ["<CR>"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
 
           -- ======================[ ITEM SELECTION ]====================== --
 
           -- DOWN TO SELECT NEXT ITEM
-          ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(),{"i","c"}),
+          ["<Down>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 
           -- UP TO SELECT PREVIOUS ITEM
-          ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(),{"i","c"}),
+          ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 
           -- TAB TO JUMP SNIPPETS OR SELECT OR TABOUT
           ["<Tab>"] = cmp.mapping(function()
@@ -232,10 +249,9 @@ return{
         sources = cmp.config.sources({
           { name = 'path' }
         }, {
-            { name = 'cmdline' }
-          })
+          { name = 'cmdline' }
+        })
       })
-
     end,
 
     dependencies = {
