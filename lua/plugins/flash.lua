@@ -7,7 +7,16 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      modes = {
+        -- `f`, `F`, `t`, `T`, `;` and `,` motions
+        -- Negatives: Not repeatable with ; and ,
+        -- But do I REALLY need ; ?. It works with macros so, meh.
+        char = {
+          enabled = true,
+        },
+      }
+    },
     keys = {
       {
         "s",
@@ -19,7 +28,7 @@ return {
         "S",
         mode = { "n", "x", "o" },
         function() require("flash").treesitter() end,
-        desc = "Flash: Treesitter Select",
+        desc = "Flash: Select Treesitter",
       },
 
       -- o (Operator-pending mode): d, y, or c
@@ -28,7 +37,7 @@ return {
         "r",
         mode = "o",
         function() require("flash").remote() end,
-        desc = "Flash: Remote Mode",
+        desc = "Flash: Remote",
       },
 
       -- x (Visual mode - exclusive selection)
@@ -36,7 +45,7 @@ return {
         "R",
         mode = { "o", "x" },
         function() require("flash").treesitter_search() end,
-        desc = "Flash: Treesitter Search",
+        desc = "Flash: Remote Treesitter",
       },
     },
   },
