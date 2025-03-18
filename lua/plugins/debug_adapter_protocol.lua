@@ -1,20 +1,67 @@
+local hint = [[
+ _n_: step over   _s_: Start/Continue    _K_: Eval
+ _i_: step into   _x_: Exit debug mode   ^ ^
+ _o_: step out    _b_: Breakpoint        ^ ^
+ _c_: to cursor   _u_: UI Toggle
+ ^
+ ^ ^              _q_: Quit
+]]
+
 return {
   "mfussenegger/nvim-dap",
 
   keys = {
     -- Keymaps on Normal mode
     { '<leader>ub', function() require('dap').toggle_breakpoint() end, desc = 'Debug: Toggle Breakpoint' },
-    { "<leader>ud", function() require("dapui").toggle() end,          desc = "Debug: Toggle DAP UI" },
-    -- Keymaps in Debug mode
-    { '<F1>',       function() require('dap').step_into() end,         desc = 'Debug: Step Into' },
-    { '<F2>',       function() require('dap').step_over() end,         desc = 'Debug: Step Over' },
-    { '<F3>',       function() require('dap').step_out() end,          desc = 'Debug: Step Out' },
-    { '<F4>',       function() require('dap').continue() end,          desc = 'Debug: Start/Continue' },
+    { "<leader>ud", function() require 'hydra'.spawn('dap-hydra') end, desc = "Debug: Toggle Debug Mode" },
   },
 
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+
+    -- Hydra Debug mode
+    -- Source: https://github.com/anuvyklack/hydra.nvim/issues/3#issuecomment-1162988750
+    local Hydra = require('hydra')
+    local dap_hydra = Hydra({
+      hint = hint,
+      config = {
+        color = 'pink',
+        invoke_on_body = true,
+        hint = {
+          position = 'bottom',
+          border = 'rounded'
+        },
+      },
+      name = 'dap',
+      mode = { 'n', 'x' },
+      -- body = '<leader>dh',
+      heads = {
+        { 'n', dap.step_over,                                { silent = true } },
+        { 'i', dap.step_into,                                { silent = true } },
+        { 'o', dap.step_out,                                 { silent = true } },
+        { 'c', dap.run_to_cursor,                            { silent = true } },
+        { 's', dap.continue,                                 { silent = true } },
+        { 'u', dapui.toggle,                                 { silent = true } },
+        { 'b', dap.toggle_breakpoint,                        { silent = true } },
+        { 'K', ":lua require('dap.ui.widgets').hover()<CR>", { silent = true } },
+        { 'x', nil,                                          { exit = true, nowait = true } },
+        {
+          'q',
+          function()
+            dap.close()                   -- Close DAP
+            dapui.close()                 -- Close DAP UI
+          end,
+          { exit = true, silent = true }, -- Exit Hydra
+        },
+      }
+    })
+    Hydra.spawn = function(head)
+      if head == 'dap-hydra' then
+        dap_hydra:activate()
+        dapui.open()
+      end
+    end
 
     -- Mason DAP
     require('mason-nvim-dap').setup {
@@ -54,9 +101,10 @@ return {
     end
 
     -- Automatically open DAP UI
-    dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    dap.listeners.before.event_exited['dapui_config'] = dapui.close
+    -- NOTE: This workflow is currently tightly integrated into Hydra
+    -- dap.listeners.after.event_initialized['dapui_config'] = dapui.open
+    -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
+    -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
   end,
 
   dependencies = {
@@ -67,5 +115,8 @@ return {
     -- Installs the debug adapters for you
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
+
+    -- Needed for setting up Debug mode
+    'anuvyklack/hydra.nvim',
   },
 }
