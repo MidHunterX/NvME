@@ -35,14 +35,11 @@ vim.keymap.set("n", "<F5>", custard.Execute_order_69)
 
 ----------------------------------------------------- Write file [ <leader> w ]
 vim.keymap.set("n", "<leader>w", custard.WriteFile, { desc = "Write file" })
------------------------------------ Highlight word for replacing [ <leader> h ]
-vim.keymap.set("n", "<leader>h", "*N", { desc = "Highlight word" })
-vim.keymap.set("v", "<leader>h", "y/<C-r>0<CR>N", { desc = "Highlight Word" })
----------------------------------------------- Delete highlight [ <leader> dr ]
-vim.keymap.set("n", "<leader>dh", "<Cmd>noh<CR>", { desc = "Delete Highlight" })
--------------------------------------------- Replace word Regex [ <leader> rr ]
-vim.keymap.set("n", "<leader>rr", "*Ncgn", { desc = "Replace word" })
-vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>Ncgn", { desc = "Replace Word" })
+---------------------------------------------- Erase highlight [ <leader> er ]
+vim.keymap.set("n", "<leader>er", "<Cmd>noh<CR>", { desc = "Erase Replace Highlight" })
+----------------------------------- Highlight for Replace word [ <leader> rr ]
+vim.keymap.set("n", "<leader>rr", "*N", { desc = "Highlight & Replace word" })
+vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>N", { desc = "Highlight & Replace Word" })
 -- vim.keymap.set("n", "<leader>rr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 --   { desc = "Replace word (Regex)" })
 ---------------------------------------------------- Delete buffer [ leader x ]
