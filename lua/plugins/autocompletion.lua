@@ -7,10 +7,22 @@ local function abort_if_selected(fallback)
   end
 end
 
+-- Confirms only if user explicitly selects an item
 local function confirm_if_selected(fallback)
   local cmp = require("cmp")
   if cmp.visible() and cmp.get_active_entry() then
     cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+  else
+    fallback()
+  end
+end
+
+-- Supports confirming explicit preselection by LSP
+-- Confirms first item if menu is visible
+local function confirm_if_menu(fallback)
+  local cmp = require("cmp")
+  if cmp.visible() then
+    cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
   else
     fallback()
   end
@@ -37,6 +49,8 @@ return {
       luasnip.filetype_extend("heex", { "html" })
 
       cmp.setup({
+        -- Some LSPs can explicitly ask for selecting items on their own
+        -- preselect = cmp.PreselectMode.None,
 
         performance = {
           enabled = true,
@@ -131,7 +145,10 @@ return {
           -- CONFIRM ITEM (ONLY IF SELECTED)
           ["i"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
           ["<C-i>"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
-          ["<CR>"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
+
+          -- CONFIRM ITEM (IF MENU IS VISIBLE)
+          -- who needs <CR> in insert anyway? what is this? VSCode?
+          ["<CR>"] = cmp.mapping(confirm_if_menu, { "i", "c" }),
 
           -- ======================[ ITEM SELECTION ]====================== --
 

@@ -163,7 +163,10 @@ image:./img/nvim_cmp.jpg[]
 * Accept an entry with `CR`, `i`, `C-i`
 * Cancel Completion with `C-e`, `o`, `C-o`
 
-If selected entry is a snippet, use `TAB` & `S-Tab` for jumping around.
+Note: `i` and `C-i` are used to accept completion which the user have selected.
+`CR` accepts the first entry by default or the one preselected by LSP/User.
+
+If accepted entry is a snippet, use `TAB` & `S-Tab` for jumping around.
 
 .`Show Completion Workflows`
 [%collapsible]
