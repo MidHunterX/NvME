@@ -170,10 +170,7 @@ return {
           -- CONFIRM ITEM (ONLY IF SELECTED)
           ["i"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
           ["<C-i>"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
-
-          -- CONFIRM ITEM (IF MENU IS VISIBLE)
-          -- who needs <CR> in insert anyway? what is this? VSCode?
-          ["<CR>"] = cmp.mapping(confirm_if_menu, { "i", "c" }),
+          ["<CR>"] = cmp.mapping(confirm_if_selected, { "i", "c" }),
 
           -- ======================[ ITEM SELECTION ]====================== --
 
@@ -183,12 +180,15 @@ return {
           -- UP TO SELECT PREVIOUS ITEM
           ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 
-          -- TAB TO JUMP SNIPPETS OR SELECT OR TABOUT
+          -- SUPER TAB
+          -- Jumps to next snippet field if snippet is expanded
+          -- Selects first item or LSP preselected item if menu is visible
+          -- Else, tab out with fallbacks
           ["<Tab>"] = cmp.mapping(function()
             if luasnip.jumpable(1) then
               luasnip.jump(1)
-            elseif cmp.visible() and cmp.get_active_entry() then
-              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+            elseif cmp.visible() then
+              cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
             else
               neotab.tabout()
             end
