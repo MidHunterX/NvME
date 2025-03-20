@@ -120,10 +120,11 @@ return {
 
 
       -- Global mappings.
-      vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-      vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-      vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Previous Diagnostic" })
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Quickfix List" })
+      -- NOTE: Replaced by lsp_inline_diagnostics
+      -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open Floating Diagnostic" })
 
 
       -- Use LspAttach autocommand to only map the following keys

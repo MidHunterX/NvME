@@ -86,11 +86,11 @@ return {
             -- You can use the capture groups defined in textobjects.scm
             ["i="] = {
               query = "@assignment.lhs",
-              desc = "Select LHS of assignment"
+              desc = "Select LHS of Assignment"
             },
             ["a="] = {
               query = "@assignment.rhs",
-              desc = "Select RHS of assignment"
+              desc = "Select RHS of Assignment"
             },
 
             -- works for javascript/typescript files
@@ -107,63 +107,63 @@ return {
 
             ["ia"] = {
               query = "@parameter.inner",
-              desc = "Select inside parameter/argument"
+              desc = "Select inside Parameter/Argument"
             },
             ["aa"] = {
               query = "@parameter.outer",
-              desc = "Select around parameter/argument"
+              desc = "Select around Parameter/Argument"
             },
 
             -- ====================== [ CONDITIONAL ] ====================== --
 
             ["ai"] = {
               query = "@conditional.outer",
-              desc = "Select around conditional"
+              desc = "Select around Conditional"
             },
             ["ii"] = {
               query = "@conditional.inner",
-              desc = "Select inside conditional"
+              desc = "Select inside Conditional"
             },
 
             -- ========================= [ LOOPS ] ========================= --
 
             ["il"] = {
               query = "@loop.inner",
-              desc = "Select inside loop"
+              desc = "Select inside Loop"
             },
             ["al"] = {
               query = "@loop.outer",
-              desc = "Select around loop"
+              desc = "Select around Loop"
             },
 
             -- ==================== [ FUNCTION/METHOD ] ==================== --
 
             ["if"] = {
               query = "@function.inner",
-              desc = "Select inside function definition"
+              desc = "Select inside Function"
             },
             ["af"] = {
               query = "@function.outer",
-              desc = "Select around function definition"
+              desc = "Select around Function"
             },
             ["im"] = {
               query = "@function.inner",
-              desc = "Select inside method definition"
+              desc = "Select inside Method"
             },
             ["am"] = {
               query = "@function.outer",
-              desc = "Select around method definition"
+              desc = "Select around Method"
             },
 
             -- ========================= [ CLASS ] ========================= --
 
             ["ic"] = {
               query = "@class.inner",
-              desc = "Select inside class"
+              desc = "Select inside Class"
             },
             ["ac"] = {
               query = "@class.outer",
-              desc = "Select around class"
+              desc = "Select around Class"
             },
 
           },
@@ -210,100 +210,100 @@ return {
           goto_next_start = {
             ["]f"] = {
               query = "@function.outer",
-              desc = "Next function def start"
+              desc = "Next Function start"
             },
             ["]m"] = {
               query = "@function.outer",
-              desc = "Next method def start"
+              desc = "Next Method start"
             },
             ["]c"] = {
               query = "@class.outer",
-              desc = "Next class start"
+              desc = "Next Class start"
             },
             ["]i"] = {
               query = "@conditional.outer",
-              desc = "Next conditional start"
+              desc = "Next Conditional start"
             },
             ["]l"] = {
               query = "@loop.outer",
-              desc = "Next loop start"
+              desc = "Next Loop start"
             },
             ["]s"] = {
               query = "@scope", query_group = "locals",
-              desc = "Next scope"
+              desc = "Next Scope"
             },
             ["]z"] = {
               query = "@fold", query_group = "folds",
-              desc = "Next fold"
+              desc = "Next Fold"
             },
           },
 
           goto_next_end = {
             ["]F"] = {
               query = "@function.outer",
-              desc = "Next function def end"
+              desc = "Next Function end"
             },
             ["]M"] = {
               query = "@function.outer",
-              desc = "Next method def end"
+              desc = "Next Method end"
             },
             ["]C"] = {
               query = "@class.outer",
-              desc = "Next class end"
+              desc = "Next Class end"
             },
             ["]I"] = {
               query = "@conditional.outer",
-              desc = "Next conditional end"
+              desc = "Next Conditional end"
             },
             ["]L"] = {
               query = "@loop.outer",
-              desc = "Next loop end"
+              desc = "Next Loop end"
             },
           },
 
           goto_previous_start = {
             ["[f"] = {
               query = "@function.outer",
-              desc = "Prev function def start"
+              desc = "Previous Function start"
             },
             ["[m"] = {
               query = "@function.outer",
-              desc = "Prev method def start"
+              desc = "Previous Method start"
             },
             ["[c"] = {
               query = "@class.outer",
-              desc = "Prev class start"
+              desc = "Previous Class start"
             },
             ["[i"] = {
               query = "@conditional.outer",
-              desc = "Prev conditional start"
+              desc = "Previous Conditional start"
             },
             ["[l"] = {
               query = "@loop.outer",
-              desc = "Prev loop start"
+              desc = "Previous Loop start"
             },
           },
 
           goto_previous_end = {
             ["[F"] = {
               query = "@function.outer",
-              desc = "Prev function def end"
+              desc = "Previous Function end"
             },
             ["[M"] = {
               query = "@function.outer",
-              desc = "Prev method def end"
+              desc = "Previous Method end"
             },
             ["[C"] = {
               query = "@class.outer",
-              desc = "Prev class end"
+              desc = "Previous Class end"
             },
             ["[I"] = {
               query = "@conditional.outer",
-              desc = "Prev conditional end"
+              desc = "Previous Conditional end"
             },
             ["[L"] = {
               query = "@loop.outer",
-              desc = "Prev loop end"
+              desc = "Previous Loop end"
             },
 
           },
