@@ -39,6 +39,7 @@ return {
       local cmp = require("cmp")
       local luasnip = require("luasnip")
       local neotab = require("neotab")
+      local compare = require('cmp.config.compare')
       local cmp_buffer = require('cmp_buffer')
 
       -- Load friendly snippet using LuaSnip loader
@@ -62,19 +63,23 @@ return {
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
 
         sources = cmp.config.sources({
-          { name = 'path' },
+          {
+            name = 'nvim_lsp',
+            priority = 8,
+          },
           {
             name = 'luasnip',
+            priority = 7,
             -- Doesn't trigger keyword/snippet completion inside string
             entry_filter = function()
               local context = require("cmp.config.context")
               return not context.in_treesitter_capture("string") and not context.in_syntax_group("String")
             end,
           },
-          { name = 'nvim_lsp' },
           {
             name = 'buffer',
             max_item_count = 7,
+            priority = 6,
             -- Disable buffer completion on large files (e.g., > 1 MB)
             option = {
               get_bufnrs = function()
@@ -87,11 +92,31 @@ return {
               end,
             },
           },
+          {
+            name = 'path',
+            priority = 5,
+          },
         }),
+
+
+        -------------------------------------------------------[ @CMP_SORTING ]
+        -- SOURCES: https://www.reddit.com/r/neovim/comments/u3c3kw/comment/i4p8gck/
 
         sorting = {
           comparators = {
-            -- Locality bonus comparator (distance-based sorting)
+            -- compare.score_offset, -- not good at all
+            compare.locality,
+            compare.recently_used,
+            compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
+            compare.offset,
+            compare.order,
+            -- compare.scopes, -- what?
+            -- compare.sort_text,
+            -- compare.exact,
+            -- compare.kind,
+            -- compare.length, -- useless
+
+            -- Buffer: Locality bonus comparator (distance-based sorting)
             function(...) return cmp_buffer:compare_locality(...) end,
           }
         },
