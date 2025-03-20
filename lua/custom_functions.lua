@@ -29,6 +29,8 @@ function M.Execute_order_69()
     vim.cmd(":term live-server --no-browser")
   elseif file_type == "sh" then
     terminal('bash %')
+  elseif file_type == "rust" then
+    terminal('cargo run')
   elseif file_type == 'c' then
     terminal('gcc % && ./a.out')
   elseif file_type == 'elixir' then
