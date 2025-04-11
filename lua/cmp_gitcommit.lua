@@ -177,7 +177,7 @@ M.keywords_source = function()
               label = v.emoji .. k,
               kind = require("cmp.types.lsp").CompletionItemKind.Keyword,
               documentation = v.documentation,
-              insertText = k .. "(): " .. v.emoji .. " ",
+              insertText = v.emoji .. " " .. k .. "(): ",
             })
           end
           callback({ items = items, isIncomplete = false })
