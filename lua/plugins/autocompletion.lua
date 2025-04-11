@@ -113,7 +113,7 @@ return {
             -- compare.scopes, -- what?
             -- compare.sort_text,
             -- compare.exact,
-            -- compare.kind,
+            compare.kind,
             -- compare.length, -- useless
 
             -- Buffer: Locality bonus comparator (distance-based sorting)
