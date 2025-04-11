@@ -20,7 +20,7 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 * *python*: For Python Language Server & Black Formatter
 * *nodejs*: For other Language Servers and Formatters
 * *live-server* (npm): For local HTML Server
-* *codeium account*: Auth for AI code completion
+* *Windsurf account*: Auth for AI code completion
 
 === Install Requirements
 
@@ -89,7 +89,7 @@ set ME ~/.config/nvim; test -d $ME && rm -rf $ME; and mv ${ME}_backup/ $ME
 
 === AI Code Completion
 
-* Authorize Codeium using:
+* Authorize Windsurf (Codeium) using:
 
 ----
 :Codeium Auth

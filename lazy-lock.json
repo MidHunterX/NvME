@@ -8,7 +8,6 @@
   "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
-  "codeium.vim": { "branch": "main", "commit": "000de972de76f357c03da14f4f8dd9a969d4fe8c" },
   "colorful-menu.nvim": { "branch": "master", "commit": "f80feb8a6706f965321aff24d0ed3849f02a7f77" },
   "conform.nvim": { "branch": "master", "commit": "f9ef25a7ef00267b7d13bfc00b0dea22d78702d5" },
   "dashboard-nvim": { "branch": "master", "commit": "000448d837f6e7a47f8f342f29526c4d7e49e9ce" },
@@ -54,5 +53,6 @@
   "vifm.vim": { "branch": "master", "commit": "23358c7f0dda437a3dec3ec902911ee4376c0a56" },
   "volt": { "branch": "main", "commit": "21a2351697abfed26d4469b88d3ab124d55a1b3f" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" },
+  "windsurf.nvim": { "branch": "main", "commit": "9569c9095a70370849345c861cdb2b06c4cadac7" },
   "zen-mode.nvim": { "branch": "main", "commit": "863f150ca321b3dd8aa1a2b69b5f411a220e144f" }
 }
