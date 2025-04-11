@@ -67,8 +67,8 @@ return {
       globalstatus = true,
       refresh = {
         tabline = 100,
-        statusline = 300,
-        winbar = 300,
+        statusline = 100,
+        winbar = 100,
       }
     },
 
