@@ -60,6 +60,8 @@ return {
       -- Combine snippets with other filetypes
       luasnip.filetype_extend("htmldjango", { "html" })
       luasnip.filetype_extend("heex", { "html" })
+      luasnip.filetype_extend("javascriptreact", { "html" })
+      luasnip.filetype_extend("typescriptreact", { "html" })
 
       cmp.setup({
         -- Some LSPs can explicitly ask for selecting items on their own
