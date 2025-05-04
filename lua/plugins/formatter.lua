@@ -13,6 +13,7 @@ return {
   opts = {
     formatters_by_ft = {
       css = { "prettier" },
+      bash = { "shfmt" },
       go = { "goimports", "gofmt" },
       graphql = { "prettier" },
       html = { "prettier" },
@@ -55,6 +56,11 @@ return {
           "--max-blank-lines", "5",
           "--max-line-length", "120",
           "--max-attribute-length", "120",
+        },
+      },
+      prettier = {
+        prepend_args = {
+          "--print-width", "100",
         },
       },
     },
