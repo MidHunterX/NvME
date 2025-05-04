@@ -15,11 +15,13 @@
 -- being renamed. So, you can use all of the vim motions while renaming.
 return {
   "saecki/live-rename.nvim",
-  config = function()
-    local live_rename = require("live-rename")
+  keys = {
     -- start in insert mode with an empty word
     -- require("live-rename").rename({ text = "", insert = true })
-
-    vim.keymap.set("n", "<leader>rn", live_rename.rename, { desc = "LSP rename" })
-  end,
+    {
+      "<leader>rn",
+      function() require("live-rename").rename() end,
+      desc = "LSP rename",
+    },
+  },
 }
