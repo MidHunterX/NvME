@@ -1,9 +1,8 @@
---
---                 ┳┳┓• ┓  ┓┏           ┏┓┏┓  ┏┓    ┏•
---                 ┃┃┃┓┏┫  ┣┫┓┏┏┓╋┏┓┏┓   ┃┃   ┃ ┏┓┏┓╋┓┏┓
---                 ┛ ┗┗┗┻  ┛┗┗┻┛┗┗┗ ┛   ┗┛┗┛  ┗┛┗┛┛┗┛┗┗┫
---                                                     ┛
--------------------------------------------------------------------------------
+-- ╭───────────────────────────────────────────────────────────────────────╮ --
+-- │                          █▄░█ █░█  █▀▄▀█ █▀▀                          │ --
+-- │                          █░▀█ ▀▄▀  █░▀░█ ██▄                          │ --
+-- ╰───────────────────────────────────────────────────────────────────────╯ --
+
 require("set")
 require("remap")
 require("custom_functions")
@@ -47,7 +46,7 @@ local opts = {
       disabled_plugins = {
         "gzip", -- Allows Neovim to read and write gzip compressed files.
         -- "matchit", -- Enhances the `%` command to jump between {[()]}
-        -- "matchparen", -- Highlights matching {[()]}
+        "matchparen", -- Highlights matching {[()]}
         "netrwPlugin", -- File explorer (:Sex, :Vex, :Ex).
         "tarPlugin", -- Adds support for handling tar archives.
         "tohtml", -- Converts a buffer or a part of a buffer to HTML format.
