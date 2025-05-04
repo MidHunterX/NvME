@@ -33,7 +33,24 @@ cmp.setup.buffer({
           return open_paren_count == close_paren_count
         end,
       },
-    },
-    { name = "buffer" }
+      {
+        -- Not available on first n columns
+        -- Not available if cursor is inside first parentheses
+        name = "buffer",
+        entry_filter = function()
+          local available_cols = 6
+          local col = vim.api.nvim_win_get_cursor(0)[2]
+          local line = vim.api.nvim_get_current_line()
+          local text_before_cursor = line:sub(1, col)
+          local text_after_cursor = line:sub(col + 1)
+          local open_paren_count = select(2, text_before_cursor:gsub("%(", ""))
+          local close_paren_count = select(2, text_after_cursor:gsub("%)", ""))
+          local is_outside_paren = open_paren_count ~= close_paren_count
+          local is_no_paren = open_paren_count == 0 and close_paren_count == 0
+          local is_outside_available_cols = col >= available_cols
+          return is_outside_available_cols and (is_outside_paren or is_no_paren)
+        end,
+      }
+    }
   ),
 })

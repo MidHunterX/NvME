@@ -54,7 +54,7 @@ local typesDict = {
     "- Use `feat` if the UI change introduces new functionality.\n",
   },
   refactor = {
-    emoji = "🛠️",
+    emoji = "♻️",
     documentation =
     "Code Refactoring\n" ..
     "A code change that neither fixes a bug nor adds new functionality.\n\n" ..
@@ -177,6 +177,7 @@ M.keywords_source = function()
               label = v.emoji .. k,
               kind = require("cmp.types.lsp").CompletionItemKind.Keyword,
               documentation = v.documentation,
+              -- insertText = k .. "(): " .. v.emoji .. " ",
               insertText = v.emoji .. " " .. k .. "(): ",
             })
           end
