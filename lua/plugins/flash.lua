@@ -14,8 +14,16 @@ return {
         -- But do I REALLY need ; ?. It works with macros so, meh.
         char = {
           enabled = true,
+          -- jump_labels makes ; and , repeatable but replaces letters with labels
+          jump_labels = false,
+          multi_line = true,
         },
-      }
+      },
+      -- `require("flash").prompt()` is always available to get the prompt text
+      prompt = {
+        enabled = false,
+        prefix = { { "⚡", "FlashPromptIcon" } },
+      },
     },
     keys = {
       {
