@@ -12,7 +12,7 @@ local function lsp_name()
   for _, client in pairs(clients) do
     local attached = vim.lsp.buf_is_attached(buffer, client.id)
     if attached then
-      return '☰' -- LSP server attached on current buffer
+      return '󰍜' -- LSP server attached on current buffer
     end
   end
   return '' -- No LSP servers loaded at all
@@ -136,7 +136,19 @@ return {
       lualine_b = {
       },
       lualine_c = { 'selectioncount' },
-      lualine_x = {},
+      lualine_x = {
+        {
+          'tabs',
+          cond = function() return #vim.api.nvim_list_tabpages() > 1 end,
+          -- fmt = function(str) return str:sub(1, 4) end,
+          mode = 0, -- 0 = number | 1 = name | 2 = number + name
+          use_mode_colors = true,
+          show_modified_status = false,
+          symbols = {
+            modified = '[+]',
+          },
+        },
+      },
       lualine_y = {
         { lsp_name, separator = { left = '', }, draw_empty = true },
       },

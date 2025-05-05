@@ -12,9 +12,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 ----------------------------------------- Indent without leaving Visual [ </> ]
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
--------------------------------------------- Goto buffer in position [Alt J/K ]
-vim.keymap.set("n", "<A-h>", "<Cmd>bp<CR>")
-vim.keymap.set("n", "<A-l>", "<Cmd>bn<CR>")
 ------------------------------------- Return to Normal in Terminal [ Ctrl n n ]
 -- <C-w> == <C-BS> == <C-h> (ASCII 0x17)
 vim.keymap.set("t", "<C-n>n", "<C-\\><C-n>")
@@ -27,8 +24,6 @@ vim.keymap.set("v", "L", "$")
 -------------------------------------------------- Scroll centered [ Ctrl d/u ]
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
---------------------------------------------------------- Execute buffer [ F5 ]
-vim.keymap.set("n", "<F5>", custard.Execute_order_69)
 
 
 --=============================[ LEADER REMAPS ]=============================--
@@ -42,9 +37,35 @@ vim.keymap.set("n", "<leader>rr", "*N", { desc = "Highlight & Replace word" })
 vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>N", { desc = "Highlight & Replace Word" })
 -- vim.keymap.set("n", "<leader>rr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 --   { desc = "Replace word (Regex)" })
+
+
+--===========================[ BUFFER MANAGEMENT ]===========================--
+
+---------------------------------------------- Cycle across buffers [ Alt h/l ]
+vim.keymap.set("n", "<A-h>", "<Cmd>bp<CR>")
+vim.keymap.set("n", "<A-l>", "<Cmd>bn<CR>")
 ---------------------------------------------------- Delete buffer [ leader x ]
 -- Currently replaced by Snacks
 -- vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>", { desc = "Close buffer" })
+--------------------------------------------------------- Execute buffer [ F5 ]
+vim.keymap.set("n", "<F5>", custard.Execute_order_69)
+
+
+--============================[ TAB MANAGEMENT ]============================--
+vim.keymap.set("n", "<leader>tn", "<Cmd>tabnew<CR>", { desc = "Tab: New" })
+vim.keymap.set("n", "<leader>tc", "<Cmd>tabnew<CR>", { desc = "Tab: Create" })
+
+vim.keymap.set("n", "<leader>tx", "<Cmd>tabclose<CR>", { desc = "Tab: Exit" })
+vim.keymap.set("n", "<leader>tq", "<Cmd>tabclose<CR>", { desc = "Tab: Quit" })
+
+vim.keymap.set("n", "<leader>tX", "<Cmd>tabonly<CR>", { desc = "Tab: Exit Other Tabs" })
+vim.keymap.set("n", "<leader>tQ", "<Cmd>tabonly<CR>", { desc = "Tab: Quit Other Tabs" })
+------------------------------------------------- Cycle across tabs [ Alt h/l ]
+vim.keymap.set("n", "<leader><A-h>", "<Cmd>tabprevious<CR>", { desc = "Tab: Previous" })
+vim.keymap.set("n", "<leader><A-l>", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
+
+vim.keymap.set("n", "<leader>th", "<Cmd>tabprevious<CR>", { desc = "Tab: Previous" })
+vim.keymap.set("n", "<leader>tl", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
 
 
 --=================================[ FIXES ]=================================--
@@ -56,6 +77,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yank
 
 -- Set description for default vim keymaps
 vim.keymap.set({ "n", "v" }, "g?", "g?", { desc = "ROT13 Cipher" })
+
 
 --==============================[ GUI REMAPS ]==============================--
 
