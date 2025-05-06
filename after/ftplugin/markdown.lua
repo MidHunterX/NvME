@@ -1,6 +1,3 @@
--- Disable 80 Char column on HTML because it breaks with markdown preview
-vim.opt_local.colorcolumn = "0"
-
 vim.keymap.set("v", "<C-b>", "c**<ESC>pa**<ESC>",
   { buffer = true, desc = "Bold text with **" })
 

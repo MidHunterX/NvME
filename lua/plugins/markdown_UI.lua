@@ -1,4 +1,3 @@
--- ISSUE: width = 'block', breaks 80 char line highlight
 return {
   'MeanderingProgrammer/render-markdown.nvim',
   ft = { "markdown" },
@@ -6,8 +5,6 @@ return {
     'nvim-treesitter/nvim-treesitter',
     'nvim-tree/nvim-web-devicons',
   },
-  ---@module 'render-markdown'
-  ---@type render.md.UserConfig
   opts = {
     sign = { enabled = false },
 
@@ -17,7 +14,7 @@ return {
     heading = {
       sign = true,
       border = false,
-      width = 'block', -- problem: breaks 80 char line
+      width = 'block', -- 'block' | 'full'
       right_pad = 1,
       icons = { '󰎦 ', '󰎧 ', '󰎬 ', '󰎭 ', '󰎰 ', '󰎳 ' },
       position = 'overlay', -- 'right' | 'inline' | 'overlay'
