@@ -3,24 +3,13 @@ return {
 
   -- Manager for language servers, linters, formatters
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ui = {
         icons = {
           package_installed = ' ',
           package_pending = ' ',
           package_uninstalled = ' ',
-        },
-        border = 'rounded',
-        keymaps = {
-          toggle_server_expand = "<CR>",
-          install_server = "i",
-          update_server = "u",
-          check_server_version = "c",
-          update_all_servers = "U",
-          check_outdated_servers = "C",
-          uninstall_server = "X",
-          cancel_installation = "<C-c>",
         },
       },
     },
@@ -49,56 +38,10 @@ return {
 
   -- Configures Mason installed servers to LSPConfig
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     opts = {
       ensure_installed = {},
     },
-
-    -- Automatically configures LSP servers
-    config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-      local custom_lsp_configs = {
-        -- LUA LANGUAGE SERVER
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = { globals = { 'vim', 'require' } },
-              workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-              },
-              telemetry = { enable = false },
-            },
-          },
-        },
-
-        -- ELIXIR LANGUAGE SERVER
-        elixirls = {
-          cmd = { vim.fn.stdpath("data") .. "/mason/packages/elixir-ls/language_server.sh" },
-        },
-
-        lexical = {
-          cmd = { vim.fn.stdpath("data") .. "/mason/packages/lexical/lexical" },
-        },
-      }
-
-      require("mason-lspconfig").setup_handlers {
-        function(server_name)
-          if custom_lsp_configs[server_name] then
-            -- APPLY CUSTOM CONFIG IF EXISTS
-            local config = custom_lsp_configs[server_name]
-            config.capabilities = capabilities
-            require("lspconfig")[server_name].setup(config)
-          else
-            -- OTHER LANGUAGE SERVER AUTO CONFIG
-            require("lspconfig")[server_name].setup {
-              capabilities = capabilities,
-            }
-          end
-        end,
-      }
-    end,
   },
 
   --==========================[ NEOVIM LSP CONFIG ]==========================--
@@ -109,14 +52,21 @@ return {
     opts = {},
     -----------------------------------------------------[ @LSPCONFIG_CONFIG ]
     config = function()
-      require('lspconfig.ui.windows').default_options.border = 'rounded'
-
       -- Diagnostic Signs
-      local signs = { Error = "󰅚 ", Warn = "󰀪 ", Hint = "󰌶 ", Info = " " }
-      for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign" .. type
-        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-      end
+      vim.diagnostic.config({
+        virtual_text = {
+          prefix = "●",
+        },
+        severity_sort = true,
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+          },
+        },
+      })
 
 
       -- Global mappings.
@@ -151,7 +101,10 @@ return {
           -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
           -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
           -- vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
-          vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+          vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, {
+            buffer = ev.buf,
+            desc = "LSP: Code Action",
+          })
           -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
           -- vim.keymap.set('n', '<space>fm', function()
           --   vim.lsp.buf.format { async = true }
