@@ -4,6 +4,8 @@ return {
   opts = {
     ---@type false | "classic" | "modern" | "helix"
     preset = "helix",
+    -- TODO: Workaround till https://github.com/folke/which-key.nvim/issues/967
+    show_help = false,
 
     ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
     delay = function(ctx)
