@@ -412,8 +412,8 @@ return {
     notifier = {
       enabled = notifier,
       timeout = 3000,    -- default timeout in ms
-      ---@type snacks.notifier.style
-      style = "minimal", -- minimal | compact | fancy
+      ---@type "minimal" | "compact" | "fancy"
+      style = "compact",
       top_down = true,   -- place notifications from top to bottom
       refresh = 100,     -- default 50
     },
