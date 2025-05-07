@@ -1,3 +1,5 @@
+-- Don't really use marks this deeply
+
 return {
   "chentoast/marks.nvim",
   event = "VeryLazy",
