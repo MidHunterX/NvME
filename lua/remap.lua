@@ -60,12 +60,14 @@ vim.keymap.set("n", "<leader>tq", "<Cmd>tabclose<CR>", { desc = "Tab: Quit" })
 
 vim.keymap.set("n", "<leader>tX", "<Cmd>tabonly<CR>", { desc = "Tab: Exit Other Tabs" })
 vim.keymap.set("n", "<leader>tQ", "<Cmd>tabonly<CR>", { desc = "Tab: Quit Other Tabs" })
-------------------------------------------------- Cycle across tabs [ Alt h/l ]
-vim.keymap.set("n", "<leader><A-h>", "<Cmd>tabprevious<CR>", { desc = "Tab: Previous" })
-vim.keymap.set("n", "<leader><A-l>", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
-
 vim.keymap.set("n", "<leader>th", "<Cmd>tabprevious<CR>", { desc = "Tab: Previous" })
 vim.keymap.set("n", "<leader>tl", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
+----------------------------------------- Cycle across tabs [ leader Alt h/l ]
+vim.keymap.set("n", "<leader><A-h>", "<Cmd>tabprevious<CR>", { desc = "Tab: Previous" })
+vim.keymap.set("n", "<leader><A-l>", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
+----------------------------------------- Quick Cycle across tabs [ Ctrl h/l ]
+vim.keymap.set("n", "<C-h>", "<Cmd>tabprevious<CR>", { desc = "Tab: Previous" })
+vim.keymap.set("n", "<C-l>", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
 
 
 --=================================[ FIXES ]=================================--
