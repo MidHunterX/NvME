@@ -9,7 +9,7 @@
 return {
   "vifm/vifm.vim",
   keys = {
-    vim.keymap.set("n", "<leader>pf", "<Cmd>Vifm<CR>")
+    vim.keymap.set("n", "<leader>pf", "<Cmd>Vifm<CR>", { desc = "Project File Browser (vifm)" }),
   },
   cmd = "Vifm",
 }
