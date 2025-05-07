@@ -77,10 +77,8 @@ return {
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
 
         sources = cmp.config.sources({
-          {
-            name = 'nvim_lsp',
-            priority = 8,
-          },
+          { name = 'nvim_lua', priority = 8 },
+          { name = 'nvim_lsp', priority = 8 },
           {
             name = 'luasnip',
             priority = 7,
@@ -313,6 +311,8 @@ return {
     dependencies = {
 
       --===========================================================[ @SOURCES ]
+      -- Nvim lua api source
+      { "hrsh7th/cmp-nvim-lua" },
       -- LSP server source
       { "hrsh7th/cmp-nvim-lsp" },
       -- LuaSnip snippet source to configure external collections
