@@ -1,8 +1,8 @@
 return {
   'Wansmer/treesj',
   keys = {
-    { "<leader>j", "<cmd>lua require('treesj').split()<cr>", desc = "TreeSJ Split" },
-    { "<leader>J", "<cmd>lua require('treesj').join()<cr>", desc = "TreeSJ Join" },
+    { "<leader>j", function() require('treesj').split() end,  desc = "TreeSJ: Split" },
+    { "<leader>J", function() require('treesj').join() end,   desc = "TreeSJ: Join" },
   },
   dependencies = { 'nvim-treesitter/nvim-treesitter' },
   config = function()

@@ -21,7 +21,7 @@ return {
     {
       "<leader>rn",
       function() require("live-rename").rename() end,
-      desc = "LSP rename",
+      desc = "LSP: Rename Variable",
     },
   },
 }

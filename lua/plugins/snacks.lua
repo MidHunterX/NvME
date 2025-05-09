@@ -52,8 +52,7 @@ return {
     { "<leader>,",       function() Snacks.picker.buffers() end,               desc = "Find: Buffers" },
     { "<leader>/",       function() Snacks.picker.grep() end,                  desc = "Grep: Files" },
     { "<leader>:",       function() Snacks.picker.command_history() end,       desc = "Command History" },
-    { "<leader>n",       function() Snacks.picker.notifications() end,         desc = "Notification History" },
-    { "<leader>ex",      function() Snacks.explorer() end,                     desc = "File Explorer (Side)" },
+    { "<leader>us",      function() Snacks.explorer() end,                     desc = "Toggle: Sidebar" },
     -- find
     { "<leader>ff",      function() Snacks.picker.files() end,                 desc = "Find: Files" },
     { "<leader>fb",      function() Snacks.picker.buffers() end,               desc = "Find: Buffers" },
@@ -66,7 +65,8 @@ return {
     { "<leader>sb",      function() Snacks.picker.lines() end,                 desc = "Grep: Buffer Lines" },
     { "<leader>sB",      function() Snacks.picker.grep_buffers() end,          desc = "Grep: Open Buffers" },
     { "<leader>sw",      function() Snacks.picker.grep_word() end,             desc = "Grep: Word" },
-    { "<leader>su",      function() Snacks.picker.undo() end,                  desc = "Grep: Undo Tree" },
+    { "<leader>su",      function() Snacks.picker.undo() end,                  desc = "Grep: Undo History Tree" },
+    { "<leader>sn",      function() Snacks.picker.notifications() end,         desc = "Grep: Notification History" },
     -- git
     { "<leader>gc",      function() Snacks.lazygit.open() end,                 desc = "Git: LazyGit (Commit)" },
     { "<leader>gb",      function() Snacks.picker.git_branches() end,          desc = "Git: Branches" },
@@ -79,13 +79,13 @@ return {
     { "gr",              function() Snacks.picker.lsp_references() end,        desc = "LSP: References" },
     { "gI",              function() Snacks.picker.lsp_implementations() end,   desc = "LSP: Goto Implementation" },
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,  desc = "LSP: Goto T[y]pe Definition" },
-    { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "LSP: Symbols" },
-    { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP: Workspace Symbols" },
+    { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "Grep: LSP Symbols" },
+    { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "Grep: LSP Workspace Symbols" },
     -- buffer
     -- Snacks.bufdelete keeps the split open but delete the buffer (:bd is better for my workflow)
     -- But Snacks.bufdelete is needed for not affecting the explorer as it is technically a split buffer
-    { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Close Buffer" },
-    { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Close Buffer" },
+    { "<leader>x",       function() Snacks.bufdelete.delete() end,             desc = "Buffer: Close" },
+    { "<leader>X",       function() Snacks.bufdelete.all() end,                desc = "Buffer: Close All" },
     { "]]",              function() Snacks.words.jump(vim.v.count1) end,       desc = "Next Reference" },
     { "[[",              function() Snacks.words.jump(-vim.v.count1) end,      desc = "Prev Reference" },
     {
@@ -99,7 +99,7 @@ return {
       end,
       desc = "Toggle: Words (LSP)",
     },
-    { "<m-/>", toggle_terminal, desc = "Toggle: Terminal", mode = { "n", "t" } },
+    { "<m-/>", toggle_terminal, desc = "Toggle: Terminal",        mode = { "n", "t" } },
     { "<m-_>", toggle_terminal, desc = "Toggle: Terminal (TMUX)", mode = { "n", "t" } },
     -- HACK: Fixes issue temporarily with Explorer not closing properly on ZZ
     {
@@ -411,11 +411,11 @@ return {
 
     notifier = {
       enabled = notifier,
-      timeout = 3000,    -- default timeout in ms
+      timeout = 3000, -- default timeout in ms
       ---@type "minimal" | "compact" | "fancy"
       style = "compact",
-      top_down = true,   -- place notifications from top to bottom
-      refresh = 100,     -- default 50
+      top_down = true, -- place notifications from top to bottom
+      refresh = 100,   -- default 50
     },
   },
 }

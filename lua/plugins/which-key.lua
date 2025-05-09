@@ -12,6 +12,12 @@ return {
       return ctx.plugin and 0 or 1000
     end,
 
+    icons = {
+      rules = {
+        { plugin = "treesj", icon = "󰃻 ", color = "blue" },
+      }
+    },
+
     plugins = {
       marks = true,           -- shows your marks on ' and `
       registers = true,       -- shows your registers on "
@@ -37,7 +43,7 @@ return {
       function()
         require("which-key").show({ global = false })
       end,
-      desc = "Buffer Local Keymaps (which-key)",
+      desc = "Which Key: Local Buffer Keymaps",
     },
   },
 }
