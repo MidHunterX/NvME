@@ -1,5 +1,31 @@
 local M = {}
 
+-- Smart Motion Philosophy:
+-- Capital letters represent the "extreme" form of their lowercase motion.
+-- Therefore, H (← extreme) and L (→ extreme) should go to ^ and $ respectively,
+-- and adapt to jump blocks ({, }) when already at the edge.
+-- This mapping restores consistency, utility, and fluidity in navigation.
+function M.SmartMotionH()
+  local col = vim.fn.col('.')
+  local line = vim.fn.getline('.')
+  local first_nonblank = vim.fn.match(line, [[\S]]) + 1
+  if (col == first_nonblank) or (col == 1) then
+    return '{'
+  else
+    return '^'
+  end
+end
+
+function M.SmartMotionL()
+  local col = vim.fn.col('.')
+  local line = vim.fn.getline('.')
+  if col >= #line then
+    return '}'
+  else
+    return '$'
+  end
+end
+
 ---Remove trailing whitespace and save the current buffer
 function M.WriteFile()
   local save_cursor = vim.fn.getpos(".")

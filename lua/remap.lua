@@ -16,11 +16,9 @@ vim.keymap.set('v', '>', '>gv')
 -- <C-w> == <C-BS> == <C-h> (ASCII 0x17)
 vim.keymap.set("t", "<C-n>n", "<C-\\><C-n>")
 --------------------------------------------------------- Goto line start [ H ]
-vim.keymap.set("n", "H", "^")
-vim.keymap.set("v", "H", "^")
+vim.keymap.set({ 'n', 'v' }, 'H', custard.SmartMotionH, { expr = true, desc = 'Smart H (^ or {)' })
 ----------------------------------------------------------- Goto line end [ L ]
-vim.keymap.set("n", "L", "$")
-vim.keymap.set("v", "L", "$")
+vim.keymap.set({ 'n', 'v' }, 'L', custard.SmartMotionL, { expr = true, desc = 'Smart L ($ or })' })
 -------------------------------------------------- Scroll centered [ Ctrl d/u ]
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")

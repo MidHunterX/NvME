@@ -213,14 +213,32 @@ Reject: o
 
 == 🗺️ Custom Key Remaps
 
+=== SmartMotion: Redefining H and L (Normal/Visual Mode)
+
+It is observed that:
+
+* Lowercase motions (i, a, w, b) act locally line-wise.
+* Uppercase versions (I, A, W, B) typically act more extremely or globally.
+* H and L don't act as the extreme counterparts of h and l.
+
+> “If a → A means ‘go further right’, then h → H should mean ‘go further left’ (line-wise), and l → L should mean ‘go further right’.”
+
+Following the Vim convention where uppercase keys act as 'supercharged' versions of their lowercase counterparts, inconsistency in H and L is corrected semantically.
+
+* H moves cursor to start `^` of a line.
+* L moves cursor to end `$` of a line.
+
+> "What should happen when I'm already at the edge? It does nothing? No. Avoid dead keys. Ensure that every press produces meaningful movement, enhancing flow and reducing mental friction."
+
+* When at the beginning of a line, H jumps to the previous paragraph `{`.
+* When at the end of a line, L jumps to the next paragraph `}`.
+
 === Normal Mode
 [%header]
 |===
 | Key          | Description
 | `u`          | Undo
 | `U`          | Redo
-| `H`          | Move cursor to start `^` of a line
-| `L`          | Move cursor to end `$` of a line
 | `<C-u>`      | Scroll Half page up with Cursor centered
 | `<C-d>`      | Scroll Half page down with Cursor centered
 | `<A-h>`      | Go to Previous Buffer
