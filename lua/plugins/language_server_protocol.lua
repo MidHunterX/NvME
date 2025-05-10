@@ -4,6 +4,7 @@ return {
   -- Manager for language servers, linters, formatters
   {
     "mason-org/mason.nvim",
+    version = "1.11.0",
     opts = {
       ui = {
         icons = {
@@ -11,6 +12,7 @@ return {
           package_pending = ' ',
           package_uninstalled = ' ',
         },
+        border = 'rounded',
       },
     },
   },
@@ -39,15 +41,56 @@ return {
   -- Configures Mason installed servers to LSPConfig
   {
     "mason-org/mason-lspconfig.nvim",
+    version = "1.32.0",
     opts = {
       ensure_installed = {},
-      automatic_enable = {
-        exclude = {
-          -- Manually enabled in nvim-lspconfig
-          "lua_ls",
-        }
-      }
     },
+
+    -- Automatically configures LSP servers
+    config = function()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      local custom_lsp_configs = {
+        -- LUA LANGUAGE SERVER
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = { globals = { 'vim', 'require' } },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+                checkThirdParty = false,
+              },
+              telemetry = { enable = false },
+            },
+          },
+        },
+
+        -- ELIXIR LANGUAGE SERVER
+        elixirls = {
+          cmd = { vim.fn.stdpath("data") .. "/mason/packages/elixir-ls/language_server.sh" },
+        },
+
+        lexical = {
+          cmd = { vim.fn.stdpath("data") .. "/mason/packages/lexical/lexical" },
+        },
+      }
+
+      require("mason-lspconfig").setup_handlers {
+        function(server_name)
+          if custom_lsp_configs[server_name] then
+            -- APPLY CUSTOM CONFIG IF EXISTS
+            local config = custom_lsp_configs[server_name]
+            config.capabilities = capabilities
+            require("lspconfig")[server_name].setup(config)
+          else
+            -- OTHER LANGUAGE SERVER AUTO CONFIG
+            require("lspconfig")[server_name].setup {
+              capabilities = capabilities,
+            }
+          end
+        end,
+      }
+    end,
   },
 
   --==========================[ NEOVIM LSP CONFIG ]==========================--
@@ -58,36 +101,7 @@ return {
     opts = {},
     -----------------------------------------------------[ @LSPCONFIG_CONFIG ]
     config = function()
-      local lspconfig = require('lspconfig')
-
-      -- Fix: Undefined global "vim"
-      -- Source: https://github.com/neovim/neovim/issues/21686#issuecomment-1522446128
-      lspconfig.lua_ls.setup {
-        settings = {
-          Lua = {
-            runtime = {
-              -- Tell the language server which version of Lua you're using
-              -- (most likely LuaJIT in the case of Neovim)
-              version = 'LuaJIT',
-            },
-            diagnostics = {
-              -- Get the language server to recognize the `vim` global
-              globals = {
-                'vim',
-                'require'
-              },
-            },
-            workspace = {
-              -- Make the server aware of Neovim runtime files
-              library = vim.api.nvim_get_runtime_file("", true),
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-              enable = false,
-            },
-          },
-        },
-      }
+      require('lspconfig.ui.windows').default_options.border = 'rounded'
 
       -- Diagnostic Signs
       vim.diagnostic.config({
