@@ -1,10 +1,10 @@
 local hint = [[
  _n_:  step over   _s_:  Start/Continue
- _i_:  step into   _x_: 󰈆 Exit debug mode   ^ ^
- _o_:  step out    _b_:  Breakpoint        ^ ^
+ _i_:  step into   _x_: 󰈆 Exit Debug Hydra
+ _o_:  step out    _b_:  Breakpoint
  _c_: to cursor     _u_: UI Toggle
  ^
- ^ ^              _q_: Quit
+ ^ ^            _q_: Quit DAP
 ]]
 
 return {
@@ -30,8 +30,11 @@ return {
         color = 'pink',
         invoke_on_body = true,
         hint = {
-          position = 'bottom',
-          border = 'rounded'
+          --  top-left   |  top   |  top-right
+          -- middle-left | middle | middle-right
+          -- bottom-left | bottom | bottom-right
+          position = "bottom",
+          offset = 0,
         },
       },
       name = 'dap',
@@ -49,10 +52,10 @@ return {
         {
           'q',
           function()
-            dap.close()                   -- Close DAP
-            dapui.close()                 -- Close DAP UI
+            dap.close()
+            dapui.close()
           end,
-          { exit = true, silent = true }, -- Exit Hydra
+          { exit = true, silent = true },
         },
       }
     })
@@ -103,12 +106,6 @@ return {
       local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
       vim.fn.sign_define(tp, { text = icon, texthl = hl, numhl = hl })
     end
-
-    -- Automatically open DAP UI
-    -- NOTE: This workflow is currently tightly integrated into Hydra
-    -- dap.listeners.after.event_initialized['dapui_config'] = dapui.open
-    -- dap.listeners.before.event_terminated['dapui_config'] = dapui.close
-    -- dap.listeners.before.event_exited['dapui_config'] = dapui.close
   end,
 
   dependencies = {
