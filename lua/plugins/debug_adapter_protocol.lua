@@ -1,8 +1,8 @@
 local hint = [[
- _n_: step over   _s_: Start/Continue    _K_: Eval
- _i_: step into   _x_: Exit debug mode   ^ ^
- _o_: step out    _b_: Breakpoint        ^ ^
- _c_: to cursor   _u_: UI Toggle
+ _n_:  step over   _s_:  Start/Continue
+ _i_:  step into   _x_: 󰈆 Exit debug mode   ^ ^
+ _o_:  step out    _b_:  Breakpoint        ^ ^
+ _c_: to cursor     _u_: UI Toggle
  ^
  ^ ^              _q_: Quit
 ]]
@@ -26,6 +26,7 @@ return {
     local dap_hydra = Hydra({
       hint = hint,
       config = {
+        -- see `:h hydra-colors`
         color = 'pink',
         invoke_on_body = true,
         hint = {
@@ -37,15 +38,14 @@ return {
       mode = { 'n', 'x' },
       -- body = '<leader>dh',
       heads = {
-        { 'n', dap.step_over,                                { silent = true } },
-        { 'i', dap.step_into,                                { silent = true } },
-        { 'o', dap.step_out,                                 { silent = true } },
-        { 'c', dap.run_to_cursor,                            { silent = true } },
-        { 's', dap.continue,                                 { silent = true } },
-        { 'u', dapui.toggle,                                 { silent = true } },
-        { 'b', dap.toggle_breakpoint,                        { silent = true } },
-        { 'K', ":lua require('dap.ui.widgets').hover()<CR>", { silent = true } },
-        { 'x', nil,                                          { exit = true, nowait = true } },
+        { 'n', dap.step_over,         { silent = true } },
+        { 'i', dap.step_into,         { silent = true } },
+        { 'o', dap.step_out,          { silent = true } },
+        { 'c', dap.run_to_cursor,     { silent = true } },
+        { 's', dap.continue,          { silent = true } },
+        { 'u', dapui.toggle,          { silent = true } },
+        { 'b', dap.toggle_breakpoint, { silent = true } },
+        { 'x', nil,                   { exit = true, nowait = true } },
         {
           'q',
           function()
@@ -91,9 +91,13 @@ return {
     -- Change breakpoint icons
     vim.api.nvim_set_hl(0, 'DapBreak', { fg = 'red' })
     vim.api.nvim_set_hl(0, 'DapStop', { fg = 'yellow' })
-    local breakpoint_icons = vim.g.have_nerd_font
-        and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
-        or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }
+    local breakpoint_icons = {
+      Breakpoint = '',
+      BreakpointCondition = '',
+      BreakpointRejected = '',
+      LogPoint = '',
+      Stopped = '',
+    }
     for type, icon in pairs(breakpoint_icons) do
       local tp = 'Dap' .. type
       local hl = (type == 'Stopped') and 'DapStop' or 'DapBreak'
@@ -113,10 +117,10 @@ return {
     "nvim-neotest/nvim-nio", -- Required dependency for nvim-dap-ui
 
     -- Installs the debug adapters for you
-    'williamboman/mason.nvim',
+    'mason-org/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
 
     -- Needed for setting up Debug mode
-    'anuvyklack/hydra.nvim',
+    "nvimtools/hydra.nvim",
   },
 }
