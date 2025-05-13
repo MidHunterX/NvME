@@ -255,7 +255,7 @@ return {
     -- 1. Advanced multi panel layout
     -- 2. Responsive UI
 
-    -- Conclusion: Use dashboard-nvim for now
+    -- NOTE: Using dashboard-nvim instead
 
     dashboard = {
       enabled = dashboard,
@@ -383,6 +383,9 @@ return {
     -- █░░ ▄▀█ ▀█ █▄█ █▀▀ █ ▀█▀
     -- █▄▄ █▀█ █▄ ░█░ █▄█ █ ░█░
 
+    -- Positives
+    -- 1. Wayyy better implementation than the official lazygit plugin
+
     lazygit = {
       configure = false, -- apply colorscheme to lazygit
       win = {
@@ -395,6 +398,13 @@ return {
 
     -- █░█░█ █▀█ █▀█ █▀▄ █▀
     -- ▀▄▀▄▀ █▄█ █▀▄ █▄▀ ▄█
+
+    -- Negatives
+    -- 1. Uses treesitter which might perform terribily especially on big files
+    -- 2. Unpolished experience - duplicate selections visible while moving cursor
+
+    -- Positives
+    -- 1. Since it uses treesitter, it can do things like jump to definitions
 
     words = {
       enabled = words,
