@@ -5,12 +5,15 @@ local M = {}
 -- Therefore, H (← extreme) and L (→ extreme) should go to ^ and $ respectively,
 -- and adapt to jump blocks ({, }) when already at the edge.
 -- This mapping restores consistency, utility, and fluidity in navigation.
+-- NOTE
+-- { and } by default adds the current position to the jumplist.
+-- $ and ^ do not. we use keepjumps since we do { and } as an extension to ^ and $
 function M.SmartMotionH()
   local col = vim.fn.col('.')
   local line = vim.fn.getline('.')
   local first_nonblank = vim.fn.match(line, [[\S]]) + 1
   if (col == first_nonblank) or (col == 1) then
-    return '{'
+    return '<Cmd>keepjumps normal {<CR>'
   else
     return '^'
   end
@@ -20,7 +23,7 @@ function M.SmartMotionL()
   local col = vim.fn.col('.')
   local line = vim.fn.getline('.')
   if col >= #line then
-    return '}'
+    return '<Cmd>keepjumps normal }<CR>'
   else
     return '$'
   end
