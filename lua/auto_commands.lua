@@ -4,7 +4,7 @@ vim.cmd(":set clipboard=unnamedplus")
 
 -- Highlighted Yank
 vim.cmd([[
-au TextYankPost * silent! lua vim.highlight.on_yank {higroup="IncSearch", timeout=150}
+au TextYankPost * silent! lua vim.hl.on_yank({higroup="IncSearch", timeout=150})
 ]])
 
 -- Scroll past last line
