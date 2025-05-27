@@ -129,17 +129,8 @@ importance to interfere with the code in buffer.
 Yank into System Clipboard by Default::
 Less hastle when copy pasting between windows frequently.
 
-Highlight Yanked Text for 150ms::
-Quickly know how much text got yanked when using direct yank commands.
-
 Scroll past EOF in buffer with `j`::
 Personal preference for EOF to not be stuck at the bottom of the screen.
-
-Show Relative Line Number on Normal Mode::
-That's the only time you need Relative Line Numbers for Jumping Lines.
-
-Show Normal Line Number on Insert Mode::
-Useful when doing substitution based on line numbers.
 
 == 🛂 Custom Features
 
