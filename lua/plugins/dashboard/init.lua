@@ -6,7 +6,6 @@ end
 
 return {
   'nvimdev/dashboard-nvim',
-  event = 'VimEnter',
   config = function ()
     -- General
     vim.cmd([[highlight DashboardHeader guifg=#b5bfe2 gui=nocombine]])
