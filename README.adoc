@@ -119,7 +119,7 @@ sudo archlinux-java set java-21-openjdk
 image:./img/nvim_record.jpg[]
 
 Important Stuff on Top Left Side::
-Macro Record Status posess high importance until recording is stopped.
+Macro Record Status possess high importance until recording is stopped.
 Therefore it stays on left side only for the time being recorded for a macro.
 
 Less Important Stuff on Top Right Side::
@@ -127,7 +127,7 @@ Buffer list is not needed at all times, therefore it doesn't have that much
 importance to interfere with the code in buffer.
 
 Yank into System Clipboard by Default::
-Less hastle when copy pasting between windows frequently.
+Less hassle when copy pasting between windows frequently.
 
 Scroll past EOF in buffer with `j`::
 Personal preference for EOF to not be stuck at the bottom of the screen.
@@ -288,7 +288,7 @@ Following the Vim convention where uppercase keys act as 'supercharged' versions
 | `c`              | Class
 | `a`              | Argument
 | `=`              | Assignment
-| `:`              | Propery
+| `:`              | Property
 |===
 
 == 🔌 Plugins
