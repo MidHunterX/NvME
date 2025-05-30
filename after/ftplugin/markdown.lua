@@ -46,3 +46,6 @@ vim.opt_local.softtabstop = 2
 -- Number of spaces to use for each step of (auto)indent.
 -- Used for |'cindent'|, |>>|, |<<|, etc.
 vim.opt_local.shiftwidth = 2
+
+-- SPELL DETECTION
+vim.opt_local.spell = true

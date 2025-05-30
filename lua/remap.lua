@@ -33,10 +33,15 @@ vim.keymap.set("n", "<leader>er", "<Cmd>noh<CR>", { desc = "Erase Replace Highli
 ----------------------------------- Highlight for Replace word [ <leader> rr ]
 vim.keymap.set("n", "<leader>rr", "*N", { desc = "Highlight & Replace word" })
 vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>N", { desc = "Highlight & Replace Word" })
--- vim.keymap.set("n", "<leader>rr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
---   { desc = "Replace word (Regex)" })
+
 ----------------------------------------------------- Super Yank [ <leader> y ]
 vim.keymap.set("n", "<leader>y", "<Cmd>%yank<CR>", { desc = "Buffer: Yank content" })
+
+-------------------------------------------------- Spell Toggle [ <leader> us ]
+vim.keymap.set("n", "<leader>us", function()
+  vim.wo.spell = not vim.wo.spell
+  print("Spell: " .. (vim.wo.spell and "ON" or "OFF"))
+end, { desc = "Toggle: Spell Check" })
 
 
 --===========================[ BUFFER MANAGEMENT ]===========================--

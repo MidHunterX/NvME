@@ -15,6 +15,7 @@ return {
     icons = {
       rules = {
         { plugin = "treesj", icon = "󰃻 ", color = "blue" },
+        { pattern = "fold", icon = "", color = "yellow" },
       }
     },
 
@@ -22,7 +23,7 @@ return {
       marks = true,           -- shows your marks on ' and `
       registers = true,       -- shows your registers on "
       spelling = {
-        enabled = false,      -- pressing z= to select spelling suggestions
+        enabled = true,       -- pressing z= to select spelling suggestions
         suggestions = 20,
       },
       presets = {

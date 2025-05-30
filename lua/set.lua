@@ -57,6 +57,10 @@ vim.opt.splitbelow = true
 -- Better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- Spellcheck
+vim.opt.spelllang = { 'en_us', 'en_gb' }
+vim.opt.spelloptions = { "camel" }
+
 --============================ [ @VIM_FOLDING ] ============================--
 vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldclose:'
 vim.o.foldcolumn = '1'

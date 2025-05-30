@@ -54,3 +54,6 @@ cmp.setup.buffer({
     }
   ),
 })
+
+-- SPELL DETECTION
+vim.opt_local.spell = true
