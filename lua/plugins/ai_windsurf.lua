@@ -1,3 +1,6 @@
+---@type "trace" | "debug" | "info" | "warn" | "error"
+vim.env.DEBUG_CODEIUM = "warn"
+
 local function codeium_cmp_cycle()
   local cmp = require("cmp")
   if cmp.visible() then
@@ -10,6 +13,9 @@ end
 -- Windsurf (Codeium)
 return {
   "Exafunction/windsurf.nvim",
+  -- load only when actually using windsurf
+  -- highlight won't work correctly with this though
+  -- event = "InsertEnter",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
