@@ -1,7 +1,7 @@
 return {
   'windwp/nvim-autopairs',
   event = "InsertEnter",
-  config = function()
-    require("nvim-autopairs").setup()
-  end,
+  opts = {
+    disable_in_macro = true, -- disable when recording or executing a macro
+  },
 }
