@@ -30,7 +30,7 @@ return {
       view_error = "notify",
       view_warn = "notify",
       view_history = "messages",
-      view_search = "virtualtext", -- false, "virtualtext"
+      view_search = false, -- false, "virtualtext"
     },
 
     popupmenu = {

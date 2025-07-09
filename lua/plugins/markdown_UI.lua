@@ -14,7 +14,7 @@ return {
     heading = {
       sign = true,
       border = false,
-      width = 'block', -- 'block' | 'full'
+      width = 'full', -- 'block' | 'full'
       right_pad = 1,
       icons = { '󰎦 ', '󰎧 ', '󰎬 ', '󰎭 ', '󰎰 ', '󰎳 ' },
       position = 'overlay', -- 'right' | 'inline' | 'overlay'
@@ -24,7 +24,7 @@ return {
       sign = true,
       width = 'block',   -- 'block' | 'full'
       border = 'thick',  -- 'thick' | 'thin' | 'hide' | 'none'
-      position = 'left', -- 'left' | 'right'
+      position = 'right', ---@type 'left' | 'right'
       language_pad = 1,  -- ISSUE: cursor jumping sometimes
       right_pad = 2,
       -- left_pad = 2,

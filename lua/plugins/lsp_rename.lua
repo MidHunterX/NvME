@@ -15,6 +15,12 @@
 -- being renamed. So, you can use all of the vim motions while renaming.
 return {
   "saecki/live-rename.nvim",
+  opts = {
+    hl = {
+      current = "CurSearch", -- CurSearch
+      others = "Search",     -- Search
+    },
+  },
   keys = {
     -- start in insert mode with an empty word
     -- require("live-rename").rename({ text = "", insert = true })

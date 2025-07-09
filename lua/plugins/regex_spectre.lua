@@ -22,8 +22,11 @@ return {
     vim.api.nvim_set_hl(0, "SpectreReplace", { fg = "#000000", bg = "#a6e3a1", bold = true })
 
     require('spectre').setup({
+      line_sep_start = "╭─────────────────────────────────",
+      result_padding = "│  ",
+      line_sep = "╰─────────────────────────────────",
       live_update = false,      -- auto execute search again
-      lnum_for_results = true,  -- show line number for search/replace results
+      lnum_for_results = false, -- show line number for search/replace results
       is_block_ui_break = true, -- map backspace and enter to avoid ui break
       highlight = {
         ui = "String",
