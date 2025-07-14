@@ -30,6 +30,7 @@ return {
         manual = false,
         filetypes = {
           ["snacks_picker_input"] = false,
+          ["typr"] = false,
         },
         idle_delay = 100, -- ms to wait before requesting completions
         map_keys = true,
