@@ -54,6 +54,9 @@ return {
       local compare = require('cmp.config.compare')
       local cmp_buffer = require('cmp_buffer')
 
+      local regex_source = require('cmp_regex')
+      cmp.register_source('regex', regex_source)
+
       -- Load friendly snippet using LuaSnip loader
       require('luasnip.loaders.from_vscode').lazy_load()
 
@@ -77,6 +80,7 @@ return {
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
 
         sources = cmp.config.sources({
+          { name = 'regex', priority = 69 },
           { name = 'nvim_lua', priority = 8 },
           { name = 'nvim_lsp', priority = 8 },
           {
