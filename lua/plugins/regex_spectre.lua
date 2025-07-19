@@ -43,12 +43,12 @@ return {
         },
         -- overriding global replace keymap "rr"
         ['run_current_replace'] = {
-          map = "<leader>rr", -- "<leader>rc"
+          map = "<leader>rc", -- "<leader>rc"
           cmd = "<cmd>lua require('spectre.actions').run_current_replace()<CR>",
           desc = "replace current line"
         },
         ['run_replace'] = {
-          map = "<leader>R",
+          map = "<leader>rr",
           cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>",
           desc = "replace all"
         },
