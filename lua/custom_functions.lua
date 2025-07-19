@@ -61,6 +61,8 @@ function M.Execute_order_69()
     terminal('cargo run')
   elseif file_type == 'c' then
     terminal('gcc % && ./a.out')
+  elseif file_type == 'java' then
+    terminal('java %')
   elseif file_type == 'javascript' then
     terminal('node %')
   elseif file_type == 'elixir' then
