@@ -14,7 +14,7 @@ return {
     heading = {
       sign = true,
       border = false,
-      width = 'full', -- 'block' | 'full'
+      width = 'block', -- 'block' | 'full'
       right_pad = 1,
       icons = { '󰎦 ', '󰎧 ', '󰎬 ', '󰎭 ', '󰎰 ', '󰎳 ' },
       position = 'overlay', -- 'right' | 'inline' | 'overlay'
