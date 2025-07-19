@@ -53,6 +53,7 @@ return {
     { "<leader>/",       function() Snacks.picker.grep() end,                  desc = "Grep: Files" },
     { "<leader>:",       function() Snacks.picker.command_history() end,       desc = "Command History" },
     { "<leader>ue",      function() Snacks.explorer() end,                     desc = "Toggle: Explorer Sidebar" },
+    { "<leader>ux",      function() Snacks.explorer() end,                     desc = "Toggle: Explorer Sidebar" },
     -- find
     { "<leader>ff",      function() Snacks.picker.files() end,                 desc = "Find: Files" },
     { "<leader>fb",      function() Snacks.picker.buffers() end,               desc = "Find: Buffers" },
