@@ -20,16 +20,33 @@ return {
         treesitter = true,
         noice = true,
         nvim_surround = true,
+        render_markdown = true,
         snacks = {
           enabled = true,
         },
         which_key = false,
       },
+      custom_highlights = function(colors)
+        return {
+          -- groups/editor.lua
+          CurSearch = { bg = colors.maroon, fg = colors.mantle },
+          LineNr = { fg = colors.overlay1 },
+          Visual = { bg = colors.surface2, style = { "bold" } },
+        }
+      end,
+      color_overrides = {
+        mocha = {
+          -- base color of: Current Line, render-markdown Heading etc.
+          base = "#3a3c46",
+          -- bg of: render-markdown Code Block
+          mantle = "#31343f",
+        },
+      },
     },
 
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin-frappe")
+      vim.cmd.colorscheme("catppuccin-mocha")
     end,
 
   },
