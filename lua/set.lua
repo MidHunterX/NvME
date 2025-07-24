@@ -2,6 +2,8 @@
 
 vim.opt.list = true
 vim.opt.listchars = { space = '⋅', tab = '<->' }
+-- Replace tildes at the end of the buffer
+vim.opt.fillchars = { eob = " " }
 -- vim.opt.listchars = { space = '⋅', tab = '> ', eol = '↩', trail = '$' }
 
 -- "bold": Bold line box.
@@ -15,6 +17,9 @@ vim.opt.winborder = "rounded"
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.wrap = true
+-- Auto reload when a file is changed
+vim.opt.autoread = true
 
 -- Set Title for context
 vim.opt.title = true
@@ -53,6 +58,7 @@ vim.opt.cursorline = true
 
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.clipboard = "unnamedplus"
 
 -- Better completion experience
 vim.o.completeopt = 'menuone,noselect'
