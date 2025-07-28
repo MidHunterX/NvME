@@ -68,8 +68,8 @@ vim.opt.spelllang = { 'en_us', 'en_gb' }
 vim.opt.spelloptions = { "camel" }
 
 --============================ [ @VIM_FOLDING ] ============================--
-vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldclose:'
-vim.o.foldcolumn = '1'
+-- vim.o.fillchars = 'eob: ,fold: ,foldopen:,foldsep: ,foldclose:'
+-- vim.o.foldcolumn = '1' -- WARN: Suspected Interference with Snacks Column causing Crashes
 vim.o.foldenable = true
 vim.o.foldexpr = 'v:lua.vim.lsp.foldexpr()'
 vim.o.foldlevel = 99
