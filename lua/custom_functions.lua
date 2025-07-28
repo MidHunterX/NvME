@@ -58,7 +58,12 @@ function M.Execute_order_69()
   elseif file_type == "sh" then
     terminal('bash %')
   elseif file_type == "rust" then
-    terminal('cargo run')
+    if vim.fn.filereadable('Cargo.toml') == 1 then
+      terminal('cargo run')
+    else
+      local filename = vim.fn.expand('%')
+      terminal('rustc ' .. filename .. ' && ./' .. filename:gsub('.rs', ''))
+    end
   elseif file_type == 'c' then
     terminal('gcc % && ./a.out')
   elseif file_type == 'java' then
