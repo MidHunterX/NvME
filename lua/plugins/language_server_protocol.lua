@@ -4,7 +4,6 @@ return {
   -- Manager for language servers, linters, formatters
   {
     "mason-org/mason.nvim",
-    version = "1.11.0",
     opts = {
       ui = {
         icons = {
@@ -12,7 +11,6 @@ return {
           package_pending = ' ',
           package_uninstalled = ' ',
         },
-        border = 'rounded',
       },
     },
   },
@@ -29,7 +27,9 @@ return {
         "emmet_ls",             -- Emmet LSP
         "css-lsp",              -- CSS LSP
         "json-lsp",             -- JSON LSP
+        -- Made by Microsoft employees. Adding in hopes of not being abandoned.
         "pyright",              -- Python LSP
+        -- PEP-8 compliant opinionated formatter
         "black",                -- Python Formatter
         "prettier",             -- Webdev Stuff Formatter
       },
@@ -41,13 +41,14 @@ return {
   -- Configures Mason installed servers to LSPConfig
   {
     "mason-org/mason-lspconfig.nvim",
-    version = "1.32.0",
+    dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
     opts = {
+      automatic_enable = true,
       ensure_installed = {},
     },
 
     -- Automatically configures LSP servers
-    config = function()
+    --[[ config = function()
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local custom_lsp_configs = {
@@ -90,7 +91,8 @@ return {
           end
         end,
       }
-    end,
+    end, ]]
+
   },
 
   --==========================[ NEOVIM LSP CONFIG ]==========================--
