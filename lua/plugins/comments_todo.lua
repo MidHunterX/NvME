@@ -1,6 +1,20 @@
 return {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  keys = {
+    {
+      "<leader>st",
+      function() Snacks.picker.todo_comments() end,
+      desc = "Grep: Todo List",
+    },
+    {
+      "<leader>sT",
+      function()
+        Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } })
+      end,
+      desc = "Grep: Todo/Fix/Fixme",
+    },
+  },
   opts = {
     signs = true,
     keywords = {
