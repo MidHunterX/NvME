@@ -6,6 +6,7 @@ return {
     { "ghn", "<Cmd>Gitsigns next_hunk<CR>", mode = "n", desc = "Git Move to Next Hunk" },
     { "ghp", "<Cmd>Gitsigns prev_hunk<CR>", mode = "n", desc = "Git Move to Previous Hunk" },
     { "ghb", "<Cmd>Gitsigns blame_line<CR>", mode = "n", desc = "Git Blame Line" },
+    { "ghd", "<Cmd>Gitsigns toggle_word_diff<CR>", mode = "n", desc = "Git Toggle Word Diff" },
     { "ght", "<Cmd>Gitsigns toggle_current_line_blame<CR>", mode = "n", desc = "Git Toggle Current Line Blame" },
   },
   config = function()
