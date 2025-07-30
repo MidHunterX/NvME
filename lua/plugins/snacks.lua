@@ -126,13 +126,27 @@ return {
       enabled = picker,
       focus = "input", --"input"|"list" (defaults to "input")
       win = {
+        -- input window (search input)
         input = {
           keys = {
+            -- Default: cancel (closes sidebar)
+            -- Current: toggle_focus (go back to sidebar)
+            -- Problem: affects all pickers not just sidebar explorer :/
+            -- ["<Esc>"] = "toggle_focus",
+
+            -- Custom: Opinionated Exit
             ["x"] = "close",
           }
         },
+        -- result list window
         list = {
           keys = {
+            -- Default: focus_input (search input)
+            -- Current: confirm (open file)
+            -- Problem: affects all pickers not just sidebar explorer :/
+            -- ["i"] = "confirm",
+
+            -- Custom: Opinionated Exit
             ["x"] = "close",
           }
         }
