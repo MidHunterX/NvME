@@ -7,6 +7,109 @@ A **ME**ticulous nvim distribution, crafted from scratch solely for **ME** with
 every features and keybindings configured to offer supre**ME** comfort and
 comple**ME**nt **ME** workflow im**ME**nsely.
 
+== 🎨 Design Philosophy
+
+image:./img/nvim_record.jpg[]
+
+Important Stuff on Top Left Side::
+Left side is where your eyes linger most of the time when coding. Therefore the
+most important stuff happens directly near your line of sight. Macro Record
+Status possess high importance until recording is stopped. Therefore it stays
+on left side only for the time being recorded for a macro.
+
+Less Important Stuff on Top Right Side::
+Buffer list is not needed at all times, therefore it doesn't have that much
+importance to interfere with the code in buffer.
+
+Yank into System Clipboard by Default::
+Text is copied to system clipboard almost on every other apps; why should there
+be an exception here. Less hassle when copy pasting between windows frequently.
+
+Scroll past EOF in buffer with `j`::
+Personal preference for EOF to not be stuck at the bottom of the screen. Keys
+should always do something.
+
+Jump to line ends and paragraphs with `H` and `L`::
+H and L should be the extreme counterparts of h and l. No exceptions. After
+that, it jumps paragraphs (which is disabled in macro mode).
+
+.`💡 Learn More`
+[%collapsible]
+====
+[discrete]
+=== SmartMotion: Redefining `H` and `L`
+
+If `A` means ‘insert further right’ and `I` means ‘insert further left’, then
+`H` should mean ‘move further left’ (line-wise), and `L` should mean ‘move
+further right’. Thus H and L is corrected semantically by following vim
+conventions.
+
+Now, what should happen when I'm already at the edge? It does nothing? No. Avoid
+dead keys. Ensure that every press produces meaningful movement, enhancing flow
+and reducing mental friction.
+
+* When at the beginning of a line, H jumps to the previous paragraph `{`.
+* When at the end of a line, L jumps to the next paragraph `}`.
+
+NOTE: Paragraph jumping is intended for general navigational purposes only. Therefore
+it is disabled in macro mode.
+====
+
+== ✨ Features
+
+image:./img/nvim_hitfont.jpg[]
+
+=== Custom Features
+
+* Convert text to Hit Font with `:HitFont`
+* Trim trailing lines and Write Buffer with `<leader>w`
+* Git Commit with `<leader>gc` using Lazygit
+* Execute files with `F5` or `:lua Execute_order_69()`
+* Run file formatter with `<leader>fm` or `:lua Run_formatter()`
+
+=== Notable Features
+
+==== 🐞 AI Assisted Debugging
+`wtf.nvim`
+
+Helps you work out WTF that code error means *and* how to fix it!
+
+[%header]
+|===
+| Keybinding   | Description
+| `<leader>wd` | WTF Debug: Give me the simplified explanation of this error
+| `<leader>wf` | WTF Fix: Just make this error disappear automatically
+| `<leader>ws` | WTF Search: Google this error
+| `<leader>wp` | WTF Provider: List and choose an LLM provider
+|===
+
+To install, just export the LLM API key of your choice as an environment variable. For example:
+
+.bash
+[source,bash]
+----
+# Gemini
+export GEMINI_API_KEY=NznytnzngvbaBsPungTCGnaqTbbtyrFrnepu-NcvUrer
+
+# OpenAI
+export OPENAI_API_KEY=sk-XrlGbGurNyyrtrqylBcraShyylPybfrqNVPbzcnalNCVUrer
+----
+
+Supports: ANTHROPIC, COPILOT, DEEPSEEK, GEMINI, GROK, OLLAMA, OPENAI.
+
+Then just select your provider using `<leader>wp` and you are good to go.
+
+==== ✂️ AI Code Completion
+`windsurf.nvim`
+
+To enable AI Code Completion:
+* Create a Windsurf account and get an API key.
+* Authorize Windsurf (Codeium) using:
+----
+:Codeium Auth
+----
+After that, it will be available for use in the current buffer as you type.
+
 == ⚡ Requirements
 
 * *Neovim* (Needs to be built with LuaJIT)
@@ -17,10 +120,8 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 * *fd*: For Find Files
 * *vifm*: File Manager
 * *lazygit*: Git UI
-* *python*: For Python Language Server & Black Formatter
-* *nodejs*: For other Language Servers and Formatters
-* *live-server* (npm): For local HTML Server
-* *Windsurf account*: Auth for AI code completion
+* *nodejs*: For Language Servers and Formatters
+* *live-server*: For local HTML Server
 
 === Install Requirements
 
@@ -87,14 +188,6 @@ set ME ~/.config/nvim; test -d $ME && rm -rf $ME; and mv ${ME}_backup/ $ME
 
 == 🌱 Development Environment Setup
 
-=== AI Code Completion
-
-* Authorize Windsurf (Codeium) using:
-
-----
-:Codeium Auth
-----
-
 * Insert completion using `<C-f>` just like how it is done in fish shell
 
 === Python Django
@@ -113,69 +206,6 @@ pip install django-stubs
 sudo pacman -S jdk21-openjdk
 sudo archlinux-java set java-21-openjdk
 ----
-
-== 🎨 Design Philosophy
-
-image:./img/nvim_record.jpg[]
-
-Important Stuff on Top Left Side::
-Left side is where your eyes linger most of the time when coding. Therefore the
-most important stuff happens directly near your line of sight. Macro Record
-Status possess high importance until recording is stopped. Therefore it stays
-on left side only for the time being recorded for a macro.
-
-Less Important Stuff on Top Right Side::
-Buffer list is not needed at all times, therefore it doesn't have that much
-importance to interfere with the code in buffer.
-
-Yank into System Clipboard by Default::
-Text is copied to system clipboard almost on every other apps; why should there
-be an exception here. Less hassle when copy pasting between windows frequently.
-
-Scroll past EOF in buffer with `j`::
-Personal preference for EOF to not be stuck at the bottom of the screen. Keys
-should always do something.
-
-SmartMotion: Redefining H and L::
-H and L should be the extreme counterparts of h and l. No exceptions. After
-that, it jumps paragraphs.
-
-.`💡 Learn More`
-[%collapsible]
-====
-
-[discrete]
-
-It is observed that:
-
-* Lowercase motions (i, a, w, b) act locally line-wise.
-* Uppercase versions (I, A, W, B) typically act more extremely or globally.
-* H and L don't act as the extreme counterparts of h and l.
-
-> “If a → A means ‘go further right’, then h → H should mean ‘go further left’ (line-wise), and l → L should mean ‘go further right’.”
-
-Following the Vim convention where uppercase keys act as 'supercharged' versions of their lowercase counterparts, inconsistency in H and L is corrected semantically.
-
-* H moves cursor to start `^` of a line.
-* L moves cursor to end `$` of a line.
-
-> "What should happen when I'm already at the edge? It does nothing? No. Avoid dead keys. Ensure that every press produces meaningful movement, enhancing flow and reducing mental friction."
-
-* When at the beginning of a line, H jumps to the previous paragraph `{`.
-* When at the end of a line, L jumps to the next paragraph `}`.
-
-====
-
-== 🛂 Custom Features
-
-image:./img/nvim_hitfont.jpg[]
-
-* Convert text to Hit Font with `:HitFont`
-* Toggle Boolean Values with `C-a`
-* Trim trailing lines and Write Buffer with `<leader>w`
-* Git add . + commit -m with `<leader>gc` (Replaced with Lazygit)
-* Execute files with `F5` or `:lua Execute_order_69()`
-* Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
 == 📝 Autocompletion Behaviour
 
@@ -196,7 +226,7 @@ Note: `TAB` does multiple things here
 * If menu and snippet are both not visible, `TAB` will jump over quotes and brackets.
 * If quotes and brackets are not available, `TAB` will act as normal `TAB`.
 
-.`Show Completion Workflows`
+.`💡 Show Completion Workflows`
 [%collapsible]
 ====
 
