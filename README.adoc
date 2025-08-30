@@ -391,4 +391,3 @@ image:./img/nvim_plugins.jpg[]
 * Added more text objects with `nvim-treesitter-textobjects`
 * Manage and Explore files and folders with `vifm.vim`
 * Visible Color Codes on buffer with `nvim-coloriser.lua`
-* Distraction free Coding Zen Mode with `zen-mode.nvim` + `twilight.nvim`
