@@ -180,8 +180,6 @@ it is disabled in macro mode.
 
 image:./img/nvim_hitfont.jpg[]
 
-=== 🛃 Custom Features
-
 * Convert text to Hit Font with `:HitFont`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git Commit with `<leader>gc` using Lazygit
@@ -367,10 +365,8 @@ Reject: o
 
 image:./img/nvim_plugins.jpg[]
 
-* Navigate through code Functions/Methods with `aerial.nvim`
 * Lazy Loading Plugin Manager `lazy.nvim`
 * Autoclosing Braces and Tags with `nvim-autopairs`
-* Disable Features on Large Files with `bigfile.nvim`
 * Default Colorscheme: `catppuccin`
 * Fancy Dashboard with `dashboard-nvim`
 * Gitsigns on Signcolumn with `gitsigns.nvim`
