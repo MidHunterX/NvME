@@ -102,6 +102,17 @@ return {
     },
     { "<m-/>", toggle_terminal, desc = "Toggle: Terminal",        mode = { "n", "t" } },
     { "<m-_>", toggle_terminal, desc = "Toggle: Terminal (TMUX)", mode = { "n", "t" } },
+    -- todo
+    {
+      "<leader>st",
+      function() Snacks.picker.todo_comments() end,
+      desc = "Grep: Todo List",
+    },
+    {
+      "<leader>sT",
+      function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end,
+      desc = "Grep: Todo/Fix/Fixme",
+    },
     -- HACK: Fixes issue temporarily with Explorer not closing properly on ZZ
     {
       "ZZ",
@@ -405,8 +416,8 @@ return {
       configure = false, -- apply colorscheme to lazygit
       win = {
         border = "rounded",
-        width = 0,
-        height = 0,
+        width = 0.9,
+        height = 0.9,
       },
     },
 
@@ -442,5 +453,27 @@ return {
       top_down = true, -- place notifications from top to bottom
       refresh = 100,   -- default 50
     },
+  },
+  dependencies = {
+    {
+      "folke/todo-comments.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      opts = {
+        signs = true,
+        keywords = {
+          FIX = {
+            icon = "",
+            color = "error",
+            alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
+          },
+          TODO = { icon = "", color = "info" },
+          HACK = { icon = "", color = "warning" },
+          WARN = { icon = "", color = "warning", alt = { "WARNING", "XXX" } },
+          PERF = { icon = "", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+          NOTE = { icon = "", color = "hint", alt = { "INFO" } },
+          TEST = { icon = "", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+        },
+      }
+    }
   },
 }
