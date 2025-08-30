@@ -7,6 +7,127 @@ A **ME**ticulous nvim distribution, crafted from scratch solely for **ME** with
 every features and keybindings configured to offer supre**ME** comfort and
 comple**ME**nt **ME** workflow im**ME**nsely.
 
+== ⚡ Requirements
+
+* *Neovim* (Needs to be built with LuaJIT)
+* *GCC*: For compiling treesitter languages in Linux
+* *Zig Compiler*: For compiling treesitter languages in Windows
+* *git*: For git integration, cloning plugin repos etc.
+* *ripgrep*: For live grep
+* *fd*: For Find Files
+* *vifm*: File Manager
+* *lazygit*: Git UI
+* *nodejs*: For Language Servers and Formatters
+* *live-server*: For local HTML Server
+
+=== Install Requirements
+
+.🅐 Arch Based System (pacman)
+[source,bash]
+----
+sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
+sudo npm install -g live-server
+----
+
+== 📦 Quick Start
+
+.🚀 `Install Guide (auto backups prev config if any)`
+[%collapsible]
+====
+[discrete]
+== 🚀 Install
+
+If any config is already present, it backups your config and puts NvME in place.
+
+[discrete]
+=== 🐧 Linux
+
+* Suggested Compiler: *GCC*
+
+.bash / zsh
+[source,bash]
+----
+ME=~/.config/nvim; [ -d $ME ] && mv $ME ${ME}_backup/
+git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
+----
+
+.fish
+[source,fish]
+----
+set ME ~/.config/nvim; test -d $ME; and mv $ME {$ME}_backup
+git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
+----
+
+[discrete]
+=== 🪟 Windows
+
+* Suggested Compiler: *Zig Compiler*
+
+.powershell
+[source,pwsh]
+----
+git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim --depth 1; nvim
+----
+
+.cmd
+[source,cmd]
+----
+git clone https://github.com/MidHunterX/NvME %localappdata%\nvim --depth 1 && nvim
+----
+
+====
+
+.🚶 `Uninstall Guide (go back to previous config if exists)`
+[%collapsible]
+====
+[discrete]
+== 🚶 Uninstall
+
+Uninstalls NvME and returns back to previous config if any.
+
+.bash / zsh
+[source,bash]
+----
+ME=~/.config/nvim; [ -d $ME ] && rm -rf $ME && mv ${ME}_backup/ $ME
+----
+
+.fish
+[source,fish]
+----
+set ME ~/.config/nvim; test -d $ME && rm -rf $ME; and mv ${ME}_backup/ $ME
+----
+
+====
+
+.🌱 `Development Environment Setup`
+[%collapsible]
+====
+[discrete]
+== 🌱 Development Environment Setup
+
+* Insert completion using `<C-f>` just like how it is done in fish shell
+
+[discrete]
+=== Python Django
+
+* From `:Mason`, Install `pyright` Language Server
+
+* Django uses some Python "magic" that makes having precise types for some code patterns problematic. To provide more precise static types and type inference for Django framework and be recognizable to pyright LSP, install:
+
+----
+pip install django-stubs
+----
+
+[discrete]
+=== Flutter
+
+----
+sudo pacman -S jdk21-openjdk
+sudo archlinux-java set java-21-openjdk
+----
+
+====
+
 == 🎨 Design Philosophy
 
 image:./img/nvim_record.jpg[]
@@ -59,7 +180,7 @@ it is disabled in macro mode.
 
 image:./img/nvim_hitfont.jpg[]
 
-=== Custom Features
+=== 🛃 Custom Features
 
 * Convert text to Hit Font with `:HitFont`
 * Trim trailing lines and Write Buffer with `<leader>w`
@@ -67,10 +188,7 @@ image:./img/nvim_hitfont.jpg[]
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
-=== Notable Features
-
-==== 🐞 AI Assisted Debugging
-`wtf.nvim`
+=== 🐞 AI Assisted Debugging
 
 Helps you work out WTF that code error means *and* how to fix it!
 
@@ -83,9 +201,11 @@ Helps you work out WTF that code error means *and* how to fix it!
 | `<leader>wp` | WTF Provider: List and choose an LLM provider
 |===
 
+.`💡 How to set up?`
+[%collapsible]
+====
 To install, just export the LLM API key of your choice as an environment variable. For example:
 
-.bash
 [source,bash]
 ----
 # Gemini
@@ -99,113 +219,21 @@ Supports: ANTHROPIC, COPILOT, DEEPSEEK, GEMINI, GROK, OLLAMA, OPENAI.
 
 Then just select your provider using `<leader>wp` and you are good to go.
 
-==== ✂️ AI Code Completion
-`windsurf.nvim`
+====
+
+=== 🚽 AI Code Completion
 
 To enable AI Code Completion:
+
 * Create a Windsurf account and get an API key.
 * Authorize Windsurf (Codeium) using:
+
+[source,lua]
 ----
 :Codeium Auth
 ----
-After that, it will be available for use in the current buffer as you type.
 
-== ⚡ Requirements
-
-* *Neovim* (Needs to be built with LuaJIT)
-* *GCC*: For compiling treesitter languages in Linux
-* *Zig Compiler*: For compiling treesitter languages in Windows
-* *git*: For git integration, cloning plugin repos etc.
-* *ripgrep*: For live grep
-* *fd*: For Find Files
-* *vifm*: File Manager
-* *lazygit*: Git UI
-* *nodejs*: For Language Servers and Formatters
-* *live-server*: For local HTML Server
-
-=== Install Requirements
-
-.🅐 Arch Based System (pacman)
-[source,bash]
-----
-sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
-sudo npm install -g live-server
-----
-
-== 🚀 Install (backups prev config if any)
-
-If any config is already present, it backups your config and puts NvME in place.
-
-=== 🐧 Linux
-
-* Suggested Compiler: *GCC*
-
-.bash / zsh
-[source,bash]
-----
-ME=~/.config/nvim; [ -d $ME ] && mv $ME ${ME}_backup/
-git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
-----
-
-.fish
-[source,fish]
-----
-set ME ~/.config/nvim; test -d $ME; and mv $ME {$ME}_backup
-git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
-----
-
-=== 🪟 Windows
-
-* Suggested Compiler: *Zig Compiler*
-
-.powershell
-[source,pwsh]
-----
-git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim --depth 1; nvim
-----
-
-.cmd
-[source,cmd]
-----
-git clone https://github.com/MidHunterX/NvME %localappdata%\nvim --depth 1 && nvim
-----
-
-== 🚶 Uninstall (go back to previous config if exists)
-
-Uninstalls NvME and returns back to previous config if any.
-
-.bash / zsh
-[source,bash]
-----
-ME=~/.config/nvim; [ -d $ME ] && rm -rf $ME && mv ${ME}_backup/ $ME
-----
-
-.fish
-[source,fish]
-----
-set ME ~/.config/nvim; test -d $ME && rm -rf $ME; and mv ${ME}_backup/ $ME
-----
-
-== 🌱 Development Environment Setup
-
-* Insert completion using `<C-f>` just like how it is done in fish shell
-
-=== Python Django
-
-* From `:Mason`, Install `pyright` Language Server
-
-* Django uses some Python "magic" that makes having precise types for some code patterns problematic. To provide more precise static types and type inference for Django framework and be recognizable to pyright LSP, install:
-
-----
-pip install django-stubs
-----
-
-=== Flutter
-
-----
-sudo pacman -S jdk21-openjdk
-sudo archlinux-java set java-21-openjdk
-----
+After that, auto-completion will be available for use in the current buffer as you type.
 
 == 📝 Autocompletion Behaviour
 
