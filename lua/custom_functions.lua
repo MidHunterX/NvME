@@ -5,9 +5,18 @@ local M = {}
 -- Therefore, H (← extreme) and L (→ extreme) should go to ^ and $ respectively,
 -- and adapt to jump blocks ({, }) when already at the edge.
 -- This mapping restores consistency, utility, and fluidity in navigation.
+-- During macro recording, the paragraph jump is not used as it's only intended
+-- for navigational purposes. And it can cause unintended effects in a macro.
 -- NOTE: { and } by default adds the current position to the jumplist leading
 -- to jumplist pollution. vim Marks are provided as a solution for this issue.
+
+local function is_macro_recording()
+  return vim.fn.reg_recording() ~= ''
+end
+
 function M.SmartMotionH()
+  if is_macro_recording() then return '^' end
+
   local col = vim.fn.col('.')
   local line = vim.fn.getline('.')
   local first_nonblank = vim.fn.match(line, [[\S]]) + 1
@@ -19,6 +28,8 @@ function M.SmartMotionH()
 end
 
 function M.SmartMotionL()
+  if is_macro_recording() then return '$' end
+
   local col = vim.fn.col('.')
   local line = vim.fn.getline('.')
   if col >= #line then
