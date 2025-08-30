@@ -22,6 +22,12 @@ vim.keymap.set({ 'n', 'v' }, 'L', custard.SmartMotionL, { expr = true, desc = 'S
 -------------------------------------------------- Scroll centered [ Ctrl d/u ]
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
+----------------------------------------------- Jump to matching bracket [ mm ]
+vim.keymap.set("n", "mm", "%", { desc = "Jump to matching bracket" })
+-- Selects until matching pair, ex: `vm` - select until matching pair
+vim.keymap.set("x", "m", "%")
+-- Use with operators, ex: `dm` - delete until matching pair
+vim.keymap.set("o", "m", "%")
 
 
 --=============================[ LEADER REMAPS ]=============================--
