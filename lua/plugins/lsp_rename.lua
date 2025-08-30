@@ -13,12 +13,13 @@
 
 -- Wayy better than inc-rename. It uses floating window right on top of the word
 -- being renamed. So, you can use all of the vim motions while renaming.
+vim.api.nvim_set_hl(0, "LiveRename", { bg = "#d20f39", fg = "#ffffff" })
 return {
   "saecki/live-rename.nvim",
   opts = {
     hl = {
-      current = "CurSearch", -- CurSearch
-      others = "Search",     -- Search
+      current = "LiveRename", -- CurSearch
+      others = "Search",      -- Search
     },
   },
   keys = {
