@@ -16,21 +16,20 @@ return {
       preselect_current = true,
     },
     hints = {
-      -- Charaters to use for hints (NOTE: make sure they don't collide with the navigation keymaps)
+      -- Charaters to use for hints (make sure they don't collide with the navigation keymaps)
       ---@type string
-      dictionary = "sadflewcmpghio",
+      dictionary = "uiopasdfewl", -- sadflewcmpghio
     },
     navigate = {
       next_page = "J",
       prev_page = "K",
       -- Select item under the cursor
-      under_cursor = "i",
+      under_cursor = "<CR>",
       ---@type string|string[]
       cancel_snipe = { "q", "<Esc>", "x" },
       close_buffer = "D",
       open_vsplit = "V",
       open_split = "H",
-      change_tag = "C",
     },
     ---@type "default"|"last"
     sort = "default",
