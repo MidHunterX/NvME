@@ -328,8 +328,10 @@ Reject: o
 === Terminal Mode
 [%header]
 |===
-| Key      | Description
-| `<C-n>n` | Return to Normal Mode
+| Key          | Description
+| `<C-n>n`     | Return to Normal Mode
+| `<C-w>n`     | Return to Normal Mode
+| `<C-w><ESC>` | Return to Normal Mode
 |===
 
 === Leader Remaps

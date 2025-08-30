@@ -15,6 +15,8 @@ vim.keymap.set('v', '>', '>gv')
 ------------------------------------- Return to Normal in Terminal [ Ctrl n n ]
 -- <C-w> == <C-BS> == <C-h> (ASCII 0x17)
 vim.keymap.set("t", "<C-n>n", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-w>n", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-w><ESC>", "<C-\\><C-n>")
 --------------------------------------------------------- Goto line start [ H ]
 vim.keymap.set({ 'n', 'v' }, 'H', custard.SmartMotionH, { expr = true, desc = 'Smart H (^ or {)' })
 ----------------------------------------------------------- Goto line end [ L ]
