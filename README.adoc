@@ -297,41 +297,76 @@ Reject: o
 === Normal Mode
 [%header]
 |===
-| Key          | Description
-| `u`          | Undo
-| `U`          | Redo
-| `<C-u>`      | Scroll Half page up with Cursor centered
-| `<C-d>`      | Scroll Half page down with Cursor centered
-| `<A-h>`      | Go to Previous Buffer
-| `<A-l>`      | Go to Next Buffer
-| `<Space>`    | Leader Key
-| `<leader>rr` | Replace word under cursor with Regex
-| `<leader>x`  | Delete Current Buffer
-| `<leader>d`  | Deletes selection into blackhole register
-| `<leader>p`  | Deletes selection into blackhole register and paste
-| `ghh`        | Git Preview Hunk
-| `ghn`        | Git Goto Next Hunk
-| `ghp`        | Git Goto Previous Hunk
+| Key     | Description
+| `u`     | Undo
+| `U`     | Redo
+| `H`     | Smart Motion to Line Start (`^` or `{`)
+| `L`     | Smart Motion to Line End (`$` or `}`)
+| `<C-u>` | Scroll Half Page Up (Cursor Centered)
+| `<C-d>` | Scroll Half Page Down (Cursor Centered)
+| `mm`    | Jump to Matching Bracket
+| `<A-h>` | Go to Previous Buffer
+| `<A-l>` | Go to Next Buffer
+| `<C-h>` | Go to Previous Tab
+| `<C-l>` | Go to Next Tab
+| `<F5>`  | Execute Current Buffer (`:lua Execute_order_69()`)
+| `g?`    | ROT13 Cipher (default, with description)
 |===
 
 === Visual Mode
 [%header]
 |===
-| Key       | Description
-| `<Space>` | Leader
-| `J`       | Move line Down with autoindent
-| `K`       | Move line Up with autoindent
-| `<`       | Indent line/selection to Left
-| `>`       | Indent line/selection to Right
-| `H`       | Move cursor to start `^` of a line
-| `L`       | Move cursor to end `$` of a line
+| Key | Description
+| `J` | Move Line Down with Autoindent
+| `K` | Move Line Up with Autoindent
+| `<` | Indent Line/Selection Left (stay in Visual mode)
+| `>` | Indent Line/Selection Right (stay in Visual mode)
+| `H` | Smart Motion to Line Start (`^` or `{`)
+| `L` | Smart Motion to Line End (`$` or `}`)
 |===
 
 === Terminal Mode
 [%header]
 |===
 | Key      | Description
-| `<C-w>n` | Return to Normal Mode
+| `<C-n>n` | Return to Normal Mode
+|===
+
+=== Leader Remaps
+[%header]
+|===
+| Key          | Description
+| `<Space>`    | Leader
+| `<leader>w`  | Write File
+| `<leader>er` | Erase Search Highlight
+| `<leader>rr` | Highlight & Replace Word
+| `<leader>y`  | Yank Entire Buffer
+| `<leader>us` | Toggle Spell Check
+| `<leader>d`  | Delete Without Yanking
+| `<leader>p`  | Paste Without Yanking
+|===
+
+=== Tab Management
+[%header]
+|===
+| Key             | Description
+| `<leader>tn`    | Tab: New
+| `<leader>tc`    | Tab: Create
+| `<leader>tx`    | Tab: Exit
+| `<leader>tq`    | Tab: Quit
+| `<leader>tX`    | Tab: Exit Other Tabs
+| `<leader>tQ`    | Tab: Quit Other Tabs
+| `<leader>th`    | Tab: Previous
+| `<leader>tl`    | Tab: Next
+| `<leader><A-h>` | Tab: Previous
+| `<leader><A-l>` | Tab: Next
+|===
+
+=== GUI Style Remaps
+[%header]
+|===
+| Key     | Description
+| `<C-s>` | Save Document (Normal/Insert mode)
 |===
 
 == 📕 More Text Objects
