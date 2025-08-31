@@ -104,12 +104,12 @@ return {
     { "<m-_>", toggle_terminal, desc = "Toggle: Terminal (TMUX)", mode = { "n", "t" } },
     -- todo
     {
-      "<leader>st",
+      "<leader>sT",
       function() Snacks.picker.todo_comments() end,
       desc = "Grep: Todo List",
     },
     {
-      "<leader>sT",
+      "<leader>st",
       function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end,
       desc = "Grep: Todo/Fix/Fixme",
     },
