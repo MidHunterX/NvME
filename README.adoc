@@ -221,7 +221,19 @@ Then just select your provider using `<leader>wp` and you are good to go.
 
 === 🚽 AI Code Completion
 
-To enable AI Code Completion:
+[%header]
+|===
+| Keybinding | Description
+| `<C-f>`    | Accept Full completion (like in fish shell)
+| `<M-,>`    | Cycle through completions
+|===
+
+This feature is enabled by default. But you can toggle AI Code Completion with
+`:Codeium Toggle`
+
+.`💡 How to set up?`
+[%collapsible]
+====
 
 * Create a Windsurf account and get an API key.
 * Authorize Windsurf (Codeium) using:
@@ -231,7 +243,11 @@ To enable AI Code Completion:
 :Codeium Auth
 ----
 
+* Follow the rest of the instructions to get started.
+
 After that, auto-completion will be available for use in the current buffer as you type.
+
+====
 
 == 📝 Autocompletion Behaviour
 
