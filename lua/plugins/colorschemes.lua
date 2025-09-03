@@ -16,9 +16,10 @@ return {
         gitsigns = true,
         leap = true,
         mason = true,
-        notify = true,
-        treesitter = true,
         noice = true,
+        notify = true,
+        treesitter_context = true,
+        treesitter = true,
         nvim_surround = true,
         render_markdown = true,
         snacks = {
@@ -37,16 +38,17 @@ return {
       color_overrides = {
         mocha = {
           -- base color of: Current Line, render-markdown Heading etc.
-          base = "#3a3c46",
+          base = "#37383e",
           -- bg of: render-markdown Code Block
-          mantle = "#31343f",
+          mantle = "#242428",
+          crust = "#181825",
         },
       },
     },
 
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin-mocha")
+      vim.cmd.colorscheme("catppuccin")
     end,
 
   },
@@ -61,7 +63,7 @@ return {
     config = function()
       require('onedark').setup {
         style = 'dark',
-        transparent = false,
+        transparent = true,
         cmp_itemkind_reverse = false,
         colors = {
           fg = "#cdd6f4",
