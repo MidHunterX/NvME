@@ -14,7 +14,7 @@ return {
 
     icons = {
       rules = {
-        { plugin = "wtf", icon = "󰚩", color = "red" },
+        { pattern = "wtf", icon = "󰚩", color = "red" },
         { plugin = "treesj", icon = "󰃻 ", color = "blue" },
         { pattern = "fold", icon = "", color = "yellow" },
       }
