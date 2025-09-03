@@ -42,9 +42,11 @@ local fileformat = function()
   return icons[ret] or ret
 end
 
--- HACK: remove ugly white separators due to lualine bugs
-local customcat = require 'lualine.themes.catppuccin-macchiato'
-customcat.inactive.a.bg = '#282828'
+-- Problem: lua/catppuccin/utils/lualine.lua > catppuccin.inactive.a.bg = 'NONE'
+-- HACK: Remove ugly white separators due to lualine transparency handling bug
+local customcat = require 'lualine.themes.catppuccin'
+customcat.inactive.a.bg = '#242428'
+customcat.normal.c.bg = 'NONE'
 
 
 -- ------------------------------------------------------------------------- --
