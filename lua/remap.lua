@@ -13,10 +13,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 ------------------------------------- Return to Normal in Terminal [ Ctrl n n ]
+-- FIXES: <C-BS> Conflict in Terminal
 -- <C-w> == <C-BS> == <C-h> (ASCII 0x17)
 vim.keymap.set("t", "<C-n>n", "<C-\\><C-n>")
-vim.keymap.set("t", "<C-w>n", "<C-\\><C-n>")
-vim.keymap.set("t", "<C-w><ESC>", "<C-\\><C-n>")
 --------------------------------------------------------- Goto line start [ H ]
 vim.keymap.set({ 'n', 'v' }, 'H', custard.SmartMotionH, { expr = true, desc = 'Smart H (^ or {)' })
 ----------------------------------------------------------- Goto line end [ L ]
