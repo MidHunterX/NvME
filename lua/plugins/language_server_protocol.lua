@@ -148,7 +148,7 @@ return {
             desc = "LSP: Hover Docs",
           })
 
-          vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, {
+          vim.keymap.set('n', '<leader>K', vim.lsp.buf.signature_help, {
             buffer = ev.buf,
             desc = "LSP: Signature Help",
           })

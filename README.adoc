@@ -186,6 +186,10 @@ image:./img/nvim_hitfont.jpg[]
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
+=== 🌳 Navigate through Treesitter Nodes
+
+Navigate through code with `<C-hjkl>`. On a well formatted code, think of this as moving through the indent lines vertically and jumping between the indent lines horizontally.
+
 === 🐞 AI Assisted Debugging
 
 Helps you work out WTF that code error means *and* how to fix it!
@@ -198,6 +202,8 @@ Helps you work out WTF that code error means *and* how to fix it!
 | `<leader>ws` | WTF Search: Google this error
 | `<leader>wp` | WTF Provider: List and choose an LLM provider
 |===
+
+NOTE: Since this keybind conflicts with `<leader>w` (save file), this mode can only be activated by pressing `<leader>` and waiting for 1 second.
 
 .`💡 How to set up?`
 [%collapsible]

@@ -54,13 +54,14 @@ return {
       ignore_install = {},
       incremental_selection = {
         -------------------------------------------- [ Enables on Normal mode ]
-        enable = true,
-        keymaps = {
+        -- NOTE: Replaced by flash.nvim "treesitter()"
+        enable = false,
+        --[[ keymaps = {
           init_selection = '<C-k>',
           node_incremental = '<C-k>',
           node_decremental = '<C-j>',
           scope_incremental = '<C-h>',
-        },
+        }, ]]
       },
 
 
