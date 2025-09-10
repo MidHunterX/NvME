@@ -4,7 +4,6 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
   },
-  opts = {},
   keys = {
     {
       "<leader>wd",
@@ -38,5 +37,18 @@ return {
       end,
       desc = "WTF: Pick provider",
     },
+  },
+  opts = {
+    -- Default AI popup type
+    ---@type "popup" | "horizontal" | "vertical"
+    popup_type = "horizontal",
+
+    -- Default provider
+    ---@type "anthropic" | "copilot" | "deepseek" | "gemini" | "grok" | "ollama" | "openai"
+    provider = "gemini",
+
+    -- Default search engine
+    ---@type "google" | "duck_duck_go" | "stack_overflow" | "github" | "phind" | "perplexity"
+    search_engine = "google",
   },
 }
