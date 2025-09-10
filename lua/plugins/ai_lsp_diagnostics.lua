@@ -1,3 +1,17 @@
+local options = {
+  -- Default AI popup type
+  ---@type "popup" | "horizontal" | "vertical"
+  popup_type = "vertical",
+
+  -- Default provider
+  ---@type "anthropic" | "copilot" | "deepseek" | "gemini" | "grok" | "ollama" | "openai"
+  provider = "gemini",
+
+  -- Default search engine
+  ---@type "google" | "duck_duck_go" | "stack_overflow" | "github" | "phind" | "perplexity"
+  search_engine = "google",
+}
+
 return {
   "piersolenski/wtf.nvim",
   dependencies = {
@@ -9,6 +23,12 @@ return {
       "<leader>wd",
       mode = { "n", "x" },
       function()
+        -- If the window is too small, switch to horizontal
+        if vim.fn.winwidth(0) < 100 then
+          options.popup_type = "horizontal"
+          require("wtf").setup(options)
+        end
+
         require("wtf").diagnose()
       end,
       desc = "WTF: Debug with AI",
@@ -38,17 +58,5 @@ return {
       desc = "WTF: Pick provider",
     },
   },
-  opts = {
-    -- Default AI popup type
-    ---@type "popup" | "horizontal" | "vertical"
-    popup_type = "horizontal",
-
-    -- Default provider
-    ---@type "anthropic" | "copilot" | "deepseek" | "gemini" | "grok" | "ollama" | "openai"
-    provider = "gemini",
-
-    -- Default search engine
-    ---@type "google" | "duck_duck_go" | "stack_overflow" | "github" | "phind" | "perplexity"
-    search_engine = "google",
-  },
+  opts = options,
 }
