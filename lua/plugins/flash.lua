@@ -28,13 +28,15 @@ return {
     keys = {
       {
         "s",
-        mode = { "n", "x", "o" },
+        -- NOTE: Removed Operator-pending mode "o" since I found no use in
+        -- doing ys<search>. It just yanks from cursor to first search term
+        mode = { "n", "x" },
         function() require("flash").jump() end,
         desc = "Flash: Jump",
       },
       {
         "S",
-        mode = { "n", "x", "o" },
+        mode = { "n", "x" },
         function() require("flash").treesitter() end,
         desc = "Flash: Select Treesitter",
       },
