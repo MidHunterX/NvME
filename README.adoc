@@ -196,7 +196,7 @@ image:./img/nvim_hitfont.jpg[]
 
 === 🫶 Bracket Manipulation
 
-`surround.lua`
+`bracket_surround.lua`
 
 *<bracket>* = [a]ngle bracket `>` | [b]racket `)` | [B]race `}` | [r]ectangle bracket `]` | [q]uote `"` `'`
 
@@ -212,11 +212,11 @@ image:./img/nvim_hitfont.jpg[]
 | `gsL <bracket>`              | Surround this Line with <bracket> (line-wise)
 |===
 
-`autopairs.lua`: Autoclose brackets, quotes, etc. when typing them.
+`bracket_autopairs.lua`: Autoclose brackets, quotes, etc. when typing them.
 
-`im-matchparen.lua`: Highlights matching parenthesis when cursor is anywhere inside the block. An improved version of inbuilt matchparen.
+`bracket_matchparen.lua`: Highlights matching parenthesis when cursor is anywhere inside the block. An improved version of inbuilt matchparen.
 
-`rainbow_brackets.lua`: Highlights matching pair of brackets based on the nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
+`bracket_rainbow.lua`: Highlights matching pair of brackets based on the nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
 
 === 🐞 AI Assisted Debugging
 
