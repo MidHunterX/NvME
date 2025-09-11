@@ -186,6 +186,30 @@ image:./img/nvim_hitfont.jpg[]
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
+=== 🫶 Bracket Manipulation
+
+`surround.lua`
+
+Available `<bracket>`:
+
+* [a]ngle brackets `>`
+* [b]racket `)`
+* [B]races `}`
+* [r]ectangle brackets `]`
+* [q]uotes `"` `'`
+
+[%header]
+|===
+| Keybinding               | Description
+| `ds <bracket>`           | [d]elete [s]urrounding <brackets>
+| `cs <bracket>`           | [c]hange [s]urrounding <bracket> to <new-bracket>
+| `cS <bracket>`           | [c]hange [s]urrounding <bracket> to <new-bracket> (line-wise)
+| `gsl <bracket>`          | [g]o [s]urround this [l]ine with <bracket>
+| `gsL <bracket>`          | [g]o [s]urround this [l]ine with <bracket> (line-wise)
+| `gs <motions> <bracket>` | [g]o [s]urround this object with <bracket>
+| `gS <motions> <bracket>` | [g]o [s]urround this object with <motions> <bracket> (line-wise)
+|===
+
 === 🌳 Treesitter Node Manipulation
 
 `treesitter_walker.lua`
