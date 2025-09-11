@@ -186,11 +186,17 @@ image:./img/nvim_hitfont.jpg[]
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
-=== 🌳 Navigate through Treesitter Nodes
+=== 🌳 Treesitter Node Manipulation
 
-Navigate through code with `<C-hjkl>`. On a well formatted code, think of this as moving through the indent lines vertically and jumping between the indent lines horizontally.
+`treesitter_walker.lua`
+
+**Navigate** through nodes with `<C-hjkl>`. On a well formatted code, think of this as moving through the indent lines vertically and jumping between the indent lines horizontally.
+
+**Swap** those nodes around with `<C-HJKL>`.
 
 === 🐞 AI Assisted Debugging
+
+`ai_lsp_diagnostics.lua`
 
 Helps you work out WTF that code error means *and* how to fix it!
 
@@ -226,6 +232,8 @@ Then just select your provider using `<leader>wp` and you are good to go.
 ====
 
 === 🚽 AI Code Completion
+
+`ai_windsurf.lua`
 
 [%header]
 |===
