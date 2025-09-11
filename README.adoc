@@ -402,7 +402,14 @@ Reject: o
 | `<leader>p`  | Paste Without Yanking
 |===
 
-=== Tab Management
+=== Buffer & Tab Management
+
+`buffer_selector.lua`
+
+View all open buffers and switch between buffers with `<leader>b`. Then open buffer with tag letters or `<CR>`, `V` to vsplit, `H` to hsplit, `D` to close and `q` or `esc` to cancel selection.
+
+Use `<M-hl>` (Alt+H / Alt+L) to move through buffers.
+
 [%header]
 |===
 | Key             | Description
@@ -480,4 +487,3 @@ image:./img/nvim_plugins.jpg[]
 * View live Treesitter parsing tree with `nvim-treesitter/playground`
 * Added more text objects with `nvim-treesitter-textobjects`
 * Manage and Explore files and folders with `vifm.vim`
-* Visible Color Codes on buffer with `nvim-coloriser.lua`
