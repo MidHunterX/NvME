@@ -186,30 +186,6 @@ image:./img/nvim_hitfont.jpg[]
 * Execute files with `F5` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
-=== 🫶 Bracket Manipulation
-
-`surround.lua`
-
-Available `<bracket>`:
-
-* [a]ngle brackets `>`
-* [b]racket `)`
-* [B]races `}`
-* [r]ectangle brackets `]`
-* [q]uotes `"` `'`
-
-[%header]
-|===
-| Keybinding               | Description
-| `ds <bracket>`           | [d]elete [s]urrounding <brackets>
-| `cs <bracket>`           | [c]hange [s]urrounding <bracket> to <new-bracket>
-| `cS <bracket>`           | [c]hange [s]urrounding <bracket> to <new-bracket> (line-wise)
-| `gsl <bracket>`          | [g]o [s]urround this [l]ine with <bracket>
-| `gsL <bracket>`          | [g]o [s]urround this [l]ine with <bracket> (line-wise)
-| `gs <motions> <bracket>` | [g]o [s]urround this object with <bracket>
-| `gS <motions> <bracket>` | [g]o [s]urround this object with <motions> <bracket> (line-wise)
-|===
-
 === 🌳 Treesitter Node Manipulation
 
 `treesitter_walker.lua`
@@ -217,6 +193,24 @@ Available `<bracket>`:
 **Navigate** through nodes with `<C-hjkl>`. On a well formatted code, think of this as moving through the indent lines vertically and jumping between the indent lines horizontally.
 
 **Swap** those nodes around with `<C-HJKL>`.
+
+=== 🫶 Bracket Manipulation
+
+`surround.lua`
+
+`<bracket>` = [a]ngle bracket `>` | [b]racket `)` | [B]race `}` | [r]ectangle bracket `]` | [q]uote `"` `'`
+
+[%header]
+|===
+| Keybinding                   | Description
+| `ds <bracket>`               | Delete Surrounding <bracket>
+| `cs <bracket> <new-bracket>` | Change Surrounding <bracket> to <new-bracket>
+| `cS <bracket> <new-bracket>` | Change Surrounding <bracket> to <new-bracket> (line-wise)
+| `gs <motions> <bracket>`     | Surround this <motions> with <bracket>
+| `gS <motions> <bracket>`     | Surround this <motions> with <bracket> (line-wise)
+| `gsl <bracket>`              | Surround this Line with <bracket>
+| `gsL <bracket>`              | Surround this Line with <bracket> (line-wise)
+|===
 
 === 🐞 AI Assisted Debugging
 
