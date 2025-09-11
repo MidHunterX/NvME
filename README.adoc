@@ -190,15 +190,15 @@ image:./img/nvim_hitfont.jpg[]
 
 `treesitter_walker.lua`
 
-**Navigate** through nodes with `<C-hjkl>`. On a well formatted code, think of this as moving through the indent lines vertically and jumping between the indent lines horizontally.
+*Navigate* through nodes with `<C-hjkl>`. On a well formatted code, think of this as moving through the indent lines vertically and jumping between the indent lines horizontally.
 
-**Swap** those nodes around with `<C-HJKL>`.
+*Swap* those nodes around with `<C-HJKL>`.
 
 === 🫶 Bracket Manipulation
 
 `surround.lua`
 
-`<bracket>` = [a]ngle bracket `>` | [b]racket `)` | [B]race `}` | [r]ectangle bracket `]` | [q]uote `"` `'`
+*<bracket>* = [a]ngle bracket `>` | [b]racket `)` | [B]race `}` | [r]ectangle bracket `]` | [q]uote `"` `'`
 
 [%header]
 |===
@@ -211,6 +211,12 @@ image:./img/nvim_hitfont.jpg[]
 | `gsl <bracket>`              | Surround this Line with <bracket>
 | `gsL <bracket>`              | Surround this Line with <bracket> (line-wise)
 |===
+
+`autopairs.lua`: Autoclose brackets, quotes, etc. when typing them.
+
+`im-matchparen.lua`: Highlights matching parenthesis when cursor is anywhere inside the block. An improved version of inbuilt matchparen.
+
+`rainbow_brackets.lua`: Highlights matching pair of brackets based on the nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
 
 === 🐞 AI Assisted Debugging
 
@@ -462,7 +468,6 @@ image:./img/nvim_plugins.jpg[]
 * Tab out of Brackets and Quotes with `neotab.nvim`
 * Scope based Indentation Lines with `indent-blankline.nvim`
 * Lazygit Integration with `lazygit.nvim`
-* Fast Cursor Navigation with `leap.nvim`
 * Bracket pair highlighting with `rainbow-delimiters.nvim`
 * Status Line and Buffer Line with `lualine.nvim`
 * Change, Delete surrounding brackets or quotes quickly with `nvim-surround`
