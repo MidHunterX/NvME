@@ -165,9 +165,9 @@ If `A` means ‘insert further right’ and `I` means ‘insert further left’,
 further right’. Thus H and L is corrected semantically by following vim
 conventions.
 
-Now, what should happen when I'm already at the edge? It does nothing? No. Avoid
-dead keys. Ensure that every press produces meaningful movement, enhancing flow
-and reducing mental friction.
+Now, what should happen when I'm already at the edge? It does nothing? No.
+Pop it off into the next gap so, I can use one key for multiple things in a
+controlled manner.
 
 * When at the beginning of a line, H jumps to the previous paragraph `{`.
 * When at the end of a line, L jumps to the next paragraph `}`.
@@ -185,6 +185,7 @@ image:./img/nvim_hitfont.jpg[]
 * Git Commit with `<leader>gc` using Lazygit
 * Run/Execute files with `F5`, `<leader>ru` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
+* Custom made CMP auto-completion for git commit messages and regular expression matching
 
 === 🌳 Treesitter Node Manipulation
 
