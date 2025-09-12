@@ -213,11 +213,13 @@ image:./img/nvim_hitfont.jpg[]
 | `gsL <bracket>`              | Surround this Line with <bracket> (line-wise)
 |===
 
-`bracket_autopairs.lua`: Autoclose brackets, quotes, etc. when typing them.
-
-`bracket_matchparen.lua`: Highlights matching parenthesis when cursor is anywhere inside the block. An improved version of inbuilt matchparen.
-
-`bracket_rainbow.lua`: Highlights matching pair of brackets based on the nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
+.`ℹ️ Other Bracket Related Features`
+[%collapsible]
+====
+* `bracket_rainbow.lua` Colorizes bracket pairs based on their nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
+* `bracket_matchparen.lua`: Highlights matching bracket pair when cursor is anywhere inside the block. An improved version of inbuilt matchparen.
+* `bracket_autopairs.lua`: Autoclose brackets, quotes, etc. when typing them. Disabled in macro mode.
+====
 
 === 🐞 AI Assisted Debugging
 
