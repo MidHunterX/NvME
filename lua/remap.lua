@@ -59,8 +59,9 @@ vim.keymap.set("n", "<A-l>", "<Cmd>bn<CR>")
 ---------------------------------------------------- Delete buffer [ leader x ]
 -- Currently replaced by Snacks
 -- vim.keymap.set("n", "<leader>x", "<Cmd>bd<CR>", { desc = "Close buffer" })
---------------------------------------------------------- Execute buffer [ F5 ]
+--------------------------------------------- Execute buffer [ F5 / leader ru ]
 vim.keymap.set("n", "<F5>", custard.Execute_order_69)
+vim.keymap.set("n", "<leader>ru", custard.Execute_order_69, { desc = "Execute buffer" })
 
 
 --============================[ TAB MANAGEMENT ]============================--

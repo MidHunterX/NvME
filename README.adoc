@@ -183,7 +183,7 @@ image:./img/nvim_hitfont.jpg[]
 * Convert text to Hit Font with `:HitFont`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git Commit with `<leader>gc` using Lazygit
-* Execute files with `F5` or `:lua Execute_order_69()`
+* Run/Execute files with `F5`, `<leader>ru` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 
 === 🌳 Treesitter Node Manipulation
