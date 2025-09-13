@@ -365,6 +365,78 @@ Reject: o
 
 ====
 
+== 🔥✍️ Improved Grammar
+
+----
+Sentence = Verb [Adverb [<location>]] Preposition Noun
+----
+
+.`ℹ️ See full structure`
+[%collapsible]
+====
+----
+Sentence = [Quantifier] Verb [Adverb [<location>]] Preposition [Quantifier] Noun
+----
+
+[discrete]
+==== Quantifiers
+
+|===
+| `[0-9]` | N times
+|===
+====
+
+==== Verbs (Actions)
+
+|===
+| `y` | Yank
+| `d` | Delete
+| `c` | Change
+| `p` | Put/Paste
+|===
+
+==== Adverbs (Modifiers)
+
+`flash.lua`
+|===
+| `r` | Remotely
+| `R` | Remotely (Treesitter)
+|===
+
+==== Prepositions (Relationship)
+
+|===
+| `i` | Inside
+| `a` | Around
+|===
+
+==== Nouns (Objects)
+
+|===
+| `w` | Word
+| `p` | Paragraph
+| `s` | Sentence
+| `t` | Markup Tag
+| `b` | Bracket `()`
+| `B` | Block/Brace `{}`
+| `"` `'` `'` `"`
+| Strings
+| `[` `{` `(` `)` `}` `]`
+| Brackets
+|===
+
+`treesitter.lua`
+|===
+| `i` | Conditional
+| `l` | Loop
+| `f` | Function
+| `m` | Method
+| `c` | Class
+| `a` | Argument
+| `=` | Assignment
+| `:` | Property
+|===
+
 == 🗺️ Custom Key Remaps
 
 === Normal Mode
@@ -449,33 +521,6 @@ Use `<M-hl>` (Alt+H / Alt+L) to move through buffers.
 |===
 | Key     | Description
 | `<C-s>` | Save Document (Normal/Insert mode)
-|===
-
-== 📕 More Text Objects
-
-=== Default Text Objects
-[%header]
-|===
-| Default Text Objects    | Description
-| `p`                     | Paragraph
-| `w`                     | Word
-| `"` `'` `'` `"`         | Strings
-| `[` `{` `(` `)` `}` `]` | Brackets
-| `t`                     | Markup Tags
-|===
-
-=== Added Text Objects
-[%header]
-|===
-| New Text Objects | Description
-| `i`              | Conditional
-| `l`              | Loop
-| `f`              | Function
-| `m`              | Method
-| `c`              | Class
-| `a`              | Argument
-| `=`              | Assignment
-| `:`              | Property
 |===
 
 == 🔌 Plugins
