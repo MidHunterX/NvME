@@ -306,6 +306,30 @@ After that, auto-completion will be available for use in the current buffer as y
 
 ====
 
+=== 🎨 UI Enhancements
+
+`tool_colorpicker.lua`
+
+*Pick colors* with `:CccPick`. Then use `i` to change input mode, `o` to change output format and `q` to quit selection.
+
+`visible_colorcodes.lua`
+
+Visualize color codes in buffer. Supported formats are Hex #RGBA, Termcode colorname, CSS rgba(), CSS hsla(), Tailwind Colors
+
+.`ℹ️ Other UI Related Features`
+[%collapsible]
+====
+* `markdown_inline-image.lua`: Adds image support to Neovim using Kitty's Graphics Protocol or ueberzugpp. It works great with Kitty and Tmux.
+* `markdown_UI.lua`: Renders Markdown components like Headings, Tables, Code Blocks, Checkboxes, Blockquotes, Links etc..
+====
+
+=== 🍺 Paying Homage
+
+`column_line.lua`
+
+Thin virtual vertical line at 80th column. Much nicer and visually less intrusive than the default color column. Punchcards typically used to have 80 column width. Early terminals screens also had a fixed display width of 80 characters. Keeping code within this limit prevented unsightly line wrapping and made it more readable.
+Even now, when doing multi window workflow, keeping it under 80 columns will make everything look nice and readable as well.
+
 == 📝 Autocompletion Behaviour
 
 image:./img/nvim_cmp.jpg[]
@@ -392,7 +416,6 @@ Sentence = [Quantifier] Verb [Adverb [<location>]] Preposition [Quantifier] Noun
 | `y` | Yank
 | `d` | Delete
 | `c` | Change
-| `p` | Put/Paste
 |===
 
 ==== Adverbs (Modifiers)
