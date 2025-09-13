@@ -195,6 +195,22 @@ image:./img/nvim_hitfont.jpg[]
 
 *Swap* those nodes around with `<C-HJKL>`.
 
+=== ⭐ Developer Experience
+
+`indent_lines.lua`
+
+*Code indentation lines* which highlights the current https://en.wikipedia.org/wiki/Scope_(computer_science)[scope]. The scope is not the current indentation level! Instead, it is the indentation level where variables or functions are accessible. This depends on the language you are writing. The highlight colors are matched with the colors of brackets for a more visually cohesive experience.
+
+`flash.lua`
+
+*Leap* to any text with `s` (Search) and select any Treesitter node with `S` (Select TS). These are also available as an adverb in vim motion grammar using `r` (Remotely) and `R` (Remotely TS) instead (e.g. yr<search_text>iw).
+
+.`ℹ️ Other DX Related Features`
+[%collapsible]
+====
+* `comment.lua`: *Toggle comment* with `gcc` (// line-wise) and `gbb` (/* block-wise */). Works with `<motion>` as well (gbip, gc2k, ...).
+====
+
 === 🫶 Bracket Manipulation
 
 `bracket_surround.lua`
@@ -216,7 +232,7 @@ image:./img/nvim_hitfont.jpg[]
 .`ℹ️ Other Bracket Related Features`
 [%collapsible]
 ====
-* `bracket_rainbow.lua` Colorizes bracket pairs based on their nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
+* `bracket_rainbow.lua`: Colorizes bracket pairs based on their nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
 * `bracket_matchparen.lua`: Highlights matching bracket pair when cursor is anywhere inside the block. An improved version of inbuilt matchparen.
 * `bracket_autopairs.lua`: Autoclose brackets, quotes, etc. when typing them. Disabled in macro mode.
 ====
