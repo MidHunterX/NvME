@@ -22,14 +22,14 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 
 === Install Requirements
 
-.🅐 Arch Based System (pacman)
+.Arch Based System (pacman)
 [source,bash]
 ----
 sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
 sudo npm install -g live-server
 ----
 
-== 📦 Quick Start
+== 🛰️ Action Center
 
 .🚀 `Install Guide (auto backups prev config if any)`
 [%collapsible]
@@ -99,16 +99,16 @@ set ME ~/.config/nvim; test -d $ME && rm -rf $ME; and mv ${ME}_backup/ $ME
 
 ====
 
-.🌱 `Development Environment Setup`
+.🌱 `Programming Frameworks Integration Guide`
 [%collapsible]
 ====
 [discrete]
-== 🌱 Development Environment Setup
+== 🌱 Programming Frameworks Integration
 
 * Insert completion using `<C-f>` just like how it is done in fish shell
 
 [discrete]
-=== Python Django
+=== Django (Python)
 
 * From `:Mason`, Install `pyright` Language Server
 
@@ -119,13 +119,36 @@ pip install django-stubs
 ----
 
 [discrete]
-=== Flutter
+=== Java with OpenJDK
 
 ----
 sudo pacman -S jdk21-openjdk
 sudo archlinux-java set java-21-openjdk
 ----
 
+[discrete]
+=== Android SDK
+
+[source,bash]
+----
+yay -Sy android-sdk \
+      android-sdk-build-tools \
+      android-sdk-cmdline-tools-latest \
+      android-platform \
+      android-sdk-platform-tools
+----
+
+android-sdk-platform-tools provides the `adb` command.
+
+[discrete]
+=== Flutter (Dart)
+
+[source,bash]
+----
+yay -S flutter-bin
+----
+
+Now `flutter` command is available in `$PATH`. Create a new project using `flutter create myapp` and open it with `flutter run`.
 ====
 
 == 🎨 Design Philosophy
