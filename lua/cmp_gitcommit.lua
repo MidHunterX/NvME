@@ -330,20 +330,6 @@ local typesDict = {
     "- Use `ci` for CI/CD pipeline changes.\n" ..
     "- Use `config` for environment-specific configurations.\n",
   },
-  docker = {
-    emoji = "🐳",
-    documentation =
-    "Docker\n" ..
-    "Changes specifically related to Docker containers and configuration.\n\n" ..
-    "Use for:\n" ..
-    "- Updating Dockerfile.\n" ..
-    "- Modifying docker-compose.yml.\n" ..
-    "- Adding Docker-related scripts.\n" ..
-    "- Container optimization changes.\n\n" ..
-    "Alternatives:\n" ..
-    "- Use `build` for general build system changes.\n" ..
-    "- Use `deploy` for deployment-related container changes.\n",
-  },
   seed = {
     emoji = "🌱",
     documentation =
