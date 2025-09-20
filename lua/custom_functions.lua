@@ -75,6 +75,8 @@ function M.Execute_order_69()
       local filename = vim.fn.expand('%')
       terminal('rustc ' .. filename .. ' && ./' .. filename:gsub('.rs', ''))
     end
+  elseif file_type == 'go' then
+    terminal('go run %')
   elseif file_type == 'c' then
     terminal('gcc % && ./a.out')
   elseif file_type == 'java' then
