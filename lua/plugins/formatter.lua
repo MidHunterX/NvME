@@ -12,8 +12,10 @@ return {
   },
   opts = {
     formatters_by_ft = {
-      css = { "prettier" },
       bash = { "shfmt" },
+      c = { "clang-format" },
+      cs = { "clang-format" },
+      css = { "prettier" },
       go = { "goimports", "gofmt" },
       graphql = { "prettier" },
       html = { "prettier" },
@@ -27,6 +29,7 @@ return {
       python = { "black", "isort" },
       rust = { "rustfmt", lsp_format = "fallback" },
       scss = { "prettier" },
+      sh = { 'shfmt' },
       typescript = { "prettier" },
       typescriptreact = { "prettier" },
       yaml = { "prettier" },
