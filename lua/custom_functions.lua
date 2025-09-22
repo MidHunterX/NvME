@@ -77,6 +77,8 @@ function M.Execute_order_69()
     end
   elseif file_type == 'go' then
     terminal('go run %')
+  elseif file_type == 'perl' then
+    terminal('perl %')
   elseif file_type == 'c' then
     terminal('gcc % && ./a.out')
   elseif file_type == 'java' then
