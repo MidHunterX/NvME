@@ -1,10 +1,10 @@
 --=========================== [ @GENERAL_OPTIONS ] ===========================--
 
 vim.opt.list = true
-vim.opt.listchars = { space = '⋅', tab = '<->' }
+-- vim.opt.listchars = { space = '⋅', tab = '> ', tab = '<->', eol = '↩', trail = '$' }
+vim.opt.listchars = { space = '⋅', tab = '|⋅' }
 -- Replace tildes at the end of the buffer
 vim.opt.fillchars = { eob = " " }
--- vim.opt.listchars = { space = '⋅', tab = '> ', eol = '↩', trail = '$' }
 
 -- "bold": Bold line box.
 -- "double": Double-line box.
@@ -29,7 +29,7 @@ vim.opt.expandtab = true
 -- Number of spaces that a <Tab> in the file counts for.
 -- Also see the |:retab| command, and the 'softtabstop' option.
 -- Note: Set 'tabstop' to 8
-vim.opt.tabstop = 8
+vim.opt.tabstop = 4
 -- Number of spaces that a <Tab> counts for while performing editing operations
 -- like inserting a <Tab> or using <BS>.
 -- It "feels" like <Tab>s are being inserted.
