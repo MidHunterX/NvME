@@ -18,8 +18,10 @@ vim.keymap.set('v', '>', '>gv')
 vim.keymap.set("t", "<C-n>n", "<C-\\><C-n>")
 --------------------------------------------------------- Goto line start [ H ]
 vim.keymap.set({ 'n', 'v' }, 'H', custard.SmartMotionH, { expr = true, desc = 'Smart H (^ or {)' })
+vim.keymap.set({ 'n', 'v' }, "<leader>H", "{", { desc = "Go to prev paragraph" })
 ----------------------------------------------------------- Goto line end [ L ]
 vim.keymap.set({ 'n', 'v' }, 'L', custard.SmartMotionL, { expr = true, desc = 'Smart L ($ or })' })
+vim.keymap.set({ 'n', 'v' }, "<leader>L", "}", { desc = "Go to next paragraph" })
 -------------------------------------------------- Scroll centered [ Ctrl d/u ]
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
