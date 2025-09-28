@@ -9,6 +9,8 @@ return {
       workspace = {
         -- Make the server aware of Neovim runtime files
         -- Opens up completions for `vim.*`
+        -- This includes sources from everything loaded in runtime, which you
+        -- should not need unless you are actively developing nvim or plugins.
         -- Downside: Constant diagnosing workspace and slow performance
         library = vim.api.nvim_get_runtime_file("", true),
         checkThirdParty = false,

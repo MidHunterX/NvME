@@ -4,13 +4,10 @@ image:./img/nvim_dashboard.jpg[]
 
 /ˈɛnvi mi:/
 
-.Phrase
-A play on "NeoVim for Me" and "Envy Me" for project navigation faster than an "NVMe"
-
-.Definition
 A **ME**ticulous nvim distribution, crafted from scratch solely for **ME** with
 every feature and keybindings configured to offer supre**ME** comfort and
-comple**ME**nt **ME** workflow im**ME**nsely.
+comple**ME**nt **ME** workflow im**ME**nsely. Named after a play on "NeoVim for
+**ME**" and "Envy **ME**".
 
 == ⚡ Requirements
 

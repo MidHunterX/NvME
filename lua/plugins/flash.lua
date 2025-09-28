@@ -30,6 +30,7 @@ return {
         "s",
         -- NOTE: Removed Operator-pending mode "o" since I found no use in
         -- doing ys<search>. It just yanks from cursor to first search term
+        -- It should be the entire line.. not just till the character.
         mode = { "n", "x" },
         function() require("flash").jump() end,
         desc = "Flash: Jump",

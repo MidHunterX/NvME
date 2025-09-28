@@ -17,6 +17,7 @@ return {
       width = 'block', -- 'block' | 'full'
       right_pad = 1,
       icons = { '󰎦 ', '󰎧 ', '󰎬 ', '󰎭 ', '󰎰 ', '󰎳 ' },
+      -- icons = { '# ', '## ', '### ', '#### ', '##### ', '###### ' },
       position = 'overlay', -- 'right' | 'inline' | 'overlay'
     },
 
