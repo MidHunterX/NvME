@@ -469,7 +469,8 @@ M.keywords_source = function()
               kind = require("cmp.types.lsp").CompletionItemKind.Keyword,
               documentation = v.documentation,
               -- AUTOCOMPLETE SNIPPET
-              insertText = v.emoji .. " " .. k .. "(): ",
+              -- insertText = v.emoji .. " " .. k .. "(): ",
+              insertText = k .. "(): ",
             })
           end
           callback({ items = items, isIncomplete = false })
