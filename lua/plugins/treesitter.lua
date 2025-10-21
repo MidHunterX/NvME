@@ -331,7 +331,6 @@ return {
     -- vim.keymap.set({ "n", "x", "o" }, "F", move.builtin_F_expr, { expr = true })
     -- vim.keymap.set({ "n", "x", "o" }, "t", move.builtin_t_expr, { expr = true })
     -- vim.keymap.set({ "n", "x", "o" }, "T", move.builtin_T_expr, { expr = true })
-
   end,
 
   dependencies = {

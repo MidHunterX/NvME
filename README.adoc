@@ -359,6 +359,8 @@ Even now, when doing multi window workflow, keeping it under 80 columns will mak
 
 image:./img/nvim_cmp.jpg[]
 
+`autocompletion.lua`
+
 * Autocompletion suggestions keep popping while typing
 * If the suggestion box is visible, you can do the following:
 * Select Next entries with: `C-n`, `Down`
@@ -373,6 +375,8 @@ Note: `TAB` does multiple things here
 * If LSP pre-selected entry is not available in menu, `TAB` will select the first entry.
 * If menu and snippet are both not visible, `TAB` will jump over quotes and brackets.
 * If quotes and brackets are not available, `TAB` will act as normal `TAB`.
+
+`autocompletion_colorful-menu.lua`: Treesitter parsed syntax highlighting for autocompletion entries
 
 .`💡 Show Completion Workflows`
 [%collapsible]
@@ -478,6 +482,7 @@ Sentence = [Quantifier] Verb [Adverb [<location>]] Preposition [Quantifier] Noun
 | `i` | Conditional
 | `l` | Loop
 | `f` | Function
+| `f` | Fenced Code Block (Markdown)
 | `m` | Method
 | `c` | Class
 | `a` | Argument
