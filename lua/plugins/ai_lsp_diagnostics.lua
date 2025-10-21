@@ -6,6 +6,12 @@ local options = {
   -- Default provider
   ---@type "anthropic" | "copilot" | "deepseek" | "gemini" | "grok" | "ollama" | "openai"
   provider = "gemini",
+  providers = {
+    gemini = {
+      -- gemini-2.5-pro
+      model_id = "gemini-flash-latest",
+    },
+  },
 
   -- Default search engine
   ---@type "google" | "duck_duck_go" | "stack_overflow" | "github" | "phind" | "perplexity"
