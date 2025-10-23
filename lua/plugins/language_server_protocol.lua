@@ -46,53 +46,6 @@ return {
       automatic_enable = true,
       ensure_installed = {},
     },
-
-    -- Automatically configures LSP servers
-    --[[ config = function()
-      local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-      local custom_lsp_configs = {
-        -- LUA LANGUAGE SERVER
-        lua_ls = {
-          settings = {
-            Lua = {
-              diagnostics = { globals = { 'vim', 'require' } },
-              workspace = {
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
-              },
-              telemetry = { enable = false },
-            },
-          },
-        },
-
-        -- ELIXIR LANGUAGE SERVER
-        elixirls = {
-          cmd = { vim.fn.stdpath("data") .. "/mason/packages/elixir-ls/language_server.sh" },
-        },
-
-        lexical = {
-          cmd = { vim.fn.stdpath("data") .. "/mason/packages/lexical/lexical" },
-        },
-      }
-
-      require("mason-lspconfig").setup_handlers {
-        function(server_name)
-          if custom_lsp_configs[server_name] then
-            -- APPLY CUSTOM CONFIG IF EXISTS
-            local config = custom_lsp_configs[server_name]
-            config.capabilities = capabilities
-            require("lspconfig")[server_name].setup(config)
-          else
-            -- OTHER LANGUAGE SERVER AUTO CONFIG
-            require("lspconfig")[server_name].setup {
-              capabilities = capabilities,
-            }
-          end
-        end,
-      }
-    end, ]]
-
   },
 
   --==========================[ NEOVIM LSP CONFIG ]==========================--
