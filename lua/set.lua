@@ -33,10 +33,12 @@ vim.opt.tabstop = 4
 -- Number of spaces that a <Tab> counts for while performing editing operations
 -- like inserting a <Tab> or using <BS>.
 -- It "feels" like <Tab>s are being inserted.
-vim.opt.softtabstop = 2
+vim.opt.softtabstop = 4
 -- Number of spaces to use for each step of (auto)indent.
 -- Used for |'cindent'|, |>>|, |<<|, etc.
-vim.opt.shiftwidth = 2
+vim.opt.shiftwidth = 4
+-- Why tabs are 8 by default?
+-- https://en.wikipedia.org/wiki/Tab_key#Tab_characters
 
 -- Save undo history
 vim.opt.backup = false
