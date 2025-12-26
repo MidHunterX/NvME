@@ -1,6 +1,5 @@
--- Since CSS has no nested indents going on, the code won't get that wide
--- we can just use 4 spaces
+-- There's no official CSS style guide. Following prettier's style
 
 vim.bo.expandtab = true
-vim.bo.tabstop = 4
-vim.bo.shiftwidth = 4
+vim.bo.tabstop = 2
+vim.bo.shiftwidth = 2
