@@ -80,7 +80,7 @@ return {
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
 
         sources = cmp.config.sources({
-          { name = 'regex', priority = 69 },
+          { name = 'regex',    priority = 69 },
           { name = 'nvim_lua', priority = 8 },
           { name = 'nvim_lsp', priority = 8 },
           {
@@ -330,7 +330,10 @@ return {
 
       --====================================================[ @SNIPPET_ENGINE ]
       -- Snippet engine which parses custom snippets
-      { 'L3MON4D3/LuaSnip' },
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+      },
       -- Snippet collection for different languages
       { "rafamadriz/friendly-snippets" },
 
