@@ -6,8 +6,7 @@ image:./img/nvim_dashboard.jpg[]
 
 A **ME**ticulous nvim distribution, crafted from scratch solely for **ME** with
 every feature and keybindings configured to offer supre**ME** comfort and
-comple**ME**nt **ME** workflow im**ME**nsely. Named after a play on "NeoVim for
-**ME**" and "Envy **ME**".
+comple**ME**nt **ME** workflow im**ME**nsely.
 
 == ⚡ Requirements
 
@@ -44,7 +43,7 @@ If any config is already present, it backups your config and puts NvME in place.
 [discrete]
 === 🐧 Linux
 
-* Suggested Compiler: *GCC*
+* Suggested Compiler for Tree-sitter: *GCC*
 
 .bash / zsh
 [source,bash]
@@ -63,7 +62,10 @@ git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
 [discrete]
 === 🪟 Windows
 
-* Suggested Compiler: *Zig Compiler*
+WARNING: Many core components are Linux centric. Features like image preview
+won't work and other features might break on Windows currently.
+
+* Suggested Compiler for Tree-sitter: *Zig Compiler*
 
 .powershell
 [source,pwsh]
