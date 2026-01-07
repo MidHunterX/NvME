@@ -12,7 +12,6 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 
 * *Neovim* (Needs to be built with LuaJIT)
 * *GCC*: For compiling treesitter languages in Linux
-* *Zig Compiler*: For compiling treesitter languages in Windows
 * *git*: For git integration, cloning plugin repos etc.
 * *ripgrep*: For live grep
 * *fd*: For Find Files
@@ -20,13 +19,15 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 * *lazygit*: Git UI
 * *nodejs*: For Language Servers and Formatters
 * *live-server*: For local HTML Server
+* https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering
+* https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams
 
 === Install Requirements
 
 .Arch Based System (pacman)
 [source,bash]
 ----
-sudo pacman -S neovim git ripgrep fd vifm lazygit python npm
+sudo pacman -S neovim git ripgrep fd vifm lazygit python npm mermaid-cli
 sudo npm install -g live-server
 ----
 
@@ -42,8 +43,6 @@ If any config is already present, it backups your config and puts NvME in place.
 
 [discrete]
 === 🐧 Linux
-
-* Suggested Compiler for Tree-sitter: *GCC*
 
 .bash / zsh
 [source,bash]
@@ -63,7 +62,9 @@ git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
 === 🪟 Windows
 
 WARNING: Many core components are Linux centric. Features like image preview
-won't work and other features might break on Windows currently.
+won't work and other features 100% will break on Windows currently. And it's
+super hard to set up all the requirements on Windows. So, proceed only if you
+are highly determined.
 
 * Suggested Compiler for Tree-sitter: *Zig Compiler*
 
@@ -346,8 +347,9 @@ Visualize color codes in buffer. Supported formats are Hex #RGBA, Termcode color
 .`ℹ️ Other UI Related Features`
 [%collapsible]
 ====
-* `markdown_inline-image.lua`: Adds image support to Neovim using Kitty's Graphics Protocol or ueberzugpp. It works great with Kitty and Tmux.
 * `markdown_UI.lua`: Renders Markdown components like Headings, Tables, Code Blocks, Checkboxes, Blockquotes, Links etc..
+* `markdown_inline-image.lua`: Renders image under cursor using Kitty's Graphics Protocol or ueberzugpp. It works great with Kitty and Tmux.
+* `markdown_inline-diagram.lua`: Renders diagrams using Mermaid CLI and Kitty's Graphics Protocol.
 ====
 
 === 🍺 Paying Homage
