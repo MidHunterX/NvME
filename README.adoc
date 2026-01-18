@@ -236,7 +236,12 @@ image:./img/nvim_hitfont.jpg[]
 .`ℹ️ Other DX Related Features`
 [%collapsible]
 ====
-* `comment.lua`: *Toggle comment* with `gcc` (// line-wise) and `gbb` (/* block-wise */). Works with `<motion>` as well (gbip, gc2k, ...).
+* `lsp_rename.lua`: Mass rename variables and functions in *LSP* with `<leader>rn`
+* `comment.lua`: *Toggle comment* with `gcc` (line-wise) and `gbb` (block-wise). Works with `<motion>` as well (gbip, gc2k, ...).
+* `formatter.lua`: *Format* code with `<leader>fm`. Formatters can be installed with `:Mason`
+* `colorschemes.lua`: *Syntax highlighting* with Catppuccin colorscheme
+* `gitsigns.lua`: *Git integration* on Signcolumn, git chunk navigation and more.
+* `indent_guess.lua`: Automatically detects and applies indentation settings to the current buffer.
 ====
 
 === 🫶 Bracket Manipulation
@@ -586,9 +591,7 @@ image:./img/nvim_plugins.jpg[]
 
 * Lazy Loading Plugin Manager `lazy.nvim`
 * Autoclosing Braces and Tags with `nvim-autopairs`
-* Default Colorscheme: `catppuccin`
 * Fancy Dashboard with `dashboard-nvim`
-* Gitsigns on Signcolumn with `gitsigns.nvim`
 * Install LSP servers, DAP servers, Linters and Formatters with `mason.nvim`
 * NeoVim LSP Configuration with `nvim-lspconfig`
 * Code Autocompletion with `nvim-cmp`
@@ -596,11 +599,7 @@ image:./img/nvim_plugins.jpg[]
 * Tab out of Brackets and Quotes with `neotab.nvim`
 * Scope based Indentation Lines with `indent-blankline.nvim`
 * Lazygit Integration with `lazygit.nvim`
-* Bracket pair highlighting with `rainbow-delimiters.nvim`
 * Status Line and Buffer Line with `lualine.nvim`
-* Change, Delete surrounding brackets or quotes quickly with `nvim-surround`
-* Fuzzy search project files, Grep text search etc. with `telescope.nvim`
-* Navigate through undo history tree with `telescope-undo.nvim`
 * ToDo, Bug, Hack comments highlighting with `todo-comments.nvim`
 * Convert, Manipulate and Pick Colors with `ccc.nvim`
 * Semantic based Syntax Highlighting with `nvim-treesitter`
