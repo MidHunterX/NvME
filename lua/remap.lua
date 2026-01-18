@@ -70,11 +70,13 @@ vim.keymap.set("n", "<leader>ru", custard.Execute_order_69, { desc = "Execute bu
 
 
 --============================[ TAB MANAGEMENT ]============================--
-vim.keymap.set("n", "<leader>tn", "<Cmd>tabnew<CR>", { desc = "Tab: New" })
+-- <C-t> = Tab mode
+-- THOUGHTS: Standardizing <C-w> Window mode keymaps for Tabs as well
+vim.keymap.set("n", "<C-t>n", "<Cmd>tabnew<CR>", { desc = "Tab: New Tab" })
 vim.keymap.set("n", "<leader>tc", "<Cmd>tabnew<CR>", { desc = "Tab: Create" })
 
 vim.keymap.set("n", "<leader>tx", "<Cmd>tabclose<CR>", { desc = "Tab: Exit" })
-vim.keymap.set("n", "<leader>tq", "<Cmd>tabclose<CR>", { desc = "Tab: Quit" })
+vim.keymap.set("n", "<C-t>q", "<Cmd>tabclose<CR>", { desc = "Tab: Quit" })
 
 vim.keymap.set("n", "<leader>tX", "<Cmd>tabonly<CR>", { desc = "Tab: Exit Other Tabs" })
 vim.keymap.set("n", "<leader>tQ", "<Cmd>tabonly<CR>", { desc = "Tab: Quit Other Tabs" })
@@ -83,10 +85,8 @@ vim.keymap.set("n", "<leader>tl", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
 ----------------------------------------- Cycle across tabs [ leader Alt h/l ]
 vim.keymap.set("n", "<leader><A-h>", "<Cmd>tabprevious<CR>", { desc = "Tab: Previous" })
 vim.keymap.set("n", "<leader><A-l>", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
------------------------------------------ Quick Cycle across tabs [ Ctrl h/l ]
-vim.keymap.set("n", "<C-h>", "<Cmd>tabprevious<CR>", { desc = "Tab: Previous" })
-vim.keymap.set("n", "<C-l>", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
-
+-- THOUGHTS: <C-hjkl> is much better but it conflicts with Treesitter Navigation
+-- Chose <leader> Alt h/l instead as it is the SUPER version of Alt h/l for buffers
 
 --=================================[ FIXES ]=================================--
 
