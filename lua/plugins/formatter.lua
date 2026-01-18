@@ -30,6 +30,7 @@ return {
       rust = { "rustfmt", lsp_format = "fallback" },
       scss = { "prettier" },
       sh = { 'shfmt' },
+      tex = { "tex-fmt" },
       typescript = { "prettier" },
       typescriptreact = { "prettier" },
       yaml = { "prettier" },
@@ -48,7 +49,7 @@ return {
 
     formatters = {
       shfmt = {
-        prepend_args = { "-i", "2" },
+        prepend_args = { "--case-indent" },
       },
       djlint = {
         prepend_args = {
@@ -63,7 +64,7 @@ return {
       },
       prettier = {
         prepend_args = {
-          "--print-width", "100",
+          "--print-width", "120",
         },
       },
     },
