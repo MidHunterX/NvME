@@ -42,10 +42,43 @@ local fileformat = function()
   return icons[ret] or ret
 end
 
--- Problem: lua/catppuccin/utils/lualine.lua > catppuccin.inactive.a.bg = 'NONE'
--- HACK: Remove ugly white separators due to lualine transparency handling bug
+--------------------------------------------------------------------------- --
+--                             CUSTOM TUI THEME                             --
+-- ------------------------------------------------------------------------ --
+
+---@type "slanted_bubble" | "futuristic"
+local ui = "futuristic"
+local tui = {}
+if ui == "futuristic" then
+  tui = {
+    lualine = {
+      a = {  left = '█', right = ''  },
+      z = {  left = '', right = '█'  },
+    },
+    tabline = {
+      a = {  left = '█', right = ''  },
+      a_next = {  left = '█', right = ''  },
+      z = {  left = '', right = '█'  },
+    }
+  }
+elseif ui == "bubble" then
+  tui = {
+    lualine = {
+      a = {  left = '', right = ''  },
+      z = {  left = '', right = ''  },
+    },
+    tabline = {
+      a = {  left = '', right = ''  },
+      a_next = {  left = '', right = ''  },
+      z = {  left = '', right = ''  },
+    }
+  }
+end
+
 local customcat = require 'lualine.themes.catppuccin'
+-- Problem: Ugly white separators due to lualine transparency handling bug. Source: lua/catppuccin/utils/lualine.lua > catppuccin.inactive.a.bg = 'NONE'
 customcat.inactive.a.bg = '#242428'
+-- Transparent background for center
 customcat.normal.c.bg = 'NONE'
 
 
@@ -83,7 +116,7 @@ return {
       lualine_a = {
         {
           'mode',
-          separator = { left = '', right = '' },
+          separator = { left = tui.lualine.a.left, right = tui.lualine.a.right },
           -- fmt = function(str) return str:sub(1,3) end,
           padding = { left = 1, right = 1 }
         },
@@ -116,7 +149,7 @@ return {
         { 'progress', separator = { left = '' } },
       },
       lualine_z = {
-        { 'location', separator = { left = '', right = '' } },
+        { 'location', separator = { left = tui.lualine.z.left, right = tui.lualine.z.right } },
       },
 
     },
@@ -128,10 +161,10 @@ return {
     tabline = {
 
       lualine_a = {
-        { 'searchcount', separator = { left = '', right = '' } },
+        { 'searchcount', separator = { left = tui.tabline.a.left, right = tui.tabline.a.right } },
         {
           recording,
-          separator = { left = '', right = '' },
+          separator = { left = tui.tabline.a_next.left, right = tui.tabline.a_next.right },
           color = { fg = "white", bg = "red" }
         }
       },
@@ -168,7 +201,7 @@ return {
             alternate_file = '',
           },
           -- Source: Nerdfont ple-.*
-          separator = { left = '', right = '' },
+          separator = { left = tui.tabline.z.left, right = tui.tabline.z.right },
           component_separators = { right = '' },
           section_separators = { left = '', right = '' },
         },
