@@ -2,10 +2,9 @@
 -- https://perldoc.perl.org/perlstyle
 -- Apache says it should use tabs instead of spaces
 -- https://cwiki.apache.org/confluence/display/VCL/Perl+Code+Style+Guidelines
--- So, here's the amalgamaton
+-- Since we are following the official one, spaces it is!
 
--- Use tabs
-vim.bo.expandtab = false
+vim.bo.expandtab = true
 -- Use 4 columns visually
 vim.bo.tabstop = 4
 vim.bo.shiftwidth = 4
