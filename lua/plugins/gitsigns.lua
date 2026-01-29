@@ -25,8 +25,8 @@ return {
       numhl                        = true,
 
       current_line_blame_opts      = {
-        virt_text_pos = 'eol', -- eol | overlay | right_align
-        delay = 500,
+        virt_text_pos = 'right_align', -- eol | overlay | right_align
+        delay = 100,
       },
       current_line_blame_formatter = '  <author>,  <author_time:%R> - <summary>',
     }
