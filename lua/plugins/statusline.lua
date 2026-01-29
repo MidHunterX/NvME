@@ -75,12 +75,6 @@ elseif ui == "bubble" then
   }
 end
 
-local customcat = require 'lualine.themes.catppuccin'
--- Problem: Ugly white separators due to lualine transparency handling bug. Source: lua/catppuccin/utils/lualine.lua > catppuccin.inactive.a.bg = 'NONE'
-customcat.inactive.a.bg = '#242428'
--- Transparent background for center
-customcat.normal.c.bg = 'NONE'
-
 
 -- ------------------------------------------------------------------------- --
 --                               RETURN CONFIG                               --
@@ -95,7 +89,7 @@ return {
   opts = {
 
     options = {
-      theme = customcat,
+      theme = 'catppuccin',
       icons_enabled = true,
       component_separators = '',
       section_separators = '',

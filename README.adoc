@@ -208,6 +208,7 @@ it is disabled in macro mode.
 
 image:./img/nvim_hitfont.jpg[]
 
+* Support for Matugen Dynamic Material You palette restricted to UI only
 * Convert text to Hit Font with `:HitFont`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git Commit with `<leader>gc` using Lazygit
@@ -236,12 +237,12 @@ image:./img/nvim_hitfont.jpg[]
 .`ℹ️ Other DX Related Features`
 [%collapsible]
 ====
-* `lsp_rename.lua`: Mass rename variables and functions in *LSP* with `<leader>rn`
 * `comment.lua`: *Toggle comment* with `gcc` (line-wise) and `gbb` (block-wise). Works with `<motion>` as well (gbip, gc2k, ...).
+* `toggle_boolean.lua`: *Toggle values* between (true, false), (enable, disable) with increment and decrement fallback. Everything with `C-a` and `C-x`.
 * `formatter.lua`: *Format* code with `<leader>fm`. Formatters can be installed with `:Mason`
-* `colorschemes.lua`: *Syntax highlighting* with Catppuccin colorscheme
-* `gitsigns.lua`: *Git integration* on Signcolumn, git chunk navigation and more.
 * `indent_guess.lua`: Automatically detects and applies indentation settings to the current buffer.
+* `language_server_protocol.lua`: *LSP* integration for different languages. Different integrations can be manually added with `:TSInstall`
+* `lsp_rename.lua`: Mass rename variables and functions in *LSP* with `<leader>rn`
 ====
 
 === 🫶 Bracket Manipulation
@@ -355,6 +356,9 @@ Visualize color codes in buffer. Supported formats are Hex #RGBA, Termcode color
 * `markdown_UI.lua`: Renders Markdown components like Headings, Tables, Code Blocks, Checkboxes, Blockquotes, Links etc..
 * `markdown_inline-image.lua`: Renders image under cursor using Kitty's Graphics Protocol or ueberzugpp. It works great with Kitty and Tmux.
 * `markdown_inline-diagram.lua`: Renders diagrams using Mermaid CLI and Kitty's Graphics Protocol.
+* `colorschemes.lua`: *Syntax highlighting* with Catppuccin colorscheme
+* `gitsigns.lua`: *Git integration* on Signcolumn, git chunk navigation and more.
+* `lsp_inline-diagnostics.lua`: Beautiful and aesthetic *Inline diagnostics* for *LSP* errors
 ====
 
 === 🍺 Paying Homage

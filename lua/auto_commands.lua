@@ -1,4 +1,5 @@
 --===========================[ @GENERAL_COMMANDS ]===========================--
+
 -- Highlighted Yank
 vim.cmd([[ autocmd TextYankPost * silent! lua vim.hl.on_yank() ]])
 

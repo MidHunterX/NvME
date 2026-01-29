@@ -62,6 +62,43 @@ require("lazy").setup("plugins", opts)
 
 --=======================[ @AFTER LAZY LOAD SETTINGS ]=======================--
 
+function Load_dynamic_colors()
+  -- Clear cache
+  package.loaded['lualine.themes.catppuccin'] = nil
+
+  local customcat = require 'lualine.themes.catppuccin'
+  -- Problem: Ugly white separators due to lualine transparency handling bug. Source: lua/catppuccin/utils/lualine.lua > catppuccin.inactive.a.bg = 'NONE'
+  customcat.inactive.a.bg = '#242428'
+  -- Transparent background for center
+  customcat.normal.c.bg = 'NONE'
+
+  local ok, colors = pcall(require, 'colors/colors')
+  if ok and colors.primary then
+    package.loaded['colors/colors'] = nil
+    customcat.normal.a.bg = colors.primary
+    --
+    customcat.normal.b.fg = colors.secondary
+    customcat.normal.b.bg = colors.on_secondary
+    --
+    customcat.inactive.a.fg = colors.secondary
+    customcat.inactive.a.bg = colors.on_secondary
+  end
+
+  require'lualine'.setup{options={theme=customcat}}
+end
+
+Load_dynamic_colors()
+
+-- HOT RELOAD ON SIGUSR1
+vim.api.nvim_create_autocmd("Signal", {
+  pattern = "SIGUSR1",
+  callback = function ()
+    vim.schedule(function()
+      Load_dynamic_colors()
+    end)
+  end
+})
+
 -- Transparent Background
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
