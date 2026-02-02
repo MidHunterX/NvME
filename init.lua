@@ -46,7 +46,7 @@ local opts = {
       disabled_plugins = {
         "gzip", -- Allows Neovim to read and write gzip compressed files.
         -- "matchit", -- Enhances the `%` command to jump between {[()]}
-        "matchparen", -- Highlights matching {[()]}
+        -- "matchparen", -- Highlights matching {[()]}
         "netrwPlugin", -- File explorer (:Sex, :Vex, :Ex).
         "tarPlugin", -- Adds support for handling tar archives.
         "tohtml", -- Converts a buffer or a part of a buffer to HTML format.
@@ -81,7 +81,6 @@ function Load_dynamic_colors()
     customcat.normal.b.bg = colors.on_secondary
     --
     customcat.inactive.a.fg = colors.secondary
-    customcat.inactive.a.bg = colors.on_secondary
   end
 
   require'lualine'.setup{options={theme=customcat}}
