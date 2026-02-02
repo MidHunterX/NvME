@@ -224,11 +224,30 @@ image:./img/nvim_hitfont.jpg[]
 
 *Swap* those nodes around with `<C-HJKL>`.
 
+`treesitter_split-join.lua`
+
+*Split* and *Join* nodes with `<leader-j>` and `<leader-J>`.
+
+.`ℹ️ Other Treesitter Related Features`
+[%collapsible]
+====
+* `treesitter_context.lua`: Show context code on top of buffer. Breadcrumbs are almost useless in comparison.
+* `treesitter_playground.lua`: Live playground to view the Treesitter AST and play with it using `:TSPlaygroundToggle`.
+====
+
 === ⭐ Developer Experience
 
 `indent_lines.lua`
 
 *Code indentation lines* which highlights the current https://en.wikipedia.org/wiki/Scope_(computer_science)[scope]. The scope is not the current indentation level! Instead, it is the indentation level where variables or functions are accessible. This depends on the language you are writing. The highlight colors are matched with the colors of brackets for a more visually cohesive experience.
+
+`regex_spectre.lua`
+
+Toggle a specialized regex search and replace UI in buffer with `<leader>ur` and globally with `<leader>uR`. Since this uses ripgrep (rg), you can just write pure escape code pollution free beautiful regex. Close the UI with `q` or `<ESC>`.
+
+`regex_multi-patterns.lua`
+
+Mark multiple patterns with `<leader>m` and navigate with `n` as usual. Use `<leader>em` to Erase Marks.
 
 `flash.lua`
 
@@ -241,8 +260,10 @@ image:./img/nvim_hitfont.jpg[]
 * `toggle_boolean.lua`: *Toggle values* between (true, false), (enable, disable) with increment and decrement fallback. Everything with `C-a` and `C-x`.
 * `formatter.lua`: *Format* code with `<leader>fm`. Formatters can be installed with `:Mason`
 * `indent_guess.lua`: Automatically detects and applies indentation settings to the current buffer.
-* `language_server_protocol.lua`: *LSP* integration for different languages. Different integrations can be manually added with `:TSInstall`
+* `language_server_protocol.lua`: *LSP* integration for different languages. Different integrations can be manually added with `:Mason`.
 * `lsp_rename.lua`: Mass rename variables and functions in *LSP* with `<leader>rn`
+* `snacks.lua`: A collection of QoL plugins by Folke. Search, Explorers and Lazygit included.
+* `vifm.lua`: Manage and Explore files and folders with `<leader>pf` (Project Files)
 ====
 
 === 🫶 Bracket Manipulation
@@ -359,6 +380,9 @@ Visualize color codes in buffer. Supported formats are Hex #RGBA, Termcode color
 * `colorschemes.lua`: *Syntax highlighting* with Catppuccin colorscheme
 * `gitsigns.lua`: *Git integration* on Signcolumn, git chunk navigation and more.
 * `lsp_inline-diagnostics.lua`: Beautiful and aesthetic *Inline diagnostics* for *LSP* errors
+* `noice_ui.lua`: Completely replaces the UI for messages, cmdline and the popupmenu by Folke.
+* `statusline.lua`: Lualine.nvim with Matugen dynamic color support.
+* `which-key.lua`: Helps you remember/discover keymaps, by showing available keybindings in a popup as you type.
 ====
 
 === 🍺 Paying Homage
@@ -386,7 +410,7 @@ Note: `TAB` does multiple things here
 * If accepted entry is a snippet and snippet is expanded, use `TAB` & `S-Tab` for jumping around the snippet fields.
 * If autocompletion menu is visible, use `TAB` to select LSP pre-selected entry.
 * If LSP pre-selected entry is not available in menu, `TAB` will select the first entry.
-* If menu and snippet are both not visible, `TAB` will jump over quotes and brackets.
+* If menu and snippet are both not visible, `TAB` will jump over quotes and brackets powered by `tabout.lua`.
 * If quotes and brackets are not available, `TAB` will act as normal `TAB`.
 
 `autocompletion_colorful-menu.lua`: Treesitter parsed syntax highlighting for autocompletion entries
@@ -505,6 +529,8 @@ Sentence = [Quantifier] Verb [Adverb [<location>]] Preposition [Quantifier] Noun
 
 == 🗺️ Custom Key Remaps
 
+image:./img/nvim_plugins.jpg[]
+
 === Normal Mode
 [%header]
 |===
@@ -588,26 +614,3 @@ Use `<M-hl>` (Alt+H / Alt+L) to move through buffers.
 | Key     | Description
 | `<C-s>` | Save Document (Normal/Insert mode)
 |===
-
-== 🔌 Plugins
-
-image:./img/nvim_plugins.jpg[]
-
-* Lazy Loading Plugin Manager `lazy.nvim`
-* Autoclosing Braces and Tags with `nvim-autopairs`
-* Fancy Dashboard with `dashboard-nvim`
-* Install LSP servers, DAP servers, Linters and Formatters with `mason.nvim`
-* NeoVim LSP Configuration with `nvim-lspconfig`
-* Code Autocompletion with `nvim-cmp`
-* Code Snippets with `luasnip` + `friendly-snippets`
-* Tab out of Brackets and Quotes with `neotab.nvim`
-* Scope based Indentation Lines with `indent-blankline.nvim`
-* Lazygit Integration with `lazygit.nvim`
-* Status Line and Buffer Line with `lualine.nvim`
-* ToDo, Bug, Hack comments highlighting with `todo-comments.nvim`
-* Convert, Manipulate and Pick Colors with `ccc.nvim`
-* Semantic based Syntax Highlighting with `nvim-treesitter`
-* See code context on top with `nvim-treesitter-context` instead of breadcrumbs
-* View live Treesitter parsing tree with `nvim-treesitter/playground`
-* Added more text objects with `nvim-treesitter-textobjects`
-* Manage and Explore files and folders with `vifm.vim`
