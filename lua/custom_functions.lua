@@ -78,7 +78,11 @@ function M.Execute_order_69()
   elseif file_type == 'go' then
     terminal('go run %')
   elseif file_type == 'perl' then
-    terminal('perl %')
+    if vim.fn.expand('%:e') == 'pl' then
+      terminal('perl %')
+    elseif vim.fn.expand('%:e') == 't' then
+      terminal('prove -v %')
+    end
   elseif file_type == 'c' then
     terminal('gcc % && ./a.out')
   elseif file_type == 'java' then
@@ -87,8 +91,17 @@ function M.Execute_order_69()
     terminal('node %')
   elseif file_type == 'elixir' then
     terminal('elixir %')
+  elseif file_type == 'tcl' then
+    terminal('tclsh %')
+  elseif file_type == 'php' then
+    terminal('php %')
   else
-    print('This file?... Cannot run because no.')
+    local messages = {
+      "This file?... Cannot run because no.",
+      "I'm sorry dave. I'm afraid I can't do that.",
+    }
+    local message = messages[math.random(#messages)]
+    print(message)
   end
 end
 
