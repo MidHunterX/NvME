@@ -13,4 +13,5 @@ return {
   is_fd = cmd_exists("fd"),           -- fd
   is_gcc = cmd_exists("gcc"),         -- gcc
   is_zig = cmd_exists("zig"),         -- zig
+  is_node = cmd_exists("node"),       -- node
 }

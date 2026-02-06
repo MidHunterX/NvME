@@ -1,3 +1,5 @@
+local check = require('killswitch')
+
 return {
   --==========================[ MASON LSP MANAGER ]==========================--
 
@@ -20,6 +22,7 @@ return {
 
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    enabled = check.is_node,
     opts = {
       ensure_installed = {
         "bash-language-server", -- Bash LSP
