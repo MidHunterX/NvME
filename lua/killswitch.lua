@@ -11,4 +11,6 @@ return {
   is_lazygit = cmd_exists("lazygit"), -- git
   is_ripgrep = cmd_exists("rg"),      -- ripgrep
   is_fd = cmd_exists("fd"),           -- fd
+  is_gcc = cmd_exists("gcc"),         -- gcc
+  is_zig = cmd_exists("zig"),         -- zig
 }
