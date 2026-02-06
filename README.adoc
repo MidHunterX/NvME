@@ -11,34 +11,22 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 == ⚡ Requirements
 
 Kill Switch enabled features gets activated only if the related dependencies
-are installed in PATH. These related dependencies are listed below as
-`🟢 Good to have dependency`.
+are installed in PATH. So, the minimal required dependencies are:
 
-|===
-| 🔴 | Required Dependency
-| 🟢 | Good to have dependency
-|===
+* https://github.com/neovim/neovim[*Neovim*] (Needs to be built with LuaJIT)
+* https://git-scm.com/[*git*]: For git integration, cloning plugin repos etc.
 
-* 🔴 https://github.com/neovim/neovim[*Neovim*] (Needs to be built with LuaJIT)
-* 🔴 https://git-scm.com/[*git*]: For git integration, cloning plugin repos etc.
-* 🟢 https://gcc.gnu.org/[*GCC*] or https://ziglang.org/[*Zig*]: For compiling treesitter language parsers
-* 🟢 https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters
-* 🟢 https://github.com/tapio/live-server[*live-server*]: For local HTML Server
-* 🟢 https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep
-* 🟢 https://github.com/sharkdp/fd[*fd*]: For Find Files
-* 🟢 https://github.com/vifm/vifm[*vifm*]: File Manager
-* 🟢 https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI
-* 🟢 https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering
-* 🟢 https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams
+Installing the following dependencies activates plugins and features that require them:
 
-=== Install Requirements
-
-.Arch Based System (pacman)
-[source,bash]
-----
-sudo pacman -S neovim git ripgrep fd vifm lazygit python npm mermaid-cli
-sudo npm install -g live-server
-----
+* https://gcc.gnu.org/[*GCC*] or https://ziglang.org/[*Zig*]: For compiling treesitter language parsers
+* https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters
+* https://github.com/tapio/live-server[*live-server*]: For local HTML Server
+* https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep
+* https://github.com/sharkdp/fd[*fd*]: For Find Files
+* https://github.com/vifm/vifm[*vifm*]: File Manager
+* https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI
+* https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering
+* https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams
 
 == 🛰️ Action Center
 
@@ -52,6 +40,17 @@ If any config is already present, it backups your config and puts NvME in place.
 
 [discrete]
 === 🐧 Linux
+
+==== Install Requirements
+
+.Arch Based System (pacman)
+[source,bash]
+----
+sudo pacman -S neovim git ripgrep fd vifm lazygit python npm mermaid-cli
+sudo npm install -g live-server
+----
+
+==== Install NvME
 
 .bash / zsh
 [source,bash]
@@ -70,24 +69,40 @@ git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
 [discrete]
 === 🪟 Windows
 
-WARNING: Many core components are Linux centric.
+Some features like image preview needs a terminal with sixel or kitty graphics protocol support.
 ~Features like image preview won't work and other features 100% will break on Windows currently.~
-There's a full killswitch system which disables features safely based on the available requirements in PATH.
+There's a full kill switch system which disables features safely based on the available requirements in PATH.
 ~And it's super hard to set up all the requirements on Windows.~
-Use chocolatey or winget to install.
+Use winget to install everything.
 
 * Suggested Compiler for Tree-sitter: *Zig Compiler*
+
+==== Install Requirements
+
+.Windows Package Manager (winget)
+[source,pwsh]
+----
+winget install Neovim.Neovim Git.Git
+winget install zig.zig # Takes up-to 15 minutes to extract
+winget install BurntSushi.ripgrep.MSVC sharkdp.fd JesseDuffield.lazygit
+winget install OpenJS.NodeJS
+----
+
+Restart terminal
+
+.Node Package Manager (npm)
+[source,pwsh]
+----
+npm install -g @mermaid-js/mermaid-cli # Takes 5 minutes
+npm install -g live-server
+----
+
+==== Install NvME
 
 .powershell
 [source,pwsh]
 ----
 git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim --depth 1; nvim
-----
-
-.cmd
-[source,cmd]
-----
-git clone https://github.com/MidHunterX/NvME %localappdata%\nvim --depth 1 && nvim
 ----
 ====
 
