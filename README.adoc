@@ -20,14 +20,14 @@ to have dependency`.
 |===
 
 * 🔴 https://github.com/neovim/neovim[*Neovim*] (Needs to be built with LuaJIT)
-* 🔴 https://gcc.gnu.org/[*GCC*]: For compiling treesitter languages in Linux
+* 🔴 https://gcc.gnu.org/[*GCC*] or https://ziglang.org/[*Zig*]: For compiling treesitter language parsers
 * 🔴 https://git-scm.com/[*git*]: For git integration, cloning plugin repos etc.
-* 🔴 https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep
-* 🔴 https://github.com/sharkdp/fd[*fd*]: For Find Files
-* 🟢 https://github.com/vifm/vifm[*vifm*]: File Manager
-* 🔴 https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI
 * 🔴 https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters
 * 🔴 https://github.com/tapio/live-server[*live-server*]: For local HTML Server
+* 🟢 https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep
+* 🟢 https://github.com/sharkdp/fd[*fd*]: For Find Files
+* 🟢 https://github.com/vifm/vifm[*vifm*]: File Manager
+* 🟢 https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI
 * 🟢 https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering
 * 🟢 https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams
 
@@ -89,7 +89,6 @@ git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim --depth 1; n
 ----
 git clone https://github.com/MidHunterX/NvME %localappdata%\nvim --depth 1 && nvim
 ----
-
 ====
 
 .🚶 `Uninstall Guide (go back to previous config if exists)`
@@ -111,7 +110,6 @@ ME=~/.config/nvim; [ -d $ME ] && rm -rf $ME && mv ${ME}_backup/ $ME
 ----
 set ME ~/.config/nvim; test -d $ME && rm -rf $ME; and mv ${ME}_backup/ $ME
 ----
-
 ====
 
 .🌱 `Programming Frameworks Integration Guide`

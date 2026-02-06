@@ -1,3 +1,5 @@
+local check = require('killswitch')
+
 local picker       = true
 local quickfile    = true
 local statuscolumn = true
@@ -32,10 +34,12 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  -- kitty is also required for images but snacks will work just fine without it
+  enabled = check.is_lazygit and check.is_grep and check.is_find,
 
   init = function()
-    local function AutostartSidebar(something)
-      if not something then return end
+    local function AutostartSidebar(open_on_startup)
+      if not open_on_startup then return end
       vim.api.nvim_create_autocmd('User', {
         pattern = 'VeryLazy',
         callback = function()
@@ -44,6 +48,8 @@ return {
       })
     end
     AutostartSidebar(sidebar)
+    -- TRANSPARENCY FIXES
+    -- vim.api.nvim_set_hl(0, "SnacksPickerList", { nocombine = true }) -- Common list items
   end,
 
   keys = {
@@ -52,7 +58,6 @@ return {
     { "<leader>,",       function() Snacks.picker.buffers() end,               desc = "Find: Buffers" },
     { "<leader>/",       function() Snacks.picker.grep() end,                  desc = "Grep: Files" },
     { "<leader>:",       function() Snacks.picker.command_history() end,       desc = "Command History" },
-    { "<leader>ue",      function() Snacks.explorer() end,                     desc = "Toggle: Explorer Sidebar" },
     { "<leader>ux",      function() Snacks.explorer() end,                     desc = "Toggle: Explorer Sidebar" },
     -- find
     { "<leader>ff",      function() Snacks.picker.files() end,                 desc = "Find: Files" },
@@ -82,6 +87,23 @@ return {
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,  desc = "LSP: Goto T[y]pe Definition" },
     { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "Grep: LSP Symbols" },
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "Grep: LSP Workspace Symbols" },
+    --[[ {
+      "<leader>ss",
+      function()
+        local custom_symbol = {
+          auto_close = true,
+          jump = { close = false },
+          layout = {
+            preset = "right", -- sidebar, ivy, left, bottom, top, right
+            position = "right",
+            hidden = { "input" },
+            auto_hide = { "input" },
+          },
+        }
+        Snacks.picker.lsp_symbols(custom_symbol)
+      end,
+      desc = "Toggle: Symbol Sidebar",
+    }, ]]
     -- buffer
     -- Snacks.bufdelete keeps the split open but delete the buffer (:bd is better for my workflow)
     -- But Snacks.bufdelete is needed for not affecting the explorer as it is technically a split buffer
