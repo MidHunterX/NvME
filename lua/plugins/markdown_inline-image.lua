@@ -1,7 +1,10 @@
 -- Requires: Kitty terminal
 
+local check = require('killswitch')
+
 return {
   "3rd/image.nvim",
+  enabled = check.is_kitty,
   ft = { "markdown" },
   config = function()
     require("image").setup({

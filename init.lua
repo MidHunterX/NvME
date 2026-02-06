@@ -10,6 +10,8 @@ require("auto_commands")
 require("hit_font")
 require("cmp_gitcommit")
 
+require("killswitch") -- for conditionally loading plugins
+
 --==========================[ @LAZY.NVIM_BOOTSTRAP]==========================--
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

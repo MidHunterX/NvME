@@ -1,8 +1,12 @@
+-- Requires: Kitty terminal && mermaid-cli
+
+local check = require('killswitch')
+
 return {
   "3rd/diagram.nvim",
-  dependencies = {
-    "3rd/image.nvim"
-  },
+  enabled = check.is_kitty and check.is_mermaid,
+  ft = "markdown",
+  dependencies = "3rd/image.nvim",
   opts = {
     events = {
       render_buffer = {

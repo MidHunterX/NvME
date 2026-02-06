@@ -19,6 +19,9 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 * https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI
 * https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters
 * https://github.com/tapio/live-server[*live-server*]: For local HTML Server
+
+=== Optional Requirements
+
 * https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering
 * https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams
 
@@ -61,10 +64,11 @@ git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
 [discrete]
 === 🪟 Windows
 
-WARNING: Many core components are Linux centric. Features like image preview
-won't work and other features 100% will break on Windows currently. And it's
-super hard to set up all the requirements on Windows. So, proceed only if you
-are highly determined.
+WARNING: Many core components are Linux centric.
+~Features like image preview won't work and other features 100% will break on Windows currently.~
+There's a full killswitch system which disables features safely based on the available requirements in PATH.
+~And it's super hard to set up all the requirements on Windows.~
+Use chocolatey or winget to install.
 
 * Suggested Compiler for Tree-sitter: *Zig Compiler*
 
