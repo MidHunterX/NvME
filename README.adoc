@@ -217,7 +217,7 @@ it is disabled in macro mode.
 image:./img/nvim_hitfont.jpg[]
 
 * Support for Matugen Dynamic Material You palette restricted to UI only
-* Convert text to Hit Font with `:HitFont`
+* Convert text to Hit Font with `:HitFont` and L337 SP34K with `:LeetSpeak`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git Commit with `<leader>gc` using Lazygit
 * Run/Execute files with `F5`, `<leader>ru` or `:lua Execute_order_69()`
