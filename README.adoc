@@ -10,20 +10,26 @@ comple**ME**nt **ME** workflow im**ME**nsely.
 
 == ⚡ Requirements
 
-* https://github.com/neovim/neovim[*Neovim*] (Needs to be built with LuaJIT)
-* https://gcc.gnu.org/[*GCC*]: For compiling treesitter languages in Linux
-* https://git-scm.com/[*git*]: For git integration, cloning plugin repos etc.
-* https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep
-* https://github.com/sharkdp/fd[*fd*]: For Find Files
-* https://github.com/vifm/vifm[*vifm*]: File Manager
-* https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI
-* https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters
-* https://github.com/tapio/live-server[*live-server*]: For local HTML Server
+Kill Switch enabled features gets activated only if the related dependencies
+are installed in PATH. These related dependencies are listed below as `🟢 Good
+to have dependency`.
 
-=== Optional Requirements
+|===
+| 🔴 | Required Dependency
+| 🟢 | Good to have dependency
+|===
 
-* https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering
-* https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams
+* 🔴 https://github.com/neovim/neovim[*Neovim*] (Needs to be built with LuaJIT)
+* 🔴 https://gcc.gnu.org/[*GCC*]: For compiling treesitter languages in Linux
+* 🔴 https://git-scm.com/[*git*]: For git integration, cloning plugin repos etc.
+* 🔴 https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep
+* 🔴 https://github.com/sharkdp/fd[*fd*]: For Find Files
+* 🟢 https://github.com/vifm/vifm[*vifm*]: File Manager
+* 🔴 https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI
+* 🔴 https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters
+* 🔴 https://github.com/tapio/live-server[*live-server*]: For local HTML Server
+* 🟢 https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering
+* 🟢 https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams
 
 === Install Requirements
 

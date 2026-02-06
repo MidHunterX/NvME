@@ -1,5 +1,3 @@
--- Requires: Kitty terminal
-
 local check = require('killswitch')
 
 return {

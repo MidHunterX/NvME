@@ -1,5 +1,3 @@
--- Requires: Kitty terminal && mermaid-cli
-
 local check = require('killswitch')
 
 return {
