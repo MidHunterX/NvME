@@ -10,7 +10,7 @@ require("auto_commands")
 require("hit_font")
 require("cmp_gitcommit")
 
-require("killswitch") -- for conditionally loading plugins
+require("killswitch") -- for conditionally disabling plugins
 
 --==========================[ @LAZY.NVIM_BOOTSTRAP]==========================--
 
@@ -21,7 +21,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -46,14 +46,14 @@ local opts = {
       ---@type string[]
       paths = {}, -- custom paths to includes in the rtp
       disabled_plugins = {
-        "gzip", -- Allows Neovim to read and write gzip compressed files.
+        "gzip",   -- Allows Neovim to read and write gzip compressed files.
         -- "matchit", -- Enhances the `%` command to jump between {[()]}
         -- "matchparen", -- Highlights matching {[()]}
         "netrwPlugin", -- File explorer (:Sex, :Vex, :Ex).
-        "tarPlugin", -- Adds support for handling tar archives.
-        "tohtml", -- Converts a buffer or a part of a buffer to HTML format.
-        "tutor", -- Interactive tutorial for learning basic Neovim commands.
-        "zipPlugin", -- Adds support for handling zip archives.
+        "tarPlugin",   -- Adds support for handling tar archives.
+        "tohtml",      -- Converts a buffer or a part of a buffer to HTML format.
+        "tutor",       -- Interactive tutorial for learning basic Neovim commands.
+        "zipPlugin",   -- Adds support for handling zip archives.
       },
     },
   },
@@ -83,9 +83,13 @@ function Load_dynamic_colors()
     customcat.normal.b.bg = colors.on_secondary
     --
     customcat.inactive.a.fg = colors.secondary
+
+    -- NVIM UI
+    -- Colour Line Number
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.primary, bold = true, nocombine = true })
   end
 
-  require'lualine'.setup{options={theme=customcat}}
+  require 'lualine'.setup { options = { theme = customcat } }
 end
 
 Load_dynamic_colors()
@@ -93,7 +97,7 @@ Load_dynamic_colors()
 -- HOT RELOAD ON SIGUSR1
 vim.api.nvim_create_autocmd("Signal", {
   pattern = "SIGUSR1",
-  callback = function ()
+  callback = function()
     vim.schedule(function()
       Load_dynamic_colors()
     end)
