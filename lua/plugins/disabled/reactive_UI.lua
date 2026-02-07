@@ -1,3 +1,8 @@
+-- Reason: replaced by much more simple and stable plugin 'modes.nvim'.
+-- This is the best implemented and the most configurable plugin for this out
+-- there, it has bugs. 'modes.nvim' is much more stable but less configurable
+-- in comparison.
+--
 -- Initial Impressions:
 -- The idea is really amazing! Making the cursor itself function like a mode indicator
 -- or simply just making everything rective to mode makes things much better.
