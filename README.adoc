@@ -239,6 +239,8 @@ image:./img/nvim_hitfont.jpg[]
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 * Custom made CMP auto-completion for git commit messages and regular expression matching
 
+NOTE: Setting env `NVIM_OPEN_SIDEBAR=1` will auto open the sidebar only after opening a file; not at the dashboard.
+
 === 🌳 Treesitter Node Manipulation
 
 `treesitter_walker.lua`

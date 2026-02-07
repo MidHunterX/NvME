@@ -1,4 +1,4 @@
-local check = require('killswitch')
+local check        = require('killswitch')
 
 local picker       = true
 local quickfile    = true
@@ -10,7 +10,7 @@ local indent       = false
 local dashboard    = false
 local words        = false
 -- Custom Functions
-local sidebar      = false -- Open explorer on startup
+local sidebar      = vim.env.NVIM_OPEN_SIDEBAR == "1"
 
 local function toggle_terminal()
   if vim.bo.buftype == "terminal" then
@@ -40,16 +40,25 @@ return {
   init = function()
     local function AutostartSidebar(open_on_startup)
       if not open_on_startup then return end
-      vim.api.nvim_create_autocmd('User', {
-        pattern = 'VeryLazy',
-        callback = function()
-          Snacks.explorer.open()
+      vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+        once = true,
+        callback = function(args)
+          local bt = vim.bo[args.buf].buftype
+          if bt ~= "" then
+            return
+          end
+
+          vim.schedule(function()
+            if vim.bo.filetype == "gitcommit" then return end
+            Snacks.explorer.open()
+          end)
         end,
       })
     end
     AutostartSidebar(sidebar)
     -- TRANSPARENCY FIXES
     -- vim.api.nvim_set_hl(0, "SnacksPickerList", { nocombine = true }) -- Common list items
+    -- :lua Snacks.picker.highlights({pattern = "hl_group:^Snacks"})
   end,
 
   keys = {
