@@ -77,16 +77,41 @@ function Load_dynamic_colors()
   local ok, colors = pcall(require, 'colors/colors')
   if ok and colors.primary then
     package.loaded['colors/colors'] = nil
+
+    -- █░░ █░█ ▄▀█ █░░ █ █▄░█ █▀▀   █░█ █ --
+    -- █▄▄ █▄█ █▀█ █▄▄ █ █░▀█ ██▄   █▄█ █ --
+    -- ================================== --
     customcat.normal.a.bg = colors.primary
-    --
     customcat.normal.b.fg = colors.secondary
     customcat.normal.b.bg = colors.on_secondary
-    --
     customcat.inactive.a.fg = colors.secondary
 
-    -- NVIM UI
-    -- Colour Line Number
-    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.primary, bold = true, nocombine = true })
+
+    -- █▄░█ █▀▀ █▀█ █░█ █ █▀▄▀█   █░█ █ --
+    -- █░▀█ ██▄ █▄█ ▀▄▀ █ █░▀░█   █▄█ █ --
+    -- ================================ --
+
+    -- Colour Line
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = colors.on_secondary })
+    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.primary, bold = true })
+    vim.api.nvim_set_hl(0, "LineNr", { fg = colors.on_surface_variant })
+
+    -- Floating Window + Sidebar
+    local LITE_FLOAT, DARK_FLOAT = colors.secondary, colors.surface_container_high
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = DARK_FLOAT })
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = LITE_FLOAT, bg = DARK_FLOAT, nocombine = true })
+    vim.api.nvim_set_hl(0, "FloatTitle", { fg = LITE_FLOAT, bg = DARK_FLOAT })
+
+    -- Completion Popup Menu
+    local LITE_CMP, DARK_CMP = colors.secondary, colors.surface_container
+    vim.api.nvim_set_hl(0, "Pmenu", { fg = LITE_CMP, bg = DARK_CMP })
+    vim.api.nvim_set_hl(0, "PmenuBorder", { fg = LITE_CMP, bg = DARK_CMP })
+    vim.api.nvim_set_hl(0, "PmenuSel", { fg = colors.on_primary, bg = colors.primary, bold = true })
+
+    -- Treesitter
+    local DARK_TS = colors.on_secondary
+    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = DARK_TS })
+    vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = DARK_TS })
   end
 
   require 'lualine'.setup { options = { theme = customcat } }
@@ -103,12 +128,3 @@ vim.api.nvim_create_autocmd("Signal", {
     end)
   end
 })
-
--- Transparent Background
--- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
--- vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
--- Set the selection background color
--- vim.api.nvim_set_hl(0, "Visual", { bg = "#37444f" })
--- Colour Line Number
--- vim.api.nvim_set_hl(0, "LineNr", { bg = 'none', fg = "#889299" })

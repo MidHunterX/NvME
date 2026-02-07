@@ -148,10 +148,10 @@ return {
 
         window = {
           -- completion = cmp.config.window.bordered(),
-          completion = cmp.config.window.bordered({
-            col_offset = -3,
-            side_padding = 1,
-          }),
+          completion = {
+            border = "rounded",
+            winhighlight = "Normal:Pmenu,FloatBorder:PmenuBorder,CursorLine:PmenuSel,Search:None",
+          },
           documentation = cmp.config.window.bordered(),
         },
 

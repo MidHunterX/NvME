@@ -231,7 +231,7 @@ it is disabled in macro mode.
 
 image:./img/nvim_hitfont.jpg[]
 
-* Support for Matugen Dynamic Material You palette restricted to UI only
+* Matugen generated Material You palette based Dynamic UI coloring
 * Convert text to Hit Font with `:HitFont` and L337 SP34K with `:LeetSpeak`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git Commit with `<leader>gc` using Lazygit
