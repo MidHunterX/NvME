@@ -6,6 +6,7 @@ return {
   -- Manager for language servers, linters, formatters
   {
     "mason-org/mason.nvim",
+    event = "VeryLazy",
     opts = {
       ui = {
         icons = {
@@ -23,6 +24,7 @@ return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     enabled = check.is_node,
+    event = "VeryLazy",
     opts = {
       ensure_installed = {
         "bash-language-server", -- Bash LSP
@@ -44,6 +46,7 @@ return {
   -- Configures Mason installed servers to LSPConfig
   {
     "mason-org/mason-lspconfig.nvim",
+    event = "VeryLazy",
     dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
     opts = {
       automatic_enable = true,

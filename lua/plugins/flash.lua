@@ -6,7 +6,7 @@
 return {
   {
     "folke/flash.nvim",
-    event = "VeryLazy",
+    event = "BufReadPost",
     opts = {
       modes = {
         -- `f`, `F`, `t`, `T`, `;` and `,` motions

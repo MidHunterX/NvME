@@ -13,15 +13,15 @@ end
 -- Windsurf (Codeium)
 return {
   "Exafunction/windsurf.nvim",
-  -- load only when actually using windsurf
-  -- highlight won't work correctly with this though
-  -- event = "InsertEnter",
+  event = "InsertEnter",
+  lazy = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "hrsh7th/nvim-cmp",
   },
   config = function()
     vim.keymap.set('i', '<M-,>', codeium_cmp_cycle, { expr = true, silent = true })
+    vim.api.nvim_set_hl(0, "CodeiumSuggestion", { fg = "#7f849c", italic = true })
 
     require("codeium").setup({
       enable_cmp_source = false,

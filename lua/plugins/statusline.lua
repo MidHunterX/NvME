@@ -25,13 +25,13 @@ local function recording()
   return "󰑊 REC @" .. reg
 end
 
--- 'o:encoding': Don't display if encoding is UTF-8.
+--[[ -- 'o:encoding': Don't display if encoding is UTF-8.
 local encoding = function()
   local ret, _ = (vim.bo.fenc or vim.go.enc):gsub("^utf%-8$", "")
   return ret
-end
+end ]]
 
--- 'fileformat': Don't display if &ff is unix.
+--[[ -- 'fileformat': Don't display if &ff is unix.
 local fileformat = function()
   local ret, _ = vim.bo.fileformat:gsub("^unix$", "")
   local icons = {
@@ -40,7 +40,7 @@ local fileformat = function()
     unix = '' -- e712
   }
   return icons[ret] or ret
-end
+end ]]
 
 --------------------------------------------------------------------------- --
 --                             CUSTOM TUI THEME                             --
@@ -52,25 +52,25 @@ local tui = {}
 if ui == "futuristic" then
   tui = {
     lualine = {
-      a = {  left = '█', right = ''  },
-      z = {  left = '', right = '█'  },
+      a = { left = '█', right = '' },
+      z = { left = '', right = '█' },
     },
     tabline = {
-      a = {  left = '█', right = ''  },
-      a_next = {  left = '█', right = ''  },
-      z = {  left = '', right = '█'  },
+      a = { left = '█', right = '' },
+      a_next = { left = '█', right = '' },
+      z = { left = '', right = '█' },
     }
   }
 elseif ui == "bubble" then
   tui = {
     lualine = {
-      a = {  left = '', right = ''  },
-      z = {  left = '', right = ''  },
+      a = { left = '', right = '' },
+      z = { left = '', right = '' },
     },
     tabline = {
-      a = {  left = '', right = ''  },
-      a_next = {  left = '', right = ''  },
-      z = {  left = '', right = ''  },
+      a = { left = '', right = '' },
+      a_next = { left = '', right = '' },
+      z = { left = '', right = '' },
     }
   }
 end
@@ -135,8 +135,18 @@ return {
       },
 
       lualine_x = {
-        fileformat,
-        encoding,
+        {
+          'fileformat',
+          symbols = {
+            unix = '', -- e712
+            dos = '', -- e70f
+            mac = '', -- e711
+          }
+        },
+        {
+          'encoding',
+          show_bomb = false, -- Show '[BOM]' when the file has a byte-order mark
+        },
         'filetype',
       },
       lualine_y = {

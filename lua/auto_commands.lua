@@ -32,8 +32,3 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     end
   end,
 })
-
-
--- Yank into system clipboard "+"
--- vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
--- vim.keymap.set("n", "<leader>Y", [["+Y]])

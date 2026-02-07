@@ -46,7 +46,7 @@ return {
   -- AutoCompletion engine for external source
   {
     "hrsh7th/nvim-cmp",
-    event = "VeryLazy",
+    event = { "InsertEnter", "CmdlineEnter", "LspAttach" },
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
@@ -116,9 +116,10 @@ return {
 
 
         -------------------------------------------------------[ @CMP_SORTING ]
-        -- SOURCES: https://www.reddit.com/r/neovim/comments/u3c3kw/comment/i4p8gck/
+        -- https://www.reddit.com/r/neovim/comments/u3c3kw/comment/i4p8gck/
+        -- https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/compare.lua
 
-        sorting = {
+        --[[ sorting = {
           comparators = {
             -- compare.score_offset, -- not good at all
             compare.locality,
@@ -126,16 +127,22 @@ return {
             compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
             compare.offset,
             compare.order,
+            function(entry1, entry2) -- score by lsp, if available
+              local t1 = entry1.completion_item.sortText
+              local t2 = entry2.completion_item.sortText
+              if t1 ~= nil and t2 ~= nil and t1 ~= t2 then
+                return t1 < t2
+              end
+            end,
             -- compare.scopes, -- what?
             -- compare.sort_text,
             -- compare.exact,
             compare.kind,
             -- compare.length, -- useless
-
             -- Buffer: Locality bonus comparator (distance-based sorting)
             function(...) return cmp_buffer:compare_locality(...) end,
           }
-        },
+        }, ]]
 
         --------------------------------------------------[ @CMP_MENU_BORDERS ]
 
