@@ -300,16 +300,26 @@ Mark multiple patterns with `<leader>m` and navigate with `n` as usual. Use `<le
 | Keybinding                   | Description
 | `ds <bracket>`               | Delete Surrounding <bracket>
 | `cs <bracket> <new-bracket>` | Change Surrounding <bracket> to <new-bracket>
-| `cS <bracket> <new-bracket>` | Change Surrounding <bracket> to <new-bracket> (line-wise)
-| `gs <motions> <bracket>`     | Surround this <motions> with <bracket>
-| `gS <motions> <bracket>`     | Surround this <motions> with <bracket> (line-wise)
-| `gsl <bracket>`              | Surround this Line with <bracket>
-| `gsL <bracket>`              | Surround this Line with <bracket> (line-wise)
+| `cS <bracket> <new-bracket>` | Change Surrounding <bracket> to <new-bracket> (split-line)
+| `gs <motions> <bracket>`     | Go Surround <motion/selection> with <bracket>
+| `gS <motions> <bracket>`     | Go Surround <motion/selection> with <bracket> (split-line)
+| `gsl <bracket>`              | Go Surround Line with <bracket>
+| `gSl <bracket>`              | Go Surround Line with <bracket> (split-line)
 |===
 
 .`ℹ️ Other Bracket Related Features`
 [%collapsible]
 ====
+*<tag>* = Markup Tags like `<div>`, `<p>`, `<a href="..." title="...">`, `<Dataset xmlns="...">`
+
+[%header]
+|===
+| Keybinding                              | Description
+| `dst <tag-name> <new-tag>`              | Delete Surrounding <tag-name>
+| `cst <tag-name> <new-tag>`              | Change Surrounding <tag-name> to <new-tag>
+| `csT <tag-contents> <new-tag-contents>` | Change Surrounding <tag-contents> with <new-tag-contents>
+|===
+
 * `bracket_rainbow.lua`: Colorizes bracket pairs based on their nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
 * `bracket_matchparen.lua`: Highlights matching bracket pair when cursor is anywhere inside the block. An improved version of inbuilt matchparen.
 * `bracket_autopairs.lua`: Autoclose brackets, quotes, etc. when typing them. Disabled in macro mode.
