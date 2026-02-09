@@ -1,6 +1,6 @@
 return {
   "kawre/neotab.nvim",
-  event = "InsertEnter",
+  lazy = true, -- Load only when called
   opts = {
     tabkey = "<Tab>",
     act_as_tab = true,

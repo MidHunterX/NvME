@@ -50,9 +50,8 @@ return {
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
-      local neotab = require("neotab")
-      local compare = require('cmp.config.compare')
-      local cmp_buffer = require('cmp_buffer')
+      -- local compare = require('cmp.config.compare')
+      -- local cmp_buffer = require('cmp_buffer')
 
       local regex_source = require('cmp_regex')
       cmp.register_source('regex', regex_source)
@@ -213,7 +212,7 @@ return {
             elseif cmp.visible() then
               cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
             else
-              neotab.tabout()
+              require("neotab").tabout()
             end
           end, { "i", "c" }),
 
