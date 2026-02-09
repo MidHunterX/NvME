@@ -431,6 +431,16 @@ Visualize color codes in buffer. Supported formats are Hex #RGBA, Termcode color
 Thin virtual vertical line at 80th column. Much nicer and visually less intrusive than the default color column. Punchcards typically used to have 80 column width. Early terminals screens also had a fixed display width of 80 characters. Keeping code within this limit prevented unsightly line wrapping and made it more readable.
 Even now, when doing multi window workflow, keeping it under 80 columns will make everything look nice and readable as well.
 
+=== 🎮 Fun Features
+
+`typing-sounds.lua`
+
+8-bit sound effects as a feedback for your input interactions. There are no audio file dependency as the sounds are programmatically generated with wavetype, sustain, punch, frequency, arpeggio, decay, resonance, lowpass filter etc.
+
+`typing-practice.lua`
+
+Practice typing speed with `:Typr` and view your overall progress timeline, per letter accuracy analysis etc. with `:TyprStats`.
+
 == 📝 Autocompletion Behaviour
 
 image:./img/nvim_cmp.jpg[]
