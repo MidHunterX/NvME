@@ -85,6 +85,7 @@ function Load_dynamic_colors()
     customcat.normal.b.fg = colors.secondary
     customcat.normal.b.bg = colors.on_secondary
     customcat.inactive.a.fg = colors.secondary
+    customcat.inactive.a.bg = colors.surface_container_highest
 
 
     -- █▄░█ █▀▀ █▀█ █░█ █ █▀▄▀█   █░█ █ --
@@ -92,9 +93,9 @@ function Load_dynamic_colors()
     -- ================================ --
 
     -- Colour Line
-    vim.api.nvim_set_hl(0, "CursorLine", { bg = colors.on_secondary })
+    vim.api.nvim_set_hl(0, "CursorLine", { bg = colors.surface_bright })
     vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.primary, bold = true })
-    vim.api.nvim_set_hl(0, "LineNr", { fg = colors.on_surface_variant })
+    vim.api.nvim_set_hl(0, "LineNr", { fg = colors.outline })
 
     -- Floating Window + Sidebar
     local LITE_FLOAT, DARK_FLOAT = colors.secondary, colors.surface_container_high
@@ -103,7 +104,7 @@ function Load_dynamic_colors()
     vim.api.nvim_set_hl(0, "FloatTitle", { fg = LITE_FLOAT, bg = DARK_FLOAT })
 
     -- Completion Popup Menu
-    local LITE_CMP, DARK_CMP = colors.secondary, colors.surface_container
+    local LITE_CMP, DARK_CMP = colors.primary, nil
     vim.api.nvim_set_hl(0, "Pmenu", { fg = LITE_CMP, bg = DARK_CMP })
     vim.api.nvim_set_hl(0, "PmenuBorder", { fg = LITE_CMP, bg = DARK_CMP })
     vim.api.nvim_set_hl(0, "PmenuSel", { fg = colors.on_primary, bg = colors.primary, bold = true })

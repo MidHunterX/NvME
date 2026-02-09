@@ -285,6 +285,7 @@ Mark multiple patterns with `<leader>m` and navigate with `n` as usual. Use `<le
 [%collapsible]
 ====
 * `comment.lua`: *Toggle comment* with `gcc` (line-wise) and `gbb` (block-wise). Works with `<motion>` as well (gbip, gc2k, ...).
+* `comment_todo.lua`: *TODO comment* highlighting. You can search for all TODOs with `<leader>st` - powered by `snacks.lua`.
 * `toggle_boolean.lua`: *Toggle values* between (true, false), (enable, disable) with increment and decrement fallback. Everything with `C-a` and `C-x`.
 * `formatter.lua`: *Format* code with `<leader>fm`. Formatters can be installed with `:Mason`
 * `indent_guess.lua`: Automatically detects and applies indentation settings to the current buffer.
