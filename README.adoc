@@ -4,13 +4,13 @@ image:./img/nvim_dashboard.jpg[]
 
 /ˈɛnvi mi:/
 
-A **ME**ticulous nvim distribution, crafted from scratch solely for **ME** with
-every feature and keybindings configured to offer supre**ME** comfort and
-comple**ME**nt **ME** workflow im**ME**nsely.
+Neovim **ME**ticulous Edition, crafted from scratch solely for **ME** with
+every Human-Computer Interaction (HCI) perfectly engineered to fit **ME** needs
+to offer supre**ME** comfort and comple**ME**nt **ME** workflow im**ME**nsely.
 
 == ⚡ Requirements
 
-Kill Switch enabled features gets activated only if the related dependencies
+Kill Switch(TM) enabled features gets activated only if the related dependencies
 are installed in PATH. So, the minimal required dependencies are:
 
 * https://github.com/neovim/neovim[*Neovim*] (Needs to be built with LuaJIT)
@@ -58,24 +58,21 @@ sudo npm install -g live-server
 [source,bash]
 ----
 ME=~/.config/nvim; [ -d $ME ] && mv $ME ${ME}_backup/
-git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
+git clone https://github.com/MidHunterX/NvME $ME && nvim
 ----
 
 .fish
 [source,fish]
 ----
 set ME ~/.config/nvim; test -d $ME; and mv $ME {$ME}_backup
-git clone https://github.com/MidHunterX/NvME $ME --depth 1 && nvim
+git clone https://github.com/MidHunterX/NvME $ME && nvim
 ----
 
 [discrete]
 === 🪟 Windows
 
 Some features like image preview needs a terminal with sixel or kitty graphics protocol support.
-~Features like image preview won't work and other features 100% will break on Windows currently.~
-There's a full kill switch system which disables features safely based on the available requirements in PATH.
-~And it's super hard to set up all the requirements on Windows.~
-Use winget to install everything.
+Kill Switch(TM) system disables features safely based on the available requirements installed in your system.
 
 * Suggested Compiler for Tree-sitter: *Zig Compiler*
 
@@ -100,12 +97,13 @@ npm install -g @mermaid-js/mermaid-cli # Takes 5 minutes
 npm install -g live-server
 ----
 
+[discrete]
 ==== Install NvME
 
 .powershell
 [source,pwsh]
 ----
-git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim --depth 1; nvim
+git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim; nvim
 ----
 ====
 
