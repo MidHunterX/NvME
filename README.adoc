@@ -41,6 +41,7 @@ If any config is already present, it backups your config and puts NvME in place.
 [discrete]
 === 🐧 Linux
 
+[discrete]
 ==== Install Requirements
 
 .Arch Based System (pacman)
@@ -50,6 +51,7 @@ sudo pacman -S neovim git ripgrep fd vifm lazygit python npm mermaid-cli
 sudo npm install -g live-server
 ----
 
+[discrete]
 ==== Install NvME
 
 .bash / zsh
@@ -77,6 +79,7 @@ Use winget to install everything.
 
 * Suggested Compiler for Tree-sitter: *Zig Compiler*
 
+[discrete]
 ==== Install Requirements
 
 .Windows Package Manager (winget)

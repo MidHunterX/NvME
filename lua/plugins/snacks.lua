@@ -207,7 +207,7 @@ return {
           focus = false,
           layout = {
             layout = {
-              -- width = 0.2,       -- fixed percentage width
+              width = 0.23,      -- fixed percentage width
               position = "left", -- default "left"
             },
             hidden = { "input" },
