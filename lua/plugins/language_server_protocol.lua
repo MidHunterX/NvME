@@ -6,7 +6,7 @@ return {
   -- Manager for language servers, linters, formatters
   {
     "mason-org/mason.nvim",
-    event = "VeryLazy",
+    lazy = true, -- Load only when called with :Mason
     opts = {
       ui = {
         icons = {
@@ -24,7 +24,7 @@ return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     enabled = check.is_node,
-    event = "VeryLazy",
+    event = "VeryLazy", -- Load very lazy. This calls the next plugin - mason-lspconfig
     opts = {
       ensure_installed = {
         "bash-language-server", -- Bash LSP
@@ -46,7 +46,7 @@ return {
   -- Configures Mason installed servers to LSPConfig
   {
     "mason-org/mason-lspconfig.nvim",
-    event = "VeryLazy",
+    event = { "LspAttach" }, -- Attaching config only if LSP. This calls the next plugin - nvim-lspconfig
     dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
     opts = {
       automatic_enable = true,
@@ -59,6 +59,7 @@ return {
   -- Configure Language servers to Neovim LSP
   {
     "neovim/nvim-lspconfig",
+    lazy = true, -- Load only when called by mason-lspconfig after LSP
     opts = {},
     -----------------------------------------------------[ @LSPCONFIG_CONFIG ]
     config = function()
