@@ -18,15 +18,15 @@ are installed in PATH. So, the minimal required dependencies are:
 
 Installing the following dependencies activates plugins and features that require them:
 
-* https://gcc.gnu.org/[*GCC*] or https://ziglang.org/[*Zig*]: For compiling treesitter language parsers
-* https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters
-* https://github.com/tapio/live-server[*live-server*]: For local HTML Server
-* https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep
-* https://github.com/sharkdp/fd[*fd*]: For Find Files
-* https://github.com/vifm/vifm[*vifm*]: File Manager
-* https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI
-* https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering
-* https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams
+* https://gcc.gnu.org/[*GCC*] or https://ziglang.org/[*Zig*]: For compiling treesitter language parsers | `nvim-treesitter`
+* https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters | `mason-tool-installer.nvim`
+* https://github.com/tapio/live-server[*live-server*]: For local HTML Server | `Execute_order_69`
+* https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep | `snacks.nvim`
+* https://github.com/sharkdp/fd[*fd*]: For Find Files | `snacks.nvim`
+* https://github.com/vifm/vifm[*vifm*]: File Manager | `vifm.vim`
+* https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI | `snacks.nvim`
+* https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering | `image.nvim`
+* https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams | `diagram.nvim`
 
 == 🛰️ Action Center
 
@@ -233,14 +233,13 @@ it is disabled in macro mode.
 image:./img/nvim_hitfont.jpg[]
 
 * Matugen generated Material You palette based Dynamic UI coloring
+* Setting env `NVIM_OPEN_SIDEBAR=1` auto opens sidebar after opening a file.
 * Convert text to Hit Font with `:HitFont` and L337 SP34K with `:LeetSpeak`
 * Trim trailing lines and Write Buffer with `<leader>w`
 * Git Commit with `<leader>gc` using Lazygit
 * Run/Execute files with `F5`, `<leader>ru` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 * Custom made CMP auto-completion for git commit messages and regular expression matching
-
-NOTE: Setting env `NVIM_OPEN_SIDEBAR=1` will auto open the sidebar only after opening a file; not at the dashboard.
 
 === 🌳 Treesitter Node Manipulation
 

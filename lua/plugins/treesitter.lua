@@ -1,9 +1,8 @@
 local check = require('killswitch')
-local if_deps = check.is_gcc or check.is_zig
 
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
-  enabled = if_deps,
+  enabled = check.is_gcc or check.is_zig,
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     -- ZIG is more compatible with windows :D

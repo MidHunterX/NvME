@@ -65,7 +65,10 @@ function M.Execute_order_69()
   if file_type == 'python' then
     terminal('python %')
   elseif file_type == "html" then
-    vim.cmd(":term live-server --no-browser")
+    local check = require('killswitch')
+    if check.is_liveserver then
+      vim.cmd(":term live-server --no-browser")
+    end
   elseif file_type == "sh" then
     terminal('bash %')
   elseif file_type == "rust" then
