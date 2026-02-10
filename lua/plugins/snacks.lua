@@ -35,7 +35,7 @@ return {
   priority = 1000,
   lazy = false,
   -- kitty is also required for images but snacks will work just fine without it
-  enabled = check.is_lazygit and check.is_grep and check.is_find,
+  enabled = check.is_lazygit and check.is_ripgrep and check.is_fd,
 
   init = function()
     local function AutostartSidebar(open_on_startup)
