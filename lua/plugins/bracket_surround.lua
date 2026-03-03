@@ -1,7 +1,13 @@
 return {
   "kylechui/nvim-surround",
   lazy = true,
-  keys = { "gs", "gS", "cs", "cS", "ds" },
+  keys = {
+    { "gs", mode = { "n", "v" } },
+    "gS",
+    "cs",
+    "cS",
+    "ds",
+  },
   config = function()
     require("nvim-surround").setup({
 
