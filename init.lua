@@ -82,10 +82,22 @@ function Load_dynamic_colors()
     -- █▄▄ █▄█ █▀█ █▄▄ █ █░▀█ ██▄   █▄█ █ --
     -- ================================== --
     customcat.normal.a.bg = colors.primary
+    customcat.normal.a.fg = colors.on_primary
     customcat.normal.b.fg = colors.secondary
     customcat.normal.b.bg = colors.on_secondary
+    -- Terminal Mode
+    customcat.terminal.a.bg = colors.primary
+    customcat.terminal.a.fg = colors.on_primary
+    customcat.terminal.b.fg = colors.secondary
+    customcat.terminal.b.bg = colors.on_secondary
+    -- Others
     customcat.inactive.a.fg = colors.secondary
     customcat.inactive.a.bg = colors.surface_container_highest
+    -- Transparent Tabline Fix
+    -- Whenever a refresh with SIGUSR1 takes place, lualine fills a weird bg
+    -- color in tabline only. Pinpointed the hex to this specific highlight.
+    -- 'lualine_transitional_lualine_z_buffers_inactive_to_TabLineFill'
+    -- But lualine keeps overriding the highlight.
 
 
     -- █▄░█ █▀▀ █▀█ █░█ █ █▀▄▀█   █░█ █ --
