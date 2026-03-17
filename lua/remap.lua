@@ -47,7 +47,13 @@ vim.keymap.set("n", "<leader>rr", "*N", { desc = "Highlight & Replace word" })
 vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>N", { desc = "Highlight & Replace Word" })
 
 ----------------------------------------------------- Super Yank [ <leader> y ]
-vim.keymap.set("n", "<leader>y", "<Cmd>%yank<CR>", { desc = "Buffer: Yank content" })
+vim.keymap.set("n", "<leader>yy", "<Cmd>%yank<CR>", { desc = "Buffer: Yank content" })
+-- Yank relative file path
+vim.keymap.set("n", "<leader>yf", function() vim.fn.setreg("+", vim.fn.expand("%:.")) end,
+  { desc = "Buffer: Yank relative file path" })
+-- Yank absolute file path
+vim.keymap.set("n", "<leader>yF", function() vim.fn.setreg("+", vim.fn.expand("%:p")) end,
+  { desc = "Buffer: Yank absolute file path" })
 
 -------------------------------------------------- Spell Toggle [ <leader> us ]
 vim.keymap.set("n", "<leader>us", function()
