@@ -1,57 +1,3 @@
--- Extend existing Treesitter keymaps for Markdown
-local ok, configs = pcall(require, "nvim-treesitter.configs")
-if not ok then return end
-
-configs.setup {
-  ensure_installed = {},
-  sync_install = false,
-  auto_install = true,
-  modules = {},
-  ignore_install = {},
-  textobjects = {
-
-    select = {
-      keymaps = {
-        ["if"] = { query = "@fence.inner", desc = "Inside Fenced code block" },
-        ["af"] = { query = "@fence.outer", desc = "Around Fenced code block" },
-      },
-    },
-
-    move = {
-      enable = true,
-      set_jumps = true,
-      goto_next_start = {
-        ["]f"] = {
-          query = "@fence.outer",
-          desc = "Next Fenced code block",
-        },
-      },
-
-      goto_next_end = {
-        ["]F"] = {
-          query = "@fence.outer",
-          desc = "Next Fenced code block end",
-        },
-      },
-
-      goto_previous_start = {
-        ["[f"] = {
-          query = "@fence.outer",
-          desc = "Previous Fenced code block",
-        },
-      },
-
-      goto_previous_end = {
-        ["[F"] = {
-          query = "@fence.outer",
-          desc = "Previous Fenced code block end",
-        },
-      },
-    },
-  }
-}
-
-
 vim.keymap.set("v", "<C-b>", "c**<ESC>pa**<ESC>",
   { buffer = true, desc = "Bold text with **" })
 
@@ -84,6 +30,9 @@ end
 
 vim.keymap.set("v", "<C-l>", make_markdown_link,
   { buffer = true, desc = "Text/URL to link with []()" })
+
+vim.keymap.set({"i", "n"}, "<C-l>", "<ESC>I- [ ] ",
+  { buffer = true, desc = "Markdown list item" })
 
 
 -- MARKDOWN LIST ITEMS (using commentstrings)
