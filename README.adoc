@@ -264,7 +264,7 @@ image:./img/nvim_hitfont.jpg[]
 
 `indent_lines.lua`
 
-*Code indentation lines* which highlights the current https://en.wikipedia.org/wiki/Scope_(computer_science)[scope]. The scope is not the current indentation level! Instead, it is the indentation level where variables or functions are accessible. This depends on the language you are writing. The highlight colors are matched with the colors of brackets for a more visually cohesive experience.
+*Code indentation lines* which highlights the current https://en.wikipedia.org/wiki/Scope_(computer_science)[scope]. The scope is not the current indentation level! Instead, it is the indentation level where variables or functions are accessible. This depends on the language you are writing. The highlight colors are matched with the colors of brackets for a more visually cohesive experience. `#Hidden_UI: Indent line as variable scope`
 
 `regex_spectre.lua`
 
@@ -625,7 +625,9 @@ image:./img/nvim_plugins.jpg[]
 | `<leader>w`  | Write File
 | `<leader>er` | Erase Search Highlight
 | `<leader>rr` | Highlight & Replace Word
-| `<leader>y`  | Yank Entire Buffer
+| `<leader>yy` | Yank Entire Buffer
+| `<leader>yf` | Yank File Relative Path
+| `<leader>yF` | Yank File Absolute Path
 | `<leader>us` | Toggle Spell Check
 | `<leader>d`  | Delete Without Yanking
 | `<leader>p`  | Paste Without Yanking

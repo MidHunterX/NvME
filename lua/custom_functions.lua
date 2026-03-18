@@ -1,5 +1,45 @@
 local M = {}
 
+
+---@alias PathType "absolute"|"relative"
+---@alias YankMode "n"|"v"
+---Yanks the filepath with specified options
+---@param pathtype PathType
+---@param mode YankMode
+---@return nil
+function M.YankFilepath(pathtype, mode)
+  local file_path
+
+  if pathtype == "absolute" then
+    file_path = vim.fn.expand("%:p")
+  elseif pathtype == "relative" then
+    file_path = vim.fn.expand("%:.")
+  end
+
+  if mode == "v" then
+    local start_line = vim.fn.line("v")
+    local end_line = vim.fn.line(".")
+    if start_line > end_line then
+      start_line, end_line = end_line, start_line
+    end
+    file_path = string.format("%s:%d:%d", file_path, start_line, end_line)
+  end
+
+  vim.fn.setreg("+", file_path)
+
+  -- ACTION: Trigger TextYankPost event
+  vim.api.nvim_exec_autocmds("TextYankPost", {
+    pattern = "*",
+    data = { regcontents = { file_path }, regname = "+", operator = "y", regtype = "v", visual = true },
+  })
+
+  -- ACTION: Goto Normal Mode
+  if mode == "v" then
+    vim.cmd("normal! " .. vim.api.nvim_replace_termcodes("<Esc>", true, false, true))
+  end
+end
+
+
 -- Smart Motion Philosophy:
 -- Capital letters represent the "extreme" form of their lowercase motion.
 -- Therefore, H (← extreme) and L (→ extreme) should go to ^ and $ respectively,

@@ -48,12 +48,18 @@ vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>N", { desc = "Highlight & Replace
 
 ----------------------------------------------------- Super Yank [ <leader> y ]
 vim.keymap.set("n", "<leader>yy", "<Cmd>%yank<CR>", { desc = "Buffer: Yank content" })
+
 -- Yank relative file path
-vim.keymap.set("n", "<leader>yf", function() vim.fn.setreg("+", vim.fn.expand("%:.")) end,
+vim.keymap.set("n", "<leader>yf", function() custard.YankFilepath("relative", "n") end,
   { desc = "Buffer: Yank relative file path" })
+vim.keymap.set("v", "<leader>yf", function() custard.YankFilepath("relative", "v") end,
+  { desc = "Buffer: Yank relative file path with line range" })
+
 -- Yank absolute file path
-vim.keymap.set("n", "<leader>yF", function() vim.fn.setreg("+", vim.fn.expand("%:p")) end,
+vim.keymap.set("n", "<leader>yF", function() custard.YankFilepath("absolute", "n") end,
   { desc = "Buffer: Yank absolute file path" })
+vim.keymap.set("v", "<leader>yF", function() custard.YankFilepath("absolute", "v") end,
+  { desc = "Buffer: Yank absolute file path with line range" })
 
 -------------------------------------------------- Spell Toggle [ <leader> us ]
 vim.keymap.set("n", "<leader>us", function()
