@@ -180,6 +180,24 @@ yay -S flutter-bin
 Now `flutter` command is available in `$PATH`. Create a new project using `flutter create myapp` and open it with `flutter run`.
 ====
 
+
+.📖 `Useful Commands`
+[%collapsible]
+====
+[discrete]
+== 📖 Useful Commands
+
+[discrete]
+=== LSP Calls
+Use the following commands to view incoming and outgoing call list
+[source,lua]
+----
+lua vim.lsp.buf.incoming_calls()
+lua vim.lsp.buf.outgoing_calls()
+----
+====
+
+
 == 🎨 Design Philosophy
 
 image:./img/nvim_record.jpg[]
