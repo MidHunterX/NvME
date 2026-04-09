@@ -66,9 +66,9 @@ require("lazy").setup("plugins", opts)
 
 function Load_dynamic_colors()
   -- Clear cache
-  package.loaded['lualine.themes.catppuccin'] = nil
+  package.loaded['lualine.themes.catppuccin-nvim'] = nil
 
-  local customcat = require 'lualine.themes.catppuccin'
+  local customcat = require 'lualine.themes.catppuccin-nvim'
   -- Problem: Ugly white separators due to lualine transparency handling bug. Source: lua/catppuccin/utils/lualine.lua > catppuccin.inactive.a.bg = 'NONE'
   customcat.inactive.a.bg = '#242428'
   -- Transparent background for center

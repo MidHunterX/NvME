@@ -89,7 +89,7 @@ return {
   opts = {
 
     options = {
-      theme = 'catppuccin',
+      theme = 'catppuccin-nvim',
       icons_enabled = true,
       component_separators = '',
       section_separators = '',
