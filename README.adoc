@@ -14,7 +14,7 @@ Kill Switch(TM) enabled features gets activated only if the related dependencies
 are installed in PATH. So, the minimal required dependencies are:
 
 * https://github.com/neovim/neovim[*Neovim*] (Needs to be built with LuaJIT)
-* https://git-scm.com/[*git*]: For git integration, cloning plugin repos etc.
+* https://git-scm.com/[*git*]: For git integration and plugin manager | `lazy.nvim`
 
 Installing the following dependencies activates plugins and features that require them:
 
@@ -75,7 +75,9 @@ git clone https://github.com/MidHunterX/NvME $ME && nvim
 Some features like image preview needs a terminal with sixel or kitty graphics protocol support.
 Kill Switch(TM) system disables features safely based on the available requirements installed in your system.
 
-* Suggested Compiler for Tree-sitter: *Zig Compiler*
+* [.line-through]#Suggested Compiler for Tree-sitter: *Zig Compiler*#
+
+WARNING: After `nvim-treesitter` rewrite, it uses `tree-sitter-cli` for installing parsers which don't support Zig Compiler. Windows now need *MSYS2* or *MinGW*.
 
 [discrete]
 ==== Install Requirements
