@@ -9,47 +9,43 @@ return {
     "ds",
   },
   config = function()
-    require("nvim-surround").setup({
+    vim.g.nvim_surround_no_mappings = true
 
-      keymaps = {
-        -- [g]o [s]urround {<motions> <bracket>}
-        normal = "gs",
-        normal_line = "gS",
+    -- [g]o [s]urround {<motions> <bracket>}
+    vim.keymap.set("n", "gs", "<Plug>(nvim-surround-normal)", {
+      desc = "Add a surrounding pair around a motion (normal mode)",
+    })
+    vim.keymap.set("n", "gS", "<Plug>(nvim-surround-normal-line)", {
+      desc = "Add a surrounding pair around a motion, on new lines (normal mode)",
+    })
 
-        -- [g]o [s]urround this [l]ine with {<bracket>}
-        normal_cur = "gsl",
-        normal_cur_line = "gSl",
+    -- [g]o [s]urround this [l]ine with {<bracket>}
+    vim.keymap.set("n", "gsl", "<Plug>(nvim-surround-normal-cur)", {
+      desc = "Add a surrounding pair around the current line (normal mode)",
+    })
+    vim.keymap.set("n", "gSl", "<Plug>(nvim-surround-normal-cur-line)", {
+      desc = "Add a surrounding pair around the current line, on new lines (normal mode)",
+    })
 
-        -- [c]hange [s]urrounding {<bracket>}
-        change = "cs",
-        change_line = "cS",
+    -- [g]o [s]urround the selection with {<bracket>}
+    vim.keymap.set("x", "gs", "<Plug>(nvim-surround-visual)", {
+      desc = "Add a surrounding pair around a visual selection",
+    })
+    vim.keymap.set("x", "gS", "<Plug>(nvim-surround-visual-line)", {
+      desc = "Add a surrounding pair around a visual selection, on new lines",
+    })
 
-        -- [d]elete [s]urrounding {<bracket>}
-        delete = "ds",
+    -- [c]hange [s]urrounding {<bracket>}
+    vim.keymap.set("n", "cs", "<Plug>(nvim-surround-change)", {
+      desc = "Change a surrounding pair",
+    })
+    vim.keymap.set("n", "cS", "<Plug>(nvim-surround-change-line)", {
+      desc = "Change a surrounding pair, putting replacements on new lines",
+    })
 
-        -- [g]o [s]urround the selection with {<bracket>}
-        visual = "gs",
-        visual_line = "gS",
-
-        -- insert = "<C-g>s",
-        -- insert_line = "<C-g>S",
-      },
-
-      aliases = {
-        -- angle bracket
-        ["a"] = ">",
-        -- bracket (default brackets.. the paranthesis!)
-        ["b"] = ")",
-        -- brace
-        ["B"] = "}",
-        -- rectangle bracket
-        ["r"] = "]",
-        -- quote
-        ["q"] = { '"', "'", "`" },
-        -- surrounding
-        ["s"] = { "}", "]", ")", ">", '"', "'", "`" },
-      },
-
+    -- [d]elete [s]urrounding {<bracket>}
+    vim.keymap.set("n", "ds", "<Plug>(nvim-surround-delete)", {
+      desc = "Delete a surrounding pair",
     })
   end
 }
