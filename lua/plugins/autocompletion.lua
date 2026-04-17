@@ -320,20 +320,6 @@ return {
 
     dependencies = {
 
-      --===========================================================[ @SOURCES ]
-      -- Nvim lua api source
-      { "hrsh7th/cmp-nvim-lua" },
-      -- LSP server source
-      { "hrsh7th/cmp-nvim-lsp" },
-      -- LuaSnip snippet source to configure external collections
-      { 'saadparwaiz1/cmp_luasnip' },
-      -- Path completion source
-      { "hrsh7th/cmp-path" },
-      -- Buffer completion source
-      { "hrsh7th/cmp-buffer" },
-      -- Commandline completion source
-      { "hrsh7th/cmp-cmdline" },
-
       --====================================================[ @SNIPPET_ENGINE ]
       -- Snippet engine which parses custom snippets
       {
@@ -346,5 +332,19 @@ return {
     },
 
   },
+
+  --===========================================================[ @SOURCES ]
+  -- Nvim lua api source
+  { "hrsh7th/cmp-nvim-lua", ft = "lua" },
+  -- LSP server source
+  { "hrsh7th/cmp-nvim-lsp", event = "LspAttach" },
+  -- LuaSnip snippet source to configure external collections
+  { 'saadparwaiz1/cmp_luasnip', event = "InsertEnter" },
+  -- Path completion source
+  { "hrsh7th/cmp-path", event = "InsertEnter" },
+  -- Buffer completion source
+  { "hrsh7th/cmp-buffer", event = "InsertEnter" },
+  -- Commandline completion source
+  { "hrsh7th/cmp-cmdline", event = "CmdlineEnter" },
 
 }
