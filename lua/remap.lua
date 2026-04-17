@@ -110,6 +110,13 @@ vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete without yank
 -- Set description for default vim keymaps
 vim.keymap.set({ "n", "v" }, "g?", "g?", { desc = "ROT13 Cipher" })
 
+-- angle bracket
+vim.keymap.set("o", "ia", "i<")
+vim.keymap.set("o", "aa", "a<")
+-- rectangle bracket
+vim.keymap.set("o", "ir", "i[")
+vim.keymap.set("o", "ar", "a[")
+
 
 --==============================[ GUI REMAPS ]==============================--
 
