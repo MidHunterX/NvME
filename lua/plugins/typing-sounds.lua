@@ -18,10 +18,10 @@ local my_theme = {
   {
     event = "VimEnter",
     sound = {
-      { wave_type = 1, base_freq = 523.25, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.15 },
-      { wave_type = 1, base_freq = 587.33, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.15 },
-      { wave_type = 1, base_freq = 659.25, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.15 },
-      { wave_type = 1, base_freq = 783.99, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.15 },
+      { wave_type = 1, base_freq = 523.25, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.1 },
+      { wave_type = 1, base_freq = 587.33, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.1 },
+      { wave_type = 1, base_freq = 659.25, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.1 },
+      { wave_type = 1, base_freq = 783.99, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.1 },
     },
     callback = "append" -- Play notes sequentially
   },
@@ -43,8 +43,8 @@ local my_theme = {
   {
     event = "BufWritePost",
     sound = {
-      { wave_type = 2, base_freq = 636.7,  env_attack = 0.0, env_sustain = 0.001, env_decay = 0.15 },
-      { wave_type = 2, base_freq = 523.25, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.15 },
+      { wave_type = 2, base_freq = 636.7,  env_attack = 0.0, env_sustain = 0.001, env_decay = 0.1 },
+      { wave_type = 2, base_freq = 523.25, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.1 },
     },
     callback = "append",
   },
@@ -55,8 +55,8 @@ local my_theme = {
   {
     event = "TextYankPost",
     sound = {
-      { wave_type = 1, base_freq = 1760.0, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.15 },
-      { wave_type = 1, base_freq = 2197.0, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.15 },
+      { wave_type = 1, base_freq = 1760.0, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.1 },
+      { wave_type = 1, base_freq = 2197.0, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.1 },
     },
     callback = "append",
   },
@@ -82,7 +82,7 @@ return {
     ---@type number Minimum interval between sounds in seconds (default: 0.05)
     ---Prevents sound overlapping and potential audio flooding when
     ---multiple keystrokes happen in rapid succession
-    min_interval = 0.001,
+    min_interval = 0.05,
 
     -- chiptune: Classic 8-bit game sounds (default)
     -- crystal: Clear, crystalline sounds with sparkling tones
