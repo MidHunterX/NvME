@@ -1,6 +1,7 @@
 return {
   "lewis6991/gitsigns.nvim",
-  lazy = false,
+  event = "BufReadPre",
+  -- lazy = false,
   keys = {
     { "ghh", "<Cmd>Gitsigns preview_hunk<CR>", mode = "n", desc = "Git Preview Hunk" },
     { "ghn", "<Cmd>Gitsigns next_hunk<CR>", mode = "n", desc = "Git Move to Next Hunk" },
@@ -11,6 +12,7 @@ return {
   },
   config = function()
     vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#909aa0" })
+    -- vim.api.nvim_set_hl(0, "GitSignsChangeInline", { fg = "#1e1e2e", bg = "#f9e2af" })
 
     require('gitsigns').setup {
       signs                        = {
