@@ -63,7 +63,8 @@ return {
 
   keys = {
     -- Top Pickers & Explorer
-    { "<leader><space>", function() Snacks.picker.smart() end,                 desc = "Smart Find Files" },
+    -- NOTE: Replaced by neural-open.nvim
+    -- { "<leader><space>", function() Snacks.picker.smart() end,                 desc = "Smart Find Files" },
     { "<leader>,",       function() Snacks.picker.buffers() end,               desc = "Find: Buffers" },
     { "<leader>/",       function() Snacks.picker.grep() end,                  desc = "Grep: Files" },
     { "<leader>:",       function() Snacks.picker.command_history() end,       desc = "Command History" },

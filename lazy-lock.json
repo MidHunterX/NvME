@@ -30,6 +30,7 @@
   "mason-tool-installer.nvim": { "branch": "main", "commit": "443f1ef8b5e6bf47045cb2217b6f748a223cf7dc" },
   "mason.nvim": { "branch": "main", "commit": "b03fb0f20bc1d43daf558cda981a2be22e73ac42" },
   "neotab.nvim": { "branch": "master", "commit": "e99d3e28c5a2066d2d368dfe4ef3827c8d75d337" },
+  "neural-open.nvim": { "branch": "main", "commit": "36c2826e9e8a955dd75b916d2953dad55a386270" },
   "noice.nvim": { "branch": "main", "commit": "7bfd942445fb63089b59f97ca487d605e715f155" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim": { "branch": "main", "commit": "426dbebe06b5c69fd846ceb17b42e12f890aedf1" },

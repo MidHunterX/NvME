@@ -287,6 +287,10 @@ image:./img/nvim_hitfont.jpg[]
 
 *Code indentation lines* which highlights the current https://en.wikipedia.org/wiki/Scope_(computer_science)[scope]. The scope is not the current indentation level! Instead, it is the indentation level where variables or functions are accessible. This depends on the language you are writing. The highlight colors are matched with the colors of brackets for a more visually cohesive experience. `#Hidden_UI: Indent line as variable scope`
 
+`neural-filepicker.lua`
+
+`<space> <space>` to open a file picker that predicts the next file you are going to open. A neural network trains on your file selections to rank results by what you're most likely to open next, combining fuzzy matching with contextual signals like buffer state, directory proximity, frecency, and file-to-file transition patterns.
+
 `regex_spectre.lua`
 
 Toggle a specialized regex search and replace UI in buffer with `<leader>ur` and globally with `<leader>uR`. Since this uses ripgrep (rg), you can just write pure escape code pollution free beautiful regex. Close the UI with `q` or `<ESC>`.
