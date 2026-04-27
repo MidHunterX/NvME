@@ -10,7 +10,11 @@ require("auto_commands")
 require("hit_font")
 require("cmp_gitcommit")
 
-require("killswitch") -- for conditionally disabling plugins
+local check = require("killswitch") -- for conditionally disabling plugins
+
+if not check.is_git then
+  return
+end
 
 --==========================[ @LAZY.NVIM_BOOTSTRAP]==========================--
 
