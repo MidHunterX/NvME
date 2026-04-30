@@ -82,6 +82,8 @@ end
 
 return {
   'nvim-lualine/lualine.nvim',
+  -- Setting event to VeryLazy prevents loading tabline until bufferline is loaded
+  event = "VeryLazy",
   -- For preventing loading of lualine on dashboard
   -- Enabling any events makes bufferline disappear after opening a file from dashboard via fuzzy finding (+8ms)
   -- event = { "BufAdd", "BufNewFile", "BufRead" },

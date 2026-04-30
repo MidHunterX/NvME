@@ -3,7 +3,7 @@ local check = require('killswitch')
 return {
   "nvim-treesitter/nvim-treesitter",
   enabled = (check.is_gcc or check.is_zig) and check.is_treesitter,
-  lazy = false,
+  event = { "BufReadPost", "BufNewFile" },
   build = ":TSUpdate",
   config = function()
     local ts = require 'nvim-treesitter'

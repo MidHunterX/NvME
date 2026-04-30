@@ -100,7 +100,7 @@ return {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
           -- Stop LSPs from spamming .local/state/nvim/lsp.log
-          vim.lsp.set_log_level("WARN") -- set :h set_log_level
+          vim.lsp.log.set_level("WARN") -- set :h set_log_level
 
           -- Enable completion triggered by <c-x><c-o>
           vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'

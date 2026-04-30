@@ -25,7 +25,7 @@ local my_theme = {
     },
     callback = "append" -- Play notes sequentially
   },
-  {
+  --[[ {
     event = "CursorMoved",
     sound = { wave_type = 1, base_freq = 440.0, env_attack = 0.0, env_sustain = 0.001, env_decay = 0.05 },
     -- callback = "play" -- Play immediately
@@ -39,7 +39,7 @@ local my_theme = {
       { wave_type = 1, base_freq = 0000.00, env_attack = 0.0, env_sustain = 0.02, env_decay = 0.08 },
     },
     callback = "play_and_wait",
-  },
+  }, ]]
   {
     event = "BufWritePost",
     sound = {

@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter-context",
-  event = "VeryLazy",
+  event = { "BufReadPost", "BufNewFile" },
   config = function()
     vim.cmd([[highlight TreesitterContextBottom guisp=#45475a]])
     require 'treesitter-context'.setup({
