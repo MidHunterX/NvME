@@ -1,3 +1,7 @@
+-- Reason: Repo is archived and unmaintained by developer.
+-- Not popular enough for community to maintain too.
+
+-- Positives:
 -- Highlights matching parenthesis when cursor is on them
 -- and also when cursor is anywhere inside the parenthesis block
 -- as it should be.
