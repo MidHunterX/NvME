@@ -60,6 +60,7 @@
   "treewalker.nvim": { "branch": "main", "commit": "6fbceceb8966620da8970b727b6daa358b982805" },
   "typr": { "branch": "main", "commit": "584e4ef34dea25a4035627794322f315b22d1253" },
   "vifm.vim": { "branch": "master", "commit": "72b77e55eaddd3cabaa2b9018c8c83a268398666" },
+  "vim-matchup": { "branch": "master", "commit": "dccb2d12ef2a703d2f076b3cda36a3339449d1eb" },
   "virt-column.nvim": { "branch": "master", "commit": "b87e3e0864211a32724a2ebf3be37e24e9e2fa99" },
   "volt": { "branch": "main", "commit": "620de1321f275ec9d80028c68d1b88b409c0c8b1" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },

@@ -346,6 +346,7 @@ Mark multiple patterns with `<leader>m` and navigate with `n` as usual. Use `<le
 | `csT <tag-contents> <new-tag-contents>` | Change Surrounding <tag-contents> with <new-tag-contents>
 |===
 
+* `bracket_matchit.lua`: *Match*, Highlight, Jump and Navigate html tags, if else ladders, brackets, quotes etc. with `%` using treesitter.
 * `bracket_rainbow.lua`: Colorizes bracket pairs based on their nesting level. The colors are inspired from "Bracket Pair Colorizer" VSCode extension; which was then adopted as VSCode core feature.
 * `bracket_autopairs.lua`: Autoclose brackets, quotes, etc. when typing them. Disabled in macro mode.
 ====

@@ -51,8 +51,8 @@ local opts = {
       paths = {}, -- custom paths to includes in the rtp
       disabled_plugins = {
         "gzip",   -- Allows Neovim to read and write gzip compressed files.
-        -- "matchit", -- Enhances the `%` command to jump between {[()]}
-        -- "matchparen", -- Highlights matching {[()]}
+        "matchit", -- Enhances the `%` command to jump between {[()]} | Disabled for vim-matchup
+        "matchparen", -- Highlights matching {[()]} | Disabled for vim-matchup
         "netrwPlugin", -- File explorer (:Sex, :Vex, :Ex).
         "tarPlugin",   -- Adds support for handling tar archives.
         "tohtml",      -- Converts a buffer or a part of a buffer to HTML format.
