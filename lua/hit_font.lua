@@ -122,6 +122,7 @@ function LeetSpeak()
 
   local line_number = vim.fn.line('.')
   local sentence = vim.fn.getline(line_number)
+  sentence = sentence:lower()
 
   local leet_sentence = ""
 
