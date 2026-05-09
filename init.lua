@@ -134,14 +134,17 @@ function Load_dynamic_colors()
   require 'lualine'.setup { options = { theme = customcat } }
 end
 
-Load_dynamic_colors()
+if check.is_matugen then
+  -- INITIAL LOAD
+  Load_dynamic_colors()
 
--- HOT RELOAD ON SIGUSR1
-vim.api.nvim_create_autocmd("Signal", {
-  pattern = "SIGUSR1",
-  callback = function()
-    vim.schedule(function()
-      Load_dynamic_colors()
-    end)
-  end
-})
+  -- HOT RELOAD ON SIGUSR1
+  vim.api.nvim_create_autocmd("Signal", {
+    pattern = "SIGUSR1",
+    callback = function()
+      vim.schedule(function()
+        Load_dynamic_colors()
+      end)
+    end
+  })
+end

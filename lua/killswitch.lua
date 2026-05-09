@@ -17,4 +17,5 @@ return {
   is_treesitter = cmd_exists("tree-sitter"), -- tree-sitter-cli
   is_node = cmd_exists("node"),              -- node
   is_liveserver = cmd_exists("live-server"), -- live-server
+  is_matugen = cmd_exists("matugen"),        -- matugen
 }
