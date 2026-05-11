@@ -9,7 +9,7 @@ return {
     sign = { enabled = false },
 
     -- render_modes = { 'n', 'c', 't' }, -- disable render on insert (default)
-    render_modes = true, -- enable render on insert as well
+    -- render_modes = true, -- enable render on insert as well
 
     heading = {
       sign = true,
@@ -33,6 +33,9 @@ return {
     },
 
     checkbox = {
+      bullet = false,
+      left_pad = 0,
+      right_pad = 1,
       -- checked = { scope_highlight = '@markup.strikethrough' },
       unchecked = {
         icon = ' ', -- seti-checkbox
