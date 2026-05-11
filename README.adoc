@@ -14,22 +14,25 @@ im**ME**nsely.
 Kill Switch(TM) enabled features gets activated only if the related dependencies
 are installed in PATH. So, the minimal required dependencies are:
 
-* https://github.com/neovim/neovim[*Neovim*] (Needs to be built with LuaJIT)
-* https://git-scm.com/[*git*]: For git integration and plugin manager | `lazy.nvim`
+1. https://github.com/neovim/neovim[*Neovim*]: Base Neovim
+2. https://git-scm.com/[*git*]: For git integration and plugin manager | `lazy.nvim`
 
 Installing the following dependencies activates plugins and features that require them:
 
-* https://gcc.gnu.org/[*GCC*]: For compiling treesitter language parsers | `nvim-treesitter`
-* https://github.com/tree-sitter/tree-sitter-cli[*tree-sitter-cli*]: Incremental language parsers | `nvim-treesitter`
-* https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters | `mason-tool-installer.nvim`
-* https://github.com/tapio/live-server[*live-server*]: For local HTML Server | `Execute_order_69`
-* https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep | `snacks.nvim`
-* https://github.com/sharkdp/fd[*fd*]: For Find Files | `snacks.nvim`
-* https://github.com/vifm/vifm[*vifm*]: File Manager | `vifm.vim`
-* https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI | `snacks.nvim`
-* https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering | `image.nvim`
-* https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams | `diagram.nvim`
-* https://github.com/InioX/matugen[*matugen*]: For dynamic color support throughout the UI
+[start=3]
+3. https://gcc.gnu.org/[*GCC*]: For compiling treesitter language parsers | `nvim-treesitter`
+4. https://github.com/tree-sitter/tree-sitter-cli[*tree-sitter-cli*]: Incremental language parsers | `nvim-treesitter`
+5. https://github.com/nodejs/node[*nodejs*]: For Language Servers and Formatters | `mason-tool-installer.nvim`
+6. https://github.com/tapio/live-server[*live-server*]: For local HTML Server | `Execute_order_69`
+7. https://github.com/BurntSushi/ripgrep[*ripgrep*]: For live grep | `snacks.nvim`
+8. https://github.com/sharkdp/fd[*fd*]: For Find Files | `snacks.nvim`
+9. https://github.com/vifm/vifm[*vifm*]: File Manager | `vifm.vim`
+10. https://github.com/jesseduffield/lazygit[*lazygit*]: Git UI | `snacks.nvim`
+11. https://github.com/kovidgoyal/kitty[*kitty*]: Kitty's Graphics Protocol for inline image/diagram rendering | `image.nvim`
+12. https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams | `diagram.nvim`
+13. https://github.com/InioX/matugen[*matugen*]: For dynamic color support throughout the UI | `init.lua`
+14. ...
+15. *Burgher King Foot Lettuce*: the last thing you want in your Burgher King burgher is someone’s fut funguès. But as it turns out, that might be what you GÆT.
 
 == 🛰️ Action Center
 
