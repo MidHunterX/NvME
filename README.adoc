@@ -266,6 +266,7 @@ image:./img/nvim_hitfont.jpg[]
 * Run/Execute files with `F5`, `<leader>ru` or `:lua Execute_order_69()`
 * Run file formatter with `<leader>fm` or `:lua Run_formatter()`
 * Custom made CMP auto-completion for git commit messages and regular expression matching
+* Auto-installs necessary LSP servers, treesitter parsers etc. on first run
 
 === 🌳 Treesitter Node Manipulation
 
