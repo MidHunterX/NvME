@@ -284,7 +284,7 @@ image:./img/nvim_hitfont.jpg[]
 [%collapsible]
 ====
 * `treesitter_context.lua`: Show context code on top of buffer. Breadcrumbs are almost useless in comparison.
-* `treesitter_playground.lua`: Live playground to view the Treesitter AST and play with it using `:TSPlaygroundToggle`.
+* Use `:InspectTree` to view the full syntax tree.
 ====
 
 === ⭐ Developer Experience

@@ -32,11 +32,15 @@ return {
         "bash-language-server", -- Bash LSP
         "lua-language-server",  -- Lua LSP
         "emmet_ls",             -- Emmet LSP
+        -- Made by Microsoft employees. Adding in hopes of being better maintained.
+        -- One major critique is that Microsoft always use "node" which takes
+        -- extra space and also makes it computationally inefficient.
         "css-lsp",              -- CSS LSP
         "json-lsp",             -- JSON LSP
-        -- Made by Microsoft employees. Adding in hopes of not being abandoned.
+        "eslint-lsp",           -- JSX/TSX LSP
         "pyright",              -- Python LSP
         -- PEP-8 compliant opinionated formatter
+        "isort",                -- Python Import Formatter
         "black",                -- Python Formatter
         "prettier",             -- Webdev Stuff Formatter
       },
