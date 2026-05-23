@@ -268,6 +268,16 @@ image:./img/nvim_hitfont.jpg[]
 * Custom made CMP auto-completion for git commit messages and regular expression matching
 * Auto-installs necessary LSP servers, treesitter parsers etc. on first run
 
+=== 🎉 Commit Messages
+
+`cmp_gitcommit.lua`
+
+https://gitmoji.dev/[image:https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square[Gitmoji]]
+https://conventionalcommits.org/[image:https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?style=flat-square&logo=conventionalcommits&logoColor=white[Conventional Commits]]
+
+Editing `COMMIT_EDITMSG` activates a bespoke `cmp` completion for commit messages.
+The commit message cmp combines the structure of https://www.conventionalcommits.org/[Conventional Commits] with the aesthetics of https://gitmoji.dev/[Gitmoji] 1:1.
+
 === 🌳 Treesitter Node Manipulation
 
 `treesitter_walker.lua`
@@ -300,6 +310,8 @@ image:./img/nvim_hitfont.jpg[]
 `regex_spectre.lua`
 
 Toggle a specialized regex search and replace UI in buffer with `<leader>ur` and globally with `<leader>uR`. Since this uses ripgrep (rg), you can just write pure escape code pollution free beautiful regex. Close the UI with `q` or `<ESC>`.
+
+Custom regex autocompletion powered by `cmp_regex.lua` is enabled upon the execution of `<leader>ur`.
 
 `regex_multi-patterns.lua`
 
