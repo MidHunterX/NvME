@@ -290,6 +290,7 @@ The commit message cmp combines the structure of https://www.conventionalcommits
 .`ℹ️ Other Treesitter Related Features`
 [%collapsible]
 ====
+* `lang_flutter-tools.lua`: *Flutter LSP* integration for Dart. Activates only when a Dart file is open.
 * `treesitter_context.lua`: Show context code on top of buffer. Breadcrumbs are almost useless in comparison.
 * Use `:InspectTree` to view the full syntax tree.
 ====

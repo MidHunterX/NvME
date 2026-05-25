@@ -1,4 +1,4 @@
--- Reason: Repo is archived and unmaintained by developer.
+-- Disabled Reason: Repo is archived and unmaintained by developer.
 -- Not popular enough for community to maintain too.
 
 -- Positives:
