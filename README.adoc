@@ -1,13 +1,10 @@
 image:./img/nvim_dashboard.jpg[]
 
-= NvME
+= Hunter-Nvim
 
-/ˈɛnvi mi:/
-
-Personal Develop**ME**nt Environ**ME**nt, crafted from scratch solely for
-**ME** with every Human-Computer Interaction perfectly engineered to fit **ME**
-needs to offer supre**ME** comfort and comple**ME**nt **ME** workflow
-im**ME**nsely.
+Personal Development Environment crafted from scratch with every Human-Computer
+Interaction engineered to fit personal needs and offer supreme comfort to
+improve workflow by reducing the distance between intent and execution.
 
 == ⚡ Requirements
 
@@ -42,7 +39,7 @@ Installing the following dependencies activates plugins and features that requir
 [discrete]
 == 🚀 Install
 
-If any config is already present, it backups your config and puts NvME in place.
+If any config is already present, it backups your config and put Hunter-Nvim in place.
 
 [discrete]
 === 🐧 Linux
@@ -58,20 +55,20 @@ sudo npm install -g live-server
 ----
 
 [discrete]
-==== Install NvME
+==== Install Hunter-Nvim
 
 .bash / zsh
 [source,bash]
 ----
 ME=~/.config/nvim; [ -d $ME ] && mv $ME ${ME}_backup/
-git clone https://github.com/MidHunterX/NvME $ME && nvim
+git clone https://github.com/MidHunterX/Hunter-Nvim $ME && nvim
 ----
 
 .fish
 [source,fish]
 ----
 set ME ~/.config/nvim; test -d $ME; and mv $ME {$ME}_backup
-git clone https://github.com/MidHunterX/NvME $ME && nvim
+git clone https://github.com/MidHunterX/Hunter-Nvim $ME && nvim
 ----
 
 [discrete]
@@ -106,12 +103,12 @@ npm install -g live-server
 ----
 
 [discrete]
-==== Install NvME
+==== Install Hunter-Nvim
 
 .powershell
 [source,pwsh]
 ----
-git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim; nvim
+git clone https://github.com/MidHunterX/Hunter-Nvim $env:localappdata\nvim; nvim
 ----
 ====
 
@@ -121,7 +118,7 @@ git clone https://github.com/MidHunterX/NvME $env:localappdata\nvim; nvim
 [discrete]
 == 🚶 Uninstall
 
-Uninstalls NvME and returns back to previous config if any.
+Uninstalls Hunter-Nvim and returns back to previous config if any.
 
 .bash / zsh
 [source,bash]
