@@ -1,3 +1,4 @@
+
 local M = {}
 
 -- conventional commit types (intent)
@@ -462,12 +463,13 @@ local function get_git_folders()
 end
 
 M.keywords_source = function()
+  local types = require("cmp.types.lsp")
   return setmetatable({}, {
     __index = function(_, key)
       if key == "complete" then
         return function(_, _, callback)
           local items = {}
-          for k, v in pairs(gitmojis) do
+          for _, v in pairs(gitmojis) do
             local conventional_doc = intentDocs[v.intent] or ""
 
             local detailed_doc = string.format(
@@ -487,7 +489,9 @@ M.keywords_source = function()
                 value = detailed_doc
               },
               -- AUTOCOMPLETE SNIPPET
-              insertText = v.emoji .. " " .. v.intent .. "(): ",
+              -- insertText = v.emoji .. " " .. v.intent .. "(): ",
+              insertText = v.emoji .. " " .. v.intent .. "($0): ",
+              insertTextFormat = types.InsertTextFormat.Snippet, -- enables $0, $1 support
             })
           end
           callback({ items = items, isIncomplete = false })
