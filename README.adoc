@@ -183,8 +183,21 @@ yay -S flutter-bin
 ----
 
 Now `flutter` command is available in `$PATH`. Create a new project using `flutter create myapp` and open it with `flutter run`.
-====
 
+[discrete]
+=== Quickshell QML
+
+Install https://github.com/cushycush/qml-language-server[QML Language Server] with Quickshell with:
+
+[source,bash]
+----
+yay -S qml-language-server-bin
+----
+
+After installation, qml-language-server will be activated upon opening a `.qml` file. This is much more complete than official qmlls.
+
+If you prefer to use the official qmlls for Qt without Quickshell, just uninstall qml-language-server and install `qmlls` via `:Mason`.
+====
 
 .📖 `Useful Commands`
 [%collapsible]
