@@ -3,9 +3,11 @@ return {
   event = { "BufReadPost", "BufNewFile" },
   branch = "main",
   dependencies = { "nvim-treesitter/nvim-treesitter", branch = "main" },
-  init = function()
-    vim.g.no_plugin_maps = true
-  end,
+  --[[ init = function()
+    -- Global flag that prevents plugins and built-in filetype scripts from setting their own default key mappings
+    -- Disadvantages: It will disable html tag mappings so, no more tag jumps with %
+    -- vim.g.no_plugin_maps = true
+  end, ]]
   config = function()
     require("nvim-treesitter-textobjects").setup {
       select = {
