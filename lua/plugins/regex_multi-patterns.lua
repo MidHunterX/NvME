@@ -5,18 +5,18 @@ return {
       "<leader>m",
       function() require("interestingwords").InterestingWord('n', false) end,
       mode = "n",
-      desc = "Mark: Multi Regex Search"
+      desc = "Mark: Multi Regex"
     },
     {
       "<leader>m",
       function() require("interestingwords").InterestingWord('v', false) end,
       mode = "x",
-      desc = "Mark: Multi Regex Search"
+      desc = "Mark: Multi Regex"
     },
     {
       "<leader>em",
       function() require("interestingwords").UncolorAllWords() end,
-      desc = "Mark: Erase Multi Regex"
+      desc = "Erase: Multi Regex"
     },
   },
   opts = {

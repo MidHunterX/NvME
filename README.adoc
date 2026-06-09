@@ -29,7 +29,7 @@ Installing the following dependencies activates plugins and features that requir
 12. https://github.com/mermaid-js/mermaid-cli[*mermaid-cli*]: For rendering inline Mermaid Diagrams | `diagram.nvim`
 13. https://github.com/InioX/matugen[*matugen*]: For dynamic color support throughout the UI | `init.lua`
 14. ...
-15. *Burgher King Foot Lettuce*: the last thing you want in your Burgher King burgher is someone’s fut funguès. But as it turns out, that might be what you GÆT.
+15. *Burgher King Foot Lettace*: the last thing you want in your Burgher King burgher is someone’s fut funguès. But as it turns out, that might be what you GÆT.
 
 == 🛰️ Action Center
 
@@ -667,7 +667,8 @@ image:./img/nvim_plugins.jpg[]
 | Key          | Description
 | `<Space>`    | Leader
 | `<leader>w`  | Write File
-| `<leader>er` | Erase Search Highlight
+| `<leader>er` | Erase Regex Highlight
+| `<leader>eM` | Erase Marks
 | `<leader>rr` | Highlight & Replace Word
 | `<leader>yy` | Yank Entire Buffer
 | `<leader>yf` | Yank File Relative Path

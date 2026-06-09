@@ -40,11 +40,15 @@ end, { desc = "Jump to matching (full % behavior)" })
 
 ----------------------------------------------------- Write file [ <leader> w ]
 vim.keymap.set("n", "<leader>w", custard.WriteFile, { desc = "Write file" })
+
 ---------------------------------------------- Erase highlight [ <leader> er ]
-vim.keymap.set("n", "<leader>er", "<Cmd>noh<CR>", { desc = "Erase Replace Highlight" })
+vim.keymap.set("n", "<leader>er", "<Cmd>noh<CR>", { desc = "Erase: Regex" })
+--------------------------------------------------- Erase Marks [ <leader> eM ]
+vim.keymap.set("n", "<leader>eM", "<Cmd>delmarks! | delmarks A-Z0-9<CR>", { desc = "Erase: Marks" })
+
 ----------------------------------- Highlight for Replace word [ <leader> rr ]
-vim.keymap.set("n", "<leader>rr", "*N", { desc = "Highlight & Replace word" })
-vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>N", { desc = "Highlight & Replace Word" })
+vim.keymap.set("n", "<leader>rr", "*N", { desc = "Regex highlight" })
+vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>N", { desc = "Regex highlight" })
 
 ----------------------------------------------------- Super Yank [ <leader> y ]
 vim.keymap.set("n", "<leader>yy", "<Cmd>%yank<CR>", { desc = "Buffer: Yank content" })
