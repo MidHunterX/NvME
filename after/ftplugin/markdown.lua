@@ -31,8 +31,25 @@ end
 vim.keymap.set("v", "<C-l>", make_markdown_link,
   { buffer = true, desc = "Text/URL to link with []()" })
 
-vim.keymap.set({"i", "n"}, "<C-l>", "<ESC>I- [ ] ",
-  { buffer = true, desc = "Markdown list item" })
+vim.keymap.set({ "i", "n" }, "<C-l>", function()
+  local line = vim.api.nvim_get_current_line()
+  local mode = vim.api.nvim_get_mode().mode
+  if line:match("^%s*%- %[ %]") then
+    -- [ ] -> [x]
+    local new_line = line:gsub("%- %[ %] ", "- [x] ")
+    vim.api.nvim_set_current_line(new_line)
+    if mode == "i" then vim.cmd("startinsert!") end
+  elseif line:match("^%s*%- %[x%]") then
+    -- [x] -> null
+    local new_line = line:gsub("%- %[x%] ", "")
+    vim.api.nvim_set_current_line(new_line)
+    if mode == "i" then vim.cmd("startinsert!") end
+  else
+    -- null -> [ ]
+    vim.cmd("normal! I- [ ] ")
+    if mode == "i" then vim.cmd("startinsert!") end
+  end
+end, { buffer = true, desc = "Cycle markdown checkbox: [ ] -> [x] -> remove" })
 
 
 -- MARKDOWN LIST ITEMS (using commentstrings)
