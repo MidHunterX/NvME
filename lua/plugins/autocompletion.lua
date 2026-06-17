@@ -50,8 +50,8 @@ return {
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
-      -- local compare = require('cmp.config.compare')
-      -- local cmp_buffer = require('cmp_buffer')
+      local compare = require('cmp.config.compare')
+      local cmp_buffer = require('cmp_buffer')
 
       local regex_source = require('cmp_regex')
       cmp.register_source('regex', regex_source)
@@ -118,11 +118,12 @@ return {
         -- https://www.reddit.com/r/neovim/comments/u3c3kw/comment/i4p8gck/
         -- https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/compare.lua
 
-        --[[ sorting = {
+        sorting = {
           comparators = {
             -- compare.score_offset, -- not good at all
             compare.locality,
             compare.recently_used,
+            compare.sort_text,
             compare.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
             compare.offset,
             compare.order,
@@ -134,14 +135,13 @@ return {
               end
             end,
             -- compare.scopes, -- what?
-            -- compare.sort_text,
             -- compare.exact,
             compare.kind,
             -- compare.length, -- useless
             -- Buffer: Locality bonus comparator (distance-based sorting)
             function(...) return cmp_buffer:compare_locality(...) end,
           }
-        }, ]]
+        },
 
         --------------------------------------------------[ @CMP_MENU_BORDERS ]
 
