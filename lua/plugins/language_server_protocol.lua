@@ -1,4 +1,4 @@
-local check = require('killswitch')
+local check = require('core.killswitch')
 
 return {
   --==========================[ MASON LSP MANAGER ]==========================--
@@ -35,14 +35,14 @@ return {
         -- Made by Microsoft employees. Adding in hopes of being better maintained.
         -- One major critique is that Microsoft always use "node" which takes
         -- extra space and also makes it computationally inefficient.
-        "css-lsp",              -- CSS LSP
-        "json-lsp",             -- JSON LSP
-        "eslint-lsp",           -- JSX/TSX LSP
-        "pyright",              -- Python LSP
+        "css-lsp",    -- CSS LSP
+        "json-lsp",   -- JSON LSP
+        "eslint-lsp", -- JSX/TSX LSP
+        "pyright",    -- Python LSP
         -- PEP-8 compliant opinionated formatter
-        "isort",                -- Python Import Formatter
-        "black",                -- Python Formatter
-        "prettier",             -- Webdev Stuff Formatter
+        "isort",      -- Python Import Formatter
+        "black",      -- Python Formatter
+        "prettier",   -- Webdev Stuff Formatter
       },
     },
   },
@@ -75,6 +75,12 @@ return {
       -- Diagnostic Signs
       vim.diagnostic.config({
         virtual_text = false,
+        float = {
+          show_header = false,
+          format = function(diagnostic)
+            return string.format('%s\n%s: %s', diagnostic.message, diagnostic.source, diagnostic.code)
+          end,
+        },
         severity_sort = true,
         signs = {
           text = {

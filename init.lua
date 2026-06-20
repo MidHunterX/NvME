@@ -1,16 +1,17 @@
 -- ╭───────────────────────────────────────────────────────────────────────╮ --
--- │                          █▄░█ █░█  █▀▄▀█ █▀▀                          │ --
--- │                          █░▀█ ▀▄▀  █░▀░█ ██▄                          │ --
+-- │              █░█ █░█ █▄░█ ▀█▀ █▀▀ █▀█   █▄░█ █░█ █ █▀▄▀█              │ --
+-- │              █▀█ █▄█ █░▀█ ░█░ ██▄ █▀▄   █░▀█ ▀▄▀ █ █░▀░█              │ --
 -- ╰───────────────────────────────────────────────────────────────────────╯ --
 
-require("set")
-require("remap")
-require("custom_functions")
-require("auto_commands")
-require("hit_font")
-require("cmp_gitcommit")
+require("core.opts")
+require("core.keymaps")
+require("core.functions")
+require("core.autocmds")
+require("core.fonts")
+require("core.cmp.gitcommit")
+require("core.cmp.regex")
 
-local check = require("killswitch") -- for conditionally disabling plugins
+local check = require("core.killswitch") -- for conditionally disabling plugins
 
 if not check.is_git then
   return
@@ -54,11 +55,11 @@ local opts = {
   performance = {
     rtp = {
       ---@type string[]
-      paths = {}, -- custom paths to includes in the rtp
+      paths = {},      -- custom paths to includes in the rtp
       disabled_plugins = {
-        "gzip",   -- Allows Neovim to read and write gzip compressed files.
+        "gzip",        -- Allows Neovim to read and write gzip compressed files.
         -- "matchit", -- Enhances the `%` command to jump between {[()]}
-        -- "matchparen", -- Highlights matching {[()]}
+        "matchparen",  -- Highlights matching {[()]}
         "netrwPlugin", -- File explorer (:Sex, :Vex, :Ex).
         "tarPlugin",   -- Adds support for handling tar archives.
         "tohtml",      -- Converts a buffer or a part of a buffer to HTML format.
@@ -87,7 +88,7 @@ function Load_dynamic_colors()
   -- Transparent background for center
   customcat.normal.c.bg = 'NONE'
 
-  local ok, colors = pcall(require, 'colors/colors')
+  local ok, colors = pcall(require, 'colors')
   if ok and colors.primary then
     package.loaded['colors/colors'] = nil
 

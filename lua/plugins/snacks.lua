@@ -1,4 +1,4 @@
-local check        = require('killswitch')
+local check        = require('core.killswitch')
 
 local picker       = true
 local quickfile    = true

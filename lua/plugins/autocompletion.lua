@@ -19,14 +19,14 @@ end
 
 -- Supports confirming explicit preselection by LSP
 -- Confirms first item if menu is visible
-local function confirm_if_menu(fallback)
+--[[ local function confirm_if_menu(fallback)
   local cmp = require("cmp")
   if cmp.visible() then
     cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
   else
     fallback()
   end
-end
+end ]]
 
 -- BUGFIX: stop snippets when you leave to normal mode
 vim.api.nvim_create_autocmd('ModeChanged', {
@@ -50,10 +50,10 @@ return {
     config = function()
       local cmp = require("cmp")
       local luasnip = require("luasnip")
-      local compare = require('cmp.config.compare')
-      local cmp_buffer = require('cmp_buffer')
+      --[[ local compare = require('cmp.config.compare')
+      local cmp_buffer = require('cmp_buffer') ]]
 
-      local regex_source = require('cmp_regex')
+      local regex_source = require('core.cmp.regex')
       cmp.register_source('regex', regex_source)
 
       -- Load friendly snippet using LuaSnip loader
@@ -73,7 +73,7 @@ return {
           enabled = true,
           debounce = 0, -- 60ms
           throttle = 0, -- 30ms
-          max_view_entries = 30,
+          max_view_entries = 60,
         },
 
         ---------------------------------------------------[ @CMP_SOURCE_LIST ]
@@ -93,7 +93,7 @@ return {
           },
           {
             name = 'buffer',
-            max_item_count = 7,
+            max_item_count = 6,
             priority = 6,
             -- Disable buffer completion on large files (e.g., > 1 MB)
             option = {
@@ -118,7 +118,7 @@ return {
         -- https://www.reddit.com/r/neovim/comments/u3c3kw/comment/i4p8gck/
         -- https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/compare.lua
 
-        sorting = {
+        --[[ sorting = {
           comparators = {
             -- compare.score_offset, -- not good at all
             compare.locality,
@@ -141,7 +141,7 @@ return {
             -- Buffer: Locality bonus comparator (distance-based sorting)
             function(...) return cmp_buffer:compare_locality(...) end,
           }
-        },
+        }, ]]
 
         --------------------------------------------------[ @CMP_MENU_BORDERS ]
 

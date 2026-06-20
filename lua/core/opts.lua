@@ -1,3 +1,6 @@
+-- DVORAK only on insert mode
+-- vim.opt.keymap="dvorak"
+
 --=========================== [ @GENERAL_OPTIONS ] ===========================--
 
 vim.opt.list = true

@@ -1,4 +1,4 @@
-local check = require('killswitch')
+local check = require('core.killswitch')
 
 -- Cannot be replaced by Snacks.terminal yet
 -- as it can be used to load file into nvim buffer as well

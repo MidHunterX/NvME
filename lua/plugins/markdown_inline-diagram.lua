@@ -1,4 +1,4 @@
-local check = require('killswitch')
+local check = require('core.killswitch')
 
 return {
   "3rd/diagram.nvim",

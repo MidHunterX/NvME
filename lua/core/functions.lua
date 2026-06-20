@@ -96,7 +96,7 @@ function M.Execute_order_69()
   if file_type == 'python' then
     terminal('python %')
   elseif file_type == "html" then
-    local check = require('killswitch')
+    local check = require('core.killswitch')
     if check.is_liveserver then
       vim.cmd(":term live-server --no-browser")
     end
@@ -129,6 +129,8 @@ function M.Execute_order_69()
     terminal('tclsh %')
   elseif file_type == 'php' then
     terminal('php %')
+  elseif file_type == 'nim' then
+    terminal('nim c -r %')
   else
     local messages = {
       "This file?... Cannot run because no.",

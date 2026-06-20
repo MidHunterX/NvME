@@ -1,4 +1,4 @@
-local check = require('killswitch')
+local check = require('core.killswitch')
 
 return {
   "nvim-treesitter/nvim-treesitter",

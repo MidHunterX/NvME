@@ -1,5 +1,5 @@
 local cmp = require("cmp")
-local cmp_gitcommit = require("cmp_gitcommit")
+local cmp_gitcommit = require("core.cmp.gitcommit")
 
 -- Register sources first
 cmp.register_source("keywords_source", cmp_gitcommit.keywords_source())

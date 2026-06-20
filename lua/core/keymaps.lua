@@ -1,4 +1,4 @@
-local custard = require("custom_functions")
+local custard = require("core.functions")
 
 --============================[ USEFUL_KEYMAPS ]============================--
 
