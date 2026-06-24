@@ -182,6 +182,22 @@ android-sdk-platform-tools provides the `adb` command.
 yay -S flutter-bin
 ----
 
+Accept all licenses with "The Power of YES" - John Seed (Far Cry 5)
+
+[source,bash]
+----
+yes | flutter doctor --android-licenses
+----
+
+Now check everything is good with `flutter doctor -v`. You should be good to go. But if the licenses are still not accepted after the above command, it's just a permission problem.
+
+SDK is located at `/opt/android-sdk` which can only be accessed with root privileges. So, you need sudo. But, flutter don't accept running with sudo privileges. flutter doctor runs `sdkmanager` (android-sdk-cmdline-tools-latest) under the hood so, just use it directly with sudo instead:
+
+[source,bash]
+----
+yes | sudo sdkmanager --sdk_root=/opt/android-sdk --licenses
+----
+
 Now `flutter` command is available in `$PATH`. Create a new project using `flutter create myapp` and open it with `flutter run`.
 
 [discrete]
