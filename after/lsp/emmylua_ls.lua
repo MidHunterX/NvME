@@ -11,12 +11,24 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 return {
   settings = {
     Lua = {
+      version = "LuaJIT", -- the version nvim uses
+      runtime = {
+        requirePattern = {
+          "lua/?.lua",
+          "lua/?/init.lua",
+          "?/lua/?.lua", -- this allows plugins to be loaded
+          "?/lua/?/init.lua"
+        }
+      },
       capabilities = capabilities,
       diagnostics = { globals = { 'vim', 'require' } },
       workspace = {
-        -- Make the server aware of Neovim runtime files
-        -- Opens up completions for `vim.*`
-        library = vim.api.nvim_get_runtime_file("", true)
+        ignoreGlobs = { "**/*_spec.lua" }, --- to avoid some weird type defs in a plugin
+        library = {
+          "$VIMRUNTIME",                 -- for vim.*
+          "$LLS_Addons/luvit",           -- for vim.uv.*
+          "$HOME/.local/share/nvim/lazy" -- plugins dir, change to something else if you don't use lazy.nvim
+        }
       }
     }
   }

@@ -13,12 +13,11 @@ return {
         icons = {
           package_installed = ' ',
           package_pending = ' ',
-          package_uninstalled = ' ',
-        },
-      },
-    },
+          package_uninstalled = ' '
+        }
+      }
+    }
   },
-
 
   --=====================[ MASON TOOLS AUTO INSTALLER ]=====================--
 
@@ -30,21 +29,21 @@ return {
     opts = {
       ensure_installed = {
         "bash-language-server", -- Bash LSP
-        "lua-language-server",  -- Lua LSP
-        "emmet_ls",             -- Emmet LSP
-        -- Made by Microsoft employees. Adding in hopes of being better maintained.
+        "emmylua_ls",           -- (28.1 MiB) better than lua-language-server
+        "quick-lint-js",        -- (08.6 MiB) 130× faster than eslint-lsp by Microsoft
+        -- Made by Microsoft. Adding in hopes of being better maintained.
         -- One major critique is that Microsoft always use "node" which takes
         -- extra space and also makes it computationally inefficient.
-        "css-lsp",    -- CSS LSP
-        "json-lsp",   -- JSON LSP
-        "eslint-lsp", -- JSX/TSX LSP
-        "pyright",    -- Python LSP
+        "css-lsp",              -- (95.4 MiB) CSS LSP
+        -- "json-lsp",             -- JSON LSP - Waste of space
+        -- "eslint-lsp",           -- JSX/TSX LSP
+        "pyright",              -- (36.6 MiB) Python LSP
         -- PEP-8 compliant opinionated formatter
-        "isort",      -- Python Import Formatter
-        "black",      -- Python Formatter
-        "prettier",   -- Webdev Stuff Formatter
-      },
-    },
+        "isort",                -- (14.1 MiB) Python Import Formatter
+        "black",                -- (23.3 MiB) Python Formatter
+        "prettier"              -- (08.4 MiB) Webdev Stuff Formatter
+      }
+    }
   },
 
   --==========================[ MASON LSP CONFIG ]==========================--
@@ -57,8 +56,8 @@ return {
     dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
     opts = {
       automatic_enable = true,
-      ensure_installed = {},
-    },
+      ensure_installed = {}
+    }
   },
 
   --==========================[ NEOVIM LSP CONFIG ]==========================--
@@ -69,7 +68,7 @@ return {
     lazy = true, -- Load only when called by mason-lspconfig
     opts = {},
     -----------------------------------------------------[ @LSPCONFIG_CONFIG ]
-    config = function()
+    config = function ()
       require('lspconfig.ui.windows').default_options.border = 'rounded'
 
       -- Diagnostic Signs
@@ -77,9 +76,9 @@ return {
         virtual_text = false,
         float = {
           show_header = false,
-          format = function(diagnostic)
+          format = function (diagnostic)
             return string.format('%s\n%s: %s', diagnostic.message, diagnostic.source, diagnostic.code)
-          end,
+          end
         },
         severity_sort = true,
         signs = {
@@ -87,19 +86,27 @@ return {
             [vim.diagnostic.severity.ERROR] = "",
             [vim.diagnostic.severity.WARN] = "",
             [vim.diagnostic.severity.INFO] = "",
-            [vim.diagnostic.severity.HINT] = "",
-          },
-        },
+            [vim.diagnostic.severity.HINT] = ""
+          }
+        }
       })
 
-
       -- Global diagnostic mappings
-      vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end,
-        { desc = "Diagnostic: Prev" })
-      vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end,
-        { desc = "Diagnostic: Next" })
-      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist,
-        { desc = "Diagnostic: Quickfix List" })
+      vim.keymap.set(
+        'n', '[d',
+        function ()
+          vim.diagnostic.jump({ count = -1, float = true })
+        end,
+        { desc = "Diagnostic: Prev" }
+      )
+      vim.keymap.set(
+        'n', ']d',
+        function ()
+          vim.diagnostic.jump({ count = 1, float = true })
+        end,
+        { desc = "Diagnostic: Next" }
+      )
+      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Diagnostic: Quickfix List" })
 
       -- NOTE: Replaced by lsp_inline_diagnostics
       -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open Floating Diagnostic" })
@@ -108,7 +115,7 @@ return {
       -- after the language server attaches to the current buffer
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-        callback = function(ev)
+        callback = function (ev)
           -- Stop LSPs from spamming .local/state/nvim/lsp.log
           vim.lsp.log.set_level("WARN") -- set :h set_log_level
 
@@ -121,17 +128,17 @@ return {
 
           vim.keymap.set('n', 'K', vim.lsp.buf.hover, {
             buffer = ev.buf,
-            desc = "LSP: Hover Docs",
+            desc = "LSP: Hover Docs"
           })
 
           vim.keymap.set('n', '<leader>K', vim.lsp.buf.signature_help, {
             buffer = ev.buf,
-            desc = "LSP: Signature Help",
+            desc = "LSP: Signature Help"
           })
 
           vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, {
             buffer = ev.buf,
-            desc = "LSP: Code Action",
+            desc = "LSP: Code Action"
           })
 
           -- NOTE: Replaced by live-rename.nvim
@@ -147,8 +154,8 @@ return {
           -- vim.keymap.set('n', '<space>fm', function()
           --   vim.lsp.buf.format { async = true }
           -- end, opts)
-        end,
+        end
       })
-    end,
-  },
+    end
+  }
 }
