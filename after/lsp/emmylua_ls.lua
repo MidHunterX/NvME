@@ -6,30 +6,23 @@
 -- The buffer will look like a christmas tree unless you write code properly.
 -- Same rule goes when using other's plugins as well.
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
 return {
-  settings = {
-    Lua = {
-      version = "LuaJIT", -- the version nvim uses
-      runtime = {
-        requirePattern = {
-          "lua/?.lua",
-          "lua/?/init.lua",
-          "?/lua/?.lua", -- this allows plugins to be loaded
-          "?/lua/?/init.lua"
-        }
-      },
-      capabilities = capabilities,
-      diagnostics = { globals = { 'vim', 'require' } },
-      workspace = {
-        ignoreGlobs = { "**/*_spec.lua" }, --- to avoid some weird type defs in a plugin
-        library = {
-          "$VIMRUNTIME",                 -- for vim.*
-          "$LLS_Addons/luvit",           -- for vim.uv.*
-          "$HOME/.local/share/nvim/lazy" -- plugins dir, change to something else if you don't use lazy.nvim
+  vim.lsp.config('emmylua_ls', {
+    settings = {
+      emmylua = {
+        runtime = { version = 'LuaJIT' },
+        diagnostics = { globals = { 'vim' } },
+        -- Make the server aware of Neovim runtime files.
+        workspace = {
+          library = {
+            vim.env.VIMRUNTIME,
+            -- For LSP Settings Type Annotations:
+            vim.api.nvim_get_runtime_file('lua/lspconfig', false)[1]
+          }
+          -- Or pull in all of 'runtimepath'. May be slower!
+          -- library = vim.api.nvim_get_runtime_file('', true),
         }
       }
     }
-  }
+  })
 }
