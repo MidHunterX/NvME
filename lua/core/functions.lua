@@ -1,18 +1,17 @@
 local M = {}
 
-
----@alias PathType "absolute"|"relative"
----@alias YankMode "n"|"v"
----Yanks the filepath with specified options
+---@alias PathType "absolute" | "relative"
+---@alias YankMode "n" | "v"
+--- Yanks the filepath with specified options
 ---@param pathtype PathType
----@param mode YankMode
+---@param mode     YankMode
 ---@return nil
 function M.YankFilepath(pathtype, mode)
   local file_path
 
   if pathtype == "absolute" then
     file_path = vim.fn.expand("%:p")
-  elseif pathtype == "relative" then
+  else
     file_path = vim.fn.expand("%:.")
   end
 
@@ -30,7 +29,7 @@ function M.YankFilepath(pathtype, mode)
   -- ACTION: Trigger TextYankPost event
   vim.api.nvim_exec_autocmds("TextYankPost", {
     pattern = "*",
-    data = { regcontents = { file_path }, regname = "+", operator = "y", regtype = "v", visual = true },
+    data = { regcontents = { file_path }, regname = "+", operator = "y", regtype = "v", visual = true }
   })
 
   -- ACTION: Goto Normal Mode
@@ -39,6 +38,50 @@ function M.YankFilepath(pathtype, mode)
   end
 end
 
+--- Yanks the filepath and contents
+---@param pathtype PathType
+---@param mode     YankMode
+---@return nil
+function M.YankFileContext(pathtype, mode)
+  local file_path
+  if pathtype == "absolute" then
+    file_path = vim.fn.expand("%:p")
+  else
+    file_path = vim.fn.expand("%:.")
+  end
+
+  local selected_text
+  local extension = vim.fn.expand("%:e")
+  local lang_hint = extension ~= "" and extension or ""
+
+  if mode == "v" then
+    local start_line = vim.fn.line("v")
+    local end_line = vim.fn.line(".")
+    if start_line > end_line then
+      start_line, end_line = end_line, start_line
+    end
+    file_path = string.format("%s:%d:%d", file_path, start_line, end_line)
+    local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+    selected_text = table.concat(lines, "\n")
+  else
+    selected_text = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), '\n')
+  end
+
+  local output = string.format("%s\n```%s\n%s\n```", file_path, lang_hint, selected_text)
+
+  vim.fn.setreg("+", output)
+
+  -- ACTION: Trigger TextYankPost event
+  vim.api.nvim_exec_autocmds("TextYankPost", {
+    pattern = "*",
+    data = { regcontents = { output }, regname = "+", operator = "y", regtype = "v", visual = true }
+  })
+
+  -- ACTION: Goto Normal Mode
+  if mode == "v" then
+    vim.cmd("normal! " .. vim.api.nvim_replace_termcodes("<Esc>", true, false, true))
+  end
+end
 
 -- Smart Motion Philosophy:
 -- Capital letters represent the "extreme" form of their lowercase motion.
@@ -70,7 +113,7 @@ function M.SmartMotionL()
   end
 end
 
----Remove trailing whitespace and save the current buffer
+--- Remove trailing whitespace and save the current buffer
 function M.WriteFile()
   local save_cursor = vim.fn.getpos(".")
   -- Remove trailing whitespace
@@ -81,7 +124,7 @@ function M.WriteFile()
   vim.cmd('w')
 end
 
----Execute the current file
+--- Execute the current file
 function M.Execute_order_69()
   local function terminal(cmd)
     if vim.fn.winwidth(0) > 100 then
@@ -132,10 +175,7 @@ function M.Execute_order_69()
   elseif file_type == 'nim' then
     terminal('nim c -r %')
   else
-    local messages = {
-      "This file?... Cannot run because no.",
-      "I'm sorry dave. I'm afraid I can't do that.",
-    }
+    local messages = { "This file?... Cannot run because no.", "I'm sorry dave. I'm afraid I can't do that." }
     local message = messages[math.random(#messages)]
     print(message)
   end

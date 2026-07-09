@@ -687,8 +687,10 @@ image:./img/nvim_plugins.jpg[]
 | `<leader>eM` | Erase Marks
 | `<leader>rr` | Highlight & Replace Word
 | `<leader>yy` | Yank Entire Buffer
-| `<leader>yf` | Yank File Relative Path
-| `<leader>yF` | Yank File Absolute Path
+| `<leader>yf` | Yank File Relative Path (Normal & Visual)
+| `<leader>yF` | Yank File Absolute Path (Normal & Visual)
+| `<leader>yc` | Yank Context for LLMs (Normal & Visual)
+| `<leader>yC` | Yank Context for LLMs (Normal & Visual)
 | `<leader>us` | Toggle Spell Check
 | `<leader>d`  | Delete Without Yanking
 | `<leader>p`  | Paste Without Yanking

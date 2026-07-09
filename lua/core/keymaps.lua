@@ -53,6 +53,17 @@ vim.keymap.set("v", "<leader>rr", "y/<C-r>0<CR>N", { desc = "Regex highlight" })
 ----------------------------------------------------- Super Yank [ <leader> y ]
 vim.keymap.set("n", "<leader>yy", "<Cmd>%yank<CR>", { desc = "Buffer: Yank content" })
 
+-- Yank filepath with context
+vim.keymap.set("n", "<leader>yc", function() custard.YankFileContext("relative", "n") end,
+  { desc = "Buffer: Yank relative file context" })
+vim.keymap.set("v", "<leader>yc", function() custard.YankFileContext("relative", "v") end,
+  { desc = "Buffer: Yank relative file context" })
+
+vim.keymap.set("n", "<leader>yC", function() custard.YankFileContext("absolute", "n") end,
+  { desc = "Buffer: Yank absolute file context" })
+vim.keymap.set("v", "<leader>yC", function() custard.YankFileContext("absolute", "v") end,
+  { desc = "Buffer: Yank absolute file context" })
+
 -- Yank relative file path
 vim.keymap.set("n", "<leader>yf", function() custard.YankFilepath("relative", "n") end,
   { desc = "Buffer: Yank relative file path" })
@@ -106,6 +117,9 @@ vim.keymap.set("n", "<leader><A-l>", "<Cmd>tabnext<CR>", { desc = "Tab: Next" })
 
 --=================================[ FIXES ]=================================--
 
+-- Paste into the correct indentation (Not good when doing ASCII art)
+-- vim.keymap.set("n", "p", "p`[v`]=")
+
 -- Deletes selected text into blackhole register "_" and paste
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking" })
 -- Deletes into the blackhole register "_"
@@ -129,3 +143,5 @@ vim.keymap.set("o", "ar", "a[")
 ------------------------------------------------------ Save document [ Ctrl s ]
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>")
 vim.keymap.set("n", "<C-s>", ":w<CR>")
+
+
