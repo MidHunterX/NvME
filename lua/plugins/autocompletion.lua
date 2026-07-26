@@ -48,22 +48,21 @@ return {
     "hrsh7th/nvim-cmp",
     event = { "InsertEnter", "CmdlineEnter", "LspAttach" },
     config = function()
-      local cmp = require("cmp")
       local luasnip = require("luasnip")
-      --[[ local compare = require('cmp.config.compare')
-      local cmp_buffer = require('cmp_buffer') ]]
-
-      local regex_source = require('core.cmp.regex')
-      cmp.register_source('regex', regex_source)
-
-      -- Load friendly snippet using LuaSnip loader
       require('luasnip.loaders.from_vscode').lazy_load()
-
       -- Combine snippets with other filetypes
       luasnip.filetype_extend("htmldjango", { "html" })
       luasnip.filetype_extend("heex", { "html" })
       luasnip.filetype_extend("javascriptreact", { "html" })
       luasnip.filetype_extend("typescriptreact", { "html" })
+
+      local cmp = require("cmp")
+      local compare = require('cmp.config.compare')
+      local cmp_buffer = require('cmp_buffer')
+
+      -- Custom source
+      local regex_source = require('core.cmp.regex')
+      cmp.register_source('regex', regex_source)
 
       cmp.setup({
         -- Some LSPs can explicitly ask for selecting items on their own
@@ -118,7 +117,7 @@ return {
         -- https://www.reddit.com/r/neovim/comments/u3c3kw/comment/i4p8gck/
         -- https://github.com/hrsh7th/nvim-cmp/blob/main/lua/cmp/config/compare.lua
 
-        --[[ sorting = {
+        sorting = {
           comparators = {
             -- compare.score_offset, -- not good at all
             compare.locality,
@@ -141,7 +140,7 @@ return {
             -- Buffer: Locality bonus comparator (distance-based sorting)
             function(...) return cmp_buffer:compare_locality(...) end,
           }
-        }, ]]
+        },
 
         --------------------------------------------------[ @CMP_MENU_BORDERS ]
 

@@ -142,7 +142,8 @@ local intentDocs = {
     ---emoji: string,
     ---intent: "feat" | "fix" | "docs" | "style" | "refactor" | "perf" | "test" | "build" | "ci" | "chore" | "revert",
     ---priority: number,
-    ---description: string
+    ---description: string,
+    ---scope?: string,
     ---}>
 local gitmojis = {
     -- TIER 1: CORE DAILY ACTIVITIES (Most Common)
@@ -155,82 +156,84 @@ local gitmojis = {
     pencil2 = { emoji = "✏️", intent = "docs", priority = 1, description = "Typos" },
 
     -- TIER 2: MAINTENANCE & DEPENDENCIES
-    wrench = { emoji = "🔧", intent = "chore", priority = 2, description = "Config" },
-    arrow_up = { emoji = "⬆️", intent = "build", priority = 2, description = "Upgrade deps" },
-    heavy_plus_sign = { emoji = "➕", intent = "build", priority = 2, description = "Add dep" },
-    fire = { emoji = "🔥", intent = "chore", priority = 2, description = "Remove code/files" },
+    wrench = { emoji = "🔧", intent = "chore", priority = 2, description = "Config", scope = "config" },
+    arrow_up = { emoji = "⬆️", intent = "build", priority = 2, description = "Upgrade deps", scope = "deps" },
+    heavy_plus_sign = { emoji = "➕", intent = "build", priority = 2, description = "Add dep", scope = "deps" },
+    label = { emoji = "🏷️", intent = "refactor", priority = 2, description = "Types", scope = "types" },
+    fire = { emoji = "🔥", intent = "chore", priority = 2, description = "Remove code/files", scope = "cleanup" },
     construction = { emoji = "🚧", intent = "chore", priority = 2, description = "WIP" },
-    label = { emoji = "🏷️", intent = "refactor", priority = 2, description = "Types" },
 
     -- TIER 3: UI, UX & ASSETS
-    lipstick = { emoji = "💄", intent = "feat", priority = 3, description = "UI/Styles" },
-    children_crossing = { emoji = "🚸", intent = "feat", priority = 3, description = "UX" },
-    bento = { emoji = "🍱", intent = "feat", priority = 3, description = "Assets" },
-    iphone = { emoji = "📱", intent = "feat", priority = 3, description = "Responsive" },
-    dizzy = { emoji = "💫", intent = "feat", priority = 3, description = "Animations" },
+    lipstick = { emoji = "💄", intent = "feat", priority = 3, description = "UI/Styles", scope = "ui" },
+    children_crossing = { emoji = "🚸", intent = "feat", priority = 3, description = "UX", scope = "ux" },
+    bento = { emoji = "🍱", intent = "feat", priority = 3, description = "Assets", scope = "assets" },
+    iphone = { emoji = "📱", intent = "feat", priority = 3, description = "Responsive", scope = "ui" },
+    dizzy = { emoji = "💫", intent = "feat", priority = 3, description = "Animations", scope = "ui" },
 
     -- TIER 4: CI/CD & RELEASES
-    green_heart = { emoji = "💚", intent = "ci", priority = 4, description = "CI fix" },
-    construction_worker = { emoji = "👷", intent = "ci", priority = 4, description = "CI system" },
-    bookmark = { emoji = "🔖", intent = "chore", priority = 4, description = "Release tags" },
-    rocket = { emoji = "🚀", intent = "ci", priority = 4, description = "Deploy" },
-    tada = { emoji = "🎉", intent = "chore", priority = 4, description = "Init project" },
+    green_heart = { emoji = "💚", intent = "ci", priority = 4, description = "CI fix", scope = "ci" },
+    construction_worker = { emoji = "👷", intent = "ci", priority = 4, description = "CI system", scope = "ci" },
+    bookmark = { emoji = "🔖", intent = "chore", priority = 4, description = "Release tags", scope = "release" },
+    rocket = { emoji = "🚀", intent = "ci", priority = 4, description = "Deploy", scope = "deploy" },
+    tada = { emoji = "🎉", intent = "chore", priority = 4, description = "Init project", scope = "init" },
 
     -- TIER 5: PERFORMANCE, SECURITY & ARCHITECTURE
+    lock = { emoji = "🔒️", intent = "fix", priority = 5, description = "Security fix", scope = "security" },
     zap = { emoji = "⚡️", intent = "perf", priority = 5, description = "Performance" },
-    lock = { emoji = "🔒️", intent = "fix", priority = 5, description = "Security fix" },
     ambulance = { emoji = "🚑️", intent = "fix", priority = 5, description = "Hotfix" },
     rotating_light = { emoji = "🚨", intent = "style", priority = 5, description = "Fix warnings" },
     building_construction = { emoji = "🏗️", intent = "refactor", priority = 5, description = "Architecture" },
     boom = { emoji = "💥", intent = "feat", priority = 5, description = "Breaking changes" },
 
     -- TIER 6: REFACTORING & FILE OPS
-    truck = { emoji = "🚚", intent = "refactor", priority = 6, description = "Move/Rename" },
-    hammer = { emoji = "🔨", intent = "build", priority = 6, description = "Dev scripts" },
-    package = { emoji = "📦️", intent = "build", priority = 6, description = "Packages" },
+    truck = { emoji = "🚚", intent = "refactor", priority = 6, description = "Move/Rename", scope = "cleanup" },
+    hammer = { emoji = "🔨", intent = "build", priority = 6, description = "Dev scripts", scope = "scripts" },
+    package = { emoji = "📦️", intent = "build", priority = 6, description = "Packages", scope = "scripts" },
     rewind = { emoji = "⏪️", intent = "revert", priority = 6, description = "Revert" },
 
     -- TIER 7: SPECIALIZED DOMAINS (Data, API, SEO, i18n)
-    card_file_box = { emoji = "🗃️", intent = "chore", priority = 7, description = "DB changes" },
-    alien = { emoji = "👽️", intent = "fix", priority = 7, description = "API fixes" },
-    globe_with_meridians = { emoji = "🌐", intent = "feat", priority = 7, description = "i18n/l10n" },
-    mag = { emoji = "🔍️", intent = "feat", priority = 7, description = "SEO" },
-    wheelchair = { emoji = "♿️", intent = "feat", priority = 7, description = "Accessibility" },
-    chart_with_upwards_trend = { emoji = "📈", intent = "feat", priority = 7, description = "Analytics" },
+    card_file_box = { emoji = "🗃️", intent = "chore", priority = 7, description = "DB changes", scope = "db" },
+    alien = { emoji = "👽️", intent = "fix", priority = 7, description = "API fixes", scope = "api" },
+    globe_with_meridians = { emoji = "🌐", intent = "feat", priority = 7, description = "i18n/l10n", scope = "i18n" },
+    mag = { emoji = "🔍️", intent = "feat", priority = 7, description = "SEO", scope = "seo" },
+    wheelchair = { emoji = "♿️", intent = "feat", priority = 7, description = "Accessibility", scope = "a11y" },
+    chart_with_upwards_trend = { emoji = "📈", intent = "feat", priority = 7, description = "Analytics", scope = "analytics" },
 
     -- TIER 8: EXPERIMENTATION & LOGS
-    alembic = { emoji = "⚗️", intent = "chore", priority = 8, description = "Experiments" },
+    alembic = { emoji = "⚗️", intent = "chore", priority = 8, description = "Experiments", scope = "experiment" },
+    loud_sound = { emoji = "🔊", intent = "chore", priority = 8, description = "Logs", scope = "logging" },
+    mute = { emoji = "🔇", intent = "chore", priority = 8, description = "Remove logs", scope = "logging" },
     bulb = { emoji = "💡", intent = "docs", priority = 8, description = "Comments" },
-    loud_sound = { emoji = "🔊", intent = "chore", priority = 8, description = "Logs" },
-    mute = { emoji = "🔇", intent = "chore", priority = 8, description = "Remove logs" },
 
     -- TIER 9: NICHE FIXES & TOOLS
+    clown_face = { emoji = "🤡", intent = "test", priority = 9, description = "Mocks", scope = "mock" },
+    see_no_evil = { emoji = "🙈", intent = "chore", priority = 9, description = "Gitignore", scope = "config" },
     adhesive_bandage = { emoji = "🩹", intent = "fix", priority = 9, description = "Minor fix" },
     goal_net = { emoji = "🥅", intent = "fix", priority = 9, description = "Catch errors" },
-    clown_face = { emoji = "🤡", intent = "test", priority = 9, description = "Mocks" },
     camera_flash = { emoji = "📸", intent = "test", priority = 9, description = "Snapshots" },
     test_tube = { emoji = "🧪", intent = "test", priority = 9, description = "Failing test" },
-    see_no_evil = { emoji = "🙈", intent = "chore", priority = 9, description = "Gitignore" },
 
     -- TIER 10: ADVANCED / SPECIFIC USE CASES
-    passport_control = { emoji = "🛂", intent = "feat", priority = 10, description = "Auth/RBAC" },
-    closed_lock_with_key = { emoji = "🔐", intent = "chore", priority = 10, description = "Secrets" },
-    safety_vest = { emoji = "🦺", intent = "fix", priority = 10, description = "Validation" },
-    bricks = { emoji = "🧱", intent = "ci", priority = 10, description = "Infra" },
+    passport_control = { emoji = "🛂", intent = "feat", priority = 10, description = "Auth/RBAC", scope = "auth" },
+    closed_lock_with_key = { emoji = "🔐", intent = "chore", priority = 10, description = "Secrets", scope = "security" },
+    safety_vest = { emoji = "🦺", intent = "fix", priority = 10, description = "Validation", scope = "schema" },
+    bricks = { emoji = "🧱", intent = "ci", priority = 10, description = "Infra", scope = "ci" },
+    necktie = { emoji = "👔", intent = "feat", priority = 10, description = "Business logic", scope = "backend" },
+    page_facing_up = { emoji = "📄", intent = "docs", priority = 10, description = "License", scope = "license" },
     technologist = { emoji = "🧑‍💻", intent = "chore", priority = 10, description = "DevEx" },
     thread = { emoji = "🧵", intent = "perf", priority = 10, description = "Concurrency" },
-    necktie = { emoji = "👔", intent = "feat", priority = 10, description = "Business logic" },
-    page_facing_up = { emoji = "📄", intent = "docs", priority = 10, description = "License" },
 
     -- TIER 11: RARE OR MISC (Least Common)
-    heavy_minus_sign = { emoji = "➖", intent = "build", priority = 11, description = "Remove dep" },
-    pushpin = { emoji = "📌", intent = "build", priority = 11, description = "Pin deps" },
-    arrow_down = { emoji = "⬇️", intent = "build", priority = 11, description = "Downgrade deps" },
-    monocle_face = { emoji = "🧐", intent = "chore", priority = 11, description = "Data inspection" },
-    coffin = { emoji = "⚰️", intent = "chore", priority = 11, description = "Remove dead code" },
-    wastebasket = { emoji = "🗑️", intent = "chore", priority = 11, description = "Deprecate" },
-    seedling = { emoji = "🌱", intent = "chore", priority = 11, description = "Seed files" },
-    stethoscope = { emoji = "🩺", intent = "chore", priority = 11, description = "Healthcheck" },
+    heavy_minus_sign = { emoji = "➖", intent = "build", priority = 11, description = "Remove dep", scope = "deps" },
+    pushpin = { emoji = "📌", intent = "build", priority = 11, description = "Pin deps", scope = "deps" },
+    arrow_down = { emoji = "⬇️", intent = "build", priority = 11, description = "Downgrade deps", scope = "deps" },
+    monocle_face = { emoji = "🧐", intent = "chore", priority = 11, description = "Data inspection", scope = "data" },
+    coffin = { emoji = "⚰️", intent = "chore", priority = 11, description = "Remove dead code", scope = "cleanup" },
+    wastebasket = { emoji = "🗑️", intent = "chore", priority = 11, description = "Deprecate", scope = "cleanup" },
+    seedling = { emoji = "🌱", intent = "chore", priority = 11, description = "Seed files", scope = "seed" },
+    stethoscope = { emoji = "🩺", intent = "chore", priority = 11, description = "Healthcheck", scope = "monitoring" },
+    twisted_rightwards_arrows = { emoji = "🔀", intent = "chore", priority = 11, description = "Merge", scope = "merge" },
+    triangular_flag_on_post = { emoji = "🚩", intent = "chore", priority = 11, description = "Feature flags", scope = "config" },
     airplane = { emoji = "✈️", intent = "feat", priority = 11, description = "Offline support" },
     t_rex = { emoji = "🦖", intent = "fix", priority = 11, description = "BackCompat" },
     busts_in_silhouette = { emoji = "👥", intent = "chore", priority = 11, description = "Contributors" },
@@ -238,9 +241,7 @@ local gitmojis = {
     egg = { emoji = "🥚", intent = "feat", priority = 11, description = "Easter egg" },
     poop = { emoji = "💩", intent = "chore", priority = 11, description = "Bad code" },
     beers = { emoji = "🍻", intent = "chore", priority = 11, description = "Drunk code" },
-    twisted_rightwards_arrows = { emoji = "🔀", intent = "chore", priority = 11, description = "Merge" },
     speech_balloon = { emoji = "💬", intent = "docs", priority = 11, description = "Text/Literals" },
-    triangular_flag_on_post = { emoji = "🚩", intent = "chore", priority = 11, description = "Feature flags" },
 }
 
 -- ==========================[ KEYWORDS SECTION ]========================== --
@@ -262,6 +263,9 @@ M.keywords_source = function()
                             conventional_doc
                         )
 
+                        local scope_part = v.scope and "(" .. v.scope .. ")" or "($0)"
+                        local insert_text = v.emoji .. " " .. v.intent .. scope_part .. ": "
+
                         table.insert(items, {
                             -- AUTOCOMPLETION LIST ENTRIES
                             label = v.emoji .. " " .. v.intent .. " - " .. v.description,
@@ -273,8 +277,7 @@ M.keywords_source = function()
                             },
                             sortText = sort_text_tag,
                             -- AUTOCOMPLETE SNIPPET
-                            -- insertText = v.emoji .. " " .. v.intent .. "(): ",
-                            insertText = v.emoji .. " " .. v.intent .. "($0): ",
+                            insertText = insert_text,
                             insertTextFormat = types.InsertTextFormat.Snippet, -- enables $0, $1 support
                         })
                     end
