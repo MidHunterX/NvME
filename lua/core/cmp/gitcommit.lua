@@ -211,6 +211,14 @@ local intentDocs = {
         "\nAlternatives:\n" ..
         "- Use `style` for purely cosmetic changes without UX impact.\n" ..
         "- Use `feat` if adding entirely new UI functionality.\n",
+    ux =
+        "UX Improvements\n" ..
+        "Changes that improve the user experience.\n" ..
+        "\nUse for:\n" ..
+        "- Optimizing user interactions.\n" ..
+        "- Adding new keyboard shortcuts.\n" ..
+        "- Enhancing accessibility features.\n" ..
+        "- Adding responsive design improvements.\n",
     i18n =
         "Internationalization\n" ..
         "Adding or updating translations and locale support.\n" ..
@@ -376,7 +384,7 @@ local gitmojis = {
 
     -- TIER 3: UI, UX & ASSETS
     lipstick = { emoji = "💄", intent = "ui", priority = 3, description = "Add or update the UI and style files." },
-    children_crossing = { emoji = "🚸", intent = "ui", priority = 3, description = "Improve user experience / usability." },
+    children_crossing = { emoji = "🚸", intent = "ux", priority = 3, description = "Improve user experience / usability." },
     bento = { emoji = "🍱", intent = "ui", priority = 3, description = "Add or update assets." },
     iphone = { emoji = "📱", intent = "ui", priority = 3, description = "Work on responsive design." },
     dizzy = { emoji = "💫", intent = "ui", priority = 3, description = "Add or update animations and transitions." },
