@@ -230,33 +230,6 @@ local gitmojis = {
     triangular_flag_on_post = { emoji = "🚩", intent = "chore", priority = 11, description = "Add, update, or remove feature flags." },
 }
 
-local function get_git_folders()
-    local function is_git_repo()
-        local handle = io.popen("git rev-parse --is-inside-work-tree 2>/dev/null")
-        if not handle then return false end
-        local result = handle:read("*a")
-        handle:close()
-        return result:match("true") ~= nil
-    end
-    -- No completion outside Git repo
-    if not is_git_repo() then return {} end
-
-    -- Get git folders and files  : {for(i=1;i<=NF;i++) print $i}
-    -- Get git folders only       : {for(i=1;i<NF;i++) print $i}
-    local handle = io.popen(
-        "git ls-files --cached --exclude-standard | awk -F'/' '{for(i=1;i<NF;i++) print $i}' | sort -u"
-    )
-
-    if not handle then return {} end
-
-    local result = {}
-    for line in handle:lines() do
-        if line ~= "" then table.insert(result, line) end
-    end
-    handle:close()
-    return result
-end
-
 M.keywords_source = function()
     local types = require("cmp.types.lsp")
     return setmetatable({}, {
@@ -297,18 +270,68 @@ M.keywords_source = function()
     })
 end
 
+-- ============================[ SCOPE SECTION ]============================ --
+
+local common_scopes = {
+    "api", "ui", "ux", "deps", "config", "security", "a11y", "i18n",
+    "types", "cleanup", "init", "deploy", "seed", "data", "mock",
+    "analytics", "seo", "license", "typo", "experiment", "merge",
+    "release", "migration", "schema", "frontend", "backend", "auth",
+    "logging", "monitoring", "cache", "queue", "db", "docker",
+    "k8s", "terraform", "ansible", "scripts", "assets", "images",
+    "fonts", "styles", "hooks", "middleware", "routes", "controllers",
+    "models", "views", "templates", "helpers", "utils", "lib", "vendor",
+}
+
+local function get_git_folders()
+    local function is_git_repo()
+        local handle = io.popen("git rev-parse --is-inside-work-tree 2>/dev/null")
+        if not handle then return false end
+        local result = handle:read("*a")
+        handle:close()
+        return result:match("true") ~= nil
+    end
+    -- No completion outside Git repo
+    if not is_git_repo() then return {} end
+
+    -- Get git folders and files  : {for(i=1;i<=NF;i++) print $i}
+    -- Get git folders only       : {for(i=1;i<NF;i++) print $i}
+    local handle = io.popen(
+        "git ls-files --cached --exclude-standard | awk -F'/' '{for(i=1;i<NF;i++) print $i}' | sort -u"
+    )
+
+    if not handle then return {} end
+
+    local result = {}
+    for line in handle:lines() do
+        if line ~= "" then table.insert(result, line) end
+    end
+    handle:close()
+    return result
+end
+
 M.scope_source = function()
     return setmetatable({}, {
         __index = function(_, key)
             if key == "complete" then
                 return function(_, _, callback)
                     local items = {}
+
+                    for _, scope in ipairs(common_scopes) do
+                        table.insert(items, {
+                            label = scope,
+                            kind = require("cmp.types.lsp").CompletionItemKind.Keyword,
+                        })
+                    end
+
                     for _, folder in ipairs(get_git_folders()) do
                         table.insert(items, {
                             label = folder,
                             kind = require("cmp.types.lsp").CompletionItemKind.Folder,
                         })
                     end
+
+                    -- table.sort(items, function(a, b) return a.label < b.label end)
                     callback({ items = items, isIncomplete = false })
                 end
             end
