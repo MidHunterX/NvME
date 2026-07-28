@@ -63,6 +63,17 @@ function M.YankFileContext(pathtype, mode)
     file_path = string.format("%s:%d:%d", file_path, start_line, end_line)
     local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
     selected_text = table.concat(lines, "\n")
+
+    -- Simple line highlighting
+    local ns_id = vim.api.nvim_create_namespace("yank_highlight")
+    vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1)
+    -- Highlight the range
+    for i = start_line, end_line do
+      local line_len = #vim.api.nvim_buf_get_lines(0, i - 1, i, false)[1] or 0
+      vim.hl.range(0, ns_id, "Search", { i - 1, 0 }, { i - 1, line_len })
+    end
+    -- Clear Highlight
+    vim.defer_fn(function () vim.api.nvim_buf_clear_namespace(0, ns_id, 0, -1) end, 200)
   else
     selected_text = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), '\n')
   end
