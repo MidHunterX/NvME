@@ -95,16 +95,22 @@ return {
     { "gr",              function() Snacks.picker.lsp_references() end,        desc = "LSP: References" },
     { "gI",              function() Snacks.picker.lsp_implementations() end,   desc = "LSP: Goto Implementation" },
     { "gy",              function() Snacks.picker.lsp_type_definitions() end,  desc = "LSP: Goto T[y]pe Definition" },
-    { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "Grep: LSP Symbols" },
+    -- { "<leader>ss",      function() Snacks.picker.lsp_symbols() end,           desc = "Grep: LSP Symbols" },
     { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end, desc = "Grep: LSP Workspace Symbols" },
-    --[[ {
+    {
       "<leader>ss",
       function()
         local custom_symbol = {
           auto_close = true,
-          jump = { close = false },
+          jump = {
+            close = true,
+            match = false, -- jump to the first match position
+          },
           layout = {
             preset = "right", -- sidebar, ivy, left, bottom, top, right
+            layout = {
+              width = 0.3,      -- fixed percentage width
+            },
             position = "right",
             hidden = { "input" },
             auto_hide = { "input" },
@@ -113,7 +119,7 @@ return {
         Snacks.picker.lsp_symbols(custom_symbol)
       end,
       desc = "Toggle: Symbol Sidebar",
-    }, ]]
+    },
     -- buffer
     -- Snacks.bufdelete keeps the split open but delete the buffer (:bd is better for my workflow)
     -- But Snacks.bufdelete is needed for not affecting the explorer as it is technically a split buffer

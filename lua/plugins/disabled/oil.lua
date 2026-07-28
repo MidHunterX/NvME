@@ -1,7 +1,9 @@
 -- Reason: Replaced by VIFM (Can do the same + many more)
+-- Still, is wayy better than snacks explorer when configured into a sidebar
 
 return{
   'stevearc/oil.nvim',
+  lazy = false,
   opts = {},
   dependencies = { "nvim-tree/nvim-web-devicons" },
   keys = {
