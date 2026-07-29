@@ -325,7 +325,7 @@ image:./img/nvim_hitfont.jpg[]
 
 === 🎉 Commit Messages
 
-`cmp_gitcommit.lua`
+`gitcommit.lua`
 
 https://gitmoji.dev/[image:https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square[Gitmoji]]
 https://conventionalcommits.org/[image:https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?style=flat-square&logo=conventionalcommits&logoColor=white[Conventional Commits]]
@@ -367,7 +367,7 @@ The commit message cmp combines the structure of https://www.conventionalcommits
 
 Toggle a specialized regex search and replace UI in buffer with `<leader>ur` and globally with `<leader>uR`. Since this uses ripgrep (rg), you can just write pure escape code pollution free beautiful regex. Close the UI with `q` or `<ESC>`.
 
-Custom regex autocompletion powered by `cmp_regex.lua` is enabled upon the execution of `<leader>ur`.
+Custom regex autocompletion powered by `regex.lua` is enabled upon the execution of `<leader>ur`.
 
 `regex_multi-patterns.lua`
 
@@ -376,7 +376,6 @@ Mark multiple patterns with `<leader>m` and navigate with `n` as usual. Use `<le
 .`ℹ️ Other DX Related Features`
 [%collapsible]
 ====
-* `comment.lua`: *Toggle comment* with `gcc` (line-wise) and `gbb` (block-wise). Works with `<motion>` as well (gbip, gc2k, ...).
 * `comment_todo.lua`: *TODO comment* highlighting. You can search for all TODOs with `<leader>st` - powered by `snacks.lua`.
 * `flash.lua`: *Leap* to any text with `s` (Search) and select any Treesitter node with `S` (Select TS). These are also available as an adverb in vim motion grammar using `r` (Remotely) and `R` (Remotely TS) instead (e.g. yr<search_text>iw).
 * `formatter.lua`: *Format* code with `<leader>fm`. Formatters can be installed with `:Mason`
@@ -515,6 +514,7 @@ Visualize color codes in buffer. Supported formats are Hex #RGBA, Termcode color
 * `noice_ui.lua`: Completely replaces the UI for messages, cmdline and the popupmenu by Folke.
 * `statusline.lua`: Lualine.nvim with Matugen dynamic color support.
 * `which-key.lua`: Helps you remember/discover keymaps, by showing available keybindings in a popup as you type.
+* `scrollbar.lua`: Aesthetic scrollbar using Matugen colorscheme. Get a birds eye view of all important information in the buffer like changes, diagnostics, git status etc.
 ====
 
 === 🍺 Paying Homage

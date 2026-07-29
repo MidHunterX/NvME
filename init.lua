@@ -89,8 +89,29 @@ function Load_dynamic_colors()
   customcat.normal.c.bg = 'NONE'
 
   local ok, colors = pcall(require, 'colors')
-  if ok and colors.primary then
-    package.loaded['colors/colors'] = nil
+  if ok and colors then
+    package.loaded['colors'] = nil
+
+    -- █▀ █▀▀ █▀█ █▀█ █░░ █░░ █▄▄ ▄▀█ █▀█ --
+    -- ▄█ █▄▄ █▀▄ █▄█ █▄▄ █▄▄ █▄█ █▀█ █▀▄ --
+    -- ================================== --
+    local scrollbar_hls = {
+      'ScrollbarHandle',
+      'ScrollbarCursorHandle',
+      'ScrollbarSearchHandle',
+      'ScrollbarErrorHandle',
+      'ScrollbarWarnHandle',
+      'ScrollbarInfoHandle',
+      'ScrollbarHintHandle',
+      'ScrollbarMiscHandle',
+      'ScrollbarGitAddHandle',
+      'ScrollbarGitChangeHandle',
+      'ScrollbarGitDeleteHandle',
+    }
+    for _, hl in pairs(scrollbar_hls) do
+      vim.api.nvim_set_hl(0, hl, { fg = colors.primary, bg = colors.primary_container })
+    end
+
 
     -- █░░ █░█ ▄▀█ █░░ █ █▄░█ █▀▀   █░█ █ --
     -- █▄▄ █▄█ █▀█ █▄▄ █ █░▀█ ██▄   █▄█ █ --
