@@ -14,13 +14,14 @@ return {
         diagnostics = { globals = { 'vim' } },
         -- Make the server aware of Neovim runtime files.
         workspace = {
-          library = {
+          --[[ library = {
             vim.env.VIMRUNTIME,
             -- For LSP Settings Type Annotations:
             vim.api.nvim_get_runtime_file('lua/lspconfig', false)[1]
-          }
+          } ]]
           -- Or pull in all of 'runtimepath'. May be slower!
-          -- library = vim.api.nvim_get_runtime_file('', true),
+          -- but, emmy is fast enough to take such a hit.
+          library = vim.api.nvim_get_runtime_file('', true)
         }
       }
     }
