@@ -106,7 +106,10 @@ return {
         end,
         { desc = "Diagnostic: Next" }
       )
-      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Diagnostic: Quickfix List" })
+
+      vim.keymap.set('n', '<leader>qf', vim.diagnostic.setloclist, { desc = "Quickfix: Diagnostic List" })
+      vim.keymap.set('n', '<leader>qi', vim.lsp.buf.incoming_calls, { desc = "Quickfix: Incoming Calls" })
+      vim.keymap.set('n', '<leader>qo', vim.lsp.buf.outgoing_calls, { desc = "Quickfix: Outgoing Calls" })
 
       -- NOTE: Replaced by lsp_inline_diagnostics
       -- vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open Floating Diagnostic" })

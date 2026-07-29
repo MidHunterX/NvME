@@ -251,11 +251,20 @@ If you prefer to use the official qmlls for Qt without Quickshell, just uninstal
 [discrete]
 === LSP Calls
 Use the following commands to view incoming and outgoing call list
+
+.Who calls this function?
 [source,lua]
 ----
 lua vim.lsp.buf.incoming_calls()
+----
+Keymap: `<leader>qi`.
+
+.What all does this function call?
+[source,lua]
+----
 lua vim.lsp.buf.outgoing_calls()
 ----
+Keymap: `<leader>qo`.
 ====
 
 
