@@ -155,6 +155,8 @@ pip install django-stubs
 [discrete]
 === Java with OpenJDK
 
+Useful when having Gradle issues upon flutter build.
+
 ----
 sudo pacman -S jdk21-openjdk
 sudo archlinux-java set java-21-openjdk
@@ -177,9 +179,34 @@ android-sdk-platform-tools provides the `adb` command.
 [discrete]
 === Flutter (Dart)
 
+First install Android SDK. If you want to build native Android apps, you'll need Android NDK also (around 2.5 GB).
+
+[source,bash]
+----
+yay -S android-ndk
+----
+
+Then install Flutter SDK:
+
 [source,bash]
 ----
 yay -S flutter-bin
+----
+
+Optionally adding users to the 'flutter' group would give them direct access to '/opt/flutter'
+
+[source,bash]
+----
+sudo usermod -a -G flutter
+----
+
+Flutter usually installs Android SDK in it's own managed directory. If you installed SDK by yourself manually, it's usually in `/opt/android-sdk` which is not always accessible. To give flutter permission:
+To avoid problems down the line, you can own it.
+
+[source,bash]
+----
+sudo chmod -R 775 /opt/android-sdk
+sudo chown -R $USER:$USER /opt/android-sdk
 ----
 
 Accept all licenses with "The Power of YES" - John Seed (Far Cry 5)
