@@ -8,8 +8,7 @@ local options = {
   provider = "gemini",
   providers = {
     gemini = {
-      -- gemini-2.5-pro
-      model_id = "gemini-flash-latest",
+      model_id = "gemini-flash-lite-latest",
     },
   },
 
